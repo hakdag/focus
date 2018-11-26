@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Angular Material Design Admin Template">
+        <meta name="author" content="ThemeSeason">
+        <meta name="copyright" content="ThemeSeason">
+        <title>Annular - Angular Material Design Admin Template</title>
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="vendor/google-code-prettify/prettify.css" rel="stylesheet" media="screen">
+        <link href="css/style.css" rel="stylesheet">
+    </head>    
+    <body>
+        <div id="wrapper" class="toggled">
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand py-3">
+                        <h1 class="font-weight-bold text-white ml-4">Annular</h1>
+                    </li>
+                    <li>
+                        <a href="#intro" class="active">Intro</a>
+                    </li>
+                    <li>
+                        <a href="#installation">Installation</a>
+                    </li>
+                    <li>
+                        <a href="#structure">Project Structure</a>
+                    </li>
+                    <li>
+                        <a href="#color">Changing Skin Color</a>
+                    </li>
+                    <li>
+                        <a href="#page">Create New Page</a>
+                    </li>
+                    <li>
+                        <a href="#support">Support and Feedback</a>
+                    </li>
+                    <li>
+                        <a href="#conclusion">Conclusion</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="page-content-wrapper">
+                <div class="container-fluid">               
+
+                    <section id="intro">
+                        <h1 class="text-dark pt-3">Angular Material Design Admin Template</h1>                       
+                        <img src="img/intro.jpg" alt="intro" class="my-3">                      
+                        <hr>
+                        <ul class="list-unstyled">
+                            <li>created: 31/08/2018</li>
+                            <li>latest update: 13/11/2018</li>
+                            <li>by: ThemeSeason</li>	
+                            <li>email: <a href="mailto: admin@themeseason.com">admin@themeseason.com</a></li>
+                        </ul>
+                    
+                        <p>Hello everyone!</p>
+                        <p>Thank you for purchasing my template. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/theme_season">here</a>.  Thanks so much!</p>
+
+                    </section>
+
+                    <section id="installation">
+                        <h1 class="text-dark pt-3">Installation</h1> 
+                        <hr class="mt-0">
+                        <h4>Prerequisites</h4>
+                        <p>Although Annular can be run without any development experience, it would be much easier if you already have some. The following instructions allow you to run a local copy on your machine.</p>
+                        
+                        <h4>Install tools</h4>
+                        <p>If you have not yet installed <b>nodejs</b>, please Download and globally install nodejs : <a href="https://nodejs.org">https://nodejs.org</a><br/> <strong>Note</strong>: download <i>Recommended For Most Users</i> version</p>
+                        <p><a href="https://docs.npmjs.com/getting-started/installing-node" target="_blank">A detailed instruction on how to install NodeJS is available here.</a></p>
+                        <p>After installing NodeJS there is just one thing left to do: Simply install <strong>Typings</strong> globally by running the command <code>npm install -g typings</code> and wait for <i>npm</i> to do the dirty work.</p>		
+                        <p><strong>Note</strong>: Make sure you have Node version &gt;= 4.0 and NPM &gt;=&nbsp;3 .  Also globally installed <b>typescript</b>.</p>
+                        <p>Installing <b>Angular-CLI</b> globally is as simple as running this simple command: <code>npm install -g @angular/cli@latest</code></p>
+
+                        <p>After the tools is installed, go inside of the template directory and install dependencies:</p>		
+                        <p>Run <code>npm install</code> to install node dependencies defined in <b>package.json</b>.</p>
+
+                        <h4>Running local copy</h4>	
+                        <p>To run a local copy in development mode, execute <code>ng serve</code> and go to <a href="http://localhost:4200" target="blank">http://localhost:4200</a> in your browser.</p>
+                        <p>To run the local copy in production mode and build the sources, execute <code>ng build --prod</code>. This will builds a production version of the application. All <b>html,css and js</b> code is minified and put to <b>dist</b> folder. The contents of this folder you can to put to your production server when publishing the application. </p>	
+                            
+                    </section>
+
+                    <section id="structure">
+                        <h1 class="text-dark pt-3">Project Structure</h1> 
+                        <hr class="mt-0">
+		                <p>The directory structure of this template is as follows:</p>
+		
+		<pre class="prettyprint">Annular/ 
+   ├──src/                       		* source files that will be compiled to javascript
+   │   ├──tslint.json	     	 		* configuration file of TSLint
+   │   │
+   │   ├──tsconfig.app.json 	 		* config app for typescript
+   │   │
+   │   ├──tsconfig.spec.json	 		* config spec for typescript
+   │   │
+   │   ├──test.ts                		* test
+   │   │
+   │   ├──styles.scss            		* globally stylesheet
+   │   │
+   │   ├──index.html            		* application layout
+   │   │
+   │   ├──main.ts                		* entry file for our browser environment
+   │   │
+   │   ├──polyfills.ts           		* polyfills file
+   │   │
+   │   ├──favicon.ico            		* favicon 
+   │   │
+   │   ├──app/                   		* application code - our working directory
+   │   │   │
+   │   │   ├──app.component.ts   		* main application component
+   │   │   │
+   │   │   ├──app.component.html 	  	* main application html file
+   │   │   │
+   │   │   ├──app.component.scss 		* main application styles
+   │   │   │
+   │   │   ├──app.module.ts      		* main application module
+   │   │   │
+   │   │   ├──app.routing.ts     		* application routes
+   │   │   │  
+   │   │   ├──app.settings.model.ts		* application settings model
+   │   │   │  
+   │   │   ├──app.settings.ts    		* application settings data
+   │   │   │
+   │   │   ├──pages/             		* application pages components, place where you can create pages and fill them with components
+   │   │   │
+   |   │   ├──shared/             		* shared modules folder
+   │   │   │
+   │   │   └──theme/             		* template global components/directives/pipes/styles and utils
+   │   │
+   │   ├──environments/         		* environments
+   │   └──assets/                		* static assets are served here
+   │ 
+   ├──e2e/                       		* will be used for end-to-end tests to ensure functionality for users before deploying
+   ├──angular.json                              * used for configuration of project specific settings
+   ├──README.md                  		* read me file
+   ├──tsconfig.json              		* config for typescript
+   ├──package.json               		* contains all dependencies used for production and development
+   └──tslint.json                		* Angular-CLI includes an automatic Typescript-Linter, which can be configured with this file
+   
+</pre>
+		
+		
+                        <p>In our template we tried to separate the theme layer and presentation layer. We believe most of other templates have them combined. That’s why when you start developing using them, it gets very hard for you to remove things you don’t need.</p>
+                   </section>
+
+                   	<section id="color">
+                        <h1 class="text-dark pt-3">Changing Skin Color</h1> 
+                        <hr class="mt-0">
+                        <p>We tried to make the process of skin color customization as easy as possible.</p>
+                        <p>By default Annular has 8 built-in skin color: indigo-light (default), teal-light, red-light, gray-light, blue-dark, green-dark, pink-dark and gray-dark.</p>
+                        
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="img/landing/indigo-light.jpg" class="mw-100 mb-4">
+                            </div>
+                            <div class="col-3">
+                                <img src="img/landing/teal-light.jpg" class="mw-100 mb-4">
+                            </div>
+                            <div class="col-3">
+                                <img src="img/landing/red-light.jpg" class="mw-100 mb-4">
+                            </div>
+                            <div class="col-3">
+                                <img src="img/landing/gray-light.jpg" class="mw-100 mb-4">
+                            </div>
+                            <div class="col-3">
+                                <img src="img/landing/blue-dark.jpg" class="mw-100 mb-4">
+                            </div>
+                            <div class="col-3">
+                                <img src="img/landing/green-dark.jpg" class="mw-100 mb-4">
+                            </div>
+                            <div class="col-3">
+                                <img src="img/landing/pink-dark.jpg" class="mw-100 mb-4">
+                            </div>
+                            <div class="col-3">
+                                <img src="img/landing/gray-dark.jpg" class="mw-100 mb-4">
+                            </div>                            
+                        </div>                    
+                       
+                        <p>For change the skin color of theme do the following:</p>
+                        <ol>
+                            <li>Open <code>src\app\app.settings.ts</code> file.</li>
+                            <li>On this file you find skin <code>'indigo-light'</code></li>
+                            <li>Change this line with another skin color name, for example: <code>'blue-dark'</code></li>
+                        </ol>
+                        <p>If you want to create your own skin color, please do the following:</p>
+                        <ol>
+                            <li>Create new skin color scss file in <code>src\app\theme\styles\skins</code> folder, for example: _purple.scss .</li>
+                            <li>Copy content of <code>src\app\theme\styles\skins\_indigo.scss</code> to <code>src\app\theme\styles\skins\_purple.scss</code> .</li>
+                            <li>After this you must change values of variables in _purple.scss, (you can choose colors from <a href="https://material.io/guidelines/style/color.html#color-color-palette" target="_blank">material colors</a>):
+                                
+<pre class="prettyprint">
+    $purple-primary: mat-palette($mat-purple, 800, 300, 900);
+    $purple-accent: mat-palette($mat-light-blue, 600, 300, 900);
+    $purple-warn: mat-palette($mat-red, A200);
+    $purple-theme: mat-light-theme($purple-primary, $purple-accent, $purple-warn);
+</pre>                              
+                            </li>
+                            <li>Open <code>src\app\theme\styles\_theme.scss</code> file and add new line to <code>.app</code> class :
+<pre class="prettyprint">
+    .app{
+        ...
+        &.purple{
+            @import "skins/purple";        
+            @include angular-material-theme($purple-theme);
+            @include theme-reset($purple-theme);
+        }
+        ...
+    }
+</pre>
+                            </li>
+                            <li>Finally change the skin color of theme (how to change the skin color of theme? this was explained to little over the top).</li>
+                        </ol>
+                    </section>
+
+                    <section id="page">
+                        <h1 class="text-dark pt-3">Create New Page</h1> 
+                        <hr class="mt-0">
+		                <p>Annular uses <a href="https://angular.io/docs/ts/latest/guide/router.html" target="_blank">Angular Component Router</a> for navigation.</p>
+                        <p>To generate our first <b>component</b> we simply open up a terminal and navigate in our app. Now we simply run <code>ng g component client</code> and we get a new component in <b>/src/app/client</b> with the following files:</p>
+                        <ul>
+                            <li><i>client.component.ts</i></li>
+                            <li><i>client.component.html</i></li>
+                            <li><i>client.component.css</i></li>
+                            <li><i>client.component.spec.ts</i></li>
+                        </ul>
+                        <p>The files <i>client.component.ts</i> and <i>client.component.spec.ts</i> contain the most code, the other files only contain placeholders.</p>
+                        <p>By executing this short command, we just saved ourselves a lot of time creating all these <b>Component</b> files and boilerplate code. <a href="https://github.com/angular/angular-cli#generating-components-directives-pipes-and-services" target="_blank">Syntax for all commands are available here.</a></p>
+                        <p>To create a new page without angular-cli, do the following:</p>
+                        <ol>
+                            <li>Create a new folder for our new page inside of <code>src/app/pages</code>. We can call the folder <code>new</code>. </li>
+                            <li>Then let’s create a blank angular component for our page called <b>new.component.ts</b> inside of <code>src/app/pages/new</code>:						
+<pre class="prettyprint linenums">
+import {Component} from '@angular/core';
+
+@Component({
+  selector: 'new',
+  template: `<strong>My page content here</strong>`
+})
+export class NewComponent {
+  constructor() {}
+}
+</pre>
+                                This will create a simple Angular component. For more detail please check out <a href="https://angular.io/docs/ts/latest/guide/displaying-data.html">official Angular documentation</a>.
+                            </li>
+                            <li>Then open <code>src/app/app.module.ts</code> file and import <b>new.component.ts</b> in it
+<pre class="prettyprint">
+import { NewComponent } from './pages/new/new.component';
+</pre>
+				and declare it:	
+<pre class="prettyprint">
+@NgModule({
+  imports: [
+    ......
+  ],
+  declarations: [
+    ......,
+    NewComponent,
+    ......
+  ]
+})
+</pre>
+                            </li>
+                            <li>After that open <code>src/app/app.routing.ts</code> file and import <b>new.component.ts</b> in it
+<pre class="prettyprint">
+import { NewComponent } from './pages/new/new.component';
+</pre>
+				and create routing for this page:
+<pre class="prettyprint">
+export const routes: Routes = [ 
+    {
+        path: '', 
+        component: PagesComponent,
+        children:[
+            .....
+            { path: 'new', component: NewComponent, data: { breadcrumb: 'New page' } }
+            .....
+        ]
+    }
+];
+</pre>
+                            </li>
+                            <li>The final thing we need to do is to declare a route in <code>src/app/theme/components/menu/menu.ts</code>.
+<pre class="prettyprint">
+export const verticalMenuItems = [ 
+	......
+	new Menu (250, 'New Page', '/new', null, 'create_new_folder', null, false, 0),
+	......
+];
+</pre>
+                                <strong>Note :</strong> for menu icon you must use <a href="https://material.io/icons/" target="_blank">material icons</a>
+                                <p>And that’s it! Now your page is available by the following this url <a href="http://localhost:4200/new" target="_blank">http://localhost:4200/pages/new</a>.
+                                Plus, your page is registered inside the sidebar menu. If you don’t want to have a link in the menu, just remove the menu declaration from the <code>src/app/theme/components/menu/menu.ts</code> file. </p>
+
+                            </li>
+                        </ol>
+                        <p>To allow for the URL to automatically route to the appropriate component on an Apache server like the internal <code>ng serve</code> server, you need to create a <b>.htaccess</b> file that routes all requests to the <code>index.html</code> file. Here is an example how we did it on our demo-page:</p>
+<pre lang="htaccess">
+&lt;IfModule mod_rewrite.c&gt;
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.html$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.html [L]
+&lt;/IfModule&gt;
+</pre>
+
+                    </section>
+
+                    <section id="support">
+                        <h1 class="text-dark pt-3">Support and Feedback</h1> 
+                        <hr class="mt-0">
+                        <p>All questions you can send via the contact form <a href="https://themeforest.net/user/theme_season#contact" target="_blank"><b>HERE</b></a>.</p>
+                        <p>I answer all questions every day from <b>Monday to Friday from 8:00 to 18:00 (GMT+4)</b> within 24-48h in the order they were received.</p>
+                        <p>Please do not panic if I do not answer too long – <b>I love my buyers and I’ll answer for all questions ;)</b></p>
+
+                        <h4>Support for my items includes:</h4>
+                        <ul>
+                            <li>Answering questions about how to use the item.</li>
+                            <li>Answering technical questions about the item (and included third party assets).</li>
+                            <li>Help with defects in the item or included third party assets.</li>
+                            <li>Item updates to ensure ongoing compatibility and to resolve security vulnerabilities.</li>
+                        </ul>
+                        <h4>Item support does not include:</h4>
+                        <ul>
+                            <li>Installation of the item.</li>
+                            <li>Hosting, server environment, or software.</li>
+                            <li>Support for third party plug-ins.</li>
+                            <li>Plugins integration.</li>		
+                            <li>Support for issues caused by user modifications in the theme’s code, styling and general functionality.</li>
+                        </ul>		
+                        <p>More information about the terms of support you can see here: <a href="https://themeforest.net/page/item_support_policy" target="_blank" class="alert-link">https://themeforest.net/page/item_support_policy</a></p>
+                    </section>
+
+                    <section id="conclusion">
+                        <h1 class="text-dark pt-3">Conclusion</h1> 
+                        <hr class="mt-0">	
+                        <h1>Thank you for your purchase!</h1>
+                        <p>Thanks for reading the Instruction, hope it’s been really helpful and resolved most of your concerns. </p>
+                        <hr class="mt-0">
+                        <h4 class="pb-5">Don’t forget to rate <img src="img/stars.png" alt="" class="noshadow"> if you enjoy the product! It is very important for us to have certain goal.</h2>
+                    </section>
+
+                </div>
+            </div>
+        </div>    
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+        <script src="vendor/google-code-prettify/prettify.js"></script>
+        <script src="js/scripts.js"></script> 
+    </body>
+</html>
