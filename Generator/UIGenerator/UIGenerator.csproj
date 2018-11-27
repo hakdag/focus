@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0357BE6C-ED8D-43DD-BFBC-24C67AB505B7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UIGenerator</RootNamespace>
+    <AssemblyName>UIGenerator</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\EditComponentTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditComponentTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\EditHtmlTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditHtmlTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\EnumPipeTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnumPipeTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\EnumServiceTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnumServiceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\ListComponentTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListComponentTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\ListHtmlTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListHtmlTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\ModelTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\ModuleTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModuleTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Partials\EditComponentTemplate.cs" />
+    <Compile Include="Templates\Partials\EditHtmlTemplate.cs" />
+    <Compile Include="Templates\Partials\EnumPipeTemplate.cs" />
+    <Compile Include="Templates\Partials\EnumServiceTemplate.cs" />
+    <Compile Include="Templates\Partials\ListComponentTemplate.cs" />
+    <Compile Include="Templates\Partials\ListHtmlTemplate.cs" />
+    <Compile Include="Templates\Partials\ModelTemplate.cs" />
+    <Compile Include="Templates\Partials\ModuleTemplate.cs" />
+    <Compile Include="Templates\Partials\ServiceTemplate.cs" />
+    <Compile Include="Templates\ServiceTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\EditComponentTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EditComponentTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\EditHtmlTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EditHtmlTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\EnumPipeTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EnumPipeTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\EnumServiceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EnumServiceTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\ListComponentTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ListComponentTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\ListHtmlTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ListHtmlTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\ModelTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ModelTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\ModuleTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ModuleTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\ServiceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ServiceTemplate.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Focus.Common\Focus.Common.csproj">
+      <Project>{236a871d-f0b5-4e87-aa92-cf93741d48da}</Project>
+      <Name>Focus.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GeneratorBase\GeneratorBase.csproj">
+      <Project>{52b49caf-b1d7-424f-81b8-48c3ea138fec}</Project>
+      <Name>GeneratorBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

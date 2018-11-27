@@ -1,0 +1,31 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="GeneratorBase" #>
+using BetonCRM.Common.Models;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
+namespace BetonCRM.DataAccess
+{
+    public class BetonCRMContext : DbContext
+    {
+        public BetonCRMContext() : base("BetonCRM") { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            base.OnModelCreating(modelBuilder);
+        }
+
+		<# foreach (Module module in modules)
+        {
+            foreach (Type type in module.Models)
+            { #>
+        public DbSet<<#= type.Name #>> <#= type.Name #>s { get; set; }
+			<# }
+		} #>
+    }
+}

@@ -1,2 +1,12 @@
 /Theme/annular/node_modules
 /Generator/.vs
+/Generator/GeneratorBase/obj
+/Generator/GeneratorBase/bin
+/Generator/UIGenerator/obj
+/Generator/UIGenerator/bin
+/Generator/WebApiGenerator/obj
+/Generator/WebApiGenerator/bin
+/Theme/base-ui/node_modules
+/Theme/base-ui-annular/node_modules
+/Generator/Focus.Common/obj
+/Generator/Focus.Common/bin

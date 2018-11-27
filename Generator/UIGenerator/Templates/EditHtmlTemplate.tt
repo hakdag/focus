@@ -1,0 +1,103 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Focus.Common.Attributes" #>
+<#@ import namespace="System.ComponentModel.DataAnnotations" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><#= moduleUIName #></li>
+  <li class="breadcrumb-item"><#= title #></li>
+  <li class="breadcrumb-item active">{{upsertText}}</li>
+</ol>
+<section class="widget" widget>
+    <div class="widget-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <form class="form-horizontal" role="form" #form="ngForm" (ngSubmit)="save(form.value, form.valid)">
+                    <fieldset *ngIf="model">
+                        <input type="hidden" [(ngModel)]="model.Id" [value]="model.Id" name="Id" />
+                        <legend><strong *ngIf="model.Id">{{upsertText}} - </strong><strong *ngIf="!model.Id">{{upsertText}} - </strong>{{model.<#= getSearchProperty() #>}}</legend>
+                        <div *ngIf="responseResult" class="form-group row">
+                            <div *ngIf="!responseResult.success" class="col-md-12 alert alert-danger">
+                                <span *ngFor="let msg of responseResult.Messages">{{msg}}</span>
+                            </div>
+                            <div *ngIf="responseResult.success" class="col-md-12 success alert-success">
+                                <span *ngFor="let msg of responseResult.Messages">{{msg}}</span>
+                            </div>
+                        </div>
+						<# for(int i = 0; i < editableProperties.Length; i++)
+						{
+							PropertyInfo pi = editableProperties[i];
+							string inputType = getInputType(pi);
+							bool isRequired = isPropertyRequired(pi); #>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label" for="<#= pi.Name #>"><#= getNamedArgument<DisplayAttribute>(pi) #></label>
+                            <div class="col-md-8 ">
+							<# if (inputType == "text")
+							{ #>
+                                <input type="text" <#= isRequired ? "required" : "" #> class="form-control" id="<#= pi.Name #>" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>" #<#= pi.Name #>="ngModel">
+							<# }
+							else if (inputType == "bool")
+							{ #>
+                                <div class="abc-checkbox abc-checkbox-info abc-checkbox-circle">
+                                    <input id="<#= pi.Name #>" <#= isRequired ? "required" : "" #> type="checkbox" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>" #<#= pi.Name #>="ngModel">
+                                    <label for="<#= pi.Name #>">
+                                    </label>
+                                </div>
+							<# }
+							else if (inputType == "int")
+							{ #>
+                                <input type="number" <#= isRequired ? "required" : "" #> class="form-control" id="<#= pi.Name #>" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>" #<#= pi.Name #>="ngModel">
+							<# }
+							else if (inputType == "decimal")
+							{ #>
+                                <input type="number" <#= isRequired ? "required" : "" #> class="form-control" id="<#= pi.Name #>" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>" #<#= pi.Name #>="ngModel">
+							<# }
+							else if (inputType == "adres")
+							{ #>
+                                <select id="<#= pi.Name #>" <#= isRequired ? "required" : "" #> title="<#= title #> <#= getNamedArgument<DisplayAttribute>(pi) #> seçiniz..." class="form-control" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>">
+                                    <option *ngFor="let <#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #> of <#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List" [ngValue]="<#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>">{{<#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #> | AdresShortPipe}}</option>
+                                </select>
+							<# }
+							else if (inputType == "datetime")
+							{ #>
+                                <datetime [(ngModel)]="model.<#= pi.Name #>" id="<#= pi.Name #>" <#= isRequired ? "required" : "" #> [datepicker]="datepickerOpts" name="<#= pi.Name #>" #<#= pi.Name #>="ngModel"></datetime>
+							<# }
+							else if (inputType == "enum")
+							{ #>
+                                <select id="<#= pi.Name #>" <#= isRequired ? "required" : "" #> title="<#= title #> <#= getNamedArgument<DisplayAttribute>(pi) #> seçiniz..." class="form-control" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>">
+                                    <option *ngFor="let e of <#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List" [ngValue]="e.value">{{e.key}}</option>
+                                </select>
+							<# }
+							else if (inputType == "parametre")
+							{ #>
+                                <select id="<#= pi.Name #>" <#= isRequired ? "required" : "" #> title="<#= title #> <#= getNamedArgument<DisplayAttribute>(pi) #> seçiniz..." class="form-control" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>">
+                                    <option *ngFor="let parametre of <#= pi.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List" [ngValue]="parametre">{{parametre.Name}}</option>
+                                </select>
+							<# }
+							else if (inputType != null)
+							{ #>
+                                <select id="<#= pi.Name #>" <#= isRequired ? "required" : "" #> title="<#= title #> <#= getNamedArgument<DisplayAttribute>(pi) #> seçiniz..." class="form-control" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>">
+                                    <option *ngFor="let <#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #> of <#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List" [ngValue]="<#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>">{{<#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>.<#= getPropertyAttributeName<SearchPropertyAttribute>(pi) #>}}</option>
+                                </select>
+							<# } #>
+                            </div>
+                        </div>
+						<# } #>
+
+                    </fieldset>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="offset-md-4 col-md-7 ">
+                                <button type="submit" class="btn btn-primary">Kaydet</button>
+                                <button type="button" class="btn btn-inverse" (click)="cancel(form.touched)">İptal</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+</section>
