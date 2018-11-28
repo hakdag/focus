@@ -1,0 +1,78 @@
+<breadcrumb [itemId]="5"></breadcrumb>
+<section class="widget" widget>
+  <div class="widget-body">
+    <div class="mt">
+      <div class="width-200 float-xs-left">
+        <a class="btn btn-secondary width-100 mb-xs" role="button" [routerLink]="['/app/profile/guest']">
+          <i class="glyphicon glyphicon-plus text-success"></i>
+          Add
+        </a>
+      </div>
+      <div class="width-200 float-xs-right">
+        <div class="input-group input-group-sm input-group-transparent input-group-rounded">
+          <span class="input-group-addon">
+            <i class="fa fa-search"></i>
+          </span>
+          <input class="form-control form-control-sm" id="table-search-input" (keyup)="filter($event)" [(ngModel)]="filterQuery" type="text" placeholder="Search by FirstName...">
+        </div>
+      </div>
+      <table class="table table-striped table-hover" [mfData]="data" #mf="mfDataTable"
+                   [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder" [mfActivePage]="activePage"
+                    (mfOnPageChange)="onPageChange($event)" [(mfAmountOfRows)]="itemsTotal" (mfSortOrderChange)="onSortOrder($event)">
+        <thead>
+        <tr>
+		          <th>
+            <mfDefaultSorter by="FirstName">First Name</mfDefaultSorter>
+          </th>
+		          <th>
+            <mfDefaultSorter by="LastName">Last Name</mfDefaultSorter>
+          </th>
+		          <th>
+            <mfDefaultSorter by="Email">Email</mfDefaultSorter>
+          </th>
+		          <th>
+            <mfDefaultSorter by="PassportNumber">Passport Number</mfDefaultSorter>
+          </th>
+		          <th>
+            <mfDefaultSorter by="DateOfBirth">Date of Birth</mfDefaultSorter>
+          </th>
+		          <th class="no-sort">
+            Action
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let guest of mf.data">
+					<td>{{guest.FirstName}}</td>
+					<td>{{guest.LastName}}</td>
+					<td>{{guest.Email}}</td>
+					<td>{{guest.PassportNumber}}</td>
+					<td>{{guest.DateOfBirth | date:"dd/MM/yyyy HH:mm"}}</td>
+		          <td class="width-200">
+            <a class="btn btn-secondary width-100 mb-xs" role="button" [routerLink]="['/app/profile/guest', guest.Id]">
+              <i class="glyphicon glyphicon-edit text-success"></i>
+              Edit
+            </a>
+            <button class="btn btn-secondary width-80 mb-xs" role="button" (click)="delete(guest)">
+              <i class="glyphicon glyphicon-trash text-danger"></i>
+              Delete
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="mf.data.length === 0">
+          <td colspan="100">
+            Nothing found.
+          </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="12">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5, 10, 25]"></mfBootstrapPaginator>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>

@@ -14,7 +14,7 @@ export class BaseListComponent<TModel extends BaseModel> implements OnInit {
   public sortOrder = "desc";
   public activePage = 1;
   public itemsTotal = 0;
-  protected deleteConfirmMessage = "Silmek istediğinizden emin misiniz?";
+  protected deleteConfirmMessage = "This will delete the entity. Are you sure?";
   private messenger: MessengerBox = null;
 
   constructor(protected service: BaseService<TModel>, protected route: ActivatedRoute, protected router: Router) { }
@@ -71,9 +71,9 @@ export class BaseListComponent<TModel extends BaseModel> implements OnInit {
       if (this.messenger == null)
         this.messenger = new MessengerBox();
       let me = this;
-      let errorMessage = "Beklenmeyen bir hata oluştu.";
+      let errorMessage = "An unexpected error occurred.";
       if (error.status == 404)
-        errorMessage = "Bulunamadı."
+      errorMessage = "Not found."
       this.messenger.showErrorMessage(errorMessage, function () { me.ngOnInit(); });
     }
   }

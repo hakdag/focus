@@ -1,10 +1,7 @@
 ﻿using GeneratorBase;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WebApiGenerator.Templates;
 
 namespace WebApiGenerator
@@ -13,8 +10,20 @@ namespace WebApiGenerator
     {
         static void Main(string[] args)
         {
-            ModulesBuilder mb = new ModulesBuilder("BetonCRM.Common", "BaseModel");
+            if (args == null || args.Length == 0)
+            {
+                Console.WriteLine("Please specify source library as a parameter.");
+                return;
+            }
+
+            ModulesBuilder mb = new ModulesBuilder(args[0], "BaseModel");
             mb.Build();
+
+            if (!mb.Modules.Any())
+            {
+                Console.WriteLine("Could not find any modules.");
+                return;
+            }
 
             // create Global.asax
             GlobalAsaxTemplate gat = new GlobalAsaxTemplate(mb.Modules);
@@ -43,7 +52,7 @@ namespace WebApiGenerator
                     Directory.CreateDirectory(moduleFolderBusinesses);
 
                 // loop types in module
-                foreach (Type type in module.Models)
+                foreach (var type in module.Models)
                 {
                     if (type.BaseType == typeof(Enum))
                         continue;

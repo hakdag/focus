@@ -7,13 +7,15 @@ namespace GeneratorBase
     {
         private string moduleName;
         private string uiName;
-        private List<Type> models;
+        private List<GeneratorType> models;
+        public int ModuleId { get; }
 
-        public Module(string moduleName, string uiName, List<Type> models)
+        public Module(string moduleName, string uiName, List<GeneratorType> models, int id)
         {
             this.moduleName = moduleName;
             this.models = models;
             this.uiName = uiName;
+            ModuleId = id;
         }
 
         public string UIName
@@ -42,7 +44,7 @@ namespace GeneratorBase
             }
         }
 
-        public List<Type> Models
+        public List<GeneratorType> Models
         {
             get
             {

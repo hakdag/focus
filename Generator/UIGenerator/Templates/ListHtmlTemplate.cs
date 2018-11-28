@@ -31,55 +31,32 @@ namespace UIGenerator.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("<ol class=\"breadcrumb\">\r\n  <li class=\"breadcrumb-item\">");
+            this.Write("<breadcrumb [itemId]=\"");
             
-            #line 10 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(moduleUIName));
-            
-            #line default
-            #line hidden
-            this.Write("</li>\r\n  <li class=\"breadcrumb-item active\">");
-            
-            #line 11 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(title));
+            #line 9 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(type.TypeId));
             
             #line default
             #line hidden
-            this.Write("</li>\r\n</ol>\r\n<section class=\"widget\" widget>\r\n  <header>\r\n    <h4>Sistemde tanım" +
-                    "lanmış ");
+            this.Write("\"></breadcrumb>\r\n<section class=\"widget\" widget>\r\n  <div class=\"widget-body\">\r\n  " +
+                    "  <div class=\"mt\">\r\n      <div class=\"width-200 float-xs-left\">\r\n        <a clas" +
+                    "s=\"btn btn-secondary width-100 mb-xs\" role=\"button\" [routerLink]=\"[\'/app/");
             
-            #line 15 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(getConstructorArgument<TitleAttribute>(type).ToLower(new System.Globalization.CultureInfo("en-EN", false))));
-            
-            #line default
-            #line hidden
-            this.Write(@"lar.</h4>
-    <div class=""widget-controls"">
-      <a data-widgster=""expand"" title=""Expand"" href=""#""><i class=""glyphicon glyphicon-chevron-up""></i></a>
-      <a data-widgster=""collapse"" title=""Collapse"" href=""#""><i class=""glyphicon glyphicon-chevron-down""></i></a>
-      <a data-widgster=""close"" title=""Close"" href=""#""><i class=""glyphicon glyphicon-remove""></i></a>
-    </div>
-  </header>
-  <div class=""widget-body"">
-    <div class=""mt"">
-      <div class=""width-200 float-xs-left"">
-        <a class=""btn btn-secondary width-100 mb-xs"" role=""button"" [routerLink]=""['/app/");
-            
-            #line 25 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 14 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(moduleName));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 25 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 14 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write(@"']"">
           <i class=""glyphicon glyphicon-plus text-success""></i>
-          Ekle
+          Add
         </a>
       </div>
       <div class=""width-200 float-xs-right"">
@@ -87,14 +64,14 @@ namespace UIGenerator.Templates
           <span class=""input-group-addon"">
             <i class=""fa fa-search""></i>
           </span>
-          <input class=""form-control form-control-sm"" id=""table-search-input"" (keyup)=""filter($event)"" [(ngModel)]=""filterQuery"" type=""text"" placeholder=""");
+          <input class=""form-control form-control-sm"" id=""table-search-input"" (keyup)=""filter($event)"" [(ngModel)]=""filterQuery"" type=""text"" placeholder=""Search by ");
             
-            #line 35 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 24 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(getSearchProperty()));
             
             #line default
             #line hidden
-            this.Write(@" ile ara..."">
+            this.Write(@"..."">
         </div>
       </div>
       <table class=""table table-striped table-hover"" [mfData]=""data"" #mf=""mfDataTable""
@@ -104,7 +81,7 @@ namespace UIGenerator.Templates
         <tr>
 		");
             
-            #line 43 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 32 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
  foreach(PropertyInfo pi in listableProperties)
 		{ 
             
@@ -112,36 +89,36 @@ namespace UIGenerator.Templates
             #line hidden
             this.Write("          <th>\r\n            <mfDefaultSorter by=\"");
             
-            #line 46 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 35 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\">");
             
-            #line 46 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 35 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(getNamedArgument<DisplayAttribute>(pi)));
             
             #line default
             #line hidden
             this.Write("</mfDefaultSorter>\r\n          </th>\r\n\t\t");
             
-            #line 48 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 37 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
  } 
             
             #line default
             #line hidden
-            this.Write("          <th class=\"no-sort\">\r\n            İşlem\r\n          </th>\r\n        </tr>" +
-                    "\r\n        </thead>\r\n        <tbody>\r\n        <tr *ngFor=\"let ");
+            this.Write("          <th class=\"no-sort\">\r\n            Action\r\n          </th>\r\n        </tr" +
+                    ">\r\n        </thead>\r\n        <tbody>\r\n        <tr *ngFor=\"let ");
             
-            #line 55 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 44 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write(" of mf.data\">\r\n\t\t");
             
-            #line 56 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 45 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
  foreach(PropertyInfo pi in listableProperties)
 		{ 
             
@@ -149,14 +126,14 @@ namespace UIGenerator.Templates
             #line hidden
             this.Write("\t\t\t<td>{{");
             
-            #line 58 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 47 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(getListPropertyByType(pi)));
             
             #line default
             #line hidden
             this.Write("}}</td>\r\n\t\t");
             
-            #line 59 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 48 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
  } 
             
             #line default
@@ -164,43 +141,43 @@ namespace UIGenerator.Templates
             this.Write("          <td class=\"width-200\">\r\n            <a class=\"btn btn-secondary width-1" +
                     "00 mb-xs\" role=\"button\" [routerLink]=\"[\'/app/");
             
-            #line 61 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 50 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(moduleName));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 61 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 50 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("\', ");
             
-            #line 61 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 50 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write(".Id]\">\r\n              <i class=\"glyphicon glyphicon-edit text-success\"></i>\r\n    " +
-                    "          Güncelle\r\n            </a>\r\n            <button class=\"btn btn-seconda" +
-                    "ry width-80 mb-xs\" role=\"button\" (click)=\"delete(");
+                    "          Edit\r\n            </a>\r\n            <button class=\"btn btn-secondary w" +
+                    "idth-80 mb-xs\" role=\"button\" (click)=\"delete(");
             
-            #line 65 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 54 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write(@")"">
               <i class=""glyphicon glyphicon-trash text-danger""></i>
-              Sil
+              Delete
             </button>
           </td>
         </tr>
         <tr *ngIf=""mf.data.length === 0"">
           <td colspan=""100"">
-            Sonuç bulunamadı.
+            Nothing found.
           </td>
         </tr>
         </tbody>

@@ -10,3 +10,8 @@
 /Theme/base-ui-annular/node_modules
 /Generator/Focus.Common/obj
 /Generator/Focus.Common/bin
+/SampleProject/NoRoom.Common/obj
+/SampleProject/NoRoom.Common/bin
+/Generator/Bin
+/SampleProject/.vs
+/Theme/base-ui/dist

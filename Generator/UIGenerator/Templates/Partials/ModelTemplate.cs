@@ -2,25 +2,26 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Reflection;
+using GeneratorBase;
 using Module = GeneratorBase.Module;
 
 namespace UIGenerator.Templates
 {
     public partial class ModelTemplate
     {
-        private Type type;
+        private GeneratorType type;
         private List<KeyValuePair<string, string>> properties = new List<KeyValuePair<string, string>>();
         private Dictionary<string, string> imports = new Dictionary<string, string>();
         private List<Module> modules;
 
-        public ModelTemplate(Type type, List<Module> modules)
+        public ModelTemplate(GeneratorType type, List<Module> modules)
         {
             this.type = type;
             this.modules = modules;
 
             if (type.BaseType == typeof(Enum))
             {
-                Array enumValues = Enum.GetValues(type);
+                Array enumValues = Enum.GetValues(type.Type);
                 for (int i = 0; i < enumValues.Length; i++)
                 {
                     int intValue = (int)enumValues.GetValue(i);
@@ -29,7 +30,7 @@ namespace UIGenerator.Templates
             }
             else
             {
-                PropertyInfo[] pis = type.GetProperties();
+                PropertyInfo[] pis = type.Type.GetProperties();
                 foreach (PropertyInfo pi in pis)
                 {
                     string typeName = addToProperties(pi);

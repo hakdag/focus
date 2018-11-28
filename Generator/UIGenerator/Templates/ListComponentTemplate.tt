@@ -8,16 +8,12 @@ import { Router, ActivatedRoute, Params }   from '@angular/router';
 import { <#= type.Name #> } from './<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>';
 import { <#= type.Name #>Service } from './<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>.service';
 import { BaseListComponent } from 'app/core/BaseListComponent';
-<# if (type.Name != "Parametre")
-{ #>
-import { Parametre }         from '../../yonetim/parametre/parametre';
-<# } #>
 
 @Component({
   selector: '[<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>-list]',
   templateUrl: './<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>-list.template.html',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['../../tables/dynamic/tables-dynamic.style.scss'],
+  styleUrls: ['../../tables/dynamic/tables-dynamic.style.scss', '../../ui-elements/notifications/notifications.style.scss'],
   providers: [<#= type.Name #>Service]
 })
 export class <#= type.Name #>ListComponent extends BaseListComponent<<#= type.Name #>> {
@@ -25,6 +21,6 @@ export class <#= type.Name #>ListComponent extends BaseListComponent<<#= type.Na
   constructor(protected <#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service: <#= type.Name #>Service, protected route: ActivatedRoute, protected router: Router) {
     super(<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service, route, router);
     this.sortBy = "<#= String.IsNullOrEmpty(defaultSortProperty) ? "null" : defaultSortProperty #>";
-    this.deleteConfirmMessage = "<#= typeUIName #> tanımını silmek istediğinizden emin misiniz?";
+    this.deleteConfirmMessage = "Are you sure you want to delete <#= typeUIName #>?";
   }
 }

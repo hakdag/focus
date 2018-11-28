@@ -1,6 +1,6 @@
 ﻿using Focus.Common.Attributes;
+using GeneratorBase;
 using GeneratorBase.Extensions;
-using System;
 using System.Linq;
 using System.Reflection;
 
@@ -8,15 +8,15 @@ namespace UIGenerator.Templates
 {
     public partial class ListComponentTemplate
     {
-        private Type type;
+        private GeneratorType type;
         private string typeUIName;
         private string defaultSortProperty;
-        public ListComponentTemplate(Type type)
+        public ListComponentTemplate(GeneratorType type)
         {
             this.type = type;
-            this.typeUIName = type.GetAttributeValue((TitleAttribute ta) => ta.Title);
+            this.typeUIName = type.Type.GetAttributeValue((TitleAttribute ta) => ta.Title);
 
-            PropertyInfo piSortProperty = type.GetProperties().FirstOrDefault(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(DefaultSortAttribute)));
+            PropertyInfo piSortProperty = type.Type.GetProperties().FirstOrDefault(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(DefaultSortAttribute)));
             if (piSortProperty != null)
                 defaultSortProperty = piSortProperty.Name;
         }

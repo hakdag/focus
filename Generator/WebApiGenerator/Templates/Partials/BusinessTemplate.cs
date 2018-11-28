@@ -1,13 +1,13 @@
-﻿using System;
+﻿using GeneratorBase;
 
 namespace WebApiGenerator.Templates
 {
     public partial class BusinessTemplate
     {
-        private Type type;
+        private GeneratorType type;
         private string moduleName;
 
-        public BusinessTemplate(Type type, string moduleName)
+        public BusinessTemplate(GeneratorType type, string moduleName)
         {
             this.type = type;
             this.moduleName = moduleName;

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\AttributeExtensions.cs" />
+    <Compile Include="GeneratorType.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="ModulesBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

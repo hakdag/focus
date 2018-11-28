@@ -42,7 +42,7 @@ import 'jasny-bootstrap/js/inputmask.js';
 import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime';
 import { coreModule } from 'app/core/core.module'
 
-<# foreach (Type type in module.Models)
+<# foreach (var type in module.Models)
 { 
 	if (type.BaseType == typeof(Enum))
 	{ #>
@@ -54,7 +54,7 @@ import { <#= type.Name #>EditComponent } from './<#= type.Name.ToLower(new Syste
 export const routes = [
 <# for (int i=0; i < module.Models.Count; i++)
 { 
-	Type type = module.Models[i];
+	var type = module.Models[i];
 	if (type.BaseType == typeof(Enum)) continue;
 	if (i==0) {#>
   {path: '', redirectTo: '<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>', pathMatch: 'full'},
@@ -70,7 +70,7 @@ export const routes = [
     // Components / Directives/ Pipes
 <# for (int i=0; i < module.Models.Count; i++)
 { 
-	Type type = module.Models[i];
+	var type = module.Models[i];
 	if (type.BaseType == typeof(Enum))
 	{ #>
 	<# } else { #>

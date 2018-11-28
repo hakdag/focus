@@ -6,11 +6,7 @@
 <#@ import namespace="System.Reflection" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<ol class="breadcrumb">
-  <li class="breadcrumb-item"><#= moduleUIName #></li>
-  <li class="breadcrumb-item"><#= title #></li>
-  <li class="breadcrumb-item active">{{upsertText}}</li>
-</ol>
+<breadcrumb [itemId]="<#= type.TypeId + 1 #>" [lastText]="upsertText"></breadcrumb>
 <section class="widget" widget>
     <div class="widget-body">
         <div class="row">
@@ -57,7 +53,7 @@
 							<# }
 							else if (inputType == "adres")
 							{ #>
-                                <select id="<#= pi.Name #>" <#= isRequired ? "required" : "" #> title="<#= title #> <#= getNamedArgument<DisplayAttribute>(pi) #> seçiniz..." class="form-control" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>">
+                                <select id="<#= pi.Name #>" <#= isRequired ? "required" : "" #> title="<#= title #> <#= getNamedArgument<DisplayAttribute>(pi) #> select..." class="form-control" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>">
                                     <option *ngFor="let <#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #> of <#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List" [ngValue]="<#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>">{{<#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #> | AdresShortPipe}}</option>
                                 </select>
 							<# }
@@ -67,19 +63,13 @@
 							<# }
 							else if (inputType == "enum")
 							{ #>
-                                <select id="<#= pi.Name #>" <#= isRequired ? "required" : "" #> title="<#= title #> <#= getNamedArgument<DisplayAttribute>(pi) #> seçiniz..." class="form-control" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>">
+                                <select id="<#= pi.Name #>" <#= isRequired ? "required" : "" #> title="<#= title #> <#= getNamedArgument<DisplayAttribute>(pi) #> select..." class="form-control" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>">
                                     <option *ngFor="let e of <#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List" [ngValue]="e.value">{{e.key}}</option>
-                                </select>
-							<# }
-							else if (inputType == "parametre")
-							{ #>
-                                <select id="<#= pi.Name #>" <#= isRequired ? "required" : "" #> title="<#= title #> <#= getNamedArgument<DisplayAttribute>(pi) #> seçiniz..." class="form-control" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>">
-                                    <option *ngFor="let parametre of <#= pi.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List" [ngValue]="parametre">{{parametre.Name}}</option>
                                 </select>
 							<# }
 							else if (inputType != null)
 							{ #>
-                                <select id="<#= pi.Name #>" <#= isRequired ? "required" : "" #> title="<#= title #> <#= getNamedArgument<DisplayAttribute>(pi) #> seçiniz..." class="form-control" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>">
+                                <select id="<#= pi.Name #>" <#= isRequired ? "required" : "" #> title="<#= title #> <#= getNamedArgument<DisplayAttribute>(pi) #> select..." class="form-control" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>">
                                     <option *ngFor="let <#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #> of <#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List" [ngValue]="<#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>">{{<#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>.<#= getPropertyAttributeName<SearchPropertyAttribute>(pi) #>}}</option>
                                 </select>
 							<# } #>
@@ -91,8 +81,8 @@
                     <div class="form-actions">
                         <div class="row">
                             <div class="offset-md-4 col-md-7 ">
-                                <button type="submit" class="btn btn-primary">Kaydet</button>
-                                <button type="button" class="btn btn-inverse" (click)="cancel(form.touched)">İptal</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-inverse" (click)="cancel(form.touched)">Cancel</button>
                             </div>
                         </div>
                     </div>

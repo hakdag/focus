@@ -25,7 +25,7 @@ import { <#= type.Name #>Service } from './<#= type.Name.ToLower(new System.Glob
 @Component({
     selector: '<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>-edit',
     templateUrl: './<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>-edit.template.html',
-    styleUrls: [ '../../forms/elements/elements.style.scss' ],
+    styleUrls: ['../../forms/elements/elements.style.scss', '../../ui-elements/notifications/notifications.style.scss'],
     providers: [
 		<#= type.Name #>Service<# if (providers != null && providers.Any()){ #>,<# } #>
 		<# for (int i = 0; i < providers.Count(); i++)
@@ -90,14 +90,14 @@ export class <#= type.Name #>EditComponent extends BaseEditComponent<<#= type.Na
     getModelValue(params: Params): Promise<void|<#= type.Name #>> {
         if (params['id'])
         {
-            this.upsertText = '<#= title #> Güncelle';
+            this.upsertText = 'Edit <#= title #>';
             return this.<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service.get(+params['id'])
                 .catch(err => {
                     this.router.navigate(['/notfound']);       
                 });
         }
         else {
-            this.upsertText = 'Yeni <#= title #>';
+            this.upsertText = 'New <#= title #>';
             let m: <#= type.Name #> = this.getInitialValue();;
             let p: Promise<<#= type.Name #>> = new Promise((resolve, reject) => resolve(m));
             return p;

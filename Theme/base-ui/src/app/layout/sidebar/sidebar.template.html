@@ -6,216 +6,52 @@
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <span class="thumb-sm avatar float-xs-right">
               </span>
-      <!-- .circle is a pretty cool way to add a bit of beauty to raw data.
-           should be used with bg-* and text-* classes for colors -->
-              <!-- <span class="circle bg-warning fw-bold text-gray-dark">
-                  13
-              </span>
-      &nbsp;
-      Philip <strong>Smith</strong>
-      <b class="caret"></b> -->
     </a>
-    <!-- #notifications-dropdown-menu goes here when screen collapsed to xs or sm -->
   </div>
-  <!-- main notification links are placed inside of .sidebar-nav -->
   <ul class="sidebar-nav">
     <li>
       <a [routerLink]=" ['dashboard'] ">
           <span class="icon">
             <i class="fa fa-desktop"></i>
           </span>
-        Anasayfa
+        Dashboard
       </a>
     </li>
-    <li *ngIf="hasRole('Tanımlamalar')">
-      <a class="collapsed" data-target="#sidebar-tanimlamalar" data-toggle="collapse" data-parent="#sidebar">
+    <li>
+      <a class="collapsed" data-target="#sidebar-booking" data-toggle="collapse" data-parent="#sidebar">
           <span class="icon">
             <i class="fa fa-table"></i>
           </span>
-        Tanımlamalar
+        Reserve/Book
         <i class="toggle fa fa-angle-down"></i>
       </a>
-      <ul id="sidebar-tanimlamalar" class="collapse">
-        <li><a [routerLink]=" ['tanimlamalar/araclist'] ">Araç</a></li>
-        <li><a [routerLink]=" ['tanimlamalar/adreslist'] ">Adres</a></li>
-        <li><a [routerLink]=" ['tanimlamalar/depolist'] ">Depo</a></li>
-        <li><a [routerLink]=" ['tanimlamalar/santrallist'] ">Santral</a></li>
-        <li><a [routerLink]=" ['tanimlamalar/personellist'] ">Personel</a></li>
-        <li><a [routerLink]=" ['tanimlamalar/guzergahlist'] ">Güzergah</a></li>
-        <li><a [routerLink]=" ['tanimlamalar/carikartlist'] ">Cari Kart</a></li>
-        <li><a [routerLink]=" ['tanimlamalar/malhizmetlist'] ">Mal/Hizmet</a></li>
+      <ul id="sidebar-booking" class="collapse">
+        <li><a [routerLink]=" ['booking/checkinlist'] ">Check In</a></li>
+        <li><a [routerLink]=" ['booking/reservationlist'] ">Reservation</a></li>
       </ul>
     </li>
-    <li *ngIf="hasRole('Admin')">
-      <a class="collapsed" data-target="#sidebar-yonetim" data-toggle="collapse" data-parent="#sidebar">
+    <li>
+      <a class="collapsed" data-target="#sidebar-profile" data-toggle="collapse" data-parent="#sidebar">
           <span class="icon">
-            <i class="fa fa-wrench"></i>
+            <i class="fa fa-table"></i>
           </span>
-        Yönetim
+        Profile
         <i class="toggle fa fa-angle-down"></i>
       </a>
-      <ul id="sidebar-yonetim" class="collapse">
-        <li><a [routerLink]=" ['yonetim/parametrelist'] ">Parametreler</a></li>
-        <li><a [routerLink]=" ['yonetim/kullanicilist'] ">Kullanıcılar</a></li>
-        <li><a [routerLink]=" ['yonetim/rollist'] ">Roller</a></li>
-        <li><a [routerLink]=" ['yonetim/logs'] ">Aktivite Logları</a></li>
-        <li><a [routerLink]=" ['yonetim/errors'] ">Hata Logları</a></li>
+      <ul id="sidebar-profile" class="collapse">
+        <li><a [routerLink]=" ['profile/guestlist'] ">Guest Profile</a></li>
       </ul>
     </li>
-    <li *ngIf="hasRole('Teklif')">
-      <a class="collapsed" data-target="#sidebar-teklif" data-toggle="collapse" data-parent="#sidebar">
+    <li>
+      <a class="collapsed" data-target="#sidebar-billing" data-toggle="collapse" data-parent="#sidebar">
           <span class="icon">
-            <i class="fa fa-thumbs-up"></i>
+            <i class="fa fa-table"></i>
           </span>
-        Teklif
+        Billing
         <i class="toggle fa fa-angle-down"></i>
       </a>
-      <ul id="sidebar-teklif" class="collapse">
-        <li><a [routerLink]=" ['teklif/carikartlar'] ">Cari Kartlar</a></li>
-        <li><a [routerLink]=" ['teklif/sozlesmeler'] ">Sözleşmeler</a></li>
-        <li><a [routerLink]=" ['teklif/teklifler'] ">Teklifler</a></li>
-        <!--<li><a [routerLink]=" ['teklif/tedarikcisozlesmesilist'] ">Tedarikçi Sözleşmesi</a></li>
-        <li><a [routerLink]=" ['teklif/tedarikciteklifilist'] ">Tedarikçi Teklifi</a></li>-->
-      </ul>
-    </li>
-    <li *ngIf="hasRole('Sipariş')">
-      <a class="collapsed" data-target="#sidebar-siparis" data-toggle="collapse" data-parent="#sidebar">
-          <span class="icon">
-            <i class="fa fa-list"></i>
-          </span>
-        Siparisler
-        <i class="toggle fa fa-angle-down"></i>
-      </a>
-      <ul id="sidebar-siparis" class="collapse">
-        <li><a [routerLink]=" ['siparis/carikartlar'] ">Cari Kartlar</a></li>
-        <li><a [routerLink]=" ['siparis/siparisler'] ">Siparişler</a></li>
-        <li><a [routerLink]=" ['siparis/onaybekleyenler'] ">Onay Bekleyenler</a></li>
-        <!--Bütün siparişler siparişler sayfasında olacağı için ayrıca tedarikçi siparişleri diye bir sayfaya gerek yok.-->
-        <!--<li><a [routerLink]=" ['siparis/tedarikcisiparisilist'] ">Tedarikçi Siparişleri</a></li>-->
-        <li><a [routerLink]=" ['siparis/planlama'] ">Planlama</a></li>
-        <!--Kabul için siparisler sayfası kullanılacak.-->
-        <!--<li><a [routerLink]=" ['siparis/kabul'] ">Kabul</a></li>-->
-      </ul>
-    </li>
-    <li *ngIf="hasRole('Konkasör')">
-      <a [routerLink]=" ['konkasor/konkasorler'] ">
-          <span class="icon">
-            <i class="fa fa-bullhorn"></i>
-          </span>
-        Konkasör Tesisi
-      </a>
-      <!--<ul id="sidebar-konkasor" class="collapse">
-        <li><a [routerLink]=" ['konkasor/aracgiris'] ">Araç Giriş</a></li>
-        <li><a [routerLink]=" ['konkasor/araccikis'] ">Araç Çıkış</a></li>
-      </ul>-->
-    </li>
-    <li *ngIf="hasRole('Üretim')">
-      <a class="collapsed" data-target="#sidebar-uretim" data-toggle="collapse" data-parent="#sidebar">
-          <span class="icon">
-            <i class="fa fa-desktop"></i>
-          </span>
-        Üretim
-        <i class="toggle fa fa-angle-down"></i>
-      </a>
-      <ul id="sidebar-uretim" class="collapse">
-        <li><a [routerLink]=" ['uretim/gonder'] ">Üretime Gönder</a></li>
-        <li><a [routerLink]=" ['uretim/devameden'] ">Devam Eden Üretimler</a></li>
-      </ul>
-    </li>
-    <li *ngIf="hasRole('Müşteri Takip')">
-      <a [routerLink]=" ['musteri/carikartlar'] ">
-          <span class="icon">
-            <i class="fa fa-users"></i>
-          </span>
-        Müşteri Takip
-      </a>
-    </li>
-    <li *ngIf="hasRole('Tahsilat')">
-      <a class="collapsed" data-target="#sidebar-tahsilat" data-toggle="collapse" data-parent="#sidebar">
-          <span class="icon">
-            <i class="fa fa-turkish-lira"></i>
-          </span>
-        Tahsilat
-        <i class="toggle fa fa-angle-down"></i>
-      </a>
-      <ul id="sidebar-tahsilat" class="collapse">
-        <li><a [routerLink]=" ['tahsilat/teslimedilmissiparisler'] ">Teslim Edilmiş Siparişler</a></li>
-        <!-- <li><a [routerLink]=" ['tahsilat/tahsilatlar'] ">Tahsilatlar</a></li> -->
-        <!-- <li><a [routerLink]=" ['tahsilat/malhizmetler'] ">Alınan Mal/Hizmetler</a></li> -->
-        <li><a [routerLink]=" ['tahsilat/cekvesenetler'] ">Çek ve Senet</a></li>
-
-        <!--<li><a [routerLink]=" ['tahsilat/odemelist'] ">Ödeme</a></li>
-        <li><a [routerLink]=" ['tahsilat/tedarikciodemelist'] ">Tedarikçi Ödeme</a></li>-->
-      </ul>
-    </li>
-    <li *ngIf="hasRole('Personel')">
-      <a class="collapsed" data-target="#sidebar-personel" data-toggle="collapse" data-parent="#sidebar">
-          <span class="icon">
-            <i class="fa fa-user"></i>
-          </span>
-        Personel
-        <i class="toggle fa fa-angle-down"></i>
-      </a>
-      <ul id="sidebar-personel" class="collapse">
-        <!--Yeni Personel, İşe Başlama, Personel avans girişleri, Saatlik İzinler, Yıllık İzinler -->
-        <li><a [routerLink]=" ['personel/personeller'] ">Personeller</a></li>
-        <li><a [routerLink]=" ['personel/avanslar'] ">Avanslar</a></li>
-        <!-- <li><a [routerLink]=" ['personel/personelodemeleri'] ">Maaşlar</a></li> -->
-        <li><a [routerLink]=" ['personel/gunlukisedevamlist'] ">Günlük İşe Devam</a></li>
-        <li><a [routerLink]=" ['personel/saatlikizinlist'] ">Saatlik İzinler</a></li>
-        <li><a [routerLink]=" ['personel/yillikizinlist'] ">Yıllık İzinler</a></li> 
-      </ul>
-    </li>
-    <li *ngIf="hasRole('Araç Takip')">
-      <a class="collapsed" data-target="#sidebar-aractakip" data-toggle="collapse" data-parent="#sidebar">
-          <span class="icon">
-            <i class="fa fa-car"></i>
-          </span>
-        Araç Takip
-        <i class="toggle fa fa-angle-down"></i>
-      </a>
-      <ul id="sidebar-aractakip" class="collapse">
-        <!--arıza girişleri, arıza takip, araç bakım, bakım takip, mtv takip, sigorta takip, Mikser Giriş/Çıkış-->
-        <li><a [routerLink]=" ['aractakip/araclar'] ">Araçlar</a></li>
-        <li><a [routerLink]=" ['aractakip/miksergiris'] ">Mikser Giriş</a></li>
-        <li><a [routerLink]=" ['aractakip/miksercikis'] ">Mikser Çıkış</a></li>
-
-        <!--<li><a [routerLink]=" ['aractakip/aracarizalar'] ">Arızalı Araçlar</a></li>
-        <li><a [routerLink]=" ['aractakip/aracbakimlist'] ">Bakım</a></li>
-        <li><a [routerLink]=" ['aractakip/aracmtvlist'] ">MTV</a></li>
-        <li><a [routerLink]=" ['aractakip/aracsigortalist'] ">Sigorta</a></li>
-        <li><a [routerLink]=" ['aractakip/miksercikislist'] ">Mikser Çıkış</a></li>
-        <li><a [routerLink]=" ['aractakip/miksergirislist'] ">Mikser Giriş</a></li>-->
-      </ul>
-    </li>
-    <!--<li *ngIf="hasRole('Konkasor')">
-      <a class="collapsed" data-target="#sidebar-kankasor" data-toggle="collapse" data-parent="#sidebar">
-          <span class="icon">
-            <i class="fa fa-building"></i>
-          </span>
-        Konkasör Tesisi
-        <i class="toggle fa fa-angle-down"></i>
-      </a>
-      <ul id="sidebar-kankasor" class="collapse">
-        <li><a [routerLink]=" ['konkasor/araccikislist'] ">Araç Çıkış</a></li>
-        <li><a [routerLink]=" ['konkasor/aracgirislist'] ">Araç Giriş</a></li>
-      </ul>
-    </li>-->
-    <li *ngIf="hasRole('Stok')">
-      <a class="collapsed" data-target="#sidebar-stok" data-toggle="collapse" data-parent="#sidebar">
-          <span class="icon">
-            <i class="fa fa-list-alt"></i>
-          </span>
-        Stok
-        <i class="toggle fa fa-angle-down"></i>
-      </a>
-      <ul id="sidebar-stok" class="collapse">
-        <!--Depoya gelen yakıt, Depodan alınan yakıt ve Depo stok durumları-->
-        <li><a [routerLink]=" ['stok/depolar'] ">Depo</a></li>
-        <!--Sadece yakıt depoları üzerinden araçlara yakıt alımı yapılacak-->
-        <li><a [routerLink]=" ['stok/yakitalimi'] ">Yakıt Alımı</a></li>
-        <!--Günlük yemek yiyen kişi ve Mutfak maliyetleri-->
-        <li><a [routerLink]=" ['stok/mutfakmasrafilist'] ">Mutfak Masrafları</a></li>
+      <ul id="sidebar-billing" class="collapse">
+        <li><a [routerLink]=" ['billing/invoicelist'] ">Invoice</a></li>
       </ul>
     </li>
   </ul>

@@ -12,6 +12,12 @@ namespace UIGenerator
     {
         static void Main(string[] args)
         {
+            if (args == null || args.Length == 0)
+            {
+                Console.WriteLine("Please specify source library as a parameter.");
+                return;
+            }
+
             /*
              1- Loop through Modules
              2- create a folder for each module
@@ -29,8 +35,31 @@ namespace UIGenerator
              7- 
              */
 
-            ModulesBuilder mb = new ModulesBuilder("BetonCRM.Common", "BaseModel");
+            ModulesBuilder mb = new ModulesBuilder(args[0], "BaseModel");
             mb.Build();
+
+            if (!mb.Modules.Any())
+            {
+                Console.WriteLine("Could not find any modules.");
+                return;
+            }
+
+            // creating general files.
+            // create navigation-tree.ts
+            NavigationTreeTemplate navigationTreeTemplate = new NavigationTreeTemplate(mb.Modules);
+            string strNavigationTree = navigationTreeTemplate.TransformText();
+            File.WriteAllText("navigation-tree.ts", strNavigationTree);
+
+            // create sidebar.template.html
+            SideBarHtmlTemplate sideBarHtmlTemplate = new SideBarHtmlTemplate(mb.Modules);
+            string strSideBarHtml = sideBarHtmlTemplate.TransformText();
+            File.WriteAllText("sidebar.template.html", strSideBarHtml);
+
+            // create layout.routes.ts
+            LayoutRoutesTemplate layoutRoutesTemplate = new LayoutRoutesTemplate(mb.Modules);
+            string strLayoutRoutes = layoutRoutesTemplate.TransformText();
+            File.WriteAllText("layout.routes.ts", strLayoutRoutes);
+
             foreach (GeneratorBase.Module module in mb.Modules)
             {
                 // create module folder
@@ -43,7 +72,7 @@ namespace UIGenerator
                 File.WriteAllText($"{module.ModuleName}\\{module.ModuleName}.module.ts", result);
 
                 // loop types in module
-                foreach (Type type in module.Models)
+                foreach (var type in module.Models)
                 {
                     string typeFolder = $"{module.ModuleName}\\{type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))}";
                     if (!Directory.Exists(typeFolder))
@@ -94,7 +123,7 @@ namespace UIGenerator
                         File.WriteAllText($"{typeFolder}\\{type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))}-edit.template.html", strEditHtml);
 
                         // create enum pipe files
-                        PropertyInfo[] enumProperties = getEnumProperties(type);
+                        PropertyInfo[] enumProperties = getEnumProperties(type.Type);
                         foreach (PropertyInfo pi in enumProperties)
                         {
                             EnumPipeTemplate enumPipeTemplate = new EnumPipeTemplate(pi, module);

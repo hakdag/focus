@@ -103,8 +103,9 @@ import { ");
             
             #line default
             #line hidden
-            this.Write("-edit.template.html\',\r\n    styleUrls: [ \'../../forms/elements/elements.style.scss" +
-                    "\' ],\r\n    providers: [\r\n\t\t");
+            this.Write("-edit.template.html\',\r\n    styleUrls: [\'../../forms/elements/elements.style.scss\'" +
+                    ", \'../../ui-elements/notifications/notifications.style.scss\'],\r\n    providers: [" +
+                    "\r\n\t\t");
             
             #line 30 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
@@ -425,14 +426,14 @@ import { ");
             
             #line default
             #line hidden
-            this.Write("> {\r\n        if (params[\'id\'])\r\n        {\r\n            this.upsertText = \'");
+            this.Write("> {\r\n        if (params[\'id\'])\r\n        {\r\n            this.upsertText = \'Edit ");
             
             #line 93 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(title));
             
             #line default
             #line hidden
-            this.Write(" Güncelle\';\r\n            return this.");
+            this.Write("\';\r\n            return this.");
             
             #line 94 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
@@ -441,7 +442,7 @@ import { ");
             #line hidden
             this.Write("Service.get(+params[\'id\'])\r\n                .catch(err => {\r\n                    " +
                     "this.router.navigate([\'/notfound\']);       \r\n                });\r\n        }\r\n   " +
-                    "     else {\r\n            this.upsertText = \'Yeni ");
+                    "     else {\r\n            this.upsertText = \'New ");
             
             #line 100 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(title));

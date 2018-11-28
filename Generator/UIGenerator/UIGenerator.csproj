@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -65,6 +65,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EnumServiceTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="Templates\LayoutRoutesTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LayoutRoutesTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="Templates\ListComponentTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -85,19 +90,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModuleTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="Templates\NavigationTreeTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NavigationTreeTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="Templates\Partials\EditComponentTemplate.cs" />
     <Compile Include="Templates\Partials\EditHtmlTemplate.cs" />
     <Compile Include="Templates\Partials\EnumPipeTemplate.cs" />
     <Compile Include="Templates\Partials\EnumServiceTemplate.cs" />
+    <Compile Include="Templates\Partials\LayoutRoutesTemplate.cs" />
     <Compile Include="Templates\Partials\ListComponentTemplate.cs" />
     <Compile Include="Templates\Partials\ListHtmlTemplate.cs" />
     <Compile Include="Templates\Partials\ModelTemplate.cs" />
     <Compile Include="Templates\Partials\ModuleTemplate.cs" />
+    <Compile Include="Templates\Partials\NavigationTreeTemplate.cs" />
     <Compile Include="Templates\Partials\ServiceTemplate.cs" />
+    <Compile Include="Templates\Partials\SideBarHtmlTemplate.cs" />
     <Compile Include="Templates\ServiceTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\SideBarHtmlTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SideBarHtmlTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +139,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EnumServiceTemplate.cs</LastGenOutput>
     </Content>
+    <Content Include="Templates\LayoutRoutesTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>LayoutRoutesTemplate.cs</LastGenOutput>
+    </Content>
     <Content Include="Templates\ListComponentTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ListComponentTemplate.cs</LastGenOutput>
@@ -137,9 +159,17 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ModuleTemplate.cs</LastGenOutput>
     </Content>
+    <Content Include="Templates\NavigationTreeTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>NavigationTreeTemplate.cs</LastGenOutput>
+    </Content>
     <Content Include="Templates\ServiceTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ServiceTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\SideBarHtmlTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SideBarHtmlTemplate.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

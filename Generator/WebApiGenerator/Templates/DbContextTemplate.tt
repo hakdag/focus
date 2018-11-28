@@ -20,9 +20,9 @@ namespace BetonCRM.DataAccess
             base.OnModelCreating(modelBuilder);
         }
 
-		<# foreach (Module module in modules)
+		<# foreach (var module in modules)
         {
-            foreach (Type type in module.Models)
+            foreach (var type in module.Models)
             { #>
         public DbSet<<#= type.Name #>> <#= type.Name #>s { get; set; }
 			<# }

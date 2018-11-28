@@ -35,7 +35,7 @@ export abstract class BaseEditComponent<TModel extends BaseModel> implements OnI
 
     cancel(isDirty: boolean): void {
         if (isDirty) {
-            if (confirm("Değişiklikleri kaydetmeden çıkmak istediğinizden emin misiniz?")) {
+            if (confirm("There are unsaved changes. Are you sure you want to leave?")) {
                 this.goBack();
             }
         } else {
@@ -65,9 +65,9 @@ export abstract class BaseEditComponent<TModel extends BaseModel> implements OnI
         if (this.messenger == null)
             this.messenger = new MessengerBox();
         let me = this;
-        let errorMessage = "Beklenmeyen bir hata oluştu.";
+        let errorMessage = "An unexpected error occurred.";
         if (error.status == 404)
-            errorMessage = "Bulunamadı."
+            errorMessage = "Not found."
         this.messenger.showErrorMessage(errorMessage, function () {
             if (retryFunc != null)
                 retryFunc();

@@ -6,25 +6,14 @@
 <#@ import namespace="System.Reflection" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<ol class="breadcrumb">
-  <li class="breadcrumb-item"><#= moduleUIName #></li>
-  <li class="breadcrumb-item active"><#= title #></li>
-</ol>
+<breadcrumb [itemId]="<#= type.TypeId #>"></breadcrumb>
 <section class="widget" widget>
-  <header>
-    <h4>Sistemde tanımlanmış <#= getConstructorArgument<TitleAttribute>(type).ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>lar.</h4>
-    <div class="widget-controls">
-      <a data-widgster="expand" title="Expand" href="#"><i class="glyphicon glyphicon-chevron-up"></i></a>
-      <a data-widgster="collapse" title="Collapse" href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
-      <a data-widgster="close" title="Close" href="#"><i class="glyphicon glyphicon-remove"></i></a>
-    </div>
-  </header>
   <div class="widget-body">
     <div class="mt">
       <div class="width-200 float-xs-left">
         <a class="btn btn-secondary width-100 mb-xs" role="button" [routerLink]="['/app/<#= moduleName #>/<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>']">
           <i class="glyphicon glyphicon-plus text-success"></i>
-          Ekle
+          Add
         </a>
       </div>
       <div class="width-200 float-xs-right">
@@ -32,7 +21,7 @@
           <span class="input-group-addon">
             <i class="fa fa-search"></i>
           </span>
-          <input class="form-control form-control-sm" id="table-search-input" (keyup)="filter($event)" [(ngModel)]="filterQuery" type="text" placeholder="<#= getSearchProperty() #> ile ara...">
+          <input class="form-control form-control-sm" id="table-search-input" (keyup)="filter($event)" [(ngModel)]="filterQuery" type="text" placeholder="Search by <#= getSearchProperty() #>...">
         </div>
       </div>
       <table class="table table-striped table-hover" [mfData]="data" #mf="mfDataTable"
@@ -47,7 +36,7 @@
           </th>
 		<# } #>
           <th class="no-sort">
-            İşlem
+            Action
           </th>
         </tr>
         </thead>
@@ -60,17 +49,17 @@
           <td class="width-200">
             <a class="btn btn-secondary width-100 mb-xs" role="button" [routerLink]="['/app/<#= moduleName #>/<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>', <#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>.Id]">
               <i class="glyphicon glyphicon-edit text-success"></i>
-              Güncelle
+              Edit
             </a>
             <button class="btn btn-secondary width-80 mb-xs" role="button" (click)="delete(<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>)">
               <i class="glyphicon glyphicon-trash text-danger"></i>
-              Sil
+              Delete
             </button>
           </td>
         </tr>
         <tr *ngIf="mf.data.length === 0">
           <td colspan="100">
-            Sonuç bulunamadı.
+            Nothing found.
           </td>
         </tr>
         </tbody>

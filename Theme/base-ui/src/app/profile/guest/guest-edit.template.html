@@ -1,0 +1,62 @@
+<breadcrumb [itemId]="6" [lastText]="upsertText"></breadcrumb>
+<section class="widget" widget>
+    <div class="widget-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <form class="form-horizontal" role="form" #form="ngForm" (ngSubmit)="save(form.value, form.valid)">
+                    <fieldset *ngIf="model">
+                        <input type="hidden" [(ngModel)]="model.Id" [value]="model.Id" name="Id" />
+                        <legend><strong *ngIf="model.Id">{{upsertText}} - </strong><strong *ngIf="!model.Id">{{upsertText}} - </strong>{{model.FirstName}}</legend>
+                        <div *ngIf="responseResult" class="form-group row">
+                            <div *ngIf="!responseResult.success" class="col-md-12 alert alert-danger">
+                                <span *ngFor="let msg of responseResult.Messages">{{msg}}</span>
+                            </div>
+                            <div *ngIf="responseResult.success" class="col-md-12 success alert-success">
+                                <span *ngFor="let msg of responseResult.Messages">{{msg}}</span>
+                            </div>
+                        </div>
+						                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label" for="FirstName">First Name</label>
+                            <div class="col-md-8 ">
+							                                <input type="text" required class="form-control" id="FirstName" [(ngModel)]="model.FirstName" name="FirstName" #FirstName="ngModel">
+							                            </div>
+                        </div>
+						                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label" for="LastName">Last Name</label>
+                            <div class="col-md-8 ">
+							                                <input type="text" required class="form-control" id="LastName" [(ngModel)]="model.LastName" name="LastName" #LastName="ngModel">
+							                            </div>
+                        </div>
+						                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label" for="Email">Email</label>
+                            <div class="col-md-8 ">
+							                                <input type="text" required class="form-control" id="Email" [(ngModel)]="model.Email" name="Email" #Email="ngModel">
+							                            </div>
+                        </div>
+						                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label" for="PassportNumber">Passport Number</label>
+                            <div class="col-md-8 ">
+							                                <input type="text" required class="form-control" id="PassportNumber" [(ngModel)]="model.PassportNumber" name="PassportNumber" #PassportNumber="ngModel">
+							                            </div>
+                        </div>
+						                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label" for="DateOfBirth">Date of Birth</label>
+                            <div class="col-md-8 ">
+							                                <datetime [(ngModel)]="model.DateOfBirth" id="DateOfBirth" required [datepicker]="datepickerOpts" name="DateOfBirth" #DateOfBirth="ngModel"></datetime>
+							                            </div>
+                        </div>
+						
+                    </fieldset>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="offset-md-4 col-md-7 ">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-inverse" (click)="cancel(form.touched)">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+</section>

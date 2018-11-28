@@ -39,9 +39,9 @@ export abstract class BaseShowComponent<TModel extends BaseModel> implements OnI
             if (this.messenger == null)
                 this.messenger = new MessengerBox();
             let me = this;
-            let errorMessage = "Beklenmeyen bir hata oluştu.";
+            let errorMessage = "An unexpected error occurred.";
             if (error.status == 404)
-                errorMessage = "Bulunamadı."
+                errorMessage = "Not found."
             this.messenger.showErrorMessage(errorMessage, function () {
                 if (retryFunc != null)
                     retryFunc();

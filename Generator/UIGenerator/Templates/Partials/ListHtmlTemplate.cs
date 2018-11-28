@@ -1,4 +1,5 @@
 ﻿using Focus.Common.Attributes;
+using GeneratorBase;
 using GeneratorBase.Extensions;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -9,30 +10,30 @@ namespace UIGenerator.Templates
 {
     public partial class ListHtmlTemplate
     {
-        private Type type;
+        private GeneratorType type;
         private string moduleName;
         private string moduleUIName;
         private string title;
         private string searchProperty;
         private PropertyInfo[] listableProperties;
-        public ListHtmlTemplate(Type type, string moduleName, string moduleUIName)
+        public ListHtmlTemplate(GeneratorType type, string moduleName, string moduleUIName)
         {
             this.type = type;
             this.moduleName = moduleName;
             this.moduleUIName = moduleUIName;
 
-            string attrValueTitle = type.GetAttributeValue((TitleAttribute ta) => ta.Title);
-            this.title = $"{attrValueTitle} {moduleUIName}ı";
+            string attrValueTitle = type.Type.GetAttributeValue((TitleAttribute ta) => ta.Title);
+            this.title = attrValueTitle;
 
-            searchProperty = getNamedArgument<DisplayAttribute>(type.GetProperties().FirstOrDefault(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(SearchPropertyAttribute))));
+            searchProperty = getNamedArgument<DisplayAttribute>(type.Type.GetProperties().FirstOrDefault(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(SearchPropertyAttribute))));
 
 
-            listableProperties = type.GetProperties().Where(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(DisplayAttribute))).ToArray();
+            listableProperties = type.Type.GetProperties().Where(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(DisplayAttribute))).ToArray();
         }
 
         private string getSearchProperty()
         {
-            var properties = type.GetProperties();
+            var properties = type.Type.GetProperties();
             var sp = properties.FirstOrDefault(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(SearchPropertyAttribute)));
             if (sp == null) return "Id";
 

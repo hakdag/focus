@@ -1,17 +1,18 @@
-﻿using System;
+﻿using Focus.Common.Attributes;
+using GeneratorBase;
+using GeneratorBase.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using GeneratorBase.Extensions;
 using Module = GeneratorBase.Module;
-using Focus.Common.Attributes;
 
 namespace UIGenerator.Templates
 {
     public partial class EditComponentTemplate
     {
         private string title;
-        private Type type;
+        private GeneratorType type;
         private PropertyInfo[] properties;
         private Dictionary<string, string> imports = new Dictionary<string, string>();
         private string moduleName;
@@ -21,13 +22,13 @@ namespace UIGenerator.Templates
         private Dictionary<string, string> parametreProperties = new Dictionary<string, string>();
         private List<PropertyInfo> enumProperties = new List<PropertyInfo>();
         private List<PropertyInfo> serviceProperties = new List<PropertyInfo>();
-        public EditComponentTemplate(Type type, string moduleName, List<Module> modules)
+        public EditComponentTemplate(GeneratorType type, string moduleName, List<Module> modules)
         {
             this.type = type;
             this.moduleName = moduleName;
             this.modules = modules;
-            this.title = type.GetAttributeValue((TitleAttribute ta) => ta.Title);
-            properties = type.GetProperties();
+            this.title = type.Type.GetAttributeValue((TitleAttribute ta) => ta.Title);
+            properties = type.Type.GetProperties();
 
             foreach (PropertyInfo pi in properties)
             {

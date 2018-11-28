@@ -11,6 +11,7 @@ namespace GeneratorBase
     {
         private string sourceLib;
         private string baseModelName;
+        private int idCounter;
 
         public List<Module> Modules { get; internal set; }
 
@@ -19,11 +20,13 @@ namespace GeneratorBase
             this.sourceLib = sourceLib;
             this.baseModelName = baseModelName;
             Modules = new List<Module>();
+            idCounter = 2;
         }
 
         public void Build()
         {
-            Assembly assembly = Assembly.Load(sourceLib);
+            AssemblyName assemblyName = AssemblyName.GetAssemblyName(sourceLib);
+            Assembly assembly = Assembly.Load(assemblyName);
             var types = assembly.GetTypes();
             var baseTypes = types.Where(t => t.BaseType.Name == baseModelName || (t.BaseType.BaseType != null && t.BaseType.BaseType.Name == baseModelName) || t.BaseType == typeof(Enum)).ToList();
             foreach (var type in baseTypes)
@@ -33,10 +36,18 @@ namespace GeneratorBase
                 if (String.IsNullOrEmpty(moduleName)) continue;
 
                 var module = Modules.FirstOrDefault(m => m.ModuleName == moduleName);
+                var moduleId = module?.ModuleId ?? idCounter;
+                var typeId = idCounter + 1;
+                var generatorType = new GeneratorType(type, typeId, moduleId);
                 if (module == null)
-                    Modules.Add(new Module(moduleName, uiName, new List<Type> { type }));
+                {
+                    Modules.Add(new Module(moduleName, uiName, new List<GeneratorType> { generatorType }, idCounter));
+                }
                 else
-                    module.Models.Add(type);
+                {
+                    module.Models.Add(generatorType);
+                }
+                idCounter += 2;
             }
         }
     }

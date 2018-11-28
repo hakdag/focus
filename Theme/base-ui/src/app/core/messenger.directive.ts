@@ -67,14 +67,14 @@ export class MessengerBox {
                 type: 'error',
                 actions: {
                     retry: {
-                        label: "Tekrar Dene",
+                        label: "Try again",
                         action: function () {
                             retryFunc();
                             msg.hide();
                         }
                     },
                     cancel: {
-                        label: "İptal",
+                        label: "Cancel",
                         action: function () {
                             msg.hide()
                         }
@@ -87,7 +87,7 @@ export class MessengerBox {
                 type: 'error',
                 actions: {
                     cancel: {
-                        label: "Tamam",
+                        label: "Ok",
                         action: function () {
                             msg.hide()
                         }

@@ -1,5 +1,6 @@
 ﻿using Focus.Common;
 using Focus.Common.Attributes;
+using GeneratorBase;
 using GeneratorBase.Extensions;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -11,27 +12,27 @@ namespace UIGenerator.Templates
 {
     public partial class EditHtmlTemplate
     {
-        private Type type;
+        private GeneratorType type;
         private string moduleName;
         private string moduleUIName;
         private string title;
         private PropertyInfo[] editableProperties;
 
-        public EditHtmlTemplate(Type type, string moduleName, string moduleUIName)
+        public EditHtmlTemplate(GeneratorType type, string moduleName, string moduleUIName)
         {
             this.type = type;
             this.moduleName = moduleName;
             this.moduleUIName = moduleUIName;
 
-            string attrValueTitle = type.GetAttributeValue((TitleAttribute ta) => ta.Title);
+            string attrValueTitle = type.Type.GetAttributeValue((TitleAttribute ta) => ta.Title);
             this.title = $"{attrValueTitle}";
 
-            editableProperties = type.GetProperties().Where(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(DisplayAttribute))).ToArray();
+            editableProperties = type.Type.GetProperties().Where(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(DisplayAttribute))).ToArray();
         }
 
         private string getSearchProperty()
         {
-            var properties = type.GetProperties();
+            var properties = type.Type.GetProperties();
             var sp = properties.FirstOrDefault(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(SearchPropertyAttribute)));
             if (sp == null) return "Id";
 

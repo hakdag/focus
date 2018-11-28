@@ -5,8 +5,8 @@ declare let jQuery: any;
 @Injectable()
 export class AppConfig {
   config = {
-    name: 'Beton CRM',
-    title: 'Beton CRM',
+    name: 'No Room Hotel Management',
+    title: 'No Room Hotel Management',
     version: '0.8.5',
     /**
      * Whether to print and alert some log information
@@ -45,10 +45,7 @@ export class AppConfig {
       navCollapseTimeout: 2500
     },
     service: {
-      // rootUrl: 'http://hakdag-001-site1.atempurl.com/'
       rootUrl: 'http://localhost:62747/'
-      // rootUrl: 'http://develibeton.net/api/'
-      //  rootUrl: 'http://localhost/BetonCRM/'
     },
     /**
      * Application state. May be changed when using.

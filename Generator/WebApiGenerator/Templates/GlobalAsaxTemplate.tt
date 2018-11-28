@@ -41,9 +41,9 @@ namespace BetonCRM
             builder.RegisterWebApiFilterProvider(config);
 
             // register business classes
-			<# foreach (Module module in modules)
+			<# foreach (var module in modules)
             {
-                foreach (Type type in module.Models)
+                foreach (var type in module.Models)
                 { #>
             builder.RegisterType<<#= type.Name #>Business>().As<I<#= type.Name #>Business>();
 				<# }
