@@ -1,18 +1,18 @@
 ﻿using System.Reflection;
+using Module = GeneratorBase.Module;
 
 namespace UIGenerator.Templates
 {
     public partial class EnumPipeTemplate
     {
-        private GeneratorBase.Module module;
-        private PropertyInfo pi;
-        private string pName;
+        public Module Module { get; }
+        public PropertyInfo Pi { get; }
+        public string PropertyName => Pi.PropertyType.Name;
 
-        public EnumPipeTemplate(PropertyInfo pi, GeneratorBase.Module module)
+        public EnumPipeTemplate(PropertyInfo pi, Module module)
         {
-            this.module = module;
-            this.pi = pi;
-            this.pName = pi.Name;
+            Module = module;
+            Pi = pi;
         }
     }
 }

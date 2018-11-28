@@ -60,6 +60,11 @@ namespace UIGenerator
             string strLayoutRoutes = layoutRoutesTemplate.TransformText();
             File.WriteAllText("layout.routes.ts", strLayoutRoutes);
 
+            // create core.module.ts
+            CoreModuleTemplate coreModuleTemplate = new CoreModuleTemplate(mb.Modules);
+            string strCoreModule = coreModuleTemplate.TransformText();
+            File.WriteAllText("core.module.ts", strCoreModule);
+
             foreach (GeneratorBase.Module module in mb.Modules)
             {
                 // create module folder

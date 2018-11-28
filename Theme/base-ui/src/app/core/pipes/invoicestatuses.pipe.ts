@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { InvoiceStatuses } from 'app/billing/invoicestatuses/invoicestatuses';
-import { InvoiceStatusesService } from 'app/billing/invoicestatuses/invoicestatuses.service';
+import { InvoiceStatuses } from "app/billing/invoicestatuses/invoicestatuses";
+import { InvoiceStatusesService } from "app/billing/invoicestatuses/invoicestatuses.service";
 
 @Pipe({
   name: 'InvoiceStatusesPipe',

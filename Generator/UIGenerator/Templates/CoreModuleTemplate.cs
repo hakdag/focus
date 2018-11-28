@@ -18,9 +18,9 @@ namespace UIGenerator.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
+    #line 1 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class EnumPipeTemplate : EnumPipeTemplateBase
+    public partial class CoreModuleTemplate : CoreModuleTemplateBase
     {
 #line hidden
         /// <summary>
@@ -28,121 +28,92 @@ namespace UIGenerator.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("import { Pipe, PipeTransform } from \'@angular/core\';\r\nimport { ");
+            this.Write(@"import { CommonModule } from '@angular/common';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ListCheckboxPipe } from 'app/core/pipes/listcb.pipe';
+import 'messenger/build/js/messenger.js';
+import { ActionButton } from 'app/shared/actionbutton.component';
+import { BreadCrumb } from 'app/shared/breadcrumb.component';
+");
             
-            #line 7 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PropertyName));
-            
-            #line default
-            #line hidden
-            this.Write(" } from \"app/");
-            
-            #line 7 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Module.ModuleName));
-            
-            #line default
-            #line hidden
-            this.Write("/");
-            
-            #line 7 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
+            #line 12 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+ for(int i=0; i<Pipes.Count; i++)
+{
+var pipe = Pipes[i]; 
             
             #line default
             #line hidden
-            this.Write("/");
+            this.Write("import { ");
             
-            #line 7 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
-            
-            #line default
-            #line hidden
-            this.Write("\";\r\nimport { ");
-            
-            #line 8 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PropertyName));
+            #line 15 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(pipe.Name));
             
             #line default
             #line hidden
-            this.Write("Service } from \"app/");
+            this.Write("Pipe } from \'app/core/pipes/");
             
-            #line 8 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Module.ModuleName));
-            
-            #line default
-            #line hidden
-            this.Write("/");
-            
-            #line 8 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
+            #line 15 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(pipe.Name.ToLower()));
             
             #line default
             #line hidden
-            this.Write("/");
+            this.Write(".pipe\';\r\n");
             
-            #line 8 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
-            
-            #line default
-            #line hidden
-            this.Write(".service\";\r\n\r\n@Pipe({\r\n  name: \'");
-            
-            #line 11 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PropertyName));
+            #line 16 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+ } 
             
             #line default
             #line hidden
-            this.Write("Pipe\',\r\n  pure: false\r\n})\r\nexport class ");
+            this.Write("\r\n@NgModule({\r\n    declarations: [\r\n\t\tListCheckboxPipe,\r\n\t\tActionButton,\r\n\t\tBread" +
+                    "Crumb,\r\n");
             
-            #line 14 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PropertyName));
-            
-            #line default
-            #line hidden
-            this.Write("Pipe implements PipeTransform {\r\n\r\n  transform(key: number): string {\r\n      var " +
-                    "tc: ");
-            
-            #line 17 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PropertyName));
+            #line 23 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+ for(int i=0; i<Pipes.Count; i++)
+{
+var pipe = Pipes[i]; 
             
             #line default
             #line hidden
-            this.Write(" = new ");
+            this.Write("\t\t");
             
-            #line 17 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PropertyName));
-            
-            #line default
-            #line hidden
-            this.Write("();\r\n      var ");
-            
-            #line 18 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
+            #line 26 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(pipe.Name));
             
             #line default
             #line hidden
-            this.Write("Service: ");
+            this.Write("Pipe,\r\n");
             
-            #line 18 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PropertyName));
-            
-            #line default
-            #line hidden
-            this.Write("Service = new ");
-            
-            #line 18 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PropertyName));
+            #line 27 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+ } 
             
             #line default
             #line hidden
-            this.Write("Service();\r\n      var arr = ");
+            this.Write("\t],\r\n    imports: [CommonModule],\r\n    exports: [\r\n\t\tListCheckboxPipe,\r\n\t\tActionB" +
+                    "utton,\r\n\t\tBreadCrumb,\r\n");
             
-            #line 19 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EnumPipeTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
+            #line 34 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+ for(int i=0; i<Pipes.Count; i++)
+{
+var pipe = Pipes[i]; 
             
             #line default
             #line hidden
-            this.Write("Service.getList();\r\n      return arr.filter(t => t.value === key.toString())[0].k" +
-                    "ey;\r\n  }\r\n}\r\n");
+            this.Write("\t\t");
+            
+            #line 37 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(pipe.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Pipe,\r\n");
+            
+            #line 38 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
+            this.Write("\t],\r\n    schemas:  [ CUSTOM_ELEMENTS_SCHEMA ]\r\n})\r\nexport class coreModule {\r\n}\r\n" +
+                    "");
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -154,7 +125,7 @@ namespace UIGenerator.Templates
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public class EnumPipeTemplateBase
+    public class CoreModuleTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

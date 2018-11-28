@@ -1,24 +1,41 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
 import { CommonModule } from '@angular/common';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ListCheckboxPipe } from 'app/core/pipes/listcb.pipe';
 import 'messenger/build/js/messenger.js';
 import { ActionButton } from 'app/shared/actionbutton.component';
 import { BreadCrumb } from 'app/shared/breadcrumb.component';
-import { InvoiceStatusesPipe } from 'app/core/pipes/invoicestatuses.pipe';
+<# for(int i=0; i<Pipes.Count; i++)
+{
+var pipe = Pipes[i]; #>
+import { <#= pipe.Name #>Pipe } from 'app/core/pipes/<#= pipe.Name.ToLower() #>.pipe';
+<# } #>
 
 @NgModule({
     declarations: [
 		ListCheckboxPipe,
 		ActionButton,
 		BreadCrumb,
-		InvoiceStatusesPipe,
+<# for(int i=0; i<Pipes.Count; i++)
+{
+var pipe = Pipes[i]; #>
+		<#= pipe.Name #>Pipe,
+<# } #>
 	],
     imports: [CommonModule],
     exports: [
 		ListCheckboxPipe,
 		ActionButton,
 		BreadCrumb,
-		InvoiceStatusesPipe,
+<# for(int i=0; i<Pipes.Count; i++)
+{
+var pipe = Pipes[i]; #>
+		<#= pipe.Name #>Pipe,
+<# } #>
 	],
     schemas:  [ CUSTOM_ELEMENTS_SCHEMA ]
 })

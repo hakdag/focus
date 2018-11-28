@@ -4,19 +4,19 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 import { Pipe, PipeTransform } from '@angular/core';
-import { <#= pi.PropertyType.Name #> } from "./<#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>";
-import { <#= pi.PropertyType.Name #>Service } from "./<#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>.service";
+import { <#= PropertyName #> } from "app/<#= Module.ModuleName #>/<#= PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>/<#= PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>";
+import { <#= PropertyName #>Service } from "app/<#= Module.ModuleName #>/<#= PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>/<#= PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>.service";
 
 @Pipe({
-  name: '<#= pi.PropertyType.Name #>Pipe',
+  name: '<#= PropertyName #>Pipe',
   pure: false
 })
-export class <#= pi.PropertyType.Name #>Pipe implements PipeTransform {
+export class <#= PropertyName #>Pipe implements PipeTransform {
 
   transform(key: number): string {
-      var tc: <#= pi.PropertyType.Name #> = new <#= pi.PropertyType.Name #>();
-      var <#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service: <#= pi.PropertyType.Name #>Service = new <#= pi.PropertyType.Name #>Service();
-      var arr = <#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service.getList();
+      var tc: <#= PropertyName #> = new <#= PropertyName #>();
+      var <#= PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service: <#= PropertyName #>Service = new <#= PropertyName #>Service();
+      var arr = <#= PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service.getList();
       return arr.filter(t => t.value === key.toString())[0].key;
   }
 }

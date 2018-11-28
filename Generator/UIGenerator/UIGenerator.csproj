@@ -45,6 +45,11 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\CoreModuleTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CoreModuleTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="Templates\EditComponentTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,6 +100,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NavigationTreeTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="Templates\Partials\CoreModuleTemplate.cs" />
     <Compile Include="Templates\Partials\EditComponentTemplate.cs" />
     <Compile Include="Templates\Partials\EditHtmlTemplate.cs" />
     <Compile Include="Templates\Partials\EnumPipeTemplate.cs" />
@@ -123,6 +129,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Templates\CoreModuleTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CoreModuleTemplate.cs</LastGenOutput>
+    </Content>
     <Content Include="Templates\EditComponentTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EditComponentTemplate.cs</LastGenOutput>
