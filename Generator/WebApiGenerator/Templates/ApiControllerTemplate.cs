@@ -18,7 +18,7 @@ namespace WebApiGenerator.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\de_bu\Documents\Visual Studio 2017\Projects\BetonCRM\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+    #line 1 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ApiControllerTemplate : ApiControllerTemplateBase
     {
@@ -28,27 +28,45 @@ namespace WebApiGenerator.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write(@"using BetonCRM.Common.Models;
-using BetonCRM.Common.Pagination;
-using BetonCRM.Contracts.Business;
-using BetonCRM.Helpers;
-using System;
-using System.Linq;
-using System.Web.Http;
-using System.Web.Http.Cors;
-
-namespace BetonCRM.Controllers
-{
-    [Route(""api/");
+            this.Write("using Focus.Common.Pagination;\r\nusing ");
             
-            #line 17 "C:\Users\de_bu\Documents\Visual Studio 2017\Projects\BetonCRM\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 7 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Common;\r\nusing ");
+            
+            #line 8 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Contracts.Business;\r\nusing ");
+            
+            #line 9 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Helpers;\r\nusing System;\r\nusing System.Linq;\r\nusing System.Web.Http;\r\nusing Syste" +
+                    "m.Web.Http.Cors;\r\n\r\nnamespace ");
+            
+            #line 15 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Controllers\r\n{\r\n    [Route(\"api/");
+            
+            #line 17 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(moduleName));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 17 "C:\Users\de_bu\Documents\Visual Studio 2017\Projects\BetonCRM\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 17 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
@@ -56,42 +74,42 @@ namespace BetonCRM.Controllers
             this.Write("/{id?}\")] \r\n    [EnableCors(origins: \"http://localhost:3000\", headers: \"*\", metho" +
                     "ds: \"*\")]\r\n\t[Authorize]\r\n    public class ");
             
-            #line 20 "C:\Users\de_bu\Documents\Visual Studio 2017\Projects\BetonCRM\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 20 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("Controller : BaseController<I");
             
-            #line 20 "C:\Users\de_bu\Documents\Visual Studio 2017\Projects\BetonCRM\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 20 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("Business, ");
             
-            #line 20 "C:\Users\de_bu\Documents\Visual Studio 2017\Projects\BetonCRM\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 20 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write(">\r\n    {\r\n\t\tpublic ");
             
-            #line 22 "C:\Users\de_bu\Documents\Visual Studio 2017\Projects\BetonCRM\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 22 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("Controller(I");
             
-            #line 22 "C:\Users\de_bu\Documents\Visual Studio 2017\Projects\BetonCRM\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 22 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("Business business) : base(business) { }\r\n\r\n        public PageResult<");
             
-            #line 24 "C:\Users\de_bu\Documents\Visual Studio 2017\Projects\BetonCRM\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 24 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
@@ -99,14 +117,14 @@ namespace BetonCRM.Controllers
             this.Write("> Get(string filterQuery, int startIndex, int rowsOnPage, string sortBy, string s" +
                     "ortOrder)\r\n        {\r\n            return base.Get(\"");
             
-            #line 26 "C:\Users\de_bu\Documents\Visual Studio 2017\Projects\BetonCRM\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 26 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(searchProperty == null ? "Id" : searchProperty.Name));
             
             #line default
             #line hidden
             this.Write("\", \"");
             
-            #line 26 "C:\Users\de_bu\Documents\Visual Studio 2017\Projects\BetonCRM\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 26 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(defaultSortProperty == null ? "Id" : defaultSortProperty.Name));
             
             #line default

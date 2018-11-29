@@ -6,18 +6,18 @@
 <#@ import namespace="GeneratorBase" #>
 using Autofac;
 using Autofac.Integration.WebApi;
-using BetonCRM.Business;
-using BetonCRM.Contracts.Business;
-using BetonCRM.Contracts.DataAccess;
-using BetonCRM.DataAccess;
-using BetonCRM.DataAccess.UnitOfWork;
+using <#= ProjectName #>.Business;
+using <#= ProjectName #>.Contracts.Business;
+using <#= ProjectName #>.Contracts.DataAccess;
+using <#= ProjectName #>.DataAccess;
+using <#= ProjectName #>.DataAccess.UnitOfWork;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace BetonCRM
+namespace <#= ProjectName #>
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
@@ -50,7 +50,7 @@ namespace BetonCRM
 			} #>
 
             // register data access
-            builder.RegisterType<BetonCRMContext>().AsSelf();
+            builder.RegisterType<<#= ProjectName #>Context>().AsSelf();
             builder.RegisterType<EFUnitOfWork>().As<IUnitOfWork>();
 
             // Set the dependency resolver to be Autofac.

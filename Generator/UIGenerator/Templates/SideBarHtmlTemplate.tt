@@ -38,8 +38,7 @@ var module = Modules[i]; #>
 {
 var type = module.Models[j];
 if (type.BaseType != typeof(Enum))
-{
-#>
+{ #>
         <li><a [routerLink]=" ['<#= module.ModuleName #>/<#= type.Name.ToLower() #>list'] "><#= type.Title #></a></li>
 <# }
 } #>

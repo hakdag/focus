@@ -3,16 +3,16 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-using BetonCRM.Common.Models;
-using BetonCRM.Common.Pagination;
-using BetonCRM.Contracts.Business;
-using BetonCRM.Helpers;
+using Focus.Common.Pagination;
+using <#= ProjectName #>.Common;
+using <#= ProjectName #>.Contracts.Business;
+using <#= ProjectName #>.Helpers;
 using System;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
-namespace BetonCRM.Controllers
+namespace <#= ProjectName #>.Controllers
 {
     [Route("api/<#= moduleName #>/<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>/{id?}")] 
     [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]

@@ -86,35 +86,34 @@ var module = Modules[i];
 {
 var type = module.Models[j];
 if (type.BaseType != typeof(Enum))
-{
-
+{ 
             
             #line default
             #line hidden
             this.Write("        <li><a [routerLink]=\" [\'");
             
-            #line 43 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 42 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 43 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 42 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower()));
             
             #line default
             #line hidden
             this.Write("list\'] \">");
             
-            #line 43 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 42 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Title));
             
             #line default
             #line hidden
             this.Write("</a></li>\r\n");
             
-            #line 44 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 43 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
  }
 } 
             
@@ -122,7 +121,7 @@ if (type.BaseType != typeof(Enum))
             #line hidden
             this.Write("      </ul>\r\n    </li>\r\n");
             
-            #line 48 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 47 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
  } 
             
             #line default

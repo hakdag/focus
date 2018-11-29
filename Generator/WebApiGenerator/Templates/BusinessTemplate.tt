@@ -3,11 +3,11 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-using BetonCRM.Common.Models;
-using BetonCRM.Contracts.Business;
-using BetonCRM.Contracts.DataAccess;
+using <#= ProjectName #>.Common.Models;
+using <#= ProjectName #>.Contracts.Business;
+using <#= ProjectName #>.Contracts.DataAccess;
 
-namespace BetonCRM.Business
+namespace <#= ProjectName #>.Business
 {
     public class <#= type.Name #>Business : BaseBusiness<<#= type.Name #>>, I<#= type.Name #>Business
     {

@@ -4,15 +4,15 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="GeneratorBase" #>
-using BetonCRM.Common.Models;
+using <#= ProjectName #>.Common.Models;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
-namespace BetonCRM.DataAccess
+namespace <#= ProjectName #>.DataAccess
 {
     public class BetonCRMContext : DbContext
     {
-        public BetonCRMContext() : base("BetonCRM") { }
+        public BetonCRMContext() : base("<#= ProjectName #>") { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

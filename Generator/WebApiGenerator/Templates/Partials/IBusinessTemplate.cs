@@ -6,11 +6,13 @@ namespace WebApiGenerator.Templates
     {
         private GeneratorType type;
         private string moduleName;
+        public string ProjectName { get; }
 
-        public IBusinessTemplate(GeneratorType type, string moduleName)
+        public IBusinessTemplate(string projectName, GeneratorType type, string moduleName)
         {
             this.type = type;
             this.moduleName = moduleName;
+            ProjectName = projectName;
         }
     }
 }

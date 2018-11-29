@@ -10,10 +10,12 @@ namespace WebApiGenerator.Templates
     public partial class DbContextTemplate
     {
         private List<Module> modules;
+        public string ProjectName { get; }
 
-        public DbContextTemplate(List<Module> modules)
+        public DbContextTemplate(string projectName, List<Module> modules)
         {
             this.modules = modules;
+            ProjectName = projectName;
         }
     }
 }

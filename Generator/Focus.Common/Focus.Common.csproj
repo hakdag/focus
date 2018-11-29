@@ -49,10 +49,12 @@
     <Compile Include="Attributes\ModuleAttribute.cs" />
     <Compile Include="Attributes\PassModelAttribute.cs" />
     <Compile Include="BaseModel.cs" />
+    <Compile Include="Pagination\PageResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Attributes\RequiredAttribute.cs" />
     <Compile Include="Attributes\SearchPropertyAttribute.cs" />
     <Compile Include="Attributes\TitleAttribute.cs" />
+    <Compile Include="ResponseResult.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

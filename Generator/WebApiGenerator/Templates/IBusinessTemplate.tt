@@ -3,9 +3,9 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-using BetonCRM.Common.Models;
+using <#= ProjectName #>.Common.Models;
 
-namespace BetonCRM.Contracts.Business
+namespace <#= ProjectName #>.Contracts.Business
 {
 	public interface I<#= type.Name #>Business : IBaseBusiness<<#= type.Name #>>
 	{

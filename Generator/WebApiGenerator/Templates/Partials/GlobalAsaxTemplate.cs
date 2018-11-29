@@ -10,10 +10,12 @@ namespace WebApiGenerator.Templates
     public partial class GlobalAsaxTemplate
     {
         private List<Module> modules;
+        public string ProjectName { get; }
 
-        public GlobalAsaxTemplate(List<Module> modules)
+        public GlobalAsaxTemplate(string projectName, List<Module> modules)
         {
             this.modules = modules;
+            ProjectName = projectName;
         }
     }
 }

@@ -43,8 +43,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Files.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Resources\AccountBindingModels.cs" />
+    <None Include="Resources\AccountViewModels.cs" />
+    <None Include="Resources\ApplicationRoleManager.cs" />
+    <None Include="Resources\IdentityModels.cs" />
+    <None Include="Resources\ModelFactory.cs" />
+    <None Include="Resources\Role.cs" />
+    <Compile Include="Templates\Partials\WebApiCsProjTemplate.cs" />
+    <Compile Include="Templates\WebApiCsProjTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebApiCsProjTemplate.tt</DependentUpon>
+    </Compile>
+    <None Include="Resources\BundleConfig.cs" />
+    <None Include="Resources\FilterConfig.cs" />
+    <None Include="Resources\IdentityConfig.cs" />
+    <None Include="Resources\packages.config" />
+    <None Include="Resources\RouteConfig.cs" />
+    <None Include="Resources\Startup.Auth.cs" />
+    <None Include="Resources\Web.config" />
+    <None Include="Resources\WebApiConfig.cs" />
+    <None Include="Resources\AccountController.cs" />
+    <None Include="Resources\BaseController.cs" />
+    <None Include="Resources\ValidateModelAttribute.cs" />
+    <None Include="Resources\ClaimsAuthorizationAttribute.cs" />
+    <None Include="Resources\CustomAuthorizeAttribute.cs" />
+    <None Include="Resources\LogActionFilter.cs" />
+    <None Include="Resources\LogExceptionFilterAttribute.cs" />
+    <None Include="Resources\UpdateFKAttribute.cs" />
+    <None Include="Resources\ReflectionExtensions.cs" />
+    <None Include="Resources\AssemblyInfo.cs" />
+    <None Include="Resources\CustomJwtFormat.cs" />
+    <None Include="Resources\CustomOAuthProvider.cs" />
+    <None Include="Resources\ChallengeResult.cs" />
+    <None Include="Resources\EmailService.cs" />
+    <None Include="Resources\Startup.cs" />
     <Compile Include="Templates\ApiControllerTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,6 +131,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Templates\WebApiCsProjTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>WebApiCsProjTemplate.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\CsProjFile.csproj" />
+    <None Include="Resources\Global.asax" />
+    <None Include="Resources\ProjectName.sln" />
+    <None Include="Resources\SolutionFile.sln" />
     <Content Include="Templates\ApiControllerTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ApiControllerTemplate.cs</LastGenOutput>
@@ -113,6 +162,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

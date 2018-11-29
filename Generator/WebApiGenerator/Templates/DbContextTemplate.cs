@@ -29,23 +29,33 @@ namespace WebApiGenerator.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write(@"using BetonCRM.Common.Models;
-using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
-
-namespace BetonCRM.DataAccess
-{
-    public class BetonCRMContext : DbContext
-    {
-        public BetonCRMContext() : base(""BetonCRM"") { }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            base.OnModelCreating(modelBuilder);
-        }
-
-		");
+            this.Write("using ");
+            
+            #line 7 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\DbContextTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Common.Models;\r\nusing System.Data.Entity;\r\nusing System.Data.Entity.ModelConfigu" +
+                    "ration.Conventions;\r\n\r\nnamespace ");
+            
+            #line 11 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\DbContextTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".DataAccess\r\n{\r\n    public class BetonCRMContext : DbContext\r\n    {\r\n        publ" +
+                    "ic BetonCRMContext() : base(\"");
+            
+            #line 15 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\DbContextTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write("\") { }\r\n\r\n        protected override void OnModelCreating(DbModelBuilder modelBui" +
+                    "lder)\r\n        {\r\n            modelBuilder.Conventions.Remove<PluralizingTableNa" +
+                    "meConvention>();\r\n            base.OnModelCreating(modelBuilder);\r\n        }\r\n\r\n" +
+                    "\t\t");
             
             #line 23 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\DbContextTemplate.tt"
  foreach (var module in modules)
