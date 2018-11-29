@@ -3,12 +3,12 @@
     <div class="row">
       <div class="col-xl-4 col-md-6 col-xs-10 offset-xl-4 offset-md-3 offset-xs-1">
         <h5 class="widget-login-logo animated fadeInUp">
-          <i class="fa fa-circle text-gray"></i> CRM
+          <i class="fa fa-circle text-gray"></i> Innovation Project
           <i class="fa fa-circle text-warning"></i>
         </h5>
         <section class="widget widget-login animated fadeInUp">
           <header>
-            <h3>Giriş</h3>
+            <h3>Login</h3>
           </header>
           <div class="widget-body">
             <form class="login-form mt-lg" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
@@ -21,16 +21,16 @@
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kullanıcı Adı..." name="username" [(ngModel)]="model.username"
+                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="User name..." name="username" [(ngModel)]="model.username"
                   #username="ngModel" required>
               </div>
               <div class="form-group">
-                <input class="form-control" id="pswd" type="password" placeholder="Şifre..." name="password" [(ngModel)]="model.password"
+                <input class="form-control" id="pswd" type="password" placeholder="Password..." name="password" [(ngModel)]="model.password"
                   #password="ngModel" required>
               </div>
               <div class="clearfix">
                 <div class="btn-toolbar float-xs-right m-t-1">
-                  <button class="btn btn-inverse btn-sm">Giriş</button>
+                  <button class="btn btn-inverse btn-sm">Login</button>
                 </div>
               </div>
             </form>
@@ -39,7 +39,4 @@
       </div>
     </div>
   </main>
-  <footer class="page-footer">
-    2017 &copy; Hakan Akdağ. CRM Project.
-  </footer>
 </div>

@@ -28,16 +28,18 @@ namespace UIGenerator.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write(@"import { Routes, RouterModule }  from '@angular/router';
-import { Layout } from './layout.component';
-
-const routes: Routes = [
-  { path: '', component: Layout, children: [
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    { path: 'dashboard', loadChildren: '../dashboard/dashboard.module#DashboardModule' },
-");
+            this.Write("import { Routes, RouterModule }  from \'@angular/router\';\r\nimport { Layout } from " +
+                    "\'./layout.component\';\r\n\r\nconst routes: Routes = [\r\n  { path: \'\', component: Layo" +
+                    "ut, children: [\r\n    { path: \'\', redirectTo: \'");
             
-            #line 13 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+            #line 11 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Modules[0].ModuleName));
+            
+            #line default
+            #line hidden
+            this.Write("\', pathMatch: \'full\' },\r\n");
+            
+            #line 12 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
  for(int i=0; i<Modules.Count; i++)
 {
 var module = Modules[i]; 
@@ -46,35 +48,35 @@ var module = Modules[i];
             #line hidden
             this.Write("    { path: \'");
             
-            #line 16 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+            #line 15 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write("\', loadChildren: \'../");
             
-            #line 16 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+            #line 15 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 16 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+            #line 15 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write(".module#");
             
-            #line 16 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+            #line 15 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write("Module\' }, \r\n");
             
-            #line 17 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+            #line 16 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
  } 
             
             #line default

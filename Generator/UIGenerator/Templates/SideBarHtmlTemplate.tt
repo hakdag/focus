@@ -14,14 +14,6 @@
     </a>
   </div>
   <ul class="sidebar-nav">
-    <li>
-      <a [routerLink]=" ['dashboard'] ">
-          <span class="icon">
-            <i class="fa fa-desktop"></i>
-          </span>
-        Dashboard
-      </a>
-    </li>
 <# for(int i=0; i<Modules.Count; i++)
 {
 var module = Modules[i]; #>

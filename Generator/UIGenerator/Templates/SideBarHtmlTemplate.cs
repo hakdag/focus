@@ -39,17 +39,9 @@ namespace UIGenerator.Templates
     </a>
   </div>
   <ul class=""sidebar-nav"">
-    <li>
-      <a [routerLink]="" ['dashboard'] "">
-          <span class=""icon"">
-            <i class=""fa fa-desktop""></i>
-          </span>
-        Dashboard
-      </a>
-    </li>
 ");
             
-            #line 25 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 17 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
  for(int i=0; i<Modules.Count; i++)
 {
 var module = Modules[i]; 
@@ -58,7 +50,7 @@ var module = Modules[i];
             #line hidden
             this.Write("    <li>\r\n      <a class=\"collapsed\" data-target=\"#sidebar-");
             
-            #line 29 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 21 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
@@ -66,7 +58,7 @@ var module = Modules[i];
             this.Write("\" data-toggle=\"collapse\" data-parent=\"#sidebar\">\r\n          <span class=\"icon\">\r\n" +
                     "            <i class=\"fa fa-table\"></i>\r\n          </span>\r\n        ");
             
-            #line 33 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 25 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.UIName));
             
             #line default
@@ -74,14 +66,14 @@ var module = Modules[i];
             this.Write("\r\n        <i class=\"toggle fa fa-angle-down\"></i>\r\n      </a>\r\n      <ul id=\"side" +
                     "bar-");
             
-            #line 36 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 28 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write("\" class=\"collapse\">\r\n");
             
-            #line 37 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 29 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
  for(int j=0; j<module.Models.Count; j++)
 {
 var type = module.Models[j];
@@ -92,28 +84,28 @@ if (type.BaseType != typeof(Enum))
             #line hidden
             this.Write("        <li><a [routerLink]=\" [\'");
             
-            #line 42 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 34 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 42 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 34 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower()));
             
             #line default
             #line hidden
             this.Write("list\'] \">");
             
-            #line 42 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 34 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Title));
             
             #line default
             #line hidden
             this.Write("</a></li>\r\n");
             
-            #line 43 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 35 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
  }
 } 
             
@@ -121,7 +113,7 @@ if (type.BaseType != typeof(Enum))
             #line hidden
             this.Write("      </ul>\r\n    </li>\r\n");
             
-            #line 47 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
+            #line 39 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\SideBarHtmlTemplate.tt"
  } 
             
             #line default

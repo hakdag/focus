@@ -43,7 +43,7 @@ export class Login implements OnInit {
         //     .subscribe(
         //     data => {
             localStorage.setItem('token', JSON.stringify({}));
-            this.loginResult = { success: true, Messages: ["Giriş başarılı."] };
+            this.loginResult = { success: true, Messages: ["Login successful."] };
                 this.router.navigate([this.returnUrl]);
             // },
             // response => {
