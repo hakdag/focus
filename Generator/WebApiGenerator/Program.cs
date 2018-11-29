@@ -29,6 +29,8 @@ namespace WebApiGenerator
 
             CreateFolders(projectName);
 
+            CopyFiles(sourceLibrary);
+
             // traverse every file in the API folder and replace namespace
             GenerateGeneralFiles(projectName);
 
@@ -37,16 +39,10 @@ namespace WebApiGenerator
             string resultgat = gat.TransformText();
             File.WriteAllText($"Output\\Backend\\{projectName}\\Global.asax.cs", resultgat);
 
-
             // create web api .csproj file
             WebApiCsProjTemplate webApiCsProjTemplate = new WebApiCsProjTemplate(projectName, mb.Modules);
             string strWebApiCsProj = webApiCsProjTemplate.TransformText();
             File.WriteAllText($"Output\\Backend\\{projectName}\\{projectName}.csproj", strWebApiCsProj);
-
-            // create DbContext file
-            DbContextTemplate dct = new DbContextTemplate(projectName, mb.Modules);
-            string resultdct = dct.TransformText();
-            File.WriteAllText("BetonCRMContext.cs", resultdct);
 
             if (!Directory.Exists("Controllers"))
                 Directory.CreateDirectory("Controllers");
@@ -55,14 +51,8 @@ namespace WebApiGenerator
             {
                 // create module folders
                 string moduleFolderControllers = $"Output\\Backend\\{projectName}\\Controllers\\{module.ModuleName}";
-                string moduleFolderContracts = $"Output\\Backend\\{projectName}.Contracts\\{module.ModuleName}";
-                string moduleFolderBusinesses = $"Output\\Backend\\{projectName}.Business\\{module.ModuleName}";
                 if (!Directory.Exists(moduleFolderControllers))
                     Directory.CreateDirectory(moduleFolderControllers);
-                if (!Directory.Exists(moduleFolderContracts))
-                    Directory.CreateDirectory(moduleFolderContracts);
-                if (!Directory.Exists(moduleFolderBusinesses))
-                    Directory.CreateDirectory(moduleFolderBusinesses);
 
                 // loop types in module
                 foreach (var type in module.Models)
@@ -74,16 +64,6 @@ namespace WebApiGenerator
                     ApiControllerTemplate act = new ApiControllerTemplate(projectName, type, module.ModuleName);
                     string result = act.TransformText();
                     File.WriteAllText($"{moduleFolderControllers}\\{type.Name}Controller.cs", result);
-
-                    // create IBusiness interface for business class
-                    IBusinessTemplate ibt = new IBusinessTemplate(projectName, type, module.ModuleName);
-                    string result2 = ibt.TransformText();
-                    File.WriteAllText($"{moduleFolderContracts}\\I{type.Name}Business.cs", result2);
-
-                    // create Business classes
-                    BusinessTemplate bt = new BusinessTemplate(projectName, type, module.ModuleName);
-                    string result3 = bt.TransformText();
-                    File.WriteAllText($"{moduleFolderBusinesses}\\{type.Name}Business.cs", result3);
                 }
             }
         }
@@ -107,22 +87,21 @@ namespace WebApiGenerator
             }
         }
 
+        private static void CopyFiles(string sourceLibrary)
+        {
+            File.Copy(sourceLibrary, $"Output\\Backend\\Libraries\\{sourceLibrary}");
+        }
+
         private static void CreateFolders(string projectName)
         {
             if (!Directory.Exists("Output"))
                 Directory.CreateDirectory("Output");
             if (!Directory.Exists("Output\\Backend"))
                 Directory.CreateDirectory("Output\\Backend");
+            if (!Directory.Exists("Output\\Backend\\Libraries"))
+                Directory.CreateDirectory("Output\\Backend\\Libraries");
             if (!Directory.Exists($"Output\\Backend\\{projectName}"))
                 Directory.CreateDirectory($"Output\\Backend\\{projectName}");
-            if (!Directory.Exists($"Output\\Backend\\{projectName}.Contracts"))
-                Directory.CreateDirectory($"Output\\Backend\\{projectName}.Contracts");
-            if (!Directory.Exists($"Output\\Backend\\{projectName}.Business"))
-                Directory.CreateDirectory($"Output\\Backend\\{projectName}.Business");
-            if (!Directory.Exists($"Output\\Backend\\{projectName}.Common"))
-                Directory.CreateDirectory($"Output\\Backend\\{projectName}.Common");
-            if (!Directory.Exists($"Output\\Backend\\{projectName}.DataAccess"))
-                Directory.CreateDirectory($"Output\\Backend\\{projectName}.DataAccess");
             if (!Directory.Exists($"Output\\Backend\\{projectName}\\App_Start"))
                 Directory.CreateDirectory($"Output\\Backend\\{projectName}\\App_Start");
             if (!Directory.Exists($"Output\\Backend\\{projectName}\\Controllers"))

@@ -6,11 +6,6 @@
 <#@ import namespace="GeneratorBase" #>
 using Autofac;
 using Autofac.Integration.WebApi;
-using <#= ProjectName #>.Business;
-using <#= ProjectName #>.Contracts.Business;
-using <#= ProjectName #>.Contracts.DataAccess;
-using <#= ProjectName #>.DataAccess;
-using <#= ProjectName #>.DataAccess.UnitOfWork;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -39,19 +34,6 @@ namespace <#= ProjectName #>
 
             // OPTIONAL: Register the Autofac filter provider.
             builder.RegisterWebApiFilterProvider(config);
-
-            // register business classes
-			<# foreach (var module in modules)
-            {
-                foreach (var type in module.Models)
-                { #>
-            builder.RegisterType<<#= type.Name #>Business>().As<I<#= type.Name #>Business>();
-				<# }
-			} #>
-
-            // register data access
-            builder.RegisterType<<#= ProjectName #>Context>().AsSelf();
-            builder.RegisterType<EFUnitOfWork>().As<IUnitOfWork>();
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();

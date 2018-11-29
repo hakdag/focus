@@ -9,9 +9,14 @@ import { InvoiceStatusesService } from "app/billing/invoicestatuses/invoicestatu
 export class InvoiceStatusesPipe implements PipeTransform {
 
   transform(key: number): string {
-      var tc: InvoiceStatuses = new InvoiceStatuses();
+    if (key == null)
+      return "";
+
       var invoicestatusesService: InvoiceStatusesService = new InvoiceStatusesService();
       var arr = invoicestatusesService.getList();
-      return arr.filter(t => t.value === key.toString())[0].key;
-  }
+      var res = arr.filter(t => t.value === key);
+      if (res != null)
+        return res[0].key;
+      return "";
+    }
 }

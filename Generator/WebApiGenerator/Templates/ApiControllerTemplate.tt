@@ -3,27 +3,61 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using Bogus;
 using Focus.Common.Pagination;
 using <#= ProjectName #>.Common;
-using <#= ProjectName #>.Contracts.Business;
-using <#= ProjectName #>.Helpers;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
 namespace <#= ProjectName #>.Controllers
 {
-    [Route("api/<#= moduleName #>/<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>/{id?}")] 
-    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
-	[Authorize]
-    public class <#= type.Name #>Controller : BaseController<I<#= type.Name #>Business, <#= type.Name #>>
+    [Route("api/<#= moduleName #>/<#= Type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>/{id?}")] 
+    [EnableCors(origins: "http://localhost:8080", headers: "*", methods: "*")]
+    public class <#= Type.Name #>Controller : BaseController<<#= Type.Name #>>
     {
-		public <#= type.Name #>Controller(I<#= type.Name #>Business business) : base(business) { }
-
-        public PageResult<<#= type.Name #>> Get(string filterQuery, int startIndex, int rowsOnPage, string sortBy, string sortOrder)
+        public PageResult<<#= Type.Name #>> Get(string filterQuery, int startIndex, int rowsOnPage, string sortBy, string sortOrder)
         {
-            return base.Get("<#= searchProperty == null ? "Id" : searchProperty.Name #>", "<#= defaultSortProperty == null ? "Id" : defaultSortProperty.Name #>", filterQuery, startIndex, rowsOnPage, sortBy, sortOrder);
-		}
+            return base.Get("<#= SearchProperty.Name #>", "Id", filterQuery, startIndex, rowsOnPage, sortBy, sortOrder);
+        }
+
+        public override IQueryable<<#= Type.Name #>> Generate()
+        {
+            int itemCount = Randomizer.Seed.Next(5, 50);
+            var faker = new Faker<<#= Type.Name #>>();
+<# 
+var properties = Type.Type.GetProperties();
+foreach (var propertyInfo in properties)
+{
+if(propertyInfo.Name.Equals("Id"))
+{ #>
+            faker.RuleFor(item => item.Id, f => f.IndexFaker);
+<# }
+else if (propertyInfo.PropertyType == typeof(int))
+{ #>
+			faker.RuleFor(item => item.<#= propertyInfo.Name #>, f => f.Random.Int(1, 999));
+<# }
+else if (propertyInfo.PropertyType == typeof(string))
+{ #>
+            faker.RuleFor(item => item.<#= propertyInfo.Name #>, f => f.Lorem.Word());
+<# }
+else if (propertyInfo.PropertyType.BaseType != null && propertyInfo.PropertyType.BaseType == typeof(Enum))
+{ #>
+			var arr = Enum.GetValues(typeof(<#= propertyInfo.PropertyType.Name #>)).Cast<<#= propertyInfo.PropertyType.Name #>>();
+            faker.RuleFor(item => item.<#= propertyInfo.Name #>, f => f.PickRandom(arr));
+<# }
+else if (propertyInfo.PropertyType == typeof(DateTime))
+{ #>
+			faker.RuleFor(item => item.<#= propertyInfo.Name #>, f => f.Date.Past());
+<# }
+} #>
+
+            var items = new List<<#= Type.Name #>>(faker
+                .FinishWith((f, i) => { })
+                .Generate(itemCount));
+            return items.AsQueryable();
+        }
 	}
 }

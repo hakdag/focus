@@ -29,46 +29,11 @@ namespace WebApiGenerator.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using Autofac;\r\nusing Autofac.Integration.WebApi;\r\nusing ");
+            this.Write("using Autofac;\r\nusing Autofac.Integration.WebApi;\r\nusing System.Reflection;\r\nusin" +
+                    "g System.Web.Http;\r\nusing System.Web.Mvc;\r\nusing System.Web.Optimization;\r\nusing" +
+                    " System.Web.Routing;\r\n\r\nnamespace ");
             
-            #line 9 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(".Business;\r\nusing ");
-            
-            #line 10 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(".Contracts.Business;\r\nusing ");
-            
-            #line 11 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(".Contracts.DataAccess;\r\nusing ");
-            
-            #line 12 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(".DataAccess;\r\nusing ");
-            
-            #line 13 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(".DataAccess.UnitOfWork;\r\nusing System.Reflection;\r\nusing System.Web.Http;\r\nusing " +
-                    "System.Web.Mvc;\r\nusing System.Web.Optimization;\r\nusing System.Web.Routing;\r\n\r\nna" +
-                    "mespace ");
-            
-            #line 20 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 15 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
@@ -95,49 +60,6 @@ namespace WebApiGenerator.Templates
 
             // OPTIONAL: Register the Autofac filter provider.
             builder.RegisterWebApiFilterProvider(config);
-
-            // register business classes
-			");
-            
-            #line 44 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
- foreach (var module in modules)
-            {
-                foreach (var type in module.Models)
-                { 
-            
-            #line default
-            #line hidden
-            this.Write("            builder.RegisterType<");
-            
-            #line 48 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Business>().As<I");
-            
-            #line 48 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Business>();\r\n\t\t\t\t");
-            
-            #line 49 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
- }
-			} 
-            
-            #line default
-            #line hidden
-            this.Write("\r\n            // register data access\r\n            builder.RegisterType<");
-            
-            #line 53 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(@"Context>().AsSelf();
-            builder.RegisterType<EFUnitOfWork>().As<IUnitOfWork>();
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();

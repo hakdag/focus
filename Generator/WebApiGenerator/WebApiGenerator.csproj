@@ -91,31 +91,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ApiControllerTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="Templates\BusinessTemplate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BusinessTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\DbContextTemplate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbContextTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Include="Templates\GlobalAsaxTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GlobalAsaxTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="Templates\IBusinessTemplate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IBusinessTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Include="Templates\Partials\ApiControllerTemplate.cs" />
-    <Compile Include="Templates\Partials\BusinessTemplate.cs" />
-    <Compile Include="Templates\Partials\DbContextTemplate.cs" />
     <Compile Include="Templates\Partials\GlobalAsaxTemplate.cs" />
-    <Compile Include="Templates\Partials\IBusinessTemplate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -143,21 +125,9 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ApiControllerTemplate.cs</LastGenOutput>
     </Content>
-    <Content Include="Templates\BusinessTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>BusinessTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Include="Templates\DbContextTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DbContextTemplate.cs</LastGenOutput>
-    </Content>
     <Content Include="Templates\GlobalAsaxTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>GlobalAsaxTemplate.cs</LastGenOutput>
-    </Content>
-    <Content Include="Templates\IBusinessTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>IBusinessTemplate.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

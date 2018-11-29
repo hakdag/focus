@@ -1,4 +1,5 @@
-﻿using #projectname#.Common.Models;
+﻿using Focus.Common;
+using Focus.Common.Attributes;
 using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,8 +7,6 @@ using System.Linq;
 using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
-using System;
-using #projectname#.Common.Attributes;
 
 namespace #projectname#.Filters
 {

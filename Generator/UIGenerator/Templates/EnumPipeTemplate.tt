@@ -4,7 +4,6 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 import { Pipe, PipeTransform } from '@angular/core';
-import { <#= PropertyName #> } from "app/<#= Module.ModuleName #>/<#= PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>/<#= PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>";
 import { <#= PropertyName #>Service } from "app/<#= Module.ModuleName #>/<#= PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>/<#= PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>.service";
 
 @Pipe({
@@ -14,9 +13,14 @@ import { <#= PropertyName #>Service } from "app/<#= Module.ModuleName #>/<#= Pro
 export class <#= PropertyName #>Pipe implements PipeTransform {
 
   transform(key: number): string {
-      var tc: <#= PropertyName #> = new <#= PropertyName #>();
+    if (key == null)
+      return "";
+
       var <#= PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service: <#= PropertyName #>Service = new <#= PropertyName #>Service();
       var arr = <#= PropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service.getList();
-      return arr.filter(t => t.value === key.toString())[0].key;
+      var res = arr.filter(t => t.value === key);
+      if (res != null)
+        return res[0].key;
+      return "";
   }
 }

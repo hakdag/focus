@@ -27,10 +27,10 @@ export class Login implements OnInit {
 
     ngOnInit() {
         // reset login status
-        this.authenticationService.logout().then(res => {
-            if (!res.Success)
-                alert(res.Messages[0]);
-        }).catch(err => this.handleError(err));
+        // this.authenticationService.logout().then(res => {
+        //     if (!res.Success)
+        //         alert(res.Messages[0]);
+        // }).catch(err => this.handleError(err));
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -39,18 +39,19 @@ export class Login implements OnInit {
     login() {
         this.loading = true;
 
-        this.authenticationService.login(this.model.username, this.model.password)
-            .subscribe(
-            data => {
-                this.loginResult = { success: true, Messages: ["Giriş başarılı."] };
+        // this.authenticationService.login(this.model.username, this.model.password)
+        //     .subscribe(
+        //     data => {
+            localStorage.setItem('token', JSON.stringify({}));
+            this.loginResult = { success: true, Messages: ["Giriş başarılı."] };
                 this.router.navigate([this.returnUrl]);
-            },
-            response => {
-                var json = response.json();
-                var error = json.error;
-                this.loginResult = { success: false, Messages: ["Kullanıcı adı veya Şifre hatalı."] };
-                this.loading = false;
-            });
+            // },
+            // response => {
+            //     var json = response.json();
+            //     var error = json.error;
+            //     this.loginResult = { success: false, Messages: ["Kullanıcı adı veya Şifre hatalı."] };
+            //     this.loading = false;
+            // });
     }
 
     private handleError(error: any): void {

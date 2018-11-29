@@ -2,7 +2,6 @@
 using System.Web.Http.Cors;
 
 using #projectname#.Filters;
-using #projectname#.Logs.Contracts;
 using Microsoft.Owin.Security.OAuth;
 
 namespace #projectname#
@@ -25,8 +24,6 @@ namespace #projectname#
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional, action = RouteParameter.Optional }
             );
-
-            config.Filters.Add(new LogExceptionFilterAttribute(config.DependencyResolver.GetService(typeof(IErrorBusiness)) as IErrorBusiness));
         }
     }
 }

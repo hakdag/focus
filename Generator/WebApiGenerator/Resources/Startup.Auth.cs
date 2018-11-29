@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
-using Owin;
-using #projectname#.Providers;
 using #projectname#.Models;
+using #projectname#.Providers;
+using Owin;
+using System;
 
 namespace #projectname#
 {
@@ -49,41 +45,6 @@ namespace #projectname#
             // OAuth 2.0 Bearer Access Token Generation
             app.UseOAuthAuthorizationServer(OAuthOptions);
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
-
-            createRolesandUsers();
-        }
-
-        // In this method we will create default User roles and Admin user for login   
-        private void createRolesandUsers()
-        {
-            ApplicationDbContext context = new ApplicationDbContext();
-
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-
-            // In Startup iam creating first Admin Role and creating a default Admin User    
-            if (!roleManager.RoleExists("Admin"))
-            {
-                // first we create Admin role 
-                roleManager.Create(new IdentityRole
-                {
-                    Name = "Admin"
-                });
-
-                //Here we create a Admin super user who will maintain the website                  
-                var user = new ApplicationUser
-                {
-                    UserName = "admin",
-                    Email = "admin",
-                    EmailConfirmed = true
-                };
-
-                var chkUser = UserManager.Create(user, "Qwe123?");
-
-                //Add default User to Role Admin   
-                if (chkUser.Succeeded)
-                    UserManager.AddToRole(user.Id, "Admin");
-            }
         }
     }
 }

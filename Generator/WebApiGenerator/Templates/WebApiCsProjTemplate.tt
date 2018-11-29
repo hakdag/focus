@@ -56,6 +56,9 @@
       <HintPath>..\packages\Autofac.WebApi2.4.1.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Bogus, Version=25.0.1.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bogus.25.0.1\lib\net40\Bogus.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -65,6 +68,10 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Focus.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Focus.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -80,6 +87,10 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="<#= ProjectName #>.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\\<#= ProjectName #>.Common.dll</HintPath>
     </Reference>
     <Reference Include="SendGridMail">
       <HintPath>..\packages\Sendgrid.5.0.0\lib\SendGridMail.dll</HintPath>
@@ -280,28 +291,6 @@ if (type.BaseType != typeof(Enum))
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\\<#= ProjectName #>.Business\\<#= ProjectName #>.Business.csproj">
-      <Project>{0B50C06F-566E-4877-A618-5F95B073736D}</Project>
-      <Name><#= ProjectName #>.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\\<#= ProjectName #>.Common\\<#= ProjectName #>.Common.csproj">
-      <Project>{54ee1e41-d7d9-489f-b89f-da7c4064f222}</Project>
-      <Name><#= ProjectName #>.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\\<#= ProjectName #>.Contracts\\<#= ProjectName #>.Contracts.csproj">
-      <Project>{02A0831F-330B-41E9-B204-BCE88DD11E4D}</Project>
-      <Name><#= ProjectName #>.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\\<#= ProjectName #>.DataAccess\\<#= ProjectName #>.DataAccess.csproj">
-      <Project>{0b9b4240-f2bf-4582-8e64-1e1ea3834065}</Project>
-      <Name><#= ProjectName #>.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\\<#= ProjectName #>.Logs\\<#= ProjectName #>.Logs.csproj">
-      <Project>{dcf9a220-6876-4a28-b7de-6475c3330eaa}</Project>
-      <Name><#= ProjectName #>.Logs</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

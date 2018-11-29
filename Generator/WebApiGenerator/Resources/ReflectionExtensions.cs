@@ -1,5 +1,5 @@
-﻿using #projectname#.Common.Attributes;
-using #projectname#.Common.Models;
+﻿using Focus.Common;
+using Focus.Common.Attributes;
 using System;
 using System.Linq;
 using System.Linq.Dynamic;

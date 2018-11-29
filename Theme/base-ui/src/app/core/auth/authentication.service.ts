@@ -23,29 +23,33 @@ export class AuthenticationService {
     }
 
     login(username: string, password: string) {
-        return this.http.post(this.tokenUrl, "grant_type=password&username=" + username + "&password=" + password, { headers: this.headers })
-            .map((response: Response) => {
-                // login successful if there's a jwt token in the response
-                let token = response.json();
+        // return this.http.post(this.tokenUrl, "grant_type=password&username=" + username + "&password=" + password, { headers: this.headers })
+        //     .map((response: Response) => {
+        //         // login successful if there's a jwt token in the response
+        //         let token = response.json();
 
-                if (token && token.access_token) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('token', JSON.stringify(token));
-                }
-            });
+        //         if (token && token.access_token) {
+        //             // store user details and jwt token in local storage to keep user logged in between page refreshes
+        //             localStorage.setItem('token', JSON.stringify(token));
+        //         }
+        //     });
+        localStorage.setItem('token', JSON.stringify({}));
+        return Observable.of(null);
     }
 
     logout(): Promise<any> {
-        return this.http.post(this.signoutUrl, "", { headers: this.headers })
-            .toPromise()
-            .then(res => {
-                // remove user from local storage to log user out
-                localStorage.removeItem('token');
+        // return this.http.post(this.signoutUrl, "", { headers: this.headers })
+        //     .toPromise()
+        //     .then(res => {
+        //         // remove user from local storage to log user out
+        //         localStorage.removeItem('token');
 
-                return res.json();
-            })
-            .catch(this.handleError);
-    }
+        //         return res.json();
+        //     })
+        //     .catch(this.handleError);
+            localStorage.removeItem('token');
+            return Observable.of(null).toPromise();
+        }
 
     private handleError(error: any): Promise<any> {
         return Promise.reject(error.message || error);
