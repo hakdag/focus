@@ -87,6 +87,26 @@ export class <#= type.Name #>EditComponent extends BaseEditComponent<<#= type.Na
         this.router.navigate(['/app/<#= moduleName #>/<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>list']);
     }
 
+	<# foreach (var item in relationProperties)
+    { #>
+    add<#= item.Value #>(id) {
+        var <#= item.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #> = this.<#= item.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List.filter(c => c.Id == id)[0];
+        if (this.model.<#= item.Value #> === null) {
+            this.model.<#= item.Value #> = [];
+        }
+        if (<#= item.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>) {
+            this.model.<#= item.Value #>.push(<#= item.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>);
+        }
+    }
+    
+    remove<#= item.Value #>(id) {
+		var index = this.model.<#= item.Value #>.findIndex(c => c.Id == id);
+		if (index !== -1) {
+            this.model.<#= item.Value #>.splice(index, 1);
+        }
+    }
+    <# } #>
+
     getModelValue(params: Params): Promise<void|<#= type.Name #>> {
         if (params['id'])
         {

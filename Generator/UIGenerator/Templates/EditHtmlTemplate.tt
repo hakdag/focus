@@ -6,7 +6,7 @@
 <#@ import namespace="System.Reflection" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<breadcrumb [itemId]="<#= type.TypeId + 1 #>" [lastText]="upsertText"></breadcrumb>
+<breadcrumb [itemId]="<#= Type.TypeId + 1 #>" [lastText]="upsertText"></breadcrumb>
 <section class="widget" widget>
     <div class="widget-body">
         <div class="row">
@@ -14,7 +14,9 @@
                 <form class="form-horizontal" role="form" #form="ngForm" (ngSubmit)="save(form.value, form.valid)">
                     <fieldset *ngIf="model">
                         <input type="hidden" [(ngModel)]="model.Id" [value]="model.Id" name="Id" />
-                        <legend><strong *ngIf="model.Id">{{upsertText}} - </strong><strong *ngIf="!model.Id">{{upsertText}} - </strong>{{model.<#= getSearchProperty() #>}}</legend>
+                        <legend>
+                            <strong>{{upsertText}}</strong>
+                        </legend>
                         <div *ngIf="responseResult" class="form-group row">
                             <div *ngIf="!responseResult.success" class="col-md-12 alert alert-danger">
                                 <span *ngFor="let msg of responseResult.Messages">{{msg}}</span>
@@ -67,6 +69,52 @@
                                     <option *ngFor="let e of <#= pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List" [ngValue]="e.value">{{e.key}}</option>
                                 </select>
 							<# }
+							else if (IsCollection(pi.PropertyType))
+							{ 
+								var genericProperty = GetGenericProperty(pi.PropertyType);
+								var genericPropertyName = genericProperty.Name;
+								var genericPropertyNameToLower = genericPropertyName.ToLower(new System.Globalization.CultureInfo("en-EN", false));
+								var searchPropertyOfGenericTypeName = GetSearchPropertyName(genericProperty);
+								var searchPropertyOfGenericType = GetPropertyAttribute<SearchPropertyAttribute>(genericProperty);
+								var searchPropertyTitle = getNamedArgument<DisplayAttribute>(searchPropertyOfGenericType);
+								#>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <select id="<#= genericPropertyName #>" title="Select <#= getNamedArgument<DisplayAttribute>(pi) #>..." class="form-control" name="<#= genericPropertyName #>" #<#= genericPropertyName #>>
+                                    <option>Select <#= getNamedArgument<DisplayAttribute>(pi) #>...</option>
+                                    <option *ngFor="let <#= genericPropertyNameToLower #> of <#= genericPropertyNameToLower #>List" [value]="<#= genericPropertyNameToLower #>.Id">{{<#= genericPropertyNameToLower #>.<#= searchPropertyOfGenericTypeName #>}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-success" (click)="add<#= pi.Name #>(<#= genericPropertyName #>.value)">Add</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th><#= searchPropertyTitle #></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let <#= genericPropertyNameToLower #> of model.<#= pi.Name #>">
+                                                <td>{{<#= genericPropertyNameToLower #>.<#= searchPropertyOfGenericTypeName #>}}</td>
+                                                <td>
+                                                    <a class="btn btn-default btn-sm mb-xs" role="button" title="Remove" (click)="remove<#= pi.Name #>(<#= genericPropertyNameToLower #>.Id)">
+                                                        <i class="glyphicon glyphicon-remove-circle text-danger"></i>
+                                                        Remove
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+							<# }
 							else if (inputType != null)
 							{ #>
                                 <select id="<#= pi.Name #>" <#= isRequired ? "required" : "" #> title="<#= title #> <#= getNamedArgument<DisplayAttribute>(pi) #> select..." class="form-control" [(ngModel)]="model.<#= pi.Name #>" name="<#= pi.Name #>">
@@ -76,21 +124,6 @@
                             </div>
                         </div>
 						<# } #>
-
-						<# if (collectionProperties != null && collectionProperties.Length > 0)
-						{
-						foreach(var collection in collectionProperties)
-						{ #>
-                <div class="row">
-                    <div class="col-md-6">
-                        <legend>
-                            <strong><#= collection.Name #> List</strong>
-                        </legend>
-                    </div>
-                </div>
-						<# }
-						} #>
-
                     </fieldset>
                     <div class="form-actions">
                         <div class="row">

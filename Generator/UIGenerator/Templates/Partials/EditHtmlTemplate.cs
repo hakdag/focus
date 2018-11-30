@@ -13,7 +13,7 @@ namespace UIGenerator.Templates
 {
     public partial class EditHtmlTemplate
     {
-        private GeneratorType type;
+        public GeneratorType Type { get; }
         private string moduleName;
         private string moduleUIName;
         private string title;
@@ -22,7 +22,7 @@ namespace UIGenerator.Templates
 
         public EditHtmlTemplate(GeneratorType type, string moduleName, string moduleUIName)
         {
-            this.type = type;
+            this.Type = type;
             this.moduleName = moduleName;
             this.moduleUIName = moduleUIName;
 
@@ -34,14 +34,9 @@ namespace UIGenerator.Templates
             collectionProperties = properties.Where(pi => IsCollection(pi.PropertyType)).ToArray();
         }
 
-        private bool IsCollection(Type type) =>
-            type.IsGenericType && typeof(ICollection<>).IsAssignableFrom(type.GetGenericTypeDefinition()) ||
-            type.GetInterfaces().Any(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(ICollection<>));
-
-        private string getSearchProperty()
+        private string GetSearchPropertyName(Type type)
         {
-            var properties = type.Type.GetProperties();
-            var sp = properties.FirstOrDefault(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(SearchPropertyAttribute)));
+            var sp = GetSearchProperty(type);
             if (sp == null) return "Id";
 
             if (sp.PropertyType.BaseType != null && sp.PropertyType.BaseType.Name == "BaseModel")
@@ -62,14 +57,36 @@ namespace UIGenerator.Templates
             }
         }
 
+        private PropertyInfo GetSearchProperty(Type type)
+        {
+            var properties = type.GetProperties();
+            var sp = properties.FirstOrDefault(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(SearchPropertyAttribute)));
+            return sp;
+        }
+
+        private Type GetGenericProperty(Type genericType) => genericType.GetGenericArguments()[0];
+
+        private bool IsCollection(Type type) =>
+            type.IsGenericType && typeof(ICollection<>).IsAssignableFrom(type.GetGenericTypeDefinition()) ||
+            type.GetInterfaces().Any(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(ICollection<>));
+
+        private string getSearchPropertyName() => GetSearchPropertyName(Type.Type);
+
         private string getPropertyAttributeName<T>(PropertyInfo pi)
         {
             if (pi == null)
                 return String.Empty;
 
-            var t = pi.PropertyType.GetProperties().FirstOrDefault(p => p.CustomAttributes.Any(ca => ca.AttributeType == typeof(T)));
+            var t = GetPropertyAttribute<T>(pi.PropertyType);
 
             return t.Name;
+        }
+
+        private PropertyInfo GetPropertyAttribute<T>(Type type)
+        {
+            var properties = type.GetProperties();
+            var prop = properties.FirstOrDefault(p => p.CustomAttributes.Any(ca => ca.AttributeType == typeof(T)));
+            return prop;
         }
 
         private bool isPropertyRequired(PropertyInfo pi)

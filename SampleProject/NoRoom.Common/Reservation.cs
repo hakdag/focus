@@ -41,6 +41,6 @@ namespace NoRoom.Common
         public DateTime DepartureDate { get; set; }
 
         [Display(Name = "Guests")]
-        public virtual ICollection<Guest> Guests { get; set; }
+        public virtual ICollection<Guest> ReservationGuest { get; set; }
     }
 }

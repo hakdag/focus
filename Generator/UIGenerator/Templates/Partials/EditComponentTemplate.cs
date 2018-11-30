@@ -19,6 +19,7 @@ namespace UIGenerator.Templates
         private List<Module> modules;
         private List<string> providers = new List<string>();
         private Dictionary<string, string> listProperties = new Dictionary<string, string>();
+        private Dictionary<string, string> relationProperties = new Dictionary<string, string>();
         private Dictionary<string, string> parametreProperties = new Dictionary<string, string>();
         private List<PropertyInfo> enumProperties = new List<PropertyInfo>();
         private List<PropertyInfo> serviceProperties = new List<PropertyInfo>();
@@ -36,6 +37,10 @@ namespace UIGenerator.Templates
                 addToImports(typeName);
                 addToProviders(typeName);
                 addToListProperties(typeName, pi.Name);
+                if (IsCollection(pi.PropertyType))
+                {
+                    addToRelations(typeName, pi.Name);
+                }
                 addToServiceProperties(pi);
                 //if (typeName == "Parametre")
                 //    addToParameterProperties(pi);
@@ -43,6 +48,10 @@ namespace UIGenerator.Templates
                     enumProperties.Add(pi);
             }
         }
+
+        private bool IsCollection(Type type) =>
+            type.IsGenericType && typeof(ICollection<>).IsAssignableFrom(type.GetGenericTypeDefinition()) ||
+            type.GetInterfaces().Any(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(ICollection<>));
 
         //private void addToParameterProperties(PropertyInfo pi)
         //{
@@ -56,7 +65,7 @@ namespace UIGenerator.Templates
 
         private void addToServiceProperties(PropertyInfo pi)
         {
-            if (serviceProperties.Any(sp => sp.Name == pi.Name))
+            if (IsCollection(pi.PropertyType) || serviceProperties.Any(sp => sp.Name == pi.Name))
                 return;
             string typeName = extractTypeName(pi);
             if (typeName == "Parametre" || pi.PropertyType.BaseType == typeof(Enum))
@@ -79,6 +88,11 @@ namespace UIGenerator.Templates
                 if (module != null)
                     listProperties.Add(typeName, typeName);
             }
+        }
+
+        private void addToRelations(string typeName, string piName)
+        {
+            relationProperties.Add(typeName, piName);
         }
 
         private void addToProviders(string typeName)
@@ -130,7 +144,7 @@ namespace UIGenerator.Templates
             string typeName = pi.PropertyType.Name;
             if (pi.PropertyType.BaseType == typeof(System.Array))
                 typeName = typeName.TrimEnd('[', ']');
-            if (typeName == "Nullable`1")
+            if (typeName == "Nullable`1" || typeName == "ICollection`1")
                 typeName = pi.PropertyType.GenericTypeArguments[0].Name;
             return typeName;
         }
