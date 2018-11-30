@@ -48,38 +48,39 @@ namespace UIGenerator
             // create navigation-tree.ts
             NavigationTreeTemplate navigationTreeTemplate = new NavigationTreeTemplate(mb.Modules);
             string strNavigationTree = navigationTreeTemplate.TransformText();
-            File.WriteAllText("navigation-tree.ts", strNavigationTree);
+            File.WriteAllText("Output\\Frontend\\src\\app\\shared\\navigation-tree.ts", strNavigationTree);
 
             // create sidebar.template.html
             SideBarHtmlTemplate sideBarHtmlTemplate = new SideBarHtmlTemplate(mb.Modules);
             string strSideBarHtml = sideBarHtmlTemplate.TransformText();
-            File.WriteAllText("sidebar.template.html", strSideBarHtml);
+            File.WriteAllText("Output\\Frontend\\src\\app\\layout\\sidebar\\sidebar.template.html", strSideBarHtml);
 
             // create layout.routes.ts
             LayoutRoutesTemplate layoutRoutesTemplate = new LayoutRoutesTemplate(mb.Modules);
             string strLayoutRoutes = layoutRoutesTemplate.TransformText();
-            File.WriteAllText("layout.routes.ts", strLayoutRoutes);
+            File.WriteAllText("Output\\Frontend\\src\\app\\layout\\layout.routes.ts", strLayoutRoutes);
 
             // create core.module.ts
             CoreModuleTemplate coreModuleTemplate = new CoreModuleTemplate(mb.Modules);
             string strCoreModule = coreModuleTemplate.TransformText();
-            File.WriteAllText("core.module.ts", strCoreModule);
+            File.WriteAllText("Output\\Frontend\\src\\app\\core\\core.module.ts", strCoreModule);
 
             foreach (GeneratorBase.Module module in mb.Modules)
             {
                 // create module folder
-                if (!Directory.Exists(module.ModuleName))
-                    Directory.CreateDirectory(module.ModuleName);
+                var moduleFolder = $"Output\\Frontend\\src\\app\\{module.ModuleName}";
+                if (!Directory.Exists(moduleFolder))
+                    Directory.CreateDirectory(moduleFolder);
 
                 // create module.ts file
                 ModuleTemplate mt = new ModuleTemplate(module);
                 string result = mt.TransformText();
-                File.WriteAllText($"{module.ModuleName}\\{module.ModuleName}.module.ts", result);
+                File.WriteAllText($"{moduleFolder}\\{module.ModuleName}.module.ts", result);
 
                 // loop types in module
                 foreach (var type in module.Models)
                 {
-                    string typeFolder = $"{module.ModuleName}\\{type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))}";
+                    string typeFolder = $"{moduleFolder}\\{type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))}";
                     if (!Directory.Exists(typeFolder))
                         Directory.CreateDirectory(typeFolder);
 
@@ -135,7 +136,7 @@ namespace UIGenerator
                             string strEnumPipeTemplate = enumPipeTemplate.TransformText();
                             string typeName = extractTypeName(pi);
                             var enumModule = searchTypeInModules(mb.Modules, typeName);
-                            var pipeFolder = $"app\\core\\pipes";
+                            var pipeFolder = $"Output\\Frontend\\src\\app\\core\\pipes";
                             if (!Directory.Exists(pipeFolder))
                                 Directory.CreateDirectory(pipeFolder);
                             File.WriteAllText($"{pipeFolder}\\{typeName.ToLower(new System.Globalization.CultureInfo("en-EN", false))}.pipe.ts", strEnumPipeTemplate);

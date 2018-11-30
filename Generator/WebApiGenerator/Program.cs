@@ -89,7 +89,7 @@ namespace WebApiGenerator
 
         private static void CopyFiles(string sourceLibrary)
         {
-            File.Copy(sourceLibrary, $"Output\\Backend\\Libraries\\{sourceLibrary}");
+            File.Copy(sourceLibrary, $"Output\\Backend\\Libraries\\{sourceLibrary}", true);
         }
 
         private static void CreateFolders(string projectName)

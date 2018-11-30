@@ -149,108 +149,109 @@ namespace WebApiGenerator.Templates
                     "tyModel.Tokens.Jwt\">\r\n      <HintPath>..\\packages\\System.IdentityModel.Tokens.Jw" +
                     "t.4.0.1\\lib\\net45\\System.IdentityModel.Tokens.Jwt.dll</HintPath>\r\n    </Referenc" +
                     "e>\r\n    <Reference Include=\"System.IO.Compression.FileSystem\" />\r\n    <Reference" +
-                    " Include=\"System.Numerics\" />\r\n    <Reference Include=\"System.Web.Cors, Version=" +
-                    "5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture" +
-                    "=MSIL\">\r\n      <HintPath>..\\packages\\Microsoft.AspNet.Cors.5.2.3\\lib\\net45\\Syste" +
-                    "m.Web.Cors.dll</HintPath>\r\n      <Private>True</Private>\r\n    </Reference>\r\n    " +
-                    "<Reference Include=\"System.Web.Entity\" />\r\n    <Reference Include=\"System.Web.Ap" +
-                    "plicationServices\" />\r\n    <Reference Include=\"System.ComponentModel.DataAnnotat" +
-                    "ions\" />\r\n    <Reference Include=\"System.Core\" />\r\n    <Reference Include=\"Syste" +
-                    "m.Data.DataSetExtensions\" />\r\n    <Reference Include=\"System.Web.Http.Cors, Vers" +
-                    "ion=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitec" +
-                    "ture=MSIL\">\r\n      <HintPath>..\\packages\\Microsoft.AspNet.WebApi.Cors.5.2.3\\lib\\" +
-                    "net45\\System.Web.Http.Cors.dll</HintPath>\r\n      <Private>True</Private>\r\n    </" +
-                    "Reference>\r\n    <Reference Include=\"System.Xml.Linq\" />\r\n    <Reference Include=" +
-                    "\"System.Web\" />\r\n    <Reference Include=\"System.Web.Abstractions\" />\r\n    <Refer" +
-                    "ence Include=\"System.Web.Routing\" />\r\n    <Reference Include=\"System.Xml\" />\r\n  " +
-                    "  <Reference Include=\"System.Configuration\" />\r\n    <Reference Include=\"System.R" +
-                    "untime.Serialization\" />\r\n    <Reference Include=\"Microsoft.Web.Infrastructure, " +
-                    "Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArch" +
-                    "itecture=MSIL\">\r\n      <Private>True</Private>\r\n      <HintPath>..\\packages\\Micr" +
-                    "osoft.Web.Infrastructure.1.0.0.0\\lib\\net40\\Microsoft.Web.Infrastructure.dll</Hin" +
-                    "tPath>\r\n    </Reference>\r\n    <Reference Include=\"System.Net.Http\">\r\n    </Refer" +
-                    "ence>\r\n    <Reference Include=\"System.Net.Http.Formatting, Version=5.2.3.0, Cult" +
-                    "ure=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n    " +
-                    "  <HintPath>..\\packages\\Microsoft.AspNet.WebApi.Client.5.2.3\\lib\\net45\\System.Ne" +
-                    "t.Http.Formatting.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Syst" +
-                    "em.Net.Http.WebRequest\">\r\n    </Reference>\r\n    <Reference Include=\"System.Web.H" +
-                    "elpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, proce" +
-                    "ssorArchitecture=MSIL\">\r\n      <Private>True</Private>\r\n      <HintPath>..\\packa" +
-                    "ges\\Microsoft.AspNet.WebPages.3.2.3\\lib\\net45\\System.Web.Helpers.dll</HintPath>\r" +
-                    "\n    </Reference>\r\n    <Reference Include=\"System.Web.Http, Version=5.2.3.0, Cul" +
+                    " Include=\"System.Numerics\" />\r\n    <Reference Include=\"System.Runtime.Caching\" /" +
+                    ">\r\n    <Reference Include=\"System.Web.Cors, Version=5.2.3.0, Culture=neutral, Pu" +
+                    "blicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n      <HintPath>..\\" +
+                    "packages\\Microsoft.AspNet.Cors.5.2.3\\lib\\net45\\System.Web.Cors.dll</HintPath>\r\n " +
+                    "     <Private>True</Private>\r\n    </Reference>\r\n    <Reference Include=\"System.W" +
+                    "eb.Entity\" />\r\n    <Reference Include=\"System.Web.ApplicationServices\" />\r\n    <" +
+                    "Reference Include=\"System.ComponentModel.DataAnnotations\" />\r\n    <Reference Inc" +
+                    "lude=\"System.Core\" />\r\n    <Reference Include=\"System.Data.DataSetExtensions\" />" +
+                    "\r\n    <Reference Include=\"System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral" +
+                    ", PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n      <HintPath" +
+                    ">..\\packages\\Microsoft.AspNet.WebApi.Cors.5.2.3\\lib\\net45\\System.Web.Http.Cors.d" +
+                    "ll</HintPath>\r\n      <Private>True</Private>\r\n    </Reference>\r\n    <Reference I" +
+                    "nclude=\"System.Xml.Linq\" />\r\n    <Reference Include=\"System.Web\" />\r\n    <Refere" +
+                    "nce Include=\"System.Web.Abstractions\" />\r\n    <Reference Include=\"System.Web.Rou" +
+                    "ting\" />\r\n    <Reference Include=\"System.Xml\" />\r\n    <Reference Include=\"System" +
+                    ".Configuration\" />\r\n    <Reference Include=\"System.Runtime.Serialization\" />\r\n  " +
+                    "  <Reference Include=\"Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neu" +
+                    "tral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n      <Priv" +
+                    "ate>True</Private>\r\n      <HintPath>..\\packages\\Microsoft.Web.Infrastructure.1.0" +
+                    ".0.0\\lib\\net40\\Microsoft.Web.Infrastructure.dll</HintPath>\r\n    </Reference>\r\n  " +
+                    "  <Reference Include=\"System.Net.Http\">\r\n    </Reference>\r\n    <Reference Includ" +
+                    "e=\"System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=" +
+                    "31bf3856ad364e35, processorArchitecture=MSIL\">\r\n      <HintPath>..\\packages\\Micr" +
+                    "osoft.AspNet.WebApi.Client.5.2.3\\lib\\net45\\System.Net.Http.Formatting.dll</HintP" +
+                    "ath>\r\n    </Reference>\r\n    <Reference Include=\"System.Net.Http.WebRequest\">\r\n  " +
+                    "  </Reference>\r\n    <Reference Include=\"System.Web.Helpers, Version=3.0.0.0, Cul" +
                     "ture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n   " +
-                    "   <HintPath>..\\packages\\Microsoft.AspNet.WebApi.Core.5.2.3\\lib\\net45\\System.Web" +
-                    ".Http.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"System.Web.Http." +
-                    "WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, proc" +
-                    "essorArchitecture=MSIL\">\r\n      <HintPath>..\\packages\\Microsoft.AspNet.WebApi.We" +
-                    "bHost.5.2.3\\lib\\net45\\System.Web.Http.WebHost.dll</HintPath>\r\n    </Reference>\r\n" +
-                    "    <Reference Include=\"System.Web.Mvc, Version=5.2.3.0, Culture=neutral, Public" +
-                    "KeyToken=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n      <Private>True</Pr" +
-                    "ivate>\r\n      <HintPath>..\\packages\\Microsoft.AspNet.Mvc.5.2.3\\lib\\net45\\System." +
-                    "Web.Mvc.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"System.Web.Opt" +
-                    "imization\">\r\n      <HintPath>..\\packages\\Microsoft.AspNet.Web.Optimization.1.1.3" +
-                    "\\lib\\net40\\System.Web.Optimization.dll</HintPath>\r\n    </Reference>\r\n    <Refere" +
-                    "nce Include=\"System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=" +
-                    "31bf3856ad364e35, processorArchitecture=MSIL\">\r\n      <Private>True</Private>\r\n " +
-                    "     <HintPath>..\\packages\\Microsoft.AspNet.Razor.3.2.3\\lib\\net45\\System.Web.Raz" +
-                    "or.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"System.Web.WebPages" +
-                    ", Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorAr" +
-                    "chitecture=MSIL\">\r\n      <Private>True</Private>\r\n      <HintPath>..\\packages\\Mi" +
-                    "crosoft.AspNet.WebPages.3.2.3\\lib\\net45\\System.Web.WebPages.dll</HintPath>\r\n    " +
-                    "</Reference>\r\n    <Reference Include=\"System.Web.WebPages.Deployment, Version=3." +
-                    "0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=M" +
-                    "SIL\">\r\n      <Private>True</Private>\r\n      <HintPath>..\\packages\\Microsoft.AspN" +
-                    "et.WebPages.3.2.3\\lib\\net45\\System.Web.WebPages.Deployment.dll</HintPath>\r\n    <" +
-                    "/Reference>\r\n    <Reference Include=\"System.Web.WebPages.Razor, Version=3.0.0.0," +
-                    " Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL\">\r" +
-                    "\n      <Private>True</Private>\r\n      <HintPath>..\\packages\\Microsoft.AspNet.Web" +
-                    "Pages.3.2.3\\lib\\net45\\System.Web.WebPages.Razor.dll</HintPath>\r\n    </Reference>" +
-                    "\r\n    <Reference Include=\"Thinktecture.IdentityModel.Core\">\r\n      <HintPath>..\\" +
-                    "packages\\Thinktecture.IdentityModel.Core.1.3.0\\lib\\net45\\Thinktecture.IdentityMo" +
-                    "del.Core.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"WebGrease\">\r\n" +
-                    "      <Private>True</Private>\r\n      <HintPath>..\\packages\\WebGrease.1.5.2\\lib\\W" +
-                    "ebGrease.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Antlr3.Runtim" +
-                    "e\">\r\n      <Private>True</Private>\r\n      <HintPath>..\\packages\\Antlr.3.4.1.9004" +
-                    "\\lib\\Antlr3.Runtime.dll</HintPath>\r\n    </Reference>\r\n  </ItemGroup>\r\n  <ItemGro" +
-                    "up>\r\n    <Reference Include=\"Microsoft.AspNet.Identity.Core\">\r\n      <HintPath>." +
-                    ".\\packages\\Microsoft.AspNet.Identity.Core.2.2.1\\lib\\net45\\Microsoft.AspNet.Ident" +
-                    "ity.Core.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Microsoft.Asp" +
-                    "Net.Identity.Owin\">\r\n      <HintPath>..\\packages\\Microsoft.AspNet.Identity.Owin." +
-                    "2.2.1\\lib\\net45\\Microsoft.AspNet.Identity.Owin.dll</HintPath>\r\n    </Reference>\r" +
-                    "\n    <Reference Include=\"Microsoft.AspNet.Identity.EntityFramework\">\r\n      <Hin" +
-                    "tPath>..\\packages\\Microsoft.AspNet.Identity.EntityFramework.2.2.1\\lib\\net45\\Micr" +
-                    "osoft.AspNet.Identity.EntityFramework.dll</HintPath>\r\n    </Reference>\r\n    <Ref" +
-                    "erence Include=\"Owin\">\r\n      <HintPath>..\\packages\\Owin.1.0\\lib\\net40\\Owin.dll<" +
-                    "/HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Microsoft.Owin.Host.System" +
-                    "Web\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.Host.SystemWeb.3.0.1\\lib\\net45" +
-                    "\\Microsoft.Owin.Host.SystemWeb.dll</HintPath>\r\n    </Reference>\r\n    <Reference " +
-                    "Include=\"Microsoft.Owin.Security\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.S" +
-                    "ecurity.3.0.1\\lib\\net45\\Microsoft.Owin.Security.dll</HintPath>\r\n    </Reference>" +
-                    "\r\n    <Reference Include=\"Microsoft.Owin.Security.Facebook\">\r\n      <HintPath>.." +
-                    "\\packages\\Microsoft.Owin.Security.Facebook.3.0.1\\lib\\net45\\Microsoft.Owin.Securi" +
-                    "ty.Facebook.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Microsoft." +
-                    "Owin.Security.Cookies\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.Security.Coo" +
-                    "kies.3.0.1\\lib\\net45\\Microsoft.Owin.Security.Cookies.dll</HintPath>\r\n    </Refer" +
-                    "ence>\r\n    <Reference Include=\"Microsoft.Owin.Security.OAuth\">\r\n      <HintPath>" +
-                    "..\\packages\\Microsoft.Owin.Security.OAuth.3.0.1\\lib\\net45\\Microsoft.Owin.Securit" +
-                    "y.OAuth.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Microsoft.Owin" +
-                    ".Security.Google\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.Security.Google.3" +
-                    ".0.1\\lib\\net45\\Microsoft.Owin.Security.Google.dll</HintPath>\r\n    </Reference>\r\n" +
-                    "    <Reference Include=\"Microsoft.Owin.Security.Twitter\">\r\n      <HintPath>..\\pa" +
-                    "ckages\\Microsoft.Owin.Security.Twitter.3.0.1\\lib\\net45\\Microsoft.Owin.Security.T" +
-                    "witter.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Microsoft.Owin." +
-                    "Security.MicrosoftAccount\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.Security" +
-                    ".MicrosoftAccount.3.0.1\\lib\\net45\\Microsoft.Owin.Security.MicrosoftAccount.dll</" +
-                    "HintPath>\r\n    </Reference>\r\n    <Reference Include=\"System.Web.Http.Owin\">\r\n   " +
-                    "   <HintPath>..\\packages\\Microsoft.AspNet.WebApi.Owin.5.2.3\\lib\\net45\\System.Web" +
-                    ".Http.Owin.dll</HintPath>\r\n    </Reference>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    " +
-                    "<Compile Include=\"App_Start\\BundleConfig.cs\" />\r\n    <Compile Include=\"App_Start" +
-                    "\\FilterConfig.cs\" />\r\n    <Compile Include=\"App_Start\\IdentityConfig.cs\" />\r\n   " +
-                    " <Compile Include=\"App_Start\\RouteConfig.cs\" />\r\n    <Compile Include=\"App_Start" +
-                    "\\Startup.Auth.cs\" />\r\n    <Compile Include=\"App_Start\\WebApiConfig.cs\" />\r\n    <" +
-                    "Compile Include=\"Controllers\\AccountController.cs\" />\r\n");
+                    "   <Private>True</Private>\r\n      <HintPath>..\\packages\\Microsoft.AspNet.WebPage" +
+                    "s.3.2.3\\lib\\net45\\System.Web.Helpers.dll</HintPath>\r\n    </Reference>\r\n    <Refe" +
+                    "rence Include=\"System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken" +
+                    "=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n      <HintPath>..\\packages\\Mic" +
+                    "rosoft.AspNet.WebApi.Core.5.2.3\\lib\\net45\\System.Web.Http.dll</HintPath>\r\n    </" +
+                    "Reference>\r\n    <Reference Include=\"System.Web.Http.WebHost, Version=5.2.3.0, Cu" +
+                    "lture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n  " +
+                    "    <HintPath>..\\packages\\Microsoft.AspNet.WebApi.WebHost.5.2.3\\lib\\net45\\System" +
+                    ".Web.Http.WebHost.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Syst" +
+                    "em.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, p" +
+                    "rocessorArchitecture=MSIL\">\r\n      <Private>True</Private>\r\n      <HintPath>..\\p" +
+                    "ackages\\Microsoft.AspNet.Mvc.5.2.3\\lib\\net45\\System.Web.Mvc.dll</HintPath>\r\n    " +
+                    "</Reference>\r\n    <Reference Include=\"System.Web.Optimization\">\r\n      <HintPath" +
+                    ">..\\packages\\Microsoft.AspNet.Web.Optimization.1.1.3\\lib\\net40\\System.Web.Optimi" +
+                    "zation.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"System.Web.Razo" +
+                    "r, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorA" +
+                    "rchitecture=MSIL\">\r\n      <Private>True</Private>\r\n      <HintPath>..\\packages\\M" +
+                    "icrosoft.AspNet.Razor.3.2.3\\lib\\net45\\System.Web.Razor.dll</HintPath>\r\n    </Ref" +
+                    "erence>\r\n    <Reference Include=\"System.Web.WebPages, Version=3.0.0.0, Culture=n" +
+                    "eutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n      <Pr" +
+                    "ivate>True</Private>\r\n      <HintPath>..\\packages\\Microsoft.AspNet.WebPages.3.2." +
+                    "3\\lib\\net45\\System.Web.WebPages.dll</HintPath>\r\n    </Reference>\r\n    <Reference" +
+                    " Include=\"System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, Publ" +
+                    "icKeyToken=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n      <Private>True</" +
+                    "Private>\r\n      <HintPath>..\\packages\\Microsoft.AspNet.WebPages.3.2.3\\lib\\net45\\" +
+                    "System.Web.WebPages.Deployment.dll</HintPath>\r\n    </Reference>\r\n    <Reference " +
+                    "Include=\"System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyT" +
+                    "oken=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n      <Private>True</Privat" +
+                    "e>\r\n      <HintPath>..\\packages\\Microsoft.AspNet.WebPages.3.2.3\\lib\\net45\\System" +
+                    ".Web.WebPages.Razor.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Th" +
+                    "inktecture.IdentityModel.Core\">\r\n      <HintPath>..\\packages\\Thinktecture.Identi" +
+                    "tyModel.Core.1.3.0\\lib\\net45\\Thinktecture.IdentityModel.Core.dll</HintPath>\r\n   " +
+                    " </Reference>\r\n    <Reference Include=\"WebGrease\">\r\n      <Private>True</Private" +
+                    ">\r\n      <HintPath>..\\packages\\WebGrease.1.5.2\\lib\\WebGrease.dll</HintPath>\r\n   " +
+                    " </Reference>\r\n    <Reference Include=\"Antlr3.Runtime\">\r\n      <Private>True</Pr" +
+                    "ivate>\r\n      <HintPath>..\\packages\\Antlr.3.4.1.9004\\lib\\Antlr3.Runtime.dll</Hin" +
+                    "tPath>\r\n    </Reference>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Reference Include=" +
+                    "\"Microsoft.AspNet.Identity.Core\">\r\n      <HintPath>..\\packages\\Microsoft.AspNet." +
+                    "Identity.Core.2.2.1\\lib\\net45\\Microsoft.AspNet.Identity.Core.dll</HintPath>\r\n   " +
+                    " </Reference>\r\n    <Reference Include=\"Microsoft.AspNet.Identity.Owin\">\r\n      <" +
+                    "HintPath>..\\packages\\Microsoft.AspNet.Identity.Owin.2.2.1\\lib\\net45\\Microsoft.As" +
+                    "pNet.Identity.Owin.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Mic" +
+                    "rosoft.AspNet.Identity.EntityFramework\">\r\n      <HintPath>..\\packages\\Microsoft." +
+                    "AspNet.Identity.EntityFramework.2.2.1\\lib\\net45\\Microsoft.AspNet.Identity.Entity" +
+                    "Framework.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Owin\">\r\n    " +
+                    "  <HintPath>..\\packages\\Owin.1.0\\lib\\net40\\Owin.dll</HintPath>\r\n    </Reference>" +
+                    "\r\n    <Reference Include=\"Microsoft.Owin.Host.SystemWeb\">\r\n      <HintPath>..\\pa" +
+                    "ckages\\Microsoft.Owin.Host.SystemWeb.3.0.1\\lib\\net45\\Microsoft.Owin.Host.SystemW" +
+                    "eb.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Microsoft.Owin.Secu" +
+                    "rity\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.Security.3.0.1\\lib\\net45\\Micr" +
+                    "osoft.Owin.Security.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Mi" +
+                    "crosoft.Owin.Security.Facebook\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.Sec" +
+                    "urity.Facebook.3.0.1\\lib\\net45\\Microsoft.Owin.Security.Facebook.dll</HintPath>\r\n" +
+                    "    </Reference>\r\n    <Reference Include=\"Microsoft.Owin.Security.Cookies\">\r\n   " +
+                    "   <HintPath>..\\packages\\Microsoft.Owin.Security.Cookies.3.0.1\\lib\\net45\\Microso" +
+                    "ft.Owin.Security.Cookies.dll</HintPath>\r\n    </Reference>\r\n    <Reference Includ" +
+                    "e=\"Microsoft.Owin.Security.OAuth\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.S" +
+                    "ecurity.OAuth.3.0.1\\lib\\net45\\Microsoft.Owin.Security.OAuth.dll</HintPath>\r\n    " +
+                    "</Reference>\r\n    <Reference Include=\"Microsoft.Owin.Security.Google\">\r\n      <H" +
+                    "intPath>..\\packages\\Microsoft.Owin.Security.Google.3.0.1\\lib\\net45\\Microsoft.Owi" +
+                    "n.Security.Google.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Micr" +
+                    "osoft.Owin.Security.Twitter\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.Securi" +
+                    "ty.Twitter.3.0.1\\lib\\net45\\Microsoft.Owin.Security.Twitter.dll</HintPath>\r\n    <" +
+                    "/Reference>\r\n    <Reference Include=\"Microsoft.Owin.Security.MicrosoftAccount\">\r" +
+                    "\n      <HintPath>..\\packages\\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\\lib\\" +
+                    "net45\\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>\r\n    </Reference>\r" +
+                    "\n    <Reference Include=\"System.Web.Http.Owin\">\r\n      <HintPath>..\\packages\\Mic" +
+                    "rosoft.AspNet.WebApi.Owin.5.2.3\\lib\\net45\\System.Web.Http.Owin.dll</HintPath>\r\n " +
+                    "   </Reference>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Compile Include=\"App_Start\\" +
+                    "BundleConfig.cs\" />\r\n    <Compile Include=\"App_Start\\FilterConfig.cs\" />\r\n    <C" +
+                    "ompile Include=\"App_Start\\IdentityConfig.cs\" />\r\n    <Compile Include=\"App_Start" +
+                    "\\RouteConfig.cs\" />\r\n    <Compile Include=\"App_Start\\Startup.Auth.cs\" />\r\n    <C" +
+                    "ompile Include=\"App_Start\\WebApiConfig.cs\" />\r\n    <Compile Include=\"Controllers" +
+                    "\\AccountController.cs\" />\r\n");
             
-            #line 250 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            #line 251 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
  for(int i=0; i<Modules.Count; i++)
 {
 var module = Modules[i];
@@ -264,21 +265,21 @@ if (type.BaseType != typeof(Enum))
             #line hidden
             this.Write("    <Compile Include=\"Controllers\\");
             
-            #line 258 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            #line 259 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write("\\");
             
-            #line 258 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            #line 259 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("Controller.cs\" />\r\n");
             
-            #line 259 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            #line 260 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
  }
 }
 } 
@@ -292,49 +293,50 @@ if (type.BaseType != typeof(Enum))
                     "nclude=\"Filters\\UpdateFKAttribute.cs\" />\r\n    <Compile Include=\"Filters\\Validate" +
                     "ModelAttribute.cs\" />\r\n    <Compile Include=\"Global.asax.cs\">\r\n      <DependentU" +
                     "pon>Global.asax</DependentUpon>\r\n    </Compile>\r\n    <Compile Include=\"Helpers\\R" +
-                    "eflectionExtensions.cs\" />\r\n    <Compile Include=\"Models\\AccountBindingModels.cs" +
-                    "\" />\r\n    <Compile Include=\"Models\\AccountViewModels.cs\" />\r\n    <Compile Includ" +
-                    "e=\"Models\\ApplicationRoleManager.cs\" />\r\n    <Compile Include=\"Models\\IdentityMo" +
-                    "dels.cs\" />\r\n    <Compile Include=\"Models\\ModelFactory.cs\" />\r\n    <Compile Incl" +
-                    "ude=\"Models\\Role.cs\" />\r\n    <Compile Include=\"Properties\\AssemblyInfo.cs\" />\r\n " +
-                    "   <Compile Include=\"Providers\\CustomJwtFormat.cs\" />\r\n    <Compile Include=\"Pro" +
-                    "viders\\CustomOAuthProvider.cs\" />\r\n    <Compile Include=\"Results\\ChallengeResult" +
-                    ".cs\" />\r\n    <Compile Include=\"Services\\EmailService.cs\" />\r\n    <Compile Includ" +
-                    "e=\"Startup.cs\" />\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Content Include=\"Global.a" +
-                    "sax\" />\r\n    <Content Include=\"Web.config\">\r\n      <SubType>Designer</SubType>\r\n" +
-                    "    </Content>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Content Include=\"packages.co" +
-                    "nfig\" />\r\n  </ItemGroup>\r\n  <PropertyGroup>\r\n    <VisualStudioVersion Condition=" +
-                    "\"\'$(VisualStudioVersion)\' == \'\'\">10.0</VisualStudioVersion>\r\n    <VSToolsPath Co" +
-                    "ndition=\"\'$(VSToolsPath)\' == \'\'\">$(MSBuildExtensionsPath32)\\Microsoft\\VisualStud" +
-                    "io\\v$(VisualStudioVersion)</VSToolsPath>\r\n  </PropertyGroup>\r\n  <Import Project=" +
-                    "\"$(MSBuildBinPath)\\Microsoft.CSharp.targets\" />\r\n  <Import Project=\"$(VSToolsPat" +
-                    "h)\\WebApplications\\Microsoft.WebApplication.targets\" Condition=\"\'$(VSToolsPath)\'" +
-                    " != \'\'\" />\r\n  <Import Project=\"$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio" +
-                    "\\v10.0\\WebApplications\\Microsoft.WebApplication.targets\" Condition=\"false\" />\r\n " +
-                    " <Target Name=\"MvcBuildViews\" AfterTargets=\"AfterBuild\" Condition=\"\'$(MvcBuildVi" +
-                    "ews)\'==\'true\'\">\r\n    <AspNetCompiler VirtualPath=\"temp\" PhysicalPath=\"$(WebProje" +
-                    "ctOutputDir)\" />\r\n  </Target>\r\n  <ProjectExtensions>\r\n    <VisualStudio>\r\n      " +
-                    "<FlavorProperties GUID=\"{349c5851-65df-11da-9384-00065b846f21}\">\r\n        <WebPr" +
-                    "ojectProperties>\r\n          <UseIIS>True</UseIIS>\r\n          <AutoAssignPort>Tru" +
-                    "e</AutoAssignPort>\r\n          <DevelopmentServerPort>62747</DevelopmentServerPor" +
-                    "t>\r\n          <DevelopmentServerVPath>/</DevelopmentServerVPath>\r\n          <IIS" +
-                    "Url>http://localhost:62747/</IISUrl>\r\n          <NTLMAuthentication>False</NTLMA" +
-                    "uthentication>\r\n          <UseCustomServer>False</UseCustomServer>\r\n          <C" +
-                    "ustomServerUrl>\r\n          </CustomServerUrl>\r\n          <SaveServerSettingsInUs" +
-                    "erFile>False</SaveServerSettingsInUserFile>\r\n        </WebProjectProperties>\r\n  " +
-                    "    </FlavorProperties>\r\n    </VisualStudio>\r\n  </ProjectExtensions>\r\n  <Target " +
-                    "Name=\"EnsureNuGetPackageBuildImports\" BeforeTargets=\"PrepareForBuild\">\r\n    <Pro" +
-                    "pertyGroup>\r\n      <ErrorText>This project references NuGet package(s) that are " +
-                    "missing on this computer. Use NuGet Package Restore to download them.  For more " +
-                    "information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file" +
-                    " is {0}.</ErrorText>\r\n    </PropertyGroup>\r\n    <Error Condition=\"!Exists(\'..\\pa" +
-                    "ckages\\Microsoft.Net.Compilers.1.0.0\\build\\Microsoft.Net.Compilers.props\')\" Text" +
-                    "=\"$([System.String]::Format(\'$(ErrorText)\', \'..\\packages\\Microsoft.Net.Compilers" +
-                    ".1.0.0\\build\\Microsoft.Net.Compilers.props\'))\" />\r\n  </Target>\r\n  <!-- To modify" +
-                    " your build process, add your task inside one of the targets below and uncomment" +
-                    " it.\r\n       Other similar extension points exist, see Microsoft.Common.targets." +
-                    "\r\n  <Target Name=\"BeforeBuild\">\r\n  </Target>\r\n  <Target Name=\"AfterBuild\">\r\n  </" +
-                    "Target> -->\r\n</Project>");
+                    "eflectionExtensions.cs\" />\r\n    <Compile Include=\"Helpers\\MemoryCacheManager.cs\"" +
+                    " />\r\n    <Compile Include=\"Models\\AccountBindingModels.cs\" />\r\n    <Compile Incl" +
+                    "ude=\"Models\\AccountViewModels.cs\" />\r\n    <Compile Include=\"Models\\ApplicationRo" +
+                    "leManager.cs\" />\r\n    <Compile Include=\"Models\\IdentityModels.cs\" />\r\n    <Compi" +
+                    "le Include=\"Models\\ModelFactory.cs\" />\r\n    <Compile Include=\"Models\\Role.cs\" />" +
+                    "\r\n    <Compile Include=\"Properties\\AssemblyInfo.cs\" />\r\n    <Compile Include=\"Pr" +
+                    "oviders\\CustomJwtFormat.cs\" />\r\n    <Compile Include=\"Providers\\CustomOAuthProvi" +
+                    "der.cs\" />\r\n    <Compile Include=\"Results\\ChallengeResult.cs\" />\r\n    <Compile I" +
+                    "nclude=\"Services\\EmailService.cs\" />\r\n    <Compile Include=\"Startup.cs\" />\r\n  </" +
+                    "ItemGroup>\r\n  <ItemGroup>\r\n    <Content Include=\"Global.asax\" />\r\n    <Content I" +
+                    "nclude=\"Web.config\">\r\n      <SubType>Designer</SubType>\r\n    </Content>\r\n  </Ite" +
+                    "mGroup>\r\n  <ItemGroup>\r\n    <Content Include=\"packages.config\" />\r\n  </ItemGroup" +
+                    ">\r\n  <PropertyGroup>\r\n    <VisualStudioVersion Condition=\"\'$(VisualStudioVersion" +
+                    ")\' == \'\'\">10.0</VisualStudioVersion>\r\n    <VSToolsPath Condition=\"\'$(VSToolsPath" +
+                    ")\' == \'\'\">$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersi" +
+                    "on)</VSToolsPath>\r\n  </PropertyGroup>\r\n  <Import Project=\"$(MSBuildBinPath)\\Micr" +
+                    "osoft.CSharp.targets\" />\r\n  <Import Project=\"$(VSToolsPath)\\WebApplications\\Micr" +
+                    "osoft.WebApplication.targets\" Condition=\"\'$(VSToolsPath)\' != \'\'\" />\r\n  <Import P" +
+                    "roject=\"$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v10.0\\WebApplications\\" +
+                    "Microsoft.WebApplication.targets\" Condition=\"false\" />\r\n  <Target Name=\"MvcBuild" +
+                    "Views\" AfterTargets=\"AfterBuild\" Condition=\"\'$(MvcBuildViews)\'==\'true\'\">\r\n    <A" +
+                    "spNetCompiler VirtualPath=\"temp\" PhysicalPath=\"$(WebProjectOutputDir)\" />\r\n  </T" +
+                    "arget>\r\n  <ProjectExtensions>\r\n    <VisualStudio>\r\n      <FlavorProperties GUID=" +
+                    "\"{349c5851-65df-11da-9384-00065b846f21}\">\r\n        <WebProjectProperties>\r\n     " +
+                    "     <UseIIS>True</UseIIS>\r\n          <AutoAssignPort>True</AutoAssignPort>\r\n   " +
+                    "       <DevelopmentServerPort>62747</DevelopmentServerPort>\r\n          <Developm" +
+                    "entServerVPath>/</DevelopmentServerVPath>\r\n          <IISUrl>http://localhost:62" +
+                    "747/</IISUrl>\r\n          <NTLMAuthentication>False</NTLMAuthentication>\r\n       " +
+                    "   <UseCustomServer>False</UseCustomServer>\r\n          <CustomServerUrl>\r\n      " +
+                    "    </CustomServerUrl>\r\n          <SaveServerSettingsInUserFile>False</SaveServe" +
+                    "rSettingsInUserFile>\r\n        </WebProjectProperties>\r\n      </FlavorProperties>" +
+                    "\r\n    </VisualStudio>\r\n  </ProjectExtensions>\r\n  <Target Name=\"EnsureNuGetPackag" +
+                    "eBuildImports\" BeforeTargets=\"PrepareForBuild\">\r\n    <PropertyGroup>\r\n      <Err" +
+                    "orText>This project references NuGet package(s) that are missing on this compute" +
+                    "r. Use NuGet Package Restore to download them.  For more information, see http:/" +
+                    "/go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>\r\n " +
+                    "   </PropertyGroup>\r\n    <Error Condition=\"!Exists(\'..\\packages\\Microsoft.Net.Co" +
+                    "mpilers.1.0.0\\build\\Microsoft.Net.Compilers.props\')\" Text=\"$([System.String]::Fo" +
+                    "rmat(\'$(ErrorText)\', \'..\\packages\\Microsoft.Net.Compilers.1.0.0\\build\\Microsoft." +
+                    "Net.Compilers.props\'))\" />\r\n  </Target>\r\n  <!-- To modify your build process, ad" +
+                    "d your task inside one of the targets below and uncomment it.\r\n       Other simi" +
+                    "lar extension points exist, see Microsoft.Common.targets.\r\n  <Target Name=\"Befor" +
+                    "eBuild\">\r\n  </Target>\r\n  <Target Name=\"AfterBuild\">\r\n  </Target> -->\r\n</Project>" +
+                    "");
             return this.GenerationEnvironment.ToString();
         }
     }

@@ -41,6 +41,7 @@ namespace WebApiGenerator
             { nameof(Resources.ValidateModelAttribute), $"Backend\\{ProjectName}\\Filters\\ValidateModelAttribute.cs" },
 
             { nameof(Resources.ReflectionExtensions), $"Backend\\{ProjectName}\\Helpers\\ReflectionExtensions.cs" },
+            { nameof(Resources.MemoryCacheManager), $"Backend\\{ProjectName}\\Helpers\\MemoryCacheManager.cs" },
 
             { nameof(Resources.AssemblyInfo), $"Backend\\{ProjectName}\\Properties\\AssemblyInfo.cs" },
 

@@ -77,6 +77,20 @@
                         </div>
 						<# } #>
 
+						<# if (collectionProperties != null && collectionProperties.Length > 0)
+						{
+						foreach(var collection in collectionProperties)
+						{ #>
+                <div class="row">
+                    <div class="col-md-6">
+                        <legend>
+                            <strong><#= collection.Name #> List</strong>
+                        </legend>
+                    </div>
+                </div>
+						<# }
+						} #>
+
                     </fieldset>
                     <div class="form-actions">
                         <div class="row">

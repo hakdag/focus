@@ -554,6 +554,33 @@ namespace UIGenerator.Templates
             
             #line default
             #line hidden
+            this.Write("\r\n\t\t\t\t\t\t");
+            
+            #line 80 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+ if (collectionProperties != null && collectionProperties.Length > 0)
+						{
+						foreach(var collection in collectionProperties)
+						{ 
+            
+            #line default
+            #line hidden
+            this.Write("                <div class=\"row\">\r\n                    <div class=\"col-md-6\">\r\n  " +
+                    "                      <legend>\r\n                            <strong>");
+            
+            #line 87 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(collection.Name));
+            
+            #line default
+            #line hidden
+            this.Write(" List</strong>\r\n                        </legend>\r\n                    </div>\r\n  " +
+                    "              </div>\r\n\t\t\t\t\t\t");
+            
+            #line 91 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+ }
+						} 
+            
+            #line default
+            #line hidden
             this.Write(@"
                     </fieldset>
                     <div class=""form-actions"">

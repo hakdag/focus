@@ -82,6 +82,10 @@ namespace UIGenerator.Templates
                 typeName = typeName.TrimEnd('[', ']');
             if (typeName == "Nullable`1")
                 typeName = pi.PropertyType.GenericTypeArguments[0].Name;
+            if (typeName == "ICollection`1")
+            {
+                typeName = $"{pi.PropertyType.GenericTypeArguments[0].Name}[]";
+            }
             return typeName;
         }
 

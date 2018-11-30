@@ -3,6 +3,7 @@ using Focus.Common.Attributes;
 using GeneratorBase;
 using GeneratorBase.Extensions;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
@@ -17,6 +18,7 @@ namespace UIGenerator.Templates
         private string moduleUIName;
         private string title;
         private PropertyInfo[] editableProperties;
+        private PropertyInfo[] collectionProperties;
 
         public EditHtmlTemplate(GeneratorType type, string moduleName, string moduleUIName)
         {
@@ -27,8 +29,14 @@ namespace UIGenerator.Templates
             string attrValueTitle = type.Type.GetAttributeValue((TitleAttribute ta) => ta.Title);
             this.title = $"{attrValueTitle}";
 
-            editableProperties = type.Type.GetProperties().Where(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(DisplayAttribute))).ToArray();
+            var properties = type.Type.GetProperties();
+            editableProperties = properties.Where(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(DisplayAttribute))).ToArray();
+            collectionProperties = properties.Where(pi => IsCollection(pi.PropertyType)).ToArray();
         }
+
+        private bool IsCollection(Type type) =>
+            type.IsGenericType && typeof(ICollection<>).IsAssignableFrom(type.GetGenericTypeDefinition()) ||
+            type.GetInterfaces().Any(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(ICollection<>));
 
         private string getSearchProperty()
         {

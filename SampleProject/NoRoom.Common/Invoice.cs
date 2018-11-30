@@ -2,6 +2,7 @@
 using Focus.Common.Attributes;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Required = Focus.Common.Attributes.RequiredAttribute;
 
 namespace NoRoom.Common
@@ -10,13 +11,16 @@ namespace NoRoom.Common
     [Title("Invoice")]
     public class Invoice : BaseModel
     {
+        public int GuestId { get; set; }
+
         [Display(Name = "Status")]
         [Required]
         public InvoiceStatuses Status { get; set; }
 
-        [Display(Name = "Guest Name")]
+        [Display(Name = "Guest")]
+        [ForeignKey("GuestId")]
         [Required]
-        public string GuestName { get; set; }
+        public virtual Guest Guest { get; set; }
 
         [Display(Name = "Invoice No")]
         [SearchProperty]

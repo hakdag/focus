@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Focus.Common;
+﻿using Focus.Common;
 using Focus.Common.Attributes;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Required = Focus.Common.Attributes.RequiredAttribute;
 
 namespace NoRoom.Common
@@ -14,18 +11,23 @@ namespace NoRoom.Common
     [Title("Check In")]
     public class CheckIn : BaseModel
     {
-        [Display(Name = "Guest Name")]
+        public int GuestId { get; set; }
+        public int InvoiceId { get; set; }
+
+        [Display(Name = "Guest")]
         [SearchProperty]
+        [ForeignKey("GuestId")]
         [Required]
-        public string GuestName { get; set; }
+        public virtual Guest Guest { get; set; }
 
         [Display(Name = "Check In Number")]
         [Required]
         public int CheckInNumber { get; set; }
 
-        [Display(Name = "Invoice No")]
+        [Display(Name = "Invoice")]
+        [ForeignKey("InvoiceId")]
         [Required]
-        public string InvoiceNo { get; set; }
+        public virtual Invoice Invoice { get; set; }
 
         [Display(Name = "Arrival Date")]
         [Required]

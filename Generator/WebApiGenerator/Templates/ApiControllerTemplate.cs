@@ -9,6 +9,7 @@
 // ------------------------------------------------------------------------------
 namespace WebApiGenerator.Templates
 {
+    using Focus.Common;
     using System.Linq;
     using System.Text;
     using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace WebApiGenerator.Templates
         {
             this.Write("using Bogus;\r\nusing Focus.Common.Pagination;\r\nusing ");
             
-            #line 8 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 9 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
@@ -38,21 +39,21 @@ namespace WebApiGenerator.Templates
             this.Write(".Common;\r\nusing System;\r\nusing System.Collections.Generic;\r\nusing System.Linq;\r\nu" +
                     "sing System.Web.Http;\r\nusing System.Web.Http.Cors;\r\n\r\nnamespace ");
             
-            #line 15 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 16 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
             this.Write(".Controllers\r\n{\r\n    [Route(\"api/");
             
-            #line 17 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 18 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(moduleName));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 17 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 18 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
@@ -60,21 +61,21 @@ namespace WebApiGenerator.Templates
             this.Write("/{id?}\")] \r\n    [EnableCors(origins: \"http://localhost:8080\", headers: \"*\", metho" +
                     "ds: \"*\")]\r\n    public class ");
             
-            #line 19 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 20 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
             
             #line default
             #line hidden
             this.Write("Controller : BaseController<");
             
-            #line 19 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 20 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
             
             #line default
             #line hidden
             this.Write(">\r\n    {\r\n        public PageResult<");
             
-            #line 21 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 22 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
             
             #line default
@@ -82,7 +83,7 @@ namespace WebApiGenerator.Templates
             this.Write("> Get(string filterQuery, int startIndex, int rowsOnPage, string sortBy, string s" +
                     "ortOrder)\r\n        {\r\n            return base.Get(\"");
             
-            #line 23 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 24 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(SearchProperty.Name));
             
             #line default
@@ -90,22 +91,43 @@ namespace WebApiGenerator.Templates
             this.Write("\", \"Id\", filterQuery, startIndex, rowsOnPage, sortBy, sortOrder);\r\n        }\r\n\r\n " +
                     "       public override IQueryable<");
             
-            #line 26 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 27 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
             
             #line default
             #line hidden
-            this.Write("> Generate()\r\n        {\r\n            int itemCount = Randomizer.Seed.Next(5, 50);" +
-                    "\r\n            var faker = new Faker<");
+            this.Write("> Generate()\r\n        {\r\n            if (_cacheManager.Contains(\"");
             
             #line 29 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
             
             #line default
             #line hidden
+            this.Write("List\"))\r\n            {\r\n                return _cacheManager.Get<IQueryable<");
+            
+            #line 31 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
+            
+            #line default
+            #line hidden
+            this.Write(">>(\"");
+            
+            #line 31 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
+            
+            #line default
+            #line hidden
+            this.Write("List\");\r\n            }\r\n\r\n            int itemCount = Randomizer.Seed.Next(5, 50)" +
+                    ";\r\n            var faker = new Faker<");
+            
+            #line 35 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
+            
+            #line default
+            #line hidden
             this.Write(">();\r\n");
             
-            #line 30 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 36 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
  
 var properties = Type.Type.GetProperties();
 foreach (var propertyInfo in properties)
@@ -117,7 +139,7 @@ if(propertyInfo.Name.Equals("Id"))
             #line hidden
             this.Write("            faker.RuleFor(item => item.Id, f => f.IndexFaker);\r\n");
             
-            #line 37 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 43 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
  }
 else if (propertyInfo.PropertyType == typeof(int))
 { 
@@ -126,14 +148,14 @@ else if (propertyInfo.PropertyType == typeof(int))
             #line hidden
             this.Write("\t\t\tfaker.RuleFor(item => item.");
             
-            #line 40 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 46 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(propertyInfo.Name));
             
             #line default
             #line hidden
             this.Write(", f => f.Random.Int(1, 999));\r\n");
             
-            #line 41 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 47 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
  }
 else if (propertyInfo.PropertyType == typeof(string))
 { 
@@ -142,14 +164,14 @@ else if (propertyInfo.PropertyType == typeof(string))
             #line hidden
             this.Write("            faker.RuleFor(item => item.");
             
-            #line 44 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 50 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(propertyInfo.Name));
             
             #line default
             #line hidden
             this.Write(", f => f.Lorem.Word());\r\n");
             
-            #line 45 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 51 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
  }
 else if (propertyInfo.PropertyType.BaseType != null && propertyInfo.PropertyType.BaseType == typeof(Enum))
 { 
@@ -158,28 +180,28 @@ else if (propertyInfo.PropertyType.BaseType != null && propertyInfo.PropertyType
             #line hidden
             this.Write("\t\t\tvar arr = Enum.GetValues(typeof(");
             
-            #line 48 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 54 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(propertyInfo.PropertyType.Name));
             
             #line default
             #line hidden
             this.Write(")).Cast<");
             
-            #line 48 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 54 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(propertyInfo.PropertyType.Name));
             
             #line default
             #line hidden
             this.Write(">();\r\n            faker.RuleFor(item => item.");
             
-            #line 49 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 55 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(propertyInfo.Name));
             
             #line default
             #line hidden
             this.Write(", f => f.PickRandom(arr));\r\n");
             
-            #line 50 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 56 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
  }
 else if (propertyInfo.PropertyType == typeof(DateTime))
 { 
@@ -188,14 +210,37 @@ else if (propertyInfo.PropertyType == typeof(DateTime))
             #line hidden
             this.Write("\t\t\tfaker.RuleFor(item => item.");
             
-            #line 53 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 59 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(propertyInfo.Name));
             
             #line default
             #line hidden
             this.Write(", f => f.Date.Past());\r\n");
             
-            #line 54 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 60 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+ }
+else if (propertyInfo.PropertyType.BaseType != null && propertyInfo.PropertyType.BaseType == typeof(BaseModel))
+{ 
+            
+            #line default
+            #line hidden
+            this.Write("            faker.RuleFor(item => item.");
+            
+            #line 63 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(propertyInfo.Name));
+            
+            #line default
+            #line hidden
+            this.Write(", f => f.PickRandom(new ");
+            
+            #line 63 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(propertyInfo.PropertyType.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Controller().Generate().ToList()));\r\n");
+            
+            #line 64 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
  }
 } 
             
@@ -203,13 +248,20 @@ else if (propertyInfo.PropertyType == typeof(DateTime))
             #line hidden
             this.Write("\r\n            var items = new List<");
             
-            #line 57 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 67 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
             
             #line default
             #line hidden
             this.Write(">(faker\r\n                .FinishWith((f, i) => { })\r\n                .Generate(it" +
-                    "emCount));\r\n            return items.AsQueryable();\r\n        }\r\n\t}\r\n}");
+                    "emCount)).AsQueryable();\r\n\r\n            _cacheManager.Add(\"");
+            
+            #line 71 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
+            
+            #line default
+            #line hidden
+            this.Write("List\", items);\r\n\r\n            return items;\r\n        }\r\n\t}\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

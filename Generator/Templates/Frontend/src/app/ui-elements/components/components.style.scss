@@ -1,0 +1,11 @@
+@import '../../scss/variables';
+@import '../../../../node_modules/bootstrap/scss/variables';
+
+.tag.tag-pill {
+  padding: .4em .6em;
+  font-weight: $font-weight-bold;
+}
+
+.modal-body {
+  background: $gray-lighter;
+}

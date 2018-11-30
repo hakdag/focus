@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Focus.Common;
 using Focus.Common.Attributes;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Required = Focus.Common.Attributes.RequiredAttribute;
 
 namespace NoRoom.Common
@@ -10,10 +12,13 @@ namespace NoRoom.Common
     [Title("Reservation")]
     public class Reservation : BaseModel
     {
-        [Display(Name = "Guest Name")]
+        public int GuestId { get; set; }
+
+        [Display(Name = "Guest")]
         [SearchProperty]
+        [ForeignKey("GuestId")]
         [Required]
-        public string GuestName { get; set; }
+        public virtual Guest Guest { get; set; }
 
         [Display(Name = "KDV")]
         [DefaultValue(18)]
@@ -34,5 +39,8 @@ namespace NoRoom.Common
         [Display(Name = "Departure Date")]
         [Required]
         public DateTime DepartureDate { get; set; }
+
+        [Display(Name = "Guests")]
+        public virtual ICollection<Guest> Guests { get; set; }
     }
 }

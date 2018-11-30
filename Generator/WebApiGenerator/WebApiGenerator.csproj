@@ -57,6 +57,7 @@
     <None Include="Resources\IdentityModels.cs" />
     <None Include="Resources\ModelFactory.cs" />
     <None Include="Resources\Role.cs" />
+    <None Include="Resources\MemoryCacheManager.cs" />
     <Compile Include="Templates\Partials\WebApiCsProjTemplate.cs" />
     <Compile Include="Templates\WebApiCsProjTemplate.cs">
       <AutoGen>True</AutoGen>

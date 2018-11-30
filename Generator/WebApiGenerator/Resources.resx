@@ -175,6 +175,9 @@
   <data name="LogExceptionFilterAttribute" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\LogExceptionFilterAttribute.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="MemoryCacheManager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\MemoryCacheManager.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="ModelFactory" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\ModelFactory.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

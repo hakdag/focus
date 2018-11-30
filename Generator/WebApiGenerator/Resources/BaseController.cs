@@ -11,6 +11,13 @@ namespace #projectname#.Controllers
 {
     public abstract class BaseController<TModel> : ApiController where TModel : BaseModel
     {
+        protected MemoryCacheManager _cacheManager;
+
+        public BaseController()
+        {
+            _cacheManager = new MemoryCacheManager();
+        }
+
         public virtual PageResult<TModel> Get(string searchProperty, string sortPropertyDefault, string filterQuery, int startIndex, int rowsOnPage, string sortBy, string sortOrder)
         {
             var items = Generate();

@@ -91,22 +91,25 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using #projectname#.Common.Models;
-        ///using #projectname#.Models;
-        ///using #projectname#.Providers;
-        ///using #projectname#.Results;
+        ///   Looks up a localized string similar to using Focus.Common;
         ///using Microsoft.AspNet.Identity;
         ///using Microsoft.AspNet.Identity.EntityFramework;
         ///using Microsoft.AspNet.Identity.Owin;
         ///using Microsoft.Owin.Security;
         ///using Microsoft.Owin.Security.Cookies;
-        ///using Microsoft.Owin.Security.OAuth;
+        ///using #projectname#.Models;
         ///using System;
         ///using System.Collections.Generic;
-        ///using System.Linq;
         ///using System.Net.Http;
         ///using System.Security.Claims;
-        ///using System.Security.Crypt [rest of string was truncated]&quot;;.
+        ///using System.Security.Cryptography;
+        ///using System.Threading.Tasks;
+        ///using System.Web;
+        ///using System.Web.Http;
+        ///
+        ///namespace #projectname#.Controllers
+        ///{
+        ///    [Auth [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AccountController {
             get {
@@ -190,23 +193,27 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using #projectname#.Common.Models;
-        ///using #projectname#.Common.Pagination;
-        ///using #projectname#.Contracts.Business;
+        ///   Looks up a localized string similar to using Focus.Common;
+        ///using Focus.Common.Pagination;
         ///using #projectname#.Filters;
         ///using #projectname#.Helpers;
-        ///using #projectname#.Logs.Contracts;
         ///using System;
         ///using System.Linq;
         ///using System.Web.Http;
         ///
+        ///
         ///namespace #projectname#.Controllers
         ///{
-        ///    public class BaseController&lt;TBusiness, TModel&gt; : ApiController where TBusiness : IBaseBusiness&lt;TModel&gt;
+        ///    public abstract class BaseController&lt;TModel&gt; : ApiController where TModel : BaseModel
         ///    {
-        ///        protected TBusiness business;
+        ///        protected MemoryCacheManager _cacheManager;
         ///
-        ///        public BaseController(TBusiness b [rest of string was truncated]&quot;;.
+        ///        public BaseController()
+        ///        {
+        ///            _cacheManager = new MemoryCacheManager();
+        ///        }
+        ///
+        ///        public virtual PageResu [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BaseController {
             get {
@@ -454,13 +461,13 @@ namespace WebApiGenerator {
         ///using System.Security.Claims;
         ///using System.Threading.Tasks;
         ///
-        ///namespace BetonCRM.Models
+        ///namespace #projectname#.Models
         ///{
         ///    // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
         ///    public class ApplicationUser : IdentityUser
         ///    {
         ///        //[Required]
-        ///        //[MaxLeng [rest of string was truncated]&quot;;.
+        ///        //[Ma [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string IdentityModels {
             get {
@@ -469,25 +476,17 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using #projectname#.Common.Attributes;
-        ///using #projectname#.Logs.Business;
-        ///using #projectname#.Logs.Contracts;
-        ///using #projectname#.Logs.Data;
-        ///using #projectname#.Logs.UnitOfWork;
-        ///using Newtonsoft.Json;
-        ///using System;
-        ///using System.Linq;
-        ///using System.Web.Http.Filters;
+        ///   Looks up a localized string similar to using System.Web.Http.Filters;
         ///
         ///namespace #projectname#.Filters
         ///{
         ///    public class LogActionFilter : ActionFilterAttribute
         ///    {
-        ///        private readonly ILogBusiness logBusiness;
-        ///
-        ///        public LogActionFilter()
+        ///        public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
         ///        {
-        ///            this.logBusiness = new L [rest of string was truncated]&quot;;.
+        ///        }
+        ///    }
+        ///}.
         /// </summary>
         internal static string LogActionFilter {
             get {
@@ -496,30 +495,50 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using #projectname#.Logs.Contracts;
-        ///using Newtonsoft.Json;
-        ///using System;
-        ///using System.Linq;
-        ///using System.Net;
-        ///using System.Net.Http;
-        ///using System.Web.Http.Filters;
+        ///   Looks up a localized string similar to using System.Web.Http.Filters;
         ///
         ///namespace #projectname#.Filters
         ///{
         ///    public class LogExceptionFilterAttribute : ExceptionFilterAttribute
         ///    {
-        ///        private readonly IErrorBusiness errorBusiness;
-        ///
-        ///        public LogExceptionFilterAttribute(IErrorBusiness errorBusiness)
+        ///        public override void OnException(HttpActionExecutedContext context)
         ///        {
-        ///            this.errorBusiness = errorBusiness;
         ///        }
-        ///
-        ///        private Ex [rest of string was truncated]&quot;;.
+        ///    }
+        ///}.
         /// </summary>
         internal static string LogExceptionFilterAttribute {
             get {
                 return ResourceManager.GetString("LogExceptionFilterAttribute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using System;
+        ///using System.Runtime.Caching;
+        ///
+        ///namespace #projectname#.Helpers
+        ///{
+        ///    public class MemoryCacheManager
+        ///    {
+        ///        ObjectCache cache;
+        ///
+        ///        public MemoryCacheManager()
+        ///        {
+        ///            cache = MemoryCache.Default;
+        ///        }
+        ///
+        ///        public void Add&lt;T&gt;(string key, T source)
+        ///        {
+        ///            var policy = new CacheItemPolicy { AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(60) };
+        ///            cache.Add(key, source, policy);
+        ///        }
+        ///
+        ///        public bool Contai [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string MemoryCacheManager {
+            get {
+                return ResourceManager.GetString("MemoryCacheManager", resourceCulture);
             }
         }
         
@@ -532,7 +551,7 @@ namespace WebApiGenerator {
         ///using System.Web;
         ///using System.Web.Http.Routing;
         ///
-        ///namespace BetonCRM.Models
+        ///namespace #projectname#.Models
         ///{
         ///    public class ModelFactory
         ///    {
@@ -542,7 +561,7 @@ namespace WebApiGenerator {
         ///
         ///        public ModelFactory(HttpRequestMessage request, ApplicationUserManager appUserManager)
         ///        {
-        ///            _UrlHelper = new UrlHelper(r [rest of string was truncated]&quot;;.
+        ///            _UrlHelper = new UrlHel [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ModelFactory {
             get {
@@ -556,10 +575,10 @@ namespace WebApiGenerator {
         ///  &lt;package id=&quot;Antlr&quot; version=&quot;3.4.1.9004&quot; targetFramework=&quot;net45&quot; /&gt;
         ///  &lt;package id=&quot;Autofac&quot; version=&quot;4.6.2&quot; targetFramework=&quot;net45&quot; /&gt;
         ///  &lt;package id=&quot;Autofac.WebApi2&quot; version=&quot;4.1.0&quot; targetFramework=&quot;net45&quot; /&gt;
+        ///  &lt;package id=&quot;Bogus&quot; version=&quot;25.0.1&quot; targetFramework=&quot;net45&quot; /&gt;
         ///  &lt;package id=&quot;bootstrap&quot; version=&quot;3.0.0&quot; targetFramework=&quot;net45&quot; /&gt;
         ///  &lt;package id=&quot;EntityFramework&quot; version=&quot;6.2.0&quot; targetFramework=&quot;net45&quot; /&gt;
-        ///  &lt;package id=&quot;EntityFramework.Extended&quot; version=&quot;6.1.0.168&quot; targetFramework=&quot;net45&quot; /&gt;
-        ///  &lt;package [rest of string was truncated]&quot;;.
+        ///  &lt;package id=&quot;EntityFramework.E [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string packages {
             get {
@@ -568,8 +587,8 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using #projectname#.Common.Attributes;
-        ///using #projectname#.Common.Models;
+        ///   Looks up a localized string similar to using Focus.Common;
+        ///using Focus.Common.Attributes;
         ///using System;
         ///using System.Linq;
         ///using System.Linq.Dynamic;
@@ -584,7 +603,7 @@ namespace WebApiGenerator {
         ///            var type = typeof(TEntity);
         ///
         ///            var property = type.GetProperty(orderByProperty);
-        ///            [rest of string was truncated]&quot;;.
+        ///            if (property != null &amp; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ReflectionExtensions {
             get {
@@ -596,7 +615,7 @@ namespace WebApiGenerator {
         ///   Looks up a localized string similar to using System.Collections.Generic;
         ///using System.ComponentModel.DataAnnotations;
         ///
-        ///namespace BetonCRM.Models
+        ///namespace #projectname#.Models
         ///{
         ///    public class CreateRoleBindingModel
         ///    {
@@ -611,7 +630,7 @@ namespace WebApiGenerator {
         ///    public class UsersInRoleModel
         ///    {
         ///        public string Id { get; set; }
-        ///      [rest of string was truncated]&quot;;.
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Role {
             get {
@@ -686,24 +705,24 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using System;
-        ///using System.Collections.Generic;
-        ///using System.Linq;
-        ///using Microsoft.AspNet.Identity;
-        ///using Microsoft.AspNet.Identity.EntityFramework;
+        ///   Looks up a localized string similar to using Microsoft.AspNet.Identity;
         ///using Microsoft.Owin;
         ///using Microsoft.Owin.Security.Cookies;
-        ///using Microsoft.Owin.Security.Google;
         ///using Microsoft.Owin.Security.OAuth;
-        ///using Owin;
-        ///using #projectname#.Providers;
         ///using #projectname#.Models;
+        ///using #projectname#.Providers;
+        ///using Owin;
+        ///using System;
         ///
         ///namespace #projectname#
         ///{
         ///    public partial class Startup
         ///    {
-        ///        public static OAuthAuthorizationServerOptions OAuthOptions { get; [rest of string was truncated]&quot;;.
+        ///        public static OAuthAuthorizationServerOptions OAuthOptions { get; private set; }
+        ///
+        ///        public static string PublicClientId { get; private set; }
+        ///
+        ///        // For more information on configuring authentic [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Startup_Auth {
             get {
@@ -712,7 +731,8 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using #projectname#.Common.Models;
+        ///   Looks up a localized string similar to using Focus.Common;
+        ///using Focus.Common.Attributes;
         ///using System.Collections;
         ///using System.ComponentModel.DataAnnotations;
         ///using System.ComponentModel.DataAnnotations.Schema;
@@ -720,14 +740,14 @@ namespace WebApiGenerator {
         ///using System.Reflection;
         ///using System.Web.Http.Controllers;
         ///using System.Web.Http.Filters;
-        ///using System;
-        ///using #projectname#.Common.Attributes;
         ///
         ///namespace #projectname#.Filters
         ///{
         ///    public class UpdateFKAttribute : ActionFilterAttribute
         ///    {
-        ///        public override void OnActionExecuting(HttpActionContext actionConte [rest of string was truncated]&quot;;.
+        ///        public override void OnActionExecuting(HttpActionContext actionContext)
+        ///        {
+        ///            if (action [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string UpdateFKAttribute {
             get {
@@ -736,10 +756,10 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using #projectname#.Common.Models;
+        ///   Looks up a localized string similar to using Focus.Common;
+        ///using System;
         ///using System.Collections.Generic;
         ///using System.Linq;
-        ///using System;
         ///using System.Net;
         ///using System.Net.Http;
         ///using System.Web.Http.Controllers;
@@ -753,7 +773,7 @@ namespace WebApiGenerator {
         ///        {
         ///            if (actionContext.ModelState.IsValid == false)
         ///            {
-        ///                Li [rest of string was truncated]&quot;;.
+        ///                List&lt;string&gt; mess [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ValidateModelAttribute {
             get {
@@ -781,7 +801,6 @@ namespace WebApiGenerator {
         ///using System.Web.Http.Cors;
         ///
         ///using #projectname#.Filters;
-        ///using #projectname#.Logs.Contracts;
         ///using Microsoft.Owin.Security.OAuth;
         ///
         ///namespace #projectname#
@@ -794,7 +813,8 @@ namespace WebApiGenerator {
         ///            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
         ///
         ///            config.MapHttpAttributeRoutes();
-        ///        /// [rest of string was truncated]&quot;;.
+        ///
+        ///            var cors = new EnableCor [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WebApiConfig {
             get {
