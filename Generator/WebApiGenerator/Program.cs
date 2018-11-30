@@ -8,6 +8,7 @@ namespace WebApiGenerator
 {
     class Program
     {
+        private static string OutputFolder = $"Backend{OutputFolder}{DateTime.Now:MMddyyyyhhmmss}";
         static void Main(string[] args)
         {
             if (args == null || args.Length < 2)
@@ -37,12 +38,12 @@ namespace WebApiGenerator
             // create Global.asax
             GlobalAsaxTemplate gat = new GlobalAsaxTemplate(projectName, mb.Modules);
             string resultgat = gat.TransformText();
-            File.WriteAllText($"Output\\Backend\\{projectName}\\Global.asax.cs", resultgat);
+            File.WriteAllText($"{OutputFolder}\\{projectName}\\Global.asax.cs", resultgat);
 
             // create web api .csproj file
             WebApiCsProjTemplate webApiCsProjTemplate = new WebApiCsProjTemplate(projectName, mb.Modules);
             string strWebApiCsProj = webApiCsProjTemplate.TransformText();
-            File.WriteAllText($"Output\\Backend\\{projectName}\\{projectName}.csproj", strWebApiCsProj);
+            File.WriteAllText($"{OutputFolder}\\{projectName}\\{projectName}.csproj", strWebApiCsProj);
 
             if (!Directory.Exists("Controllers"))
                 Directory.CreateDirectory("Controllers");
@@ -50,7 +51,7 @@ namespace WebApiGenerator
             foreach (Module module in mb.Modules)
             {
                 // create module folders
-                string moduleFolderControllers = $"Output\\Backend\\{projectName}\\Controllers\\{module.ModuleName}";
+                string moduleFolderControllers = $"{OutputFolder}\\{projectName}\\Controllers\\{module.ModuleName}";
                 if (!Directory.Exists(moduleFolderControllers))
                     Directory.CreateDirectory(moduleFolderControllers);
 
@@ -77,49 +78,48 @@ namespace WebApiGenerator
                     var byteArray = Resources.ResourceManager.GetObject(file.Key) as byte[];
                     string result = System.Text.Encoding.UTF8.GetString(byteArray);
                     result = result.Replace("#projectname#", projectName);
-                    File.WriteAllText($"Output\\{file.Value}", result);
+                    File.WriteAllText($"{OutputFolder}\\{file.Value}", result);
                     continue;
                 }
 
                 string text = Resources.ResourceManager.GetString(file.Key);
                 text = text.Replace("#projectname#", projectName);
-                File.WriteAllText($"Output\\{file.Value}", text);
+                File.WriteAllText($"{OutputFolder}\\{file.Value}", text);
             }
         }
 
         private static void CopyFiles(string sourceLibrary)
         {
-            File.Copy(sourceLibrary, $"Output\\Backend\\Libraries\\{sourceLibrary}", true);
+            File.Copy(sourceLibrary, $"{OutputFolder}\\Libraries\\{sourceLibrary}", true);
+            File.Copy("Focus.Common.dll", $"{OutputFolder}\\Libraries\\Focus.Common.dll", true);
         }
 
         private static void CreateFolders(string projectName)
         {
-            if (!Directory.Exists("Output"))
-                Directory.CreateDirectory("Output");
-            if (!Directory.Exists("Output\\Backend"))
-                Directory.CreateDirectory("Output\\Backend");
-            if (!Directory.Exists("Output\\Backend\\Libraries"))
-                Directory.CreateDirectory("Output\\Backend\\Libraries");
-            if (!Directory.Exists($"Output\\Backend\\{projectName}"))
-                Directory.CreateDirectory($"Output\\Backend\\{projectName}");
-            if (!Directory.Exists($"Output\\Backend\\{projectName}\\App_Start"))
-                Directory.CreateDirectory($"Output\\Backend\\{projectName}\\App_Start");
-            if (!Directory.Exists($"Output\\Backend\\{projectName}\\Controllers"))
-                Directory.CreateDirectory($"Output\\Backend\\{projectName}\\Controllers");
-            if (!Directory.Exists($"Output\\Backend\\{projectName}\\Filters"))
-                Directory.CreateDirectory($"Output\\Backend\\{projectName}\\Filters");
-            if (!Directory.Exists($"Output\\Backend\\{projectName}\\Helpers"))
-                Directory.CreateDirectory($"Output\\Backend\\{projectName}\\Helpers");
-            if (!Directory.Exists($"Output\\Backend\\{projectName}\\Properties"))
-                Directory.CreateDirectory($"Output\\Backend\\{projectName}\\Properties");
-            if (!Directory.Exists($"Output\\Backend\\{projectName}\\Providers"))
-                Directory.CreateDirectory($"Output\\Backend\\{projectName}\\Providers");
-            if (!Directory.Exists($"Output\\Backend\\{projectName}\\Models"))
-                Directory.CreateDirectory($"Output\\Backend\\{projectName}\\Models");
-            if (!Directory.Exists($"Output\\Backend\\{projectName}\\Results"))
-                Directory.CreateDirectory($"Output\\Backend\\{projectName}\\Results");
-            if (!Directory.Exists($"Output\\Backend\\{projectName}\\Services"))
-                Directory.CreateDirectory($"Output\\Backend\\{projectName}\\Services");
+            if (!Directory.Exists($"{OutputFolder}"))
+                Directory.CreateDirectory($"{OutputFolder}");
+            if (!Directory.Exists($"{OutputFolder}\\Libraries"))
+                Directory.CreateDirectory($"{OutputFolder}\\Libraries");
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}");
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\App_Start"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\App_Start");
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Controllers"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Controllers");
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Filters"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Filters");
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Helpers"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Helpers");
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Properties"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Properties");
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Providers"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Providers");
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Models"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Models");
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Results"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Results");
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Services"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Services");
         }
     }
 }

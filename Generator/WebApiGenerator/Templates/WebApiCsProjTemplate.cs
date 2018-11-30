@@ -92,21 +92,21 @@ namespace WebApiGenerator.Templates
                     "packages\\EntityFramework.6.2.0\\lib\\net45\\EntityFramework.SqlServer.dll</HintPath" +
                     ">\r\n    </Reference>\r\n    <Reference Include=\"Focus.Common, Version=1.0.0.0, Cult" +
                     "ure=neutral, processorArchitecture=MSIL\">\r\n      <SpecificVersion>False</Specifi" +
-                    "cVersion>\r\n      <HintPath>..\\..\\..\\Focus.Common.dll</HintPath>\r\n    </Reference" +
-                    ">\r\n    <Reference Include=\"Microsoft.CSharp\" />\r\n    <Reference Include=\"Microso" +
-                    "ft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, proc" +
-                    "essorArchitecture=MSIL\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.3.1.0\\lib\\n" +
-                    "et45\\Microsoft.Owin.dll</HintPath>\r\n      <Private>True</Private>\r\n    </Referen" +
-                    "ce>\r\n    <Reference Include=\"Microsoft.Owin.Cors, Version=3.1.0.0, Culture=neutr" +
-                    "al, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n      <HintPa" +
-                    "th>..\\packages\\Microsoft.Owin.Cors.3.1.0\\lib\\net45\\Microsoft.Owin.Cors.dll</Hint" +
-                    "Path>\r\n      <Private>True</Private>\r\n    </Reference>\r\n    <Reference Include=\"" +
-                    "Microsoft.Owin.Security.Jwt\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.Securi" +
-                    "ty.Jwt.3.0.0\\lib\\net45\\Microsoft.Owin.Security.Jwt.dll</HintPath>\r\n    </Referen" +
-                    "ce>\r\n    <Reference Include=\"Newtonsoft.Json, Version=11.0.0.0, Culture=neutral," +
-                    " PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL\">\r\n      <HintPath>" +
-                    "..\\packages\\Newtonsoft.Json.11.0.1\\lib\\net45\\Newtonsoft.Json.dll</HintPath>\r\n   " +
-                    " </Reference>\r\n    <Reference Include=\"");
+                    "cVersion>\r\n      <HintPath>..\\Libraries\\Focus.Common.dll</HintPath>\r\n    </Refer" +
+                    "ence>\r\n    <Reference Include=\"Microsoft.CSharp\" />\r\n    <Reference Include=\"Mic" +
+                    "rosoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, " +
+                    "processorArchitecture=MSIL\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.3.1.0\\l" +
+                    "ib\\net45\\Microsoft.Owin.dll</HintPath>\r\n      <Private>True</Private>\r\n    </Ref" +
+                    "erence>\r\n    <Reference Include=\"Microsoft.Owin.Cors, Version=3.1.0.0, Culture=n" +
+                    "eutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n      <Hi" +
+                    "ntPath>..\\packages\\Microsoft.Owin.Cors.3.1.0\\lib\\net45\\Microsoft.Owin.Cors.dll</" +
+                    "HintPath>\r\n      <Private>True</Private>\r\n    </Reference>\r\n    <Reference Inclu" +
+                    "de=\"Microsoft.Owin.Security.Jwt\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.Se" +
+                    "curity.Jwt.3.0.0\\lib\\net45\\Microsoft.Owin.Security.Jwt.dll</HintPath>\r\n    </Ref" +
+                    "erence>\r\n    <Reference Include=\"Newtonsoft.Json, Version=11.0.0.0, Culture=neut" +
+                    "ral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL\">\r\n      <HintP" +
+                    "ath>..\\packages\\Newtonsoft.Json.11.0.1\\lib\\net45\\Newtonsoft.Json.dll</HintPath>\r" +
+                    "\n    </Reference>\r\n    <Reference Include=\"");
             
             #line 91 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
