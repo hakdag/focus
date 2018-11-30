@@ -5,8 +5,8 @@ declare let jQuery: any;
 @Injectable()
 export class AppConfig {
   config = {
-    name: 'No Room Hotel Management',
-    title: 'No Room Hotel Management',
+    name: 'My Project',
+    title: 'My Project',
     version: '0.8.5',
     /**
      * Whether to print and alert some log information

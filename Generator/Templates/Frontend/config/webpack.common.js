@@ -22,7 +22,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const HMR = helpers.hasProcessFlag('hot');
 const AOT = helpers.hasNpmFlag('aot');
 const METADATA = {
-  title: 'No Room v0.8.5',
+  title: 'My Project v0.8.5',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };

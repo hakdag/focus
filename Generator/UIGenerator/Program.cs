@@ -35,7 +35,8 @@ namespace UIGenerator
              7- 
              */
 
-            ModulesBuilder mb = new ModulesBuilder(args[0], "BaseModel");
+            var sourceLibrary = args[0];
+            ModulesBuilder mb = new ModulesBuilder(sourceLibrary, "BaseModel");
             mb.Build();
 
             if (!mb.Modules.Any())
