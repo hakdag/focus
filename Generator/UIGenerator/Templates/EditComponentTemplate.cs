@@ -317,9 +317,39 @@ import { ");
             
             #line default
             #line hidden
+            this.Write("\t");
+            
+            #line 68 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+ 
+	foreach(var relationProperty in relationProperties)
+	{ 
+            
+            #line default
+            #line hidden
+            this.Write("\t\tthis.");
+            
+            #line 71 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(relationProperty.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
+            
+            #line default
+            #line hidden
+            this.Write("Service.getList().then(list => {\r\n\t\t\tthis.");
+            
+            #line 72 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(relationProperty.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
+            
+            #line default
+            #line hidden
+            this.Write("List = list.Items;\r\n\t\t});\r\n\t");
+            
+            #line 74 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+ } 
+            
+            #line default
+            #line hidden
             this.Write("                \r\n\t");
             
-            #line 69 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 76 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
  foreach (var pp in parametreProperties)
 	{ 
             
@@ -327,56 +357,56 @@ import { ");
             #line hidden
             this.Write("\t\tthis.parametreService.getList(\'");
             
-            #line 71 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 78 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pp.Value));
             
             #line default
             #line hidden
             this.Write("\').then(list => {\r\n\t\t\tthis.");
             
-            #line 72 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 79 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pp.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("List = list.Items;\r\n\t\t\tif (this.model.");
             
-            #line 73 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 80 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pp.Key));
             
             #line default
             #line hidden
             this.Write(")\r\n\t\t\t\tthis.model.");
             
-            #line 74 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 81 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pp.Key));
             
             #line default
             #line hidden
             this.Write(" = this.");
             
-            #line 74 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 81 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pp.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("List.filter(c => c.Id === this.model.");
             
-            #line 74 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 81 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pp.Key));
             
             #line default
             #line hidden
             this.Write(".Id)[0];\r\n\t\t});\r\n\t");
             
-            #line 76 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 83 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
  } 
             
             #line default
             #line hidden
             this.Write("                \r\n\t");
             
-            #line 78 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 85 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
  for (int i = 0; i < enumProperties.Count(); i++)
 	{ 
 		var enumProperty = enumProperties[i];
@@ -386,42 +416,42 @@ import { ");
             #line hidden
             this.Write("\t\tthis.");
             
-            #line 82 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 89 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(extractTypeName(enumProperty).ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("List = this.");
             
-            #line 82 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 89 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(extractTypeName(enumProperty).ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("Service.getList();\r\n\t");
             
-            #line 83 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 90 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
  } 
             
             #line default
             #line hidden
             this.Write("    }\r\n\r\n    goBack(): void {\r\n        this.router.navigate([\'/app/");
             
-            #line 87 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 94 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(moduleName));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 87 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 94 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("list\']);\r\n    }\r\n\r\n\t");
             
-            #line 90 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 97 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
  foreach (var item in relationProperties)
     { 
             
@@ -429,105 +459,105 @@ import { ");
             #line hidden
             this.Write("    add");
             
-            #line 92 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 99 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Value));
             
             #line default
             #line hidden
             this.Write("(id) {\r\n        var ");
             
-            #line 93 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 100 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write(" = this.");
             
-            #line 93 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 100 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("List.filter(c => c.Id == id)[0];\r\n        if (this.model.");
             
-            #line 94 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 101 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Value));
             
             #line default
             #line hidden
             this.Write(" === null) {\r\n            this.model.");
             
-            #line 95 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 102 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Value));
             
             #line default
             #line hidden
             this.Write(" = [];\r\n        }\r\n        if (");
             
-            #line 97 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 104 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write(") {\r\n            this.model.");
             
-            #line 98 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 105 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Value));
             
             #line default
             #line hidden
             this.Write(".push(");
             
-            #line 98 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 105 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write(");\r\n        }\r\n    }\r\n    \r\n    remove");
             
-            #line 102 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 109 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Value));
             
             #line default
             #line hidden
             this.Write("(id) {\r\n\t\tvar index = this.model.");
             
-            #line 103 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 110 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Value));
             
             #line default
             #line hidden
             this.Write(".findIndex(c => c.Id == id);\r\n\t\tif (index !== -1) {\r\n            this.model.");
             
-            #line 105 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 112 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(item.Value));
             
             #line default
             #line hidden
             this.Write(".splice(index, 1);\r\n        }\r\n    }\r\n    ");
             
-            #line 108 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 115 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\r\n    getModelValue(params: Params): Promise<void|");
             
-            #line 110 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 117 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("> {\r\n        if (params[\'id\'])\r\n        {\r\n            this.upsertText = \'Edit ");
             
-            #line 113 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 120 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(title));
             
             #line default
             #line hidden
             this.Write("\';\r\n            return this.");
             
-            #line 114 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 121 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
@@ -536,21 +566,21 @@ import { ");
                     "this.router.navigate([\'/notfound\']);       \r\n                });\r\n        }\r\n   " +
                     "     else {\r\n            this.upsertText = \'New ");
             
-            #line 120 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 127 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(title));
             
             #line default
             #line hidden
             this.Write("\';\r\n            let m: ");
             
-            #line 121 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 128 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write(" = this.getInitialValue();;\r\n            let p: Promise<");
             
-            #line 122 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 129 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
@@ -558,14 +588,14 @@ import { ");
             this.Write("> = new Promise((resolve, reject) => resolve(m));\r\n            return p;\r\n       " +
                     " }\r\n    }\r\n\r\n    getInitialValue(): ");
             
-            #line 127 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 134 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write(" {\r\n        return {\r\n\t\t");
             
-            #line 129 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 136 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
  for(int i = 0; i < properties.Count(); i++)
 		{ 
 		PropertyInfo pi = properties[i]; 
@@ -574,46 +604,46 @@ import { ");
             #line hidden
             this.Write("\t\t");
             
-            #line 132 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 139 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
  if (pi.PropertyType == typeof(int)) { 
             
             #line default
             #line hidden
             
-            #line 132 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 139 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write(": 0");
             
-            #line 132 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 139 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
  } else { 
             
             #line default
             #line hidden
             
-            #line 132 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 139 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write(": null");
             
-            #line 132 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 139 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 132 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 139 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(i < properties.Count() - 1 ? "," : ""));
             
             #line default
             #line hidden
             this.Write("\r\n\t\t");
             
-            #line 133 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
+            #line 140 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditComponentTemplate.tt"
  } 
             
             #line default

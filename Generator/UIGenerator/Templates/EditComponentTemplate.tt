@@ -65,6 +65,13 @@ export class <#= type.Name #>EditComponent extends BaseEditComponent<<#= type.Na
 				this.model.<#= serviceProperty.Name #> = this.<#= typeName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List.filter(c => c.Id === this.model.<#= serviceProperty.Name #>.Id)[0];
 		});
 	<# } #>
+	<# 
+	foreach(var relationProperty in relationProperties)
+	{ #>
+		this.<#= relationProperty.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service.getList().then(list => {
+			this.<#= relationProperty.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List = list.Items;
+		});
+	<# } #>
                 
 	<# foreach (var pp in parametreProperties)
 	{ #>
