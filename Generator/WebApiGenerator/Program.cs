@@ -8,7 +8,7 @@ namespace WebApiGenerator
 {
     class Program
     {
-        private static string OutputFolder = $"Backend{OutputFolder}{DateTime.Now:MMddyyyyhhmmss}";
+        private static string OutputFolder = $"Backend{DateTime.Now:MMddyyyyhhmmss}";
         static void Main(string[] args)
         {
             if (args == null || args.Length < 2)
