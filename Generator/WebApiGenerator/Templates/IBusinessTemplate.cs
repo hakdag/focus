@@ -9,7 +9,6 @@
 // ------------------------------------------------------------------------------
 namespace WebApiGenerator.Templates
 {
-    using Focus.Common;
     using System.Linq;
     using System.Text;
     using System.Collections.Generic;
@@ -19,9 +18,9 @@ namespace WebApiGenerator.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+    #line 1 "C:\Projects\focus\Generator\WebApiGenerator\Templates\IBusinessTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class ApiControllerTemplate : ApiControllerTemplateBase
+    public partial class IBusinessTemplate : IBusinessTemplateBase
     {
 #line hidden
         /// <summary>
@@ -29,94 +28,35 @@ namespace WebApiGenerator.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using Bogus;\r\nusing Focus.Common.Pagination;\r\nusing ");
+            this.Write("using ");
             
-            #line 9 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 6 "C:\Projects\focus\Generator\WebApiGenerator\Templates\IBusinessTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".Common;\r\nusing System;\r\nusing System.Collections.Generic;\r\nusing System.Linq;\r\nu" +
-                    "sing System.Web.Http;\r\nusing System.Web.Http.Cors;\r\n\r\nnamespace ");
+            this.Write(".Common.Models;\r\n\r\nnamespace ");
             
-            #line 16 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 8 "C:\Projects\focus\Generator\WebApiGenerator\Templates\IBusinessTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".Controllers\r\n{\r\n    [Route(\"api/");
+            this.Write(".Contracts.Business\r\n{\r\n\tpublic interface I");
             
-            #line 18 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(moduleName));
-            
-            #line default
-            #line hidden
-            this.Write("/");
-            
-            #line 18 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
+            #line 10 "C:\Projects\focus\Generator\WebApiGenerator\Templates\IBusinessTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
-            this.Write("/{id?}\")] \r\n    [EnableCors(origins: \"http://localhost:8080\", headers: \"*\", metho" +
-                    "ds: \"*\")]\r\n    public class ");
+            this.Write("Business : IBaseBusiness<");
             
-            #line 20 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Controller : BaseController<I");
-            
-            #line 20 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
+            #line 10 "C:\Projects\focus\Generator\WebApiGenerator\Templates\IBusinessTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
-            this.Write("Business, ");
-            
-            #line 20 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
-            
-            #line default
-            #line hidden
-            this.Write(">\r\n    {\r\n\t\tpublic ");
-            
-            #line 22 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Controller(I");
-            
-            #line 22 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Business business) : base(business) { }\r\n\r\n        public PageResult<");
-            
-            #line 24 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
-            
-            #line default
-            #line hidden
-            this.Write("> Get(string filterQuery, int startIndex, int rowsOnPage, string sortBy, string s" +
-                    "ortOrder)\r\n        {\r\n            return base.Get(\"");
-            
-            #line 26 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(SearchProperty == null ? "Id" : SearchProperty.Name));
-            
-            #line default
-            #line hidden
-            this.Write("\", \"");
-            
-            #line 26 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(DefaultSortProperty == null ? "Id" : DefaultSortProperty.Name));
-            
-            #line default
-            #line hidden
-            this.Write("\", filterQuery, startIndex, rowsOnPage, sortBy, sortOrder);\r\n        }\r\n\t}\r\n}");
+            this.Write(">\r\n\t{\r\n\t}\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -128,7 +68,7 @@ namespace WebApiGenerator.Templates
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public class ApiControllerTemplateBase
+    public class IBusinessTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

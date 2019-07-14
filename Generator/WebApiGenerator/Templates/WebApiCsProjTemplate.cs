@@ -18,7 +18,7 @@ namespace WebApiGenerator.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+    #line 1 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class WebApiCsProjTemplate : WebApiCsProjTemplateBase
     {
@@ -44,14 +44,14 @@ namespace WebApiGenerator.Templates
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>");
             
-            #line 20 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            #line 20 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
             this.Write("</RootNamespace>\r\n    <AssemblyName>");
             
-            #line 21 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            #line 21 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
@@ -108,7 +108,7 @@ namespace WebApiGenerator.Templates
                     "ath>..\\packages\\Newtonsoft.Json.11.0.1\\lib\\net45\\Newtonsoft.Json.dll</HintPath>\r" +
                     "\n    </Reference>\r\n    <Reference Include=\"");
             
-            #line 91 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            #line 91 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
@@ -116,7 +116,7 @@ namespace WebApiGenerator.Templates
             this.Write(".Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL\">\r\n      <S" +
                     "pecificVersion>False</SpecificVersion>\r\n      <HintPath>..\\Libraries\\");
             
-            #line 93 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            #line 93 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
@@ -251,7 +251,7 @@ namespace WebApiGenerator.Templates
                     "ompile Include=\"App_Start\\WebApiConfig.cs\" />\r\n    <Compile Include=\"Controllers" +
                     "\\AccountController.cs\" />\r\n");
             
-            #line 251 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            #line 251 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
  for(int i=0; i<Modules.Count; i++)
 {
 var module = Modules[i];
@@ -265,21 +265,21 @@ if (type.BaseType != typeof(Enum))
             #line hidden
             this.Write("    <Compile Include=\"Controllers\\");
             
-            #line 259 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            #line 259 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write("\\");
             
-            #line 259 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            #line 259 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("Controller.cs\" />\r\n");
             
-            #line 260 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            #line 260 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
  }
 }
 } 
@@ -305,38 +305,60 @@ if (type.BaseType != typeof(Enum))
                     "ItemGroup>\r\n  <ItemGroup>\r\n    <Content Include=\"Global.asax\" />\r\n    <Content I" +
                     "nclude=\"Web.config\">\r\n      <SubType>Designer</SubType>\r\n    </Content>\r\n  </Ite" +
                     "mGroup>\r\n  <ItemGroup>\r\n    <Content Include=\"packages.config\" />\r\n  </ItemGroup" +
-                    ">\r\n  <PropertyGroup>\r\n    <VisualStudioVersion Condition=\"\'$(VisualStudioVersion" +
-                    ")\' == \'\'\">10.0</VisualStudioVersion>\r\n    <VSToolsPath Condition=\"\'$(VSToolsPath" +
-                    ")\' == \'\'\">$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersi" +
-                    "on)</VSToolsPath>\r\n  </PropertyGroup>\r\n  <Import Project=\"$(MSBuildBinPath)\\Micr" +
-                    "osoft.CSharp.targets\" />\r\n  <Import Project=\"$(VSToolsPath)\\WebApplications\\Micr" +
-                    "osoft.WebApplication.targets\" Condition=\"\'$(VSToolsPath)\' != \'\'\" />\r\n  <Import P" +
-                    "roject=\"$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v10.0\\WebApplications\\" +
-                    "Microsoft.WebApplication.targets\" Condition=\"false\" />\r\n  <Target Name=\"MvcBuild" +
-                    "Views\" AfterTargets=\"AfterBuild\" Condition=\"\'$(MvcBuildViews)\'==\'true\'\">\r\n    <A" +
-                    "spNetCompiler VirtualPath=\"temp\" PhysicalPath=\"$(WebProjectOutputDir)\" />\r\n  </T" +
-                    "arget>\r\n  <ProjectExtensions>\r\n    <VisualStudio>\r\n      <FlavorProperties GUID=" +
-                    "\"{349c5851-65df-11da-9384-00065b846f21}\">\r\n        <WebProjectProperties>\r\n     " +
-                    "     <UseIIS>True</UseIIS>\r\n          <AutoAssignPort>True</AutoAssignPort>\r\n   " +
-                    "       <DevelopmentServerPort>62747</DevelopmentServerPort>\r\n          <Developm" +
-                    "entServerVPath>/</DevelopmentServerVPath>\r\n          <IISUrl>http://localhost:62" +
-                    "747/</IISUrl>\r\n          <NTLMAuthentication>False</NTLMAuthentication>\r\n       " +
-                    "   <UseCustomServer>False</UseCustomServer>\r\n          <CustomServerUrl>\r\n      " +
-                    "    </CustomServerUrl>\r\n          <SaveServerSettingsInUserFile>False</SaveServe" +
-                    "rSettingsInUserFile>\r\n        </WebProjectProperties>\r\n      </FlavorProperties>" +
-                    "\r\n    </VisualStudio>\r\n  </ProjectExtensions>\r\n  <Target Name=\"EnsureNuGetPackag" +
-                    "eBuildImports\" BeforeTargets=\"PrepareForBuild\">\r\n    <PropertyGroup>\r\n      <Err" +
-                    "orText>This project references NuGet package(s) that are missing on this compute" +
-                    "r. Use NuGet Package Restore to download them.  For more information, see http:/" +
-                    "/go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>\r\n " +
-                    "   </PropertyGroup>\r\n    <Error Condition=\"!Exists(\'..\\packages\\Microsoft.Net.Co" +
-                    "mpilers.1.0.0\\build\\Microsoft.Net.Compilers.props\')\" Text=\"$([System.String]::Fo" +
-                    "rmat(\'$(ErrorText)\', \'..\\packages\\Microsoft.Net.Compilers.1.0.0\\build\\Microsoft." +
-                    "Net.Compilers.props\'))\" />\r\n  </Target>\r\n  <!-- To modify your build process, ad" +
-                    "d your task inside one of the targets below and uncomment it.\r\n       Other simi" +
-                    "lar extension points exist, see Microsoft.Common.targets.\r\n  <Target Name=\"Befor" +
-                    "eBuild\">\r\n  </Target>\r\n  <Target Name=\"AfterBuild\">\r\n  </Target> -->\r\n</Project>" +
-                    "");
+                    ">\r\n  <ItemGroup>\r\n    <ProjectReference Include=\"..\\");
+            
+            #line 298 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Business\\");
+            
+            #line 298 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Business.csproj\">\r\n      <Project>{0B50C06F-566E-4877-A618-5F95B073736D}</Projec" +
+                    "t>\r\n      <Name>");
+            
+            #line 300 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Business</Name>\r\n    </ProjectReference>\r\n  </ItemGroup>\r\n  <PropertyGroup>\r\n   " +
+                    " <VisualStudioVersion Condition=\"\'$(VisualStudioVersion)\' == \'\'\">10.0</VisualStu" +
+                    "dioVersion>\r\n    <VSToolsPath Condition=\"\'$(VSToolsPath)\' == \'\'\">$(MSBuildExtens" +
+                    "ionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersion)</VSToolsPath>\r\n  </Pr" +
+                    "opertyGroup>\r\n  <Import Project=\"$(MSBuildBinPath)\\Microsoft.CSharp.targets\" />\r" +
+                    "\n  <Import Project=\"$(VSToolsPath)\\WebApplications\\Microsoft.WebApplication.targ" +
+                    "ets\" Condition=\"\'$(VSToolsPath)\' != \'\'\" />\r\n  <Import Project=\"$(MSBuildExtensio" +
+                    "nsPath32)\\Microsoft\\VisualStudio\\v10.0\\WebApplications\\Microsoft.WebApplication." +
+                    "targets\" Condition=\"false\" />\r\n  <Target Name=\"MvcBuildViews\" AfterTargets=\"Afte" +
+                    "rBuild\" Condition=\"\'$(MvcBuildViews)\'==\'true\'\">\r\n    <AspNetCompiler VirtualPath" +
+                    "=\"temp\" PhysicalPath=\"$(WebProjectOutputDir)\" />\r\n  </Target>\r\n  <ProjectExtensi" +
+                    "ons>\r\n    <VisualStudio>\r\n      <FlavorProperties GUID=\"{349c5851-65df-11da-9384" +
+                    "-00065b846f21}\">\r\n        <WebProjectProperties>\r\n          <UseIIS>True</UseIIS" +
+                    ">\r\n          <AutoAssignPort>True</AutoAssignPort>\r\n          <DevelopmentServer" +
+                    "Port>62747</DevelopmentServerPort>\r\n          <DevelopmentServerVPath>/</Develop" +
+                    "mentServerVPath>\r\n          <IISUrl>http://localhost:62747/</IISUrl>\r\n          " +
+                    "<NTLMAuthentication>False</NTLMAuthentication>\r\n          <UseCustomServer>False" +
+                    "</UseCustomServer>\r\n          <CustomServerUrl>\r\n          </CustomServerUrl>\r\n " +
+                    "         <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>\r\n   " +
+                    "     </WebProjectProperties>\r\n      </FlavorProperties>\r\n    </VisualStudio>\r\n  " +
+                    "</ProjectExtensions>\r\n  <Target Name=\"EnsureNuGetPackageBuildImports\" BeforeTarg" +
+                    "ets=\"PrepareForBuild\">\r\n    <PropertyGroup>\r\n      <ErrorText>This project refer" +
+                    "ences NuGet package(s) that are missing on this computer. Use NuGet Package Rest" +
+                    "ore to download them.  For more information, see http://go.microsoft.com/fwlink/" +
+                    "?LinkID=322105. The missing file is {0}.</ErrorText>\r\n    </PropertyGroup>\r\n    " +
+                    "<Error Condition=\"!Exists(\'..\\packages\\Microsoft.Net.Compilers.1.0.0\\build\\Micro" +
+                    "soft.Net.Compilers.props\')\" Text=\"$([System.String]::Format(\'$(ErrorText)\', \'..\\" +
+                    "packages\\Microsoft.Net.Compilers.1.0.0\\build\\Microsoft.Net.Compilers.props\'))\" /" +
+                    ">\r\n  </Target>\r\n  <!-- To modify your build process, add your task inside one of" +
+                    " the targets below and uncomment it.\r\n       Other similar extension points exis" +
+                    "t, see Microsoft.Common.targets.\r\n  <Target Name=\"BeforeBuild\">\r\n  </Target>\r\n  " +
+                    "<Target Name=\"AfterBuild\">\r\n  </Target> -->\r\n</Project>");
             return this.GenerationEnvironment.ToString();
         }
     }

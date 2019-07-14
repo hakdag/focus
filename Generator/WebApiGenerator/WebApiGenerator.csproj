@@ -56,8 +56,28 @@
     <None Include="Resources\ApplicationRoleManager.cs" />
     <None Include="Resources\IdentityModels.cs" />
     <None Include="Resources\ModelFactory.cs" />
+    <None Include="Resources\packagesBusiness.config" />
     <None Include="Resources\Role.cs" />
     <None Include="Resources\MemoryCacheManager.cs" />
+    <None Include="Resources\BaseBusiness.cs" />
+    <Compile Include="Templates\BusinessCsProjTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BusinessCsProjTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\BusinessTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BusinessTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\IBusinessTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IBusinessTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Partials\BusinessCsProjTemplate.cs" />
+    <Compile Include="Templates\Partials\BusinessTemplate.cs" />
+    <Compile Include="Templates\Partials\IBusinessTemplate.cs" />
     <Compile Include="Templates\Partials\WebApiCsProjTemplate.cs" />
     <Compile Include="Templates\WebApiCsProjTemplate.cs">
       <AutoGen>True</AutoGen>
@@ -114,6 +134,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Templates\BusinessCsProjTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BusinessCsProjTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\BusinessTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BusinessTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\IBusinessTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IBusinessTemplate.cs</LastGenOutput>
+    </Content>
     <Content Include="Templates\WebApiCsProjTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>WebApiCsProjTemplate.cs</LastGenOutput>

@@ -9,18 +9,19 @@ using System.Web.Http;
 
 namespace #projectname#.Controllers
 {
-    public abstract class BaseController<TModel> : ApiController where TModel : BaseModel
+    public abstract class BaseController<TBusiness, TModel> : ApiController where TBusiness : IBaseBusiness<TModel>
     {
-        protected MemoryCacheManager _cacheManager;
+        protected TBusiness business;
 
-        public BaseController()
+
+        public BaseController(TBusiness business)
         {
-            _cacheManager = new MemoryCacheManager();
+            this.business = business;
         }
 
         public virtual PageResult<TModel> Get(string searchProperty, string sortPropertyDefault, string filterQuery, int startIndex, int rowsOnPage, string sortBy, string sortOrder)
         {
-            var items = Generate();
+            var items = business.GetAll();
             // apply filter
             if (!String.IsNullOrEmpty(filterQuery))
                 items = items.Filter(searchProperty, filterQuery);
@@ -52,16 +53,14 @@ namespace #projectname#.Controllers
         [ValidateModel]
         [LogActionFilter]
         [UpdateFK]
-        public virtual ResponseResult Post([FromBody]TModel model) => new ResponseResult { Success = true };
+        public virtual ResponseResult Post([FromBody]TModel model) => business.Create(model);
 
         [ValidateModel]
         [LogActionFilter]
         [UpdateFK]
-        public virtual ResponseResult Put([FromBody]TModel model, int id) => new ResponseResult { Success = true };
+        public virtual ResponseResult Put([FromBody]TModel model, int id) => business.Update(model);
 
         [LogActionFilter]
-        public virtual ResponseResult Delete(int id) => new ResponseResult { Success = true };
-
-        public abstract IQueryable<TModel> Generate();
+        public virtual ResponseResult Delete(int id) => business.Delete(id);
     }
 }
