@@ -1,0 +1,31 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using <#= ProjectName #>.Common;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
+namespace <#= ProjectName #>.DataAccess
+{
+    public class <#= ProjectName #>Context : DbContext
+    {
+        public <#= ProjectName #>Context() : base("<#= ProjectName #>") { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+		<# foreach (var module in Modules)
+        {
+            foreach (var type in module.Models)
+            { #>
+        public DbSet<<#= type.Name #>> <#= type.Name #>s { get; set; }
+			<# }
+		} #>
+    }
+}

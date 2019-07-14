@@ -37,37 +37,38 @@ namespace WebApiGenerator
             GenerateGeneralFiles(projectName);
 
             // create Global.asax
-            GlobalAsaxTemplate gat = new GlobalAsaxTemplate(projectName, mb.Modules);
-            string resultgat = gat.TransformText();
-            File.WriteAllText($"{OutputFolder}\\{projectName}\\Global.asax.cs", resultgat);
+            var gat = new GlobalAsaxTemplate(projectName, mb.Modules);
+            Transform(gat, projectName, $"{OutputFolder}\\{projectName}\\Global.asax.cs");
 
             // create web api .csproj file
-            WebApiCsProjTemplate webApiCsProjTemplate = new WebApiCsProjTemplate(projectName, mb.Modules);
-            string strWebApiCsProj = webApiCsProjTemplate.TransformText();
-            File.WriteAllText($"{OutputFolder}\\{projectName}\\{projectName}.csproj", strWebApiCsProj);
+            var webApiCsProjTemplate = new WebApiCsProjTemplate(projectName, mb.Modules);
+            Transform(webApiCsProjTemplate, projectName, $"{OutputFolder}\\{projectName}\\{projectName}.csproj");
 
             // create business .csproj file
-            BusinessCsProjTemplate businessCsProjTemplate = new BusinessCsProjTemplate(projectName, mb.Modules);
-            string strBusinessCsProj = businessCsProjTemplate.TransformText();
-            File.WriteAllText($"{OutputFolder}\\{projectName}.Business\\{projectName}.Business.csproj", strBusinessCsProj);
+            var businessCsProjTemplate = new BusinessCsProjTemplate(projectName, mb.Modules);
+            Transform(businessCsProjTemplate, projectName, $"{OutputFolder}\\{projectName}.Business\\{projectName}.Business.csproj");
 
             // create contracts .csproj file
-            ContractsCsProjTemplate contractsCsProjTemplate = new ContractsCsProjTemplate(projectName, mb.Modules);
-            string strContractsCsProj = contractsCsProjTemplate.TransformText();
-            File.WriteAllText($"{OutputFolder}\\{projectName}.Contracts\\{projectName}.Contracts.csproj", strContractsCsProj);
+            var contractsCsProjTemplate = new ContractsCsProjTemplate(projectName, mb.Modules);
+            Transform(contractsCsProjTemplate, projectName, $"{OutputFolder}\\{projectName}.Contracts\\{projectName}.Contracts.csproj");
+
+            // create data access .csproj file
+            var dataAccessCsProjTemplate = new DataAccessCsProjTemplate(projectName);
+            Transform(dataAccessCsProjTemplate, projectName, $"{OutputFolder}\\{projectName}.DataAccess\\{projectName}.DataAccess.csproj");
+
+            // create DbContext file
+            var dbContextTemplate = new DbContextTemplate(projectName, mb.Modules);
+            Transform(dbContextTemplate, projectName, $"{OutputFolder}\\{projectName}.DataAccess\\{projectName}Context.cs");
 
             foreach (Module module in mb.Modules)
             {
                 // create module folders
                 var moduleFolderBusinesses = $"{OutputFolder}\\{projectName}.Business\\{module.ModuleName}";
-                if (!Directory.Exists(moduleFolderBusinesses))
-                    Directory.CreateDirectory(moduleFolderBusinesses);
+                CreateFolder(moduleFolderBusinesses);
                 var moduleFolderContracts = $"{OutputFolder}\\{projectName}.Contracts\\Business\\{module.ModuleName}";
-                if (!Directory.Exists(moduleFolderContracts))
-                    Directory.CreateDirectory(moduleFolderContracts);
+                CreateFolder(moduleFolderContracts);
                 var moduleFolderControllers = $"{OutputFolder}\\{projectName}\\Controllers\\{module.ModuleName}";
-                if (!Directory.Exists(moduleFolderControllers))
-                    Directory.CreateDirectory(moduleFolderControllers);
+                CreateFolder(moduleFolderControllers);
 
                 // loop types in module
                 foreach (var type in module.Models)
@@ -77,20 +78,29 @@ namespace WebApiGenerator
 
                     // create controller
                     var act = new ApiControllerTemplate(projectName, type, module.ModuleName);
-                    var result = act.TransformText();
-                    File.WriteAllText($"{moduleFolderControllers}\\{type.Name}Controller.cs", result);
+                    Transform(act, projectName, $"{moduleFolderControllers}\\{type.Name}Controller.cs");
 
                     // create IBusiness interface for business class
                     var ibt = new IBusinessTemplate(projectName, type, module.ModuleName);
-                    var result2 = ibt.TransformText();
-                    File.WriteAllText($"{moduleFolderContracts}\\I{type.Name}Business.cs", result2);
+                    Transform(ibt, projectName, $"{moduleFolderContracts}\\I{type.Name}Business.cs");
 
                     // create Business classes
                     var bt = new BusinessTemplate(projectName, type, module.ModuleName);
-                    var result3 = bt.TransformText();
-                    File.WriteAllText($"{moduleFolderBusinesses}\\{type.Name}Business.cs", result3);
+                    Transform(bt, projectName, $"{moduleFolderBusinesses}\\{type.Name}Business.cs");
                 }
             }
+        }
+
+        private static void Transform(ITransformText tt, string projectName, string path)
+        {
+            var text = tt.TransformText();
+            File.WriteAllText(path, text);
+        }
+
+        private static void CreateFolder(string folder)
+        {
+            if (!Directory.Exists(folder))
+                Directory.CreateDirectory(folder);
         }
 
         private static void GenerateGeneralFiles(string projectName)
@@ -120,44 +130,33 @@ namespace WebApiGenerator
 
         private static void CreateFolders(string projectName)
         {
-            if (!Directory.Exists($"{OutputFolder}"))
-                Directory.CreateDirectory($"{OutputFolder}");
-            if (!Directory.Exists($"{OutputFolder}\\Libraries"))
-                Directory.CreateDirectory($"{OutputFolder}\\Libraries");
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}");
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\App_Start"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\App_Start");
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Controllers"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Controllers");
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Filters"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Filters");
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Helpers"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Helpers");
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Properties"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Properties");
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Providers"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Providers");
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Models"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Models");
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Results"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Results");
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Services"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Services");
+            // Create Api folders
+            CreateFolder($"{OutputFolder}");
+            CreateFolder($"{OutputFolder}\\Libraries");
+            CreateFolder($"{OutputFolder}\\{projectName}");
+            CreateFolder($"{OutputFolder}\\{projectName}\\App_Start");
+            CreateFolder($"{OutputFolder}\\{projectName}\\Controllers");
+            CreateFolder($"{OutputFolder}\\{projectName}\\Filters");
+            CreateFolder($"{OutputFolder}\\{projectName}\\Helpers");
+            CreateFolder($"{OutputFolder}\\{projectName}\\Properties");
+            CreateFolder($"{OutputFolder}\\{projectName}\\Providers");
+            CreateFolder($"{OutputFolder}\\{projectName}\\Models");
+            CreateFolder($"{OutputFolder}\\{projectName}\\Results");
+            CreateFolder($"{OutputFolder}\\{projectName}\\Services");
             // Business Project folder
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}.Business"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}.Business");
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}.Business\\Properties"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}.Business\\Properties");
+            CreateFolder($"{OutputFolder}\\{projectName}.Business");
+            CreateFolder($"{OutputFolder}\\{projectName}.Business\\Properties");
             // Contracts Project folders
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}.Contracts"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}.Contracts");
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}.Contracts\\Properties"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}.Contracts\\Properties");
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}.Contracts\\Business"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}.Contracts\\Business");
-            if (!Directory.Exists($"{OutputFolder}\\{projectName}.Contracts\\DataAccess"))
-                Directory.CreateDirectory($"{OutputFolder}\\{projectName}.Contracts\\DataAccess");
+            CreateFolder($"{OutputFolder}\\{projectName}.Contracts");
+            CreateFolder($"{OutputFolder}\\{projectName}.Contracts\\Properties");
+            CreateFolder($"{OutputFolder}\\{projectName}.Contracts\\Business");
+            CreateFolder($"{OutputFolder}\\{projectName}.Contracts\\DataAccess");
+            // DataAccess Project Folders
+            CreateFolder($"{OutputFolder}\\{projectName}.DataAccess");
+            CreateFolder($"{OutputFolder}\\{projectName}.DataAccess\\Properties");
+            CreateFolder($"{OutputFolder}\\{projectName}.DataAccess\\Data");
+            CreateFolder($"{OutputFolder}\\{projectName}.DataAccess\\UnitOfWork");
+            CreateFolder($"{OutputFolder}\\{projectName}.DataAccess\\Repositories");
         }
     }
 }

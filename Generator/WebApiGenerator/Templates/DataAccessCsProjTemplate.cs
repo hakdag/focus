@@ -12,16 +12,15 @@ namespace WebApiGenerator.Templates
     using System.Linq;
     using System.Text;
     using System.Collections.Generic;
-    using GeneratorBase;
     using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+    #line 1 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DataAccessCsProjTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class GlobalAsaxTemplate : GlobalAsaxTemplateBase
+    public partial class DataAccessCsProjTemplate : DataAccessCsProjTemplateBase
     {
 #line hidden
         /// <summary>
@@ -29,140 +28,160 @@ namespace WebApiGenerator.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using Autofac;\r\nusing Autofac.Integration.WebApi;\r\nusing Newtonsoft.Json;\r\nusing " +
-                    "System.Reflection;\r\nusing System.Web.Http;\r\nusing System.Web.Mvc;\r\nusing System." +
-                    "Web.Optimization;\r\nusing ");
+            this.Write(@"<?xml version=""1.0"" encoding=""utf-8""?>
+<Project ToolsVersion=""14.0"" DefaultTargets=""Build"" xmlns=""http://schemas.microsoft.com/developer/msbuild/2003"">
+  <Import Project=""$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"" Condition=""Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"" />
+  <PropertyGroup>
+    <Configuration Condition="" '$(Configuration)' == '' "">Debug</Configuration>
+    <Platform Condition="" '$(Platform)' == '' "">AnyCPU</Platform>
+    <ProjectGuid>{0B9B4240-F2BF-4582-8E64-1E1EA3834065}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>");
             
-            #line 14 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 15 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DataAccessCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".Business;\r\nusing ");
+            this.Write(".DataAccess</RootNamespace>\r\n    <AssemblyName>");
             
-            #line 15 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 16 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DataAccessCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".Contracts.Business;\r\nusing ");
+            this.Write(".DataAccess</AssemblyName>\r\n    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVe" +
+                    "rsion>\r\n    <FileAlignment>512</FileAlignment>\r\n  </PropertyGroup>\r\n  <PropertyG" +
+                    "roup Condition=\" \'$(Configuration)|$(Platform)\' == \'Debug|AnyCPU\' \">\r\n    <Debug" +
+                    "Symbols>true</DebugSymbols>\r\n    <DebugType>full</DebugType>\r\n    <Optimize>fals" +
+                    "e</Optimize>\r\n    <OutputPath>bin\\Debug\\</OutputPath>\r\n    <DefineConstants>DEBU" +
+                    "G;TRACE</DefineConstants>\r\n    <ErrorReport>prompt</ErrorReport>\r\n    <WarningLe" +
+                    "vel>4</WarningLevel>\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\" \'$(Config" +
+                    "uration)|$(Platform)\' == \'Release|AnyCPU\' \">\r\n    <DebugType>pdbonly</DebugType>" +
+                    "\r\n    <Optimize>true</Optimize>\r\n    <OutputPath>bin\\Release\\</OutputPath>\r\n    " +
+                    "<DefineConstants>TRACE</DefineConstants>\r\n    <ErrorReport>prompt</ErrorReport>\r" +
+                    "\n    <WarningLevel>4</WarningLevel>\r\n  </PropertyGroup>\r\n  <ItemGroup>\r\n    <Ref" +
+                    "erence Include=\"EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToke" +
+                    "n=b77a5c561934e089, processorArchitecture=MSIL\">\r\n      <HintPath>..\\packages\\En" +
+                    "tityFramework.6.2.0\\lib\\net45\\EntityFramework.dll</HintPath>\r\n    </Reference>\r\n" +
+                    "    <Reference Include=\"EntityFramework.SqlServer, Version=6.0.0.0, Culture=neut" +
+                    "ral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL\">\r\n      <HintP" +
+                    "ath>..\\packages\\EntityFramework.6.2.0\\lib\\net45\\EntityFramework.SqlServer.dll</H" +
+                    "intPath>\r\n    </Reference>\r\n    <Reference Include=\"Newtonsoft.Json, Version=11." +
+                    "0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=M" +
+                    "SIL\">\r\n      <HintPath>..\\packages\\Newtonsoft.Json.11.0.1\\lib\\net45\\Newtonsoft.J" +
+                    "son.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Focus.Common, Vers" +
+                    "ion=1.0.0.0, Culture=neutral, processorArchitecture=MSIL\">\r\n      <SpecificVersi" +
+                    "on>False</SpecificVersion>\r\n      <HintPath>..\\Libraries\\Focus.Common.dll</HintP" +
+                    "ath>\r\n    </Reference>\r\n    <Reference Include=\"");
             
-            #line 16 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 51 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DataAccessCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".Contracts.DataAccess;\r\nusing ");
+            this.Write(".Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL\">\r\n      <S" +
+                    "pecificVersion>False</SpecificVersion>\r\n      <HintPath>..\\Libraries\\");
             
-            #line 17 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 53 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DataAccessCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".DataAccess;\r\nusing ");
+            this.Write(@".Common.dll</HintPath>
+    </Reference>
+    <Reference Include=""System"" />
+    <Reference Include=""System.ComponentModel.DataAnnotations"" />
+    <Reference Include=""System.Core"" />
+    <Reference Include=""System.Web"" />
+    <Reference Include=""System.Web.ApplicationServices"" />
+    <Reference Include=""System.Xml.Linq"" />
+    <Reference Include=""System.Data.DataSetExtensions"" />
+    <Reference Include=""Microsoft.CSharp"" />
+    <Reference Include=""System.Data"" />
+    <Reference Include=""System.Net.Http"" />
+    <Reference Include=""System.Xml"" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include=""");
             
-            #line 18 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 68 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DataAccessCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".DataAccess.Data;\r\nusing ");
+            this.Write(@"Context.cs"" />
+    <Compile Include=""Data\BaseData.cs"" />
+    <Compile Include=""Properties\AssemblyInfo.cs"" />
+    <Compile Include=""Repositories\EFRepository.cs"" />
+    <Compile Include=""Repositories\EFRepositoryBase.cs"" />
+    <Compile Include=""UnitOfWork\EFUnitOfWork.cs"" />
+    <Compile Include=""UnitOfWork\EFUnitOfWorkBase.cs"" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=""App.config"">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include=""packages.config"" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include=""..\");
             
-            #line 19 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 83 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DataAccessCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".DataAccess.UnitOfWork;\r\n\r\nnamespace ");
+            this.Write(".Common\\");
             
-            #line 21 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 83 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DataAccessCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(@"
-{
-    public class WebApiApplication : System.Web.HttpApplication
-    {
-        protected void Application_Start()
-        {
-            // IoC Container Setup
-            var builder = new ContainerBuilder();
-            // Get your HttpConfiguration.
-            var config = GlobalConfiguration.Configuration;
-
-            // Register your Web API controllers.
-            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-
-            // OPTIONAL: Register the Autofac filter provider.
-            builder.RegisterWebApiFilterProvider(config);
-
-			// register business classes
-");
+            this.Write(".Common.csproj\">\r\n      <Project>{54ee1e41-d7d9-489f-b89f-da7c4064f222}</Project>" +
+                    "\r\n      <Name>");
             
-            #line 39 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
- for(int i=0; i<Modules.Count; i++)
-{
-	var module = Modules[i];
-	for(int j=0; j<module.Models.Count; j++)
-	{
-		var type = module.Models[j];
-		if (type.BaseType != typeof(Enum))
-		{ 
-            
-            #line default
-            #line hidden
-            this.Write("            builder.RegisterType<");
-            
-            #line 47 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Business>().As<I");
-            
-            #line 47 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Business>();\r\n\t\t");
-            
-            #line 48 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
- }
-	}
-} 
-            
-            #line default
-            #line hidden
-            this.Write("\r\n            // register data classes\r\n            builder.RegisterGeneric(typeo" +
-                    "f(BaseData<>)).As(typeof(IBaseData<>));\r\n\r\n\t\t\t// register data access\r\n         " +
-                    "   builder.RegisterType<");
-            
-            #line 56 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 85 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DataAccessCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(@"Context>().AsSelf();
-            builder.RegisterType<EFUnitOfWork>().As<IUnitOfWork>();
-
-            // Set the dependency resolver to be Autofac.
-            var container = builder.Build();
-            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
-
-            // JSON.Net
-            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.Re‌​ferenceLoopHandling = ReferenceLoopHandling.Ignore;
-
-            AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            // RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-        }
-    }
-}
-");
+            this.Write(".Common</Name>\r\n    </ProjectReference>\r\n    <ProjectReference Include=\"..\\");
+            
+            #line 87 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DataAccessCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Contracts\\");
+            
+            #line 87 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DataAccessCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Contracts.csproj\">\r\n      <Project>{02A0831F-330B-41E9-B204-BCE88DD11E4D}</Proje" +
+                    "ct>\r\n      <Name>");
+            
+            #line 89 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DataAccessCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(@".Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project=""$(MSBuildToolsPath)\Microsoft.CSharp.targets"" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name=""BeforeBuild"">
+  </Target>
+  <Target Name=""AfterBuild"">
+  </Target>
+  -->
+</Project>");
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -174,7 +193,7 @@ namespace WebApiGenerator.Templates
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public class GlobalAsaxTemplateBase
+    public class DataAccessCsProjTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

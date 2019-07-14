@@ -53,10 +53,12 @@
     </Compile>
     <None Include="Resources\AccountBindingModels.cs" />
     <None Include="Resources\AccountViewModels.cs" />
+    <None Include="Resources\AppDataAccess.config" />
     <None Include="Resources\ApplicationRoleManager.cs" />
     <None Include="Resources\IdentityModels.cs" />
     <None Include="Resources\ModelFactory.cs" />
     <None Include="Resources\packagesBusiness.config" />
+    <None Include="Resources\packagesDataAccess.config" />
     <None Include="Resources\Role.cs" />
     <None Include="Resources\MemoryCacheManager.cs" />
     <None Include="Resources\BaseBusiness.cs" />
@@ -66,6 +68,12 @@
     <None Include="Resources\IBaseData.cs" />
     <None Include="Resources\AssemblyInfoContracts.cs" />
     <None Include="Resources\AssemblyInfoBusiness.cs" />
+    <None Include="Resources\EFUnitOfWork.cs" />
+    <None Include="Resources\EFUnitOfWorkBase.cs" />
+    <None Include="Resources\EFRepositoryBase.cs" />
+    <None Include="Resources\EFRepository.cs" />
+    <None Include="Resources\BaseData.cs" />
+    <None Include="Resources\AssemblyInfoDataAccess.cs" />
     <Compile Include="Templates\BusinessCsProjTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -81,6 +89,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ContractsCsProjTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="Templates\DataAccessCsProjTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataAccessCsProjTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\DbContextTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbContextTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="Templates\IBusinessTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +107,8 @@
     <Compile Include="Templates\Partials\BusinessCsProjTemplate.cs" />
     <Compile Include="Templates\Partials\BusinessTemplate.cs" />
     <Compile Include="Templates\Partials\ContractsCsProjTemplate.cs" />
+    <Compile Include="Templates\Partials\DataAccessCsProjTemplate.cs" />
+    <Compile Include="Templates\Partials\DbContextTemplate.cs" />
     <Compile Include="Templates\Partials\IBusinessTemplate.cs" />
     <Compile Include="Templates\Partials\WebApiCsProjTemplate.cs" />
     <Compile Include="Templates\WebApiCsProjTemplate.cs">
@@ -157,6 +177,14 @@
     <Content Include="Templates\ContractsCsProjTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ContractsCsProjTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\DataAccessCsProjTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DataAccessCsProjTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\DbContextTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DbContextTemplate.cs</LastGenOutput>
     </Content>
     <Content Include="Templates\IBusinessTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

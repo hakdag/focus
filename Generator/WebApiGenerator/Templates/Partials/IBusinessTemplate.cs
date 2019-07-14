@@ -2,7 +2,7 @@
 
 namespace WebApiGenerator.Templates
 {
-    public partial class IBusinessTemplate
+    public partial class IBusinessTemplate : ITransformText
     {
         private GeneratorType type;
         private string moduleName;

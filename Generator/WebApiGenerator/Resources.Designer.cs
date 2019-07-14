@@ -149,6 +149,22 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;configuration&gt;
+        ///  &lt;connectionStrings&gt;
+        ///    &lt;add name=&quot;#projectname#&quot; connectionString=&quot;Data Source=.;Initial Catalog=#projectname#;Integrated Security=True&quot; providerName=&quot;System.Data.SqlClient&quot; /&gt;
+        ///  &lt;/connectionStrings&gt;
+        ///  &lt;configSections&gt;
+        ///    &lt;section name=&quot;entityFramework&quot; type=&quot;System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot; requirePermission=&quot;false&quot; /&gt;
+        ///  &lt;/config [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string AppDataAccess {
+            get {
+                return ResourceManager.GetString("AppDataAccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to using Microsoft.AspNet.Identity;
         ///using Microsoft.AspNet.Identity.EntityFramework;
         ///using Microsoft.AspNet.Identity.Owin;
@@ -233,6 +249,26 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to using System.Reflection;
+        ///using System.Runtime.CompilerServices;
+        ///using System.Runtime.InteropServices;
+        ///
+        ///// General Information about an assembly is controlled through the following 
+        ///// set of attributes. Change these attribute values to modify the information
+        ///// associated with an assembly.
+        ///[assembly: AssemblyTitle(&quot;#projectname#.DataAccess&quot;)]
+        ///[assembly: AssemblyDescription(&quot;&quot;)]
+        ///[assembly: AssemblyConfiguration(&quot;&quot;)]
+        ///[assembly: AssemblyCompany(&quot;&quot;)]
+        ///[assembly: AssemblyProduct(&quot;#projectname#.DataAcce [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string AssemblyInfoDataAccess {
+            get {
+                return ResourceManager.GetString("AssemblyInfoDataAccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to using #projectname#.Common;
         ///using #projectname#.Contracts.Business;
         ///using #projectname#.Contracts.DataAccess;
@@ -264,6 +300,7 @@ namespace WebApiGenerator {
         ///using Focus.Common.Pagination;
         ///using #projectname#.Filters;
         ///using #projectname#.Helpers;
+        ///using #projectname#.Contracts.Business;
         ///using System;
         ///using System.Linq;
         ///using System.Web.Http;
@@ -278,14 +315,39 @@ namespace WebApiGenerator {
         ///
         ///        public BaseController(TBusiness business)
         ///        {
-        ///            this.business = business;
-        ///        }
-        ///
-        ///        public  [rest of string was truncated]&quot;;.
+        ///            this.business  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BaseController {
             get {
                 return ResourceManager.GetString("BaseController", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using #projectname#.Contracts.DataAccess;
+        ///using Focus.Common;
+        ///using System;
+        ///using System.Linq;
+        ///using System.Linq.Expressions;
+        ///
+        ///namespace #projectname#.DataAccess.Data
+        ///{
+        ///    public class BaseData&lt;T&gt; : IBaseData&lt;T&gt; where T : BaseModel
+        ///    {
+        ///        protected IUnitOfWork _uow;
+        ///
+        ///        public BaseData(IUnitOfWork uow) =&gt; _uow = uow;
+        ///
+        ///        public void Create(T model)
+        ///        {
+        ///            model.CreatedDate = DateTime.Now;
+        ///
+        ///            _uow.GetRepository&lt;T&gt;().Add(model);
+        ///            _uow.Sa [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BaseData {
+            get {
+                return ResourceManager.GetString("BaseData", resourceCulture);
             }
         }
         
@@ -438,6 +500,105 @@ namespace WebApiGenerator {
         internal static string CustomOAuthProvider {
             get {
                 return ResourceManager.GetString("CustomOAuthProvider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using Focus.Common;
+        ///using System;
+        ///
+        ///namespace #projectname#.DataAccess.Repositories
+        ///{
+        ///    public class EFRepository&lt;T&gt; : EFRepositoryBase&lt;T&gt; where T : BaseModel
+        ///    {
+        ///        public EFRepository(#projectname#Context dbContext)
+        ///        {
+        ///            _dbContext = dbContext ?? throw new ArgumentNullException(&quot;dbContext can not be null.&quot;);
+        ///            _dbSet = dbContext.Set&lt;T&gt;();
+        ///        }
+        ///    }
+        ///}
+        ///.
+        /// </summary>
+        internal static string EFRepository {
+            get {
+                return ResourceManager.GetString("EFRepository", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using #projectname#.Contracts.DataAccess;
+        ///using Focus.Common;
+        ///using System;
+        ///using System.Data.Entity;
+        ///using System.Data.Entity.Migrations;
+        ///using System.Linq;
+        ///using System.Linq.Expressions;
+        ///
+        ///namespace #projectname#.DataAccess.Repositories
+        ///{
+        ///    public abstract class EFRepositoryBase&lt;T&gt; : IRepository&lt;T&gt; where T : BaseModel
+        ///    {
+        ///        protected DbContext _dbContext;
+        ///        protected DbSet&lt;T&gt; _dbSet;
+        ///
+        ///        #region IRepository Members
+        ///        public virtual IQueryable&lt;T&gt; GetAll() =&gt; _dbSet [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EFRepositoryBase {
+            get {
+                return ResourceManager.GetString("EFRepositoryBase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using #projectname#.Contracts.DataAccess;
+        ///using #projectname#.DataAccess.Repositories;
+        ///using System;
+        ///using System.Data.Entity;
+        ///using System.Linq;
+        ///using System.Reflection;
+        ///
+        ///namespace #projectname#.DataAccess.UnitOfWork
+        ///{
+        ///    public class EFUnitOfWork : EFUnitOfWorkBase
+        ///    {
+        ///        public EFUnitOfWork(#projectname#Context dbContext)
+        ///        {
+        ///            Database.SetInitializer&lt;&lt;#= ProjectName #&gt;Context&gt;(null);
+        ///            _dbContext = dbContext ?? throw new ArgumentNullException(&quot;dbContext ca [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EFUnitOfWork {
+            get {
+                return ResourceManager.GetString("EFUnitOfWork", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using #projectname#.Contracts.DataAccess;
+        ///using Focus.Common;
+        ///using System;
+        ///using System.Data.Entity;
+        ///
+        ///namespace #projectname#.DataAccess.UnitOfWork
+        ///{
+        ///    public abstract class EFUnitOfWorkBase : IUnitOfWork
+        ///    {
+        ///        public DbContext _dbContext;
+        ///
+        ///        #region IUnitOfWork Members
+        ///        public abstract IRepository&lt;T&gt; GetRepository&lt;T&gt;() where T : BaseModel;
+        ///
+        ///        public int SaveChanges()
+        ///        {
+        ///            try
+        ///            {
+        ///                return _dbContext.SaveChanges();
+        ///    [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EFUnitOfWorkBase {
+            get {
+                return ResourceManager.GetString("EFUnitOfWorkBase", resourceCulture);
             }
         }
         
@@ -765,6 +926,20 @@ namespace WebApiGenerator {
         internal static string packagesBusiness {
             get {
                 return ResourceManager.GetString("packagesBusiness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;packages&gt;
+        ///  &lt;package id=&quot;EntityFramework&quot; version=&quot;6.2.0&quot; targetFramework=&quot;net45&quot; /&gt;
+        ///  &lt;package id=&quot;Newtonsoft.Json&quot; version=&quot;11.0.1&quot; targetFramework=&quot;net45&quot; /&gt;
+        ///  &lt;package id=&quot;System.Runtime.InteropServices.RuntimeInformation&quot; version=&quot;4.0.0&quot; targetFramework=&quot;net45&quot; /&gt;
+        ///&lt;/packages&gt;.
+        /// </summary>
+        internal static string packagesDataAccess {
+            get {
+                return ResourceManager.GetString("packagesDataAccess", resourceCulture);
             }
         }
         

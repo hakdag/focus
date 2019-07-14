@@ -77,6 +77,16 @@ namespace WebApiGenerator
             { nameof(Resources.IRepository), $"{ProjectName}.Contracts\\DataAccess\\IRepository.cs" },
             { nameof(Resources.IUnitOfWork), $"{ProjectName}.Contracts\\DataAccess\\IUnitOfWork.cs" },
             { nameof(Resources.IBaseBusiness), $"{ProjectName}.Contracts\\Business\\IBaseBusiness.cs" },
+
+            // DataAccess Proj Files
+            { nameof(Resources.AssemblyInfoDataAccess), $"{ProjectName}.DataAccess\\Properties\\AssemblyInfo.cs" },
+            { nameof(Resources.packagesDataAccess), $"{ProjectName}.DataAccess\\packages.config" },
+            { nameof(Resources.AppDataAccess), $"{ProjectName}.DataAccess\\App.config" },
+            { nameof(Resources.BaseData), $"{ProjectName}.DataAccess\\Data\\BaseData.cs" },
+            { nameof(Resources.EFRepository), $"{ProjectName}.DataAccess\\Repositories\\EFRepository.cs" },
+            { nameof(Resources.EFRepositoryBase), $"{ProjectName}.DataAccess\\Repositories\\EFRepositoryBase.cs" },
+            { nameof(Resources.EFUnitOfWork), $"{ProjectName}.DataAccess\\UnitOfWork\\EFUnitOfWork.cs" },
+            { nameof(Resources.EFUnitOfWorkBase), $"{ProjectName}.DataAccess\\UnitOfWork\\EFUnitOfWorkBase.cs" },
         };
     }
 }

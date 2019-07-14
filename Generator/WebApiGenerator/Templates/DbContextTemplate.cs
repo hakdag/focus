@@ -12,16 +12,15 @@ namespace WebApiGenerator.Templates
     using System.Linq;
     using System.Text;
     using System.Collections.Generic;
-    using GeneratorBase;
     using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+    #line 1 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DbContextTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class GlobalAsaxTemplate : GlobalAsaxTemplateBase
+    public partial class DbContextTemplate : DbContextTemplateBase
     {
 #line hidden
         /// <summary>
@@ -29,140 +28,78 @@ namespace WebApiGenerator.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using Autofac;\r\nusing Autofac.Integration.WebApi;\r\nusing Newtonsoft.Json;\r\nusing " +
-                    "System.Reflection;\r\nusing System.Web.Http;\r\nusing System.Web.Mvc;\r\nusing System." +
-                    "Web.Optimization;\r\nusing ");
+            this.Write("using ");
             
-            #line 14 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 6 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".Business;\r\nusing ");
+            this.Write(".Common;\r\nusing System.Data.Entity;\r\nusing System.Data.Entity.ModelConfiguration." +
+                    "Conventions;\r\n\r\nnamespace ");
             
-            #line 15 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 10 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".Contracts.Business;\r\nusing ");
+            this.Write(".DataAccess\r\n{\r\n    public class ");
             
-            #line 16 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 12 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".Contracts.DataAccess;\r\nusing ");
+            this.Write("Context : DbContext\r\n    {\r\n        public ");
             
-            #line 17 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 14 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".DataAccess;\r\nusing ");
+            this.Write("Context() : base(\"");
             
-            #line 18 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 14 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".DataAccess.Data;\r\nusing ");
+            this.Write("\") { }\r\n\r\n        protected override void OnModelCreating(DbModelBuilder modelBui" +
+                    "lder)\r\n        {\r\n            modelBuilder.Conventions.Remove<PluralizingTableNa" +
+                    "meConvention>();\r\n\r\n            base.OnModelCreating(modelBuilder);\r\n        }\r\n" +
+                    "\r\n\t\t");
             
-            #line 19 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(".DataAccess.UnitOfWork;\r\n\r\nnamespace ");
-            
-            #line 21 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(@"
-{
-    public class WebApiApplication : System.Web.HttpApplication
-    {
-        protected void Application_Start()
+            #line 23 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DbContextTemplate.tt"
+ foreach (var module in Modules)
         {
-            // IoC Container Setup
-            var builder = new ContainerBuilder();
-            // Get your HttpConfiguration.
-            var config = GlobalConfiguration.Configuration;
-
-            // Register your Web API controllers.
-            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-
-            // OPTIONAL: Register the Autofac filter provider.
-            builder.RegisterWebApiFilterProvider(config);
-
-			// register business classes
-");
-            
-            #line 39 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
- for(int i=0; i<Modules.Count; i++)
-{
-	var module = Modules[i];
-	for(int j=0; j<module.Models.Count; j++)
-	{
-		var type = module.Models[j];
-		if (type.BaseType != typeof(Enum))
-		{ 
+            foreach (var type in module.Models)
+            { 
             
             #line default
             #line hidden
-            this.Write("            builder.RegisterType<");
+            this.Write("        public DbSet<");
             
-            #line 47 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 27 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
-            this.Write("Business>().As<I");
+            this.Write("> ");
             
-            #line 47 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 27 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DbContextTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
-            this.Write("Business>();\r\n\t\t");
+            this.Write("s { get; set; }\r\n\t\t\t");
             
-            #line 48 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 28 "C:\Projects\focus\Generator\WebApiGenerator\Templates\DbContextTemplate.tt"
  }
-	}
-} 
+		} 
             
             #line default
             #line hidden
-            this.Write("\r\n            // register data classes\r\n            builder.RegisterGeneric(typeo" +
-                    "f(BaseData<>)).As(typeof(IBaseData<>));\r\n\r\n\t\t\t// register data access\r\n         " +
-                    "   builder.RegisterType<");
-            
-            #line 56 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(@"Context>().AsSelf();
-            builder.RegisterType<EFUnitOfWork>().As<IUnitOfWork>();
-
-            // Set the dependency resolver to be Autofac.
-            var container = builder.Build();
-            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
-
-            // JSON.Net
-            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.Re‌​ferenceLoopHandling = ReferenceLoopHandling.Ignore;
-
-            AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            // RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-        }
-    }
-}
-");
+            this.Write("    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -174,7 +111,7 @@ namespace WebApiGenerator.Templates
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public class GlobalAsaxTemplateBase
+    public class DbContextTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;
