@@ -1,9 +1,10 @@
-﻿using System.Reflection;
+﻿using GeneratorBase;
+using System.Reflection;
 using Module = GeneratorBase.Module;
 
 namespace UIGenerator.Templates
 {
-    public partial class EnumPipeTemplate
+    public partial class EnumPipeTemplate : ITransformText
     {
         public Module Module { get; }
         public PropertyInfo Pi { get; }

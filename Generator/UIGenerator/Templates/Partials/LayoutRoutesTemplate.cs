@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UIGenerator.Templates
 {
-    public partial class LayoutRoutesTemplate
+    public partial class LayoutRoutesTemplate : ITransformText
     {
         public List<Module> Modules { get; }
 

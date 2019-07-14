@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace UIGenerator.Templates
 {
-    public partial class SideBarHtmlTemplate
+    public partial class SideBarHtmlTemplate : ITransformText
     {
         public List<Module> Modules { get; }
 

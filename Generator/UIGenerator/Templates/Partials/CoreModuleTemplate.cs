@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace UIGenerator.Templates
 {
-    public partial class CoreModuleTemplate
+    public partial class CoreModuleTemplate : ITransformText
     {
         public List<Module> Modules { get; }
         public List<GeneratorType> Pipes { get; }

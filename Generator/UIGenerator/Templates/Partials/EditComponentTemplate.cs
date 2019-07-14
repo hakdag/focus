@@ -9,7 +9,7 @@ using Module = GeneratorBase.Module;
 
 namespace UIGenerator.Templates
 {
-    public partial class EditComponentTemplate
+    public partial class EditComponentTemplate : ITransformText
     {
         private string title;
         private GeneratorType type;

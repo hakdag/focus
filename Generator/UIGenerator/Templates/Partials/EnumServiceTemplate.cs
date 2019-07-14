@@ -4,7 +4,7 @@ using GeneratorBase;
 
 namespace UIGenerator.Templates
 {
-    public partial class EnumServiceTemplate
+    public partial class EnumServiceTemplate : ITransformText
     {
         private GeneratorType type;
         private Dictionary<string, int> members = new Dictionary<string, int>();

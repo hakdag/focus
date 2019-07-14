@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace UIGenerator.Templates
 {
-    public partial class ListComponentTemplate
+    public partial class ListComponentTemplate : ITransformText
     {
         private GeneratorType type;
         private string typeUIName;

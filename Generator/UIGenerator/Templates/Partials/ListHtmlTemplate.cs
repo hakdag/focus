@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace UIGenerator.Templates
 {
-    public partial class ListHtmlTemplate
+    public partial class ListHtmlTemplate : ITransformText
     {
         private GeneratorType type;
         private string moduleName;
