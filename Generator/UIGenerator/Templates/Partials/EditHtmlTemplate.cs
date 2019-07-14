@@ -11,7 +11,7 @@ using RequiredAttribute = Focus.Common.Attributes.RequiredAttribute;
 
 namespace UIGenerator.Templates
 {
-    public partial class EditHtmlTemplate
+    public partial class EditHtmlTemplate : ITransformText
     {
         public GeneratorType Type { get; }
         private string moduleName;

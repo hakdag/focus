@@ -7,7 +7,7 @@ using Module = GeneratorBase.Module;
 
 namespace UIGenerator.Templates
 {
-    public partial class ModelTemplate
+    public partial class ModelTemplate : ITransformText
     {
         private GeneratorType type;
         private List<KeyValuePair<string, string>> properties = new List<KeyValuePair<string, string>>();

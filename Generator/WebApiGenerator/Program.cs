@@ -20,7 +20,7 @@ namespace WebApiGenerator
 
             var sourceLibrary = args[0];
             var projectName = Files.ProjectName = args[1];
-            ModulesBuilder mb = new ModulesBuilder(sourceLibrary, "BaseModel");
+            var mb = new ModulesBuilder(sourceLibrary, "BaseModel");
             mb.Build();
 
             if (!mb.Modules.Any())

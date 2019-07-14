@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace UIGenerator.Templates
 {
-    public partial class NavigationTreeTemplate
+    public partial class NavigationTreeTemplate : ITransformText
     {
         public List<Module> Modules { get; }
 
