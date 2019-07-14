@@ -56,57 +56,57 @@ namespace WebApiGenerator.Templates
             
             #line default
             #line hidden
-            this.Write("</AssemblyName>\r\n    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>\r\n    <" +
-                    "MvcBuildViews>false</MvcBuildViews>\r\n    <UseIISExpress>true</UseIISExpress>\r\n  " +
-                    "  <IISExpressSSLPort />\r\n    <IISExpressAnonymousAuthentication />\r\n    <IISExpr" +
-                    "essWindowsAuthentication />\r\n    <IISExpressUseClassicPipelineMode />\r\n    <UseG" +
-                    "lobalApplicationHostFile />\r\n    <NuGetPackageImportStamp>\r\n    </NuGetPackageIm" +
-                    "portStamp>\r\n    <Use64BitIISExpress />\r\n  </PropertyGroup>\r\n  <PropertyGroup Con" +
-                    "dition=\" \'$(Configuration)|$(Platform)\' == \'Debug|AnyCPU\' \">\r\n    <DebugSymbols>" +
-                    "true</DebugSymbols>\r\n    <DebugType>full</DebugType>\r\n    <Optimize>false</Optim" +
-                    "ize>\r\n    <OutputPath>bin\\</OutputPath>\r\n    <DefineConstants>DEBUG;TRACE</Defin" +
-                    "eConstants>\r\n    <ErrorReport>prompt</ErrorReport>\r\n    <WarningLevel>4</Warning" +
-                    "Level>\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\" \'$(Configuration)|$(Pla" +
-                    "tform)\' == \'Release|AnyCPU\' \">\r\n    <DebugType>pdbonly</DebugType>\r\n    <Optimiz" +
-                    "e>true</Optimize>\r\n    <OutputPath>bin\\</OutputPath>\r\n    <DefineConstants>TRACE" +
-                    "</DefineConstants>\r\n    <ErrorReport>prompt</ErrorReport>\r\n    <WarningLevel>4</" +
-                    "WarningLevel>\r\n  </PropertyGroup>\r\n  <ItemGroup>\r\n    <Reference Include=\"Autofa" +
-                    "c, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorA" +
-                    "rchitecture=MSIL\">\r\n      <HintPath>..\\packages\\Autofac.4.6.2\\lib\\net45\\Autofac." +
-                    "dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Autofac.Integration.We" +
-                    "bApi, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, process" +
-                    "orArchitecture=MSIL\">\r\n      <HintPath>..\\packages\\Autofac.WebApi2.4.1.0\\lib\\net" +
-                    "45\\Autofac.Integration.WebApi.dll</HintPath>\r\n      <Private>True</Private>\r\n   " +
-                    " </Reference>\r\n    <Reference Include=\"Bogus, Version=25.0.1.0, Culture=neutral," +
-                    " PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL\">\r\n      <HintPath>" +
-                    "..\\packages\\Bogus.25.0.1\\lib\\net40\\Bogus.dll</HintPath>\r\n    </Reference>\r\n    <" +
-                    "Reference Include=\"EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyT" +
-                    "oken=b77a5c561934e089, processorArchitecture=MSIL\">\r\n      <HintPath>..\\packages" +
-                    "\\EntityFramework.6.2.0\\lib\\net45\\EntityFramework.dll</HintPath>\r\n    </Reference" +
-                    ">\r\n    <Reference Include=\"EntityFramework.Extended, Version=6.0.0.0, Culture=ne" +
-                    "utral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL\">\r\n      <Hin" +
-                    "tPath>..\\packages\\EntityFramework.Extended.6.1.0.168\\lib\\net45\\EntityFramework.E" +
-                    "xtended.dll</HintPath>\r\n      <Private>True</Private>\r\n    </Reference>\r\n    <Re" +
-                    "ference Include=\"EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, Pu" +
-                    "blicKeyToken=b77a5c561934e089, processorArchitecture=MSIL\">\r\n      <HintPath>..\\" +
-                    "packages\\EntityFramework.6.2.0\\lib\\net45\\EntityFramework.SqlServer.dll</HintPath" +
-                    ">\r\n    </Reference>\r\n    <Reference Include=\"Focus.Common, Version=1.0.0.0, Cult" +
-                    "ure=neutral, processorArchitecture=MSIL\">\r\n      <SpecificVersion>False</Specifi" +
-                    "cVersion>\r\n      <HintPath>..\\Libraries\\Focus.Common.dll</HintPath>\r\n    </Refer" +
-                    "ence>\r\n    <Reference Include=\"Microsoft.CSharp\" />\r\n    <Reference Include=\"Mic" +
-                    "rosoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, " +
-                    "processorArchitecture=MSIL\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.3.1.0\\l" +
-                    "ib\\net45\\Microsoft.Owin.dll</HintPath>\r\n      <Private>True</Private>\r\n    </Ref" +
-                    "erence>\r\n    <Reference Include=\"Microsoft.Owin.Cors, Version=3.1.0.0, Culture=n" +
-                    "eutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n      <Hi" +
-                    "ntPath>..\\packages\\Microsoft.Owin.Cors.3.1.0\\lib\\net45\\Microsoft.Owin.Cors.dll</" +
-                    "HintPath>\r\n      <Private>True</Private>\r\n    </Reference>\r\n    <Reference Inclu" +
-                    "de=\"Microsoft.Owin.Security.Jwt\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.Se" +
-                    "curity.Jwt.3.0.0\\lib\\net45\\Microsoft.Owin.Security.Jwt.dll</HintPath>\r\n    </Ref" +
-                    "erence>\r\n    <Reference Include=\"Newtonsoft.Json, Version=11.0.0.0, Culture=neut" +
-                    "ral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL\">\r\n      <HintP" +
-                    "ath>..\\packages\\Newtonsoft.Json.11.0.1\\lib\\net45\\Newtonsoft.Json.dll</HintPath>\r" +
-                    "\n    </Reference>\r\n    <Reference Include=\"");
+            this.Write("</AssemblyName>\r\n    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>\r\n   " +
+                    " <MvcBuildViews>false</MvcBuildViews>\r\n    <UseIISExpress>true</UseIISExpress>\r\n" +
+                    "    <IISExpressSSLPort />\r\n    <IISExpressAnonymousAuthentication />\r\n    <IISEx" +
+                    "pressWindowsAuthentication />\r\n    <IISExpressUseClassicPipelineMode />\r\n    <Us" +
+                    "eGlobalApplicationHostFile />\r\n    <NuGetPackageImportStamp>\r\n    </NuGetPackage" +
+                    "ImportStamp>\r\n    <Use64BitIISExpress />\r\n  </PropertyGroup>\r\n  <PropertyGroup C" +
+                    "ondition=\" \'$(Configuration)|$(Platform)\' == \'Debug|AnyCPU\' \">\r\n    <DebugSymbol" +
+                    "s>true</DebugSymbols>\r\n    <DebugType>full</DebugType>\r\n    <Optimize>false</Opt" +
+                    "imize>\r\n    <OutputPath>bin\\</OutputPath>\r\n    <DefineConstants>DEBUG;TRACE</Def" +
+                    "ineConstants>\r\n    <ErrorReport>prompt</ErrorReport>\r\n    <WarningLevel>4</Warni" +
+                    "ngLevel>\r\n  </PropertyGroup>\r\n  <PropertyGroup Condition=\" \'$(Configuration)|$(P" +
+                    "latform)\' == \'Release|AnyCPU\' \">\r\n    <DebugType>pdbonly</DebugType>\r\n    <Optim" +
+                    "ize>true</Optimize>\r\n    <OutputPath>bin\\</OutputPath>\r\n    <DefineConstants>TRA" +
+                    "CE</DefineConstants>\r\n    <ErrorReport>prompt</ErrorReport>\r\n    <WarningLevel>4" +
+                    "</WarningLevel>\r\n  </PropertyGroup>\r\n  <ItemGroup>\r\n    <Reference Include=\"Auto" +
+                    "fac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processo" +
+                    "rArchitecture=MSIL\">\r\n      <HintPath>..\\packages\\Autofac.4.6.2\\lib\\net45\\Autofa" +
+                    "c.dll</HintPath>\r\n    </Reference>\r\n    <Reference Include=\"Autofac.Integration." +
+                    "WebApi, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, proce" +
+                    "ssorArchitecture=MSIL\">\r\n      <HintPath>..\\packages\\Autofac.WebApi2.4.1.0\\lib\\n" +
+                    "et45\\Autofac.Integration.WebApi.dll</HintPath>\r\n      <Private>True</Private>\r\n " +
+                    "   </Reference>\r\n    <Reference Include=\"Bogus, Version=25.0.1.0, Culture=neutra" +
+                    "l, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL\">\r\n      <HintPat" +
+                    "h>..\\packages\\Bogus.25.0.1\\lib\\net40\\Bogus.dll</HintPath>\r\n    </Reference>\r\n   " +
+                    " <Reference Include=\"EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKe" +
+                    "yToken=b77a5c561934e089, processorArchitecture=MSIL\">\r\n      <HintPath>..\\packag" +
+                    "es\\EntityFramework.6.2.0\\lib\\net45\\EntityFramework.dll</HintPath>\r\n    </Referen" +
+                    "ce>\r\n    <Reference Include=\"EntityFramework.Extended, Version=6.0.0.0, Culture=" +
+                    "neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL\">\r\n      <H" +
+                    "intPath>..\\packages\\EntityFramework.Extended.6.1.0.168\\lib\\net45\\EntityFramework" +
+                    ".Extended.dll</HintPath>\r\n      <Private>True</Private>\r\n    </Reference>\r\n    <" +
+                    "Reference Include=\"EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, " +
+                    "PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL\">\r\n      <HintPath>." +
+                    ".\\packages\\EntityFramework.6.2.0\\lib\\net45\\EntityFramework.SqlServer.dll</HintPa" +
+                    "th>\r\n    </Reference>\r\n    <Reference Include=\"Focus.Common, Version=1.0.0.0, Cu" +
+                    "lture=neutral, processorArchitecture=MSIL\">\r\n      <SpecificVersion>False</Speci" +
+                    "ficVersion>\r\n      <HintPath>..\\Libraries\\Focus.Common.dll</HintPath>\r\n    </Ref" +
+                    "erence>\r\n    <Reference Include=\"Microsoft.CSharp\" />\r\n    <Reference Include=\"M" +
+                    "icrosoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" +
+                    ", processorArchitecture=MSIL\">\r\n      <HintPath>..\\packages\\Microsoft.Owin.3.1.0" +
+                    "\\lib\\net45\\Microsoft.Owin.dll</HintPath>\r\n      <Private>True</Private>\r\n    </R" +
+                    "eference>\r\n    <Reference Include=\"Microsoft.Owin.Cors, Version=3.1.0.0, Culture" +
+                    "=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL\">\r\n      <" +
+                    "HintPath>..\\packages\\Microsoft.Owin.Cors.3.1.0\\lib\\net45\\Microsoft.Owin.Cors.dll" +
+                    "</HintPath>\r\n      <Private>True</Private>\r\n    </Reference>\r\n    <Reference Inc" +
+                    "lude=\"Microsoft.Owin.Security.Jwt\">\r\n      <HintPath>..\\packages\\Microsoft.Owin." +
+                    "Security.Jwt.3.0.0\\lib\\net45\\Microsoft.Owin.Security.Jwt.dll</HintPath>\r\n    </R" +
+                    "eference>\r\n    <Reference Include=\"Newtonsoft.Json, Version=11.0.0.0, Culture=ne" +
+                    "utral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL\">\r\n      <Hin" +
+                    "tPath>..\\packages\\Newtonsoft.Json.11.0.1\\lib\\net45\\Newtonsoft.Json.dll</HintPath" +
+                    ">\r\n    </Reference>\r\n    <Reference Include=\"");
             
             #line 91 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
@@ -327,38 +327,60 @@ if (type.BaseType != typeof(Enum))
             
             #line default
             #line hidden
-            this.Write(".Business</Name>\r\n    </ProjectReference>\r\n  </ItemGroup>\r\n  <PropertyGroup>\r\n   " +
-                    " <VisualStudioVersion Condition=\"\'$(VisualStudioVersion)\' == \'\'\">10.0</VisualStu" +
-                    "dioVersion>\r\n    <VSToolsPath Condition=\"\'$(VSToolsPath)\' == \'\'\">$(MSBuildExtens" +
-                    "ionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersion)</VSToolsPath>\r\n  </Pr" +
-                    "opertyGroup>\r\n  <Import Project=\"$(MSBuildBinPath)\\Microsoft.CSharp.targets\" />\r" +
-                    "\n  <Import Project=\"$(VSToolsPath)\\WebApplications\\Microsoft.WebApplication.targ" +
-                    "ets\" Condition=\"\'$(VSToolsPath)\' != \'\'\" />\r\n  <Import Project=\"$(MSBuildExtensio" +
-                    "nsPath32)\\Microsoft\\VisualStudio\\v10.0\\WebApplications\\Microsoft.WebApplication." +
-                    "targets\" Condition=\"false\" />\r\n  <Target Name=\"MvcBuildViews\" AfterTargets=\"Afte" +
-                    "rBuild\" Condition=\"\'$(MvcBuildViews)\'==\'true\'\">\r\n    <AspNetCompiler VirtualPath" +
-                    "=\"temp\" PhysicalPath=\"$(WebProjectOutputDir)\" />\r\n  </Target>\r\n  <ProjectExtensi" +
-                    "ons>\r\n    <VisualStudio>\r\n      <FlavorProperties GUID=\"{349c5851-65df-11da-9384" +
-                    "-00065b846f21}\">\r\n        <WebProjectProperties>\r\n          <UseIIS>True</UseIIS" +
-                    ">\r\n          <AutoAssignPort>True</AutoAssignPort>\r\n          <DevelopmentServer" +
-                    "Port>62747</DevelopmentServerPort>\r\n          <DevelopmentServerVPath>/</Develop" +
-                    "mentServerVPath>\r\n          <IISUrl>http://localhost:62747/</IISUrl>\r\n          " +
-                    "<NTLMAuthentication>False</NTLMAuthentication>\r\n          <UseCustomServer>False" +
-                    "</UseCustomServer>\r\n          <CustomServerUrl>\r\n          </CustomServerUrl>\r\n " +
-                    "         <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>\r\n   " +
-                    "     </WebProjectProperties>\r\n      </FlavorProperties>\r\n    </VisualStudio>\r\n  " +
-                    "</ProjectExtensions>\r\n  <Target Name=\"EnsureNuGetPackageBuildImports\" BeforeTarg" +
-                    "ets=\"PrepareForBuild\">\r\n    <PropertyGroup>\r\n      <ErrorText>This project refer" +
-                    "ences NuGet package(s) that are missing on this computer. Use NuGet Package Rest" +
-                    "ore to download them.  For more information, see http://go.microsoft.com/fwlink/" +
-                    "?LinkID=322105. The missing file is {0}.</ErrorText>\r\n    </PropertyGroup>\r\n    " +
-                    "<Error Condition=\"!Exists(\'..\\packages\\Microsoft.Net.Compilers.1.0.0\\build\\Micro" +
-                    "soft.Net.Compilers.props\')\" Text=\"$([System.String]::Format(\'$(ErrorText)\', \'..\\" +
-                    "packages\\Microsoft.Net.Compilers.1.0.0\\build\\Microsoft.Net.Compilers.props\'))\" /" +
-                    ">\r\n  </Target>\r\n  <!-- To modify your build process, add your task inside one of" +
-                    " the targets below and uncomment it.\r\n       Other similar extension points exis" +
-                    "t, see Microsoft.Common.targets.\r\n  <Target Name=\"BeforeBuild\">\r\n  </Target>\r\n  " +
-                    "<Target Name=\"AfterBuild\">\r\n  </Target> -->\r\n</Project>");
+            this.Write(".Business</Name>\r\n    </ProjectReference>\r\n    <ProjectReference Include=\"..\\");
+            
+            #line 302 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Contracts\\");
+            
+            #line 302 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Contracts.csproj\">\r\n      <Project>{02A0831F-330B-41E9-B204-BCE88DD11E4D}</Proje" +
+                    "ct>\r\n      <Name>");
+            
+            #line 304 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Contracts</Name>\r\n    </ProjectReference>\r\n  </ItemGroup>\r\n  <PropertyGroup>\r\n  " +
+                    "  <VisualStudioVersion Condition=\"\'$(VisualStudioVersion)\' == \'\'\">10.0</VisualSt" +
+                    "udioVersion>\r\n    <VSToolsPath Condition=\"\'$(VSToolsPath)\' == \'\'\">$(MSBuildExten" +
+                    "sionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersion)</VSToolsPath>\r\n  </P" +
+                    "ropertyGroup>\r\n  <Import Project=\"$(MSBuildBinPath)\\Microsoft.CSharp.targets\" />" +
+                    "\r\n  <Import Project=\"$(VSToolsPath)\\WebApplications\\Microsoft.WebApplication.tar" +
+                    "gets\" Condition=\"\'$(VSToolsPath)\' != \'\'\" />\r\n  <Import Project=\"$(MSBuildExtensi" +
+                    "onsPath32)\\Microsoft\\VisualStudio\\v10.0\\WebApplications\\Microsoft.WebApplication" +
+                    ".targets\" Condition=\"false\" />\r\n  <Target Name=\"MvcBuildViews\" AfterTargets=\"Aft" +
+                    "erBuild\" Condition=\"\'$(MvcBuildViews)\'==\'true\'\">\r\n    <AspNetCompiler VirtualPat" +
+                    "h=\"temp\" PhysicalPath=\"$(WebProjectOutputDir)\" />\r\n  </Target>\r\n  <ProjectExtens" +
+                    "ions>\r\n    <VisualStudio>\r\n      <FlavorProperties GUID=\"{349c5851-65df-11da-938" +
+                    "4-00065b846f21}\">\r\n        <WebProjectProperties>\r\n          <UseIIS>True</UseII" +
+                    "S>\r\n          <AutoAssignPort>True</AutoAssignPort>\r\n          <DevelopmentServe" +
+                    "rPort>62747</DevelopmentServerPort>\r\n          <DevelopmentServerVPath>/</Develo" +
+                    "pmentServerVPath>\r\n          <IISUrl>http://localhost:62747/</IISUrl>\r\n         " +
+                    " <NTLMAuthentication>False</NTLMAuthentication>\r\n          <UseCustomServer>Fals" +
+                    "e</UseCustomServer>\r\n          <CustomServerUrl>\r\n          </CustomServerUrl>\r\n" +
+                    "          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>\r\n  " +
+                    "      </WebProjectProperties>\r\n      </FlavorProperties>\r\n    </VisualStudio>\r\n " +
+                    " </ProjectExtensions>\r\n  <Target Name=\"EnsureNuGetPackageBuildImports\" BeforeTar" +
+                    "gets=\"PrepareForBuild\">\r\n    <PropertyGroup>\r\n      <ErrorText>This project refe" +
+                    "rences NuGet package(s) that are missing on this computer. Use NuGet Package Res" +
+                    "tore to download them.  For more information, see http://go.microsoft.com/fwlink" +
+                    "/?LinkID=322105. The missing file is {0}.</ErrorText>\r\n    </PropertyGroup>\r\n   " +
+                    " <Error Condition=\"!Exists(\'..\\packages\\Microsoft.Net.Compilers.1.0.0\\build\\Micr" +
+                    "osoft.Net.Compilers.props\')\" Text=\"$([System.String]::Format(\'$(ErrorText)\', \'.." +
+                    "\\packages\\Microsoft.Net.Compilers.1.0.0\\build\\Microsoft.Net.Compilers.props\'))\" " +
+                    "/>\r\n  </Target>\r\n  <!-- To modify your build process, add your task inside one o" +
+                    "f the targets below and uncomment it.\r\n       Other similar extension points exi" +
+                    "st, see Microsoft.Common.targets.\r\n  <Target Name=\"BeforeBuild\">\r\n  </Target>\r\n " +
+                    " <Target Name=\"AfterBuild\">\r\n  </Target> -->\r\n</Project>");
             return this.GenerationEnvironment.ToString();
         }
     }

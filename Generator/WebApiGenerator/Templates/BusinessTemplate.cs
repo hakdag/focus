@@ -84,7 +84,14 @@ namespace WebApiGenerator.Templates
             
             #line default
             #line hidden
-            this.Write("Business(IUnitOfWork uow) : base(uow) { }\r\n    }\r\n}\r\n");
+            this.Write("Business(IBaseData<");
+            
+            #line 14 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
+            
+            #line default
+            #line hidden
+            this.Write("> data) : base(data) { }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

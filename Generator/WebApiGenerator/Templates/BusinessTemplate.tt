@@ -11,6 +11,6 @@ namespace <#= ProjectName #>.Business
 {
     public class <#= type.Name #>Business : BaseBusiness<<#= type.Name #>>, I<#= type.Name #>Business
     {
-        public <#= type.Name #>Business(IUnitOfWork uow) : base(uow) { }
+        public <#= type.Name #>Business(IBaseData<<#= type.Name #>> data) : base(data) { }
     }
 }

@@ -60,6 +60,12 @@
     <None Include="Resources\Role.cs" />
     <None Include="Resources\MemoryCacheManager.cs" />
     <None Include="Resources\BaseBusiness.cs" />
+    <None Include="Resources\IBaseBusiness.cs" />
+    <None Include="Resources\IRepository.cs" />
+    <None Include="Resources\IUnitOfWork.cs" />
+    <None Include="Resources\IBaseData.cs" />
+    <None Include="Resources\AssemblyInfoContracts.cs" />
+    <None Include="Resources\AssemblyInfoBusiness.cs" />
     <Compile Include="Templates\BusinessCsProjTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -70,6 +76,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BusinessTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="Templates\ContractsCsProjTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContractsCsProjTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="Templates\IBusinessTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -77,6 +88,7 @@
     </Compile>
     <Compile Include="Templates\Partials\BusinessCsProjTemplate.cs" />
     <Compile Include="Templates\Partials\BusinessTemplate.cs" />
+    <Compile Include="Templates\Partials\ContractsCsProjTemplate.cs" />
     <Compile Include="Templates\Partials\IBusinessTemplate.cs" />
     <Compile Include="Templates\Partials\WebApiCsProjTemplate.cs" />
     <Compile Include="Templates\WebApiCsProjTemplate.cs">
@@ -141,6 +153,10 @@
     <Content Include="Templates\BusinessTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>BusinessTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\ContractsCsProjTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ContractsCsProjTemplate.cs</LastGenOutput>
     </Content>
     <Content Include="Templates\IBusinessTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

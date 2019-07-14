@@ -220,4 +220,22 @@
   <data name="BaseBusiness" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\BaseBusiness.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="IBaseBusiness" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\IBaseBusiness.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="IBaseData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\IBaseData.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="IRepository" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\IRepository.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="IUnitOfWork" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\IUnitOfWork.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AssemblyInfoBusiness" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\AssemblyInfoBusiness.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AssemblyInfoContracts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\AssemblyInfoContracts.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>

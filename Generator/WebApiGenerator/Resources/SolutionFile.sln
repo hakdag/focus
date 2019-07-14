@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "#projectname#", "#projectna
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "#projectname#.Business", "#projectname#.Business\#projectname#.Business.csproj", "{0B50C06F-566E-4877-A618-5F95B073736D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "#projectname#.Contracts", "#projectname#.Contracts\#projectname#.Contracts.csproj", "{02A0831F-330B-41E9-B204-BCE88DD11E4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

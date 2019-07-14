@@ -36,24 +36,31 @@ namespace WebApiGenerator.Templates
             
             #line default
             #line hidden
-            this.Write(".Common;\r\nusing System;\r\nusing System.Collections.Generic;\r\nusing System.Linq;\r\nu" +
-                    "sing System.Web.Http;\r\nusing System.Web.Http.Cors;\r\n\r\nnamespace ");
+            this.Write(".Common;\r\nusing ");
             
-            #line 16 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 10 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Contracts.Business;\r\nusing System;\r\nusing System.Collections.Generic;\r\nusing Sys" +
+                    "tem.Linq;\r\nusing System.Web.Http;\r\nusing System.Web.Http.Cors;\r\n\r\nnamespace ");
+            
+            #line 17 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
             this.Write(".Controllers\r\n{\r\n    [Route(\"api/");
             
-            #line 18 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 19 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(moduleName));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 18 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 19 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
@@ -61,42 +68,42 @@ namespace WebApiGenerator.Templates
             this.Write("/{id?}\")] \r\n    [EnableCors(origins: \"http://localhost:8080\", headers: \"*\", metho" +
                     "ds: \"*\")]\r\n    public class ");
             
-            #line 20 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 21 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
             
             #line default
             #line hidden
             this.Write("Controller : BaseController<I");
             
-            #line 20 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 21 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
             
             #line default
             #line hidden
             this.Write("Business, ");
             
-            #line 20 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 21 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
             
             #line default
             #line hidden
             this.Write(">\r\n    {\r\n\t\tpublic ");
             
-            #line 22 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 23 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
             
             #line default
             #line hidden
             this.Write("Controller(I");
             
-            #line 22 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 23 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
             
             #line default
             #line hidden
             this.Write("Business business) : base(business) { }\r\n\r\n        public PageResult<");
             
-            #line 24 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 25 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.Name));
             
             #line default
@@ -104,14 +111,14 @@ namespace WebApiGenerator.Templates
             this.Write("> Get(string filterQuery, int startIndex, int rowsOnPage, string sortBy, string s" +
                     "ortOrder)\r\n        {\r\n            return base.Get(\"");
             
-            #line 26 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 27 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(SearchProperty == null ? "Id" : SearchProperty.Name));
             
             #line default
             #line hidden
             this.Write("\", \"");
             
-            #line 26 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
+            #line 27 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ApiControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DefaultSortProperty == null ? "Id" : DefaultSortProperty.Name));
             
             #line default

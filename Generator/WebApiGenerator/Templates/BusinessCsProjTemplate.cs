@@ -52,7 +52,7 @@ namespace WebApiGenerator.Templates
             #line default
             #line hidden
             this.Write(@".Business</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition="" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "">
@@ -108,10 +108,11 @@ namespace WebApiGenerator.Templates
     <Reference Include=""System.Xml"" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include=""Properties\AssemblyInfo.cs"" />
     <Compile Include=""BaseBusiness.cs"" />
 ");
             
-            #line 61 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
+            #line 62 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
  for(int i=0; i<Modules.Count; i++)
 {
 	var module = Modules[i];
@@ -125,21 +126,21 @@ namespace WebApiGenerator.Templates
             #line hidden
             this.Write("\t\t\t<Compile Include=\"");
             
-            #line 69 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
+            #line 70 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write("\\");
             
-            #line 69 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
+            #line 70 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("Business.cs\" />\r\n\t\t");
             
-            #line 70 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
+            #line 71 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
  }
 	}
 } 
@@ -148,36 +149,14 @@ namespace WebApiGenerator.Templates
             #line hidden
             this.Write("  </ItemGroup>\r\n  <ItemGroup>\r\n    <ProjectReference Include=\"..\\");
             
-            #line 75 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(".Common\\");
-            
-            #line 75 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(".Common.csproj\">\r\n      <Project>{54EE1E41-D7D9-489F-B89F-DA7C4064F222}</Project>" +
-                    "\r\n      <Name>");
-            
-            #line 77 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
-            
-            #line default
-            #line hidden
-            this.Write(".Common</Name>\r\n    </ProjectReference>\r\n    <ProjectReference Include=\"..\\");
-            
-            #line 79 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
+            #line 76 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
             this.Write(".Contracts\\");
             
-            #line 79 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
+            #line 76 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
@@ -185,7 +164,7 @@ namespace WebApiGenerator.Templates
             this.Write(".Contracts.csproj\">\r\n      <Project>{02A0831F-330B-41E9-B204-BCE88DD11E4D}</Proje" +
                     "ct>\r\n      <Name>");
             
-            #line 81 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
+            #line 78 "C:\Projects\focus\Generator\WebApiGenerator\Templates\BusinessCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default

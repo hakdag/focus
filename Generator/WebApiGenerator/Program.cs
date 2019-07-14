@@ -51,13 +51,18 @@ namespace WebApiGenerator
             string strBusinessCsProj = businessCsProjTemplate.TransformText();
             File.WriteAllText($"{OutputFolder}\\{projectName}.Business\\{projectName}.Business.csproj", strBusinessCsProj);
 
+            // create contracts .csproj file
+            ContractsCsProjTemplate contractsCsProjTemplate = new ContractsCsProjTemplate(projectName, mb.Modules);
+            string strContractsCsProj = contractsCsProjTemplate.TransformText();
+            File.WriteAllText($"{OutputFolder}\\{projectName}.Contracts\\{projectName}.Contracts.csproj", strContractsCsProj);
+
             foreach (Module module in mb.Modules)
             {
                 // create module folders
                 var moduleFolderBusinesses = $"{OutputFolder}\\{projectName}.Business\\{module.ModuleName}";
                 if (!Directory.Exists(moduleFolderBusinesses))
                     Directory.CreateDirectory(moduleFolderBusinesses);
-                var moduleFolderContracts = $"{OutputFolder}\\Contracts\\{module.ModuleName}";
+                var moduleFolderContracts = $"{OutputFolder}\\{projectName}.Contracts\\Business\\{module.ModuleName}";
                 if (!Directory.Exists(moduleFolderContracts))
                     Directory.CreateDirectory(moduleFolderContracts);
                 var moduleFolderControllers = $"{OutputFolder}\\{projectName}\\Controllers\\{module.ModuleName}";
@@ -139,9 +144,20 @@ namespace WebApiGenerator
                 Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Results");
             if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Services"))
                 Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Services");
-            // Business Project folders
+            // Business Project folder
             if (!Directory.Exists($"{OutputFolder}\\{projectName}.Business"))
                 Directory.CreateDirectory($"{OutputFolder}\\{projectName}.Business");
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}.Business\\Properties"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}.Business\\Properties");
+            // Contracts Project folders
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}.Contracts"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}.Contracts");
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}.Contracts\\Properties"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}.Contracts\\Properties");
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}.Contracts\\Business"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}.Contracts\\Business");
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}.Contracts\\DataAccess"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}.Contracts\\DataAccess");
         }
     }
 }
