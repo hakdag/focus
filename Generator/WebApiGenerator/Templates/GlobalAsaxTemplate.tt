@@ -6,11 +6,14 @@
 <#@ import namespace="GeneratorBase" #>
 using Autofac;
 using Autofac.Integration.WebApi;
+using Newtonsoft.Json;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
-using System.Web.Routing;
+using <#= ProjectName #>.Business;
+using <#= ProjectName #>.Contracts.Business;
+using <#= ProjectName #>.Contracts.DataAccess;
 
 namespace <#= ProjectName #>
 {
@@ -18,12 +21,6 @@ namespace <#= ProjectName #>
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-
             // IoC Container Setup
             var builder = new ContainerBuilder();
             // Get your HttpConfiguration.
@@ -35,9 +32,38 @@ namespace <#= ProjectName #>
             // OPTIONAL: Register the Autofac filter provider.
             builder.RegisterWebApiFilterProvider(config);
 
+			// register business classes
+<# for(int i=0; i<Modules.Count; i++)
+{
+	var module = Modules[i];
+	for(int j=0; j<module.Models.Count; j++)
+	{
+		var type = module.Models[j];
+		if (type.BaseType != typeof(Enum))
+		{ #>
+            builder.RegisterType<<#= type.Name #>Business>().As<I<#= type.Name #>Business>();
+		<# }
+	}
+} #>
+
+            // register data classes
+            builder.RegisterGeneric(typeof(BaseData<>)).As(typeof(IBaseData<>));
+
+			// register data access
+            builder.RegisterType<EFUnitOfWork>().As<IUnitOfWork>();
+
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+
+            // JSON.Net
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.Re‌​ferenceLoopHandling = ReferenceLoopHandling.Ignore;
+
+            AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            // RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }
