@@ -193,9 +193,50 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using #projectname#.Common.Models;
+        ///   Looks up a localized string similar to using System.Reflection;
+        ///using System.Runtime.CompilerServices;
+        ///using System.Runtime.InteropServices;
+        ///
+        ///// General Information about an assembly is controlled through the following 
+        ///// set of attributes. Change these attribute values to modify the information
+        ///// associated with an assembly.
+        ///[assembly: AssemblyTitle(&quot;#projectname#.Business&quot;)]
+        ///[assembly: AssemblyDescription(&quot;&quot;)]
+        ///[assembly: AssemblyConfiguration(&quot;&quot;)]
+        ///[assembly: AssemblyCompany(&quot;&quot;)]
+        ///[assembly: AssemblyProduct(&quot;#projectname#.Business&quot;) [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string AssemblyInfoBusiness {
+            get {
+                return ResourceManager.GetString("AssemblyInfoBusiness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using System.Reflection;
+        ///using System.Runtime.CompilerServices;
+        ///using System.Runtime.InteropServices;
+        ///
+        ///// General Information about an assembly is controlled through the following 
+        ///// set of attributes. Change these attribute values to modify the information
+        ///// associated with an assembly.
+        ///[assembly: AssemblyTitle(&quot;#projectname#.Contracts&quot;)]
+        ///[assembly: AssemblyDescription(&quot;&quot;)]
+        ///[assembly: AssemblyConfiguration(&quot;&quot;)]
+        ///[assembly: AssemblyCompany(&quot;&quot;)]
+        ///[assembly: AssemblyProduct(&quot;#projectname#.Contracts [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string AssemblyInfoContracts {
+            get {
+                return ResourceManager.GetString("AssemblyInfoContracts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using #projectname#.Common;
         ///using #projectname#.Contracts.Business;
         ///using #projectname#.Contracts.DataAccess;
+        ///using Focus.Common;
         ///using System.Linq;
         ///
         ///namespace #projectname#.Business
@@ -210,7 +251,7 @@ namespace WebApiGenerator {
         ///        {
         ///            _data.Create(model);
         ///
-        ///            return new ResponseResult  [rest of string was truncated]&quot;;.
+        ///            return new R [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BaseBusiness {
             get {
@@ -459,6 +500,58 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to using #projectname#.Common;
+        ///using Focus.Common;
+        ///using System.Linq;
+        ///
+        ///namespace #projectname#.Contracts.Business
+        ///{
+        ///    public interface IBaseBusiness&lt;T&gt;
+        ///    {
+        ///        IQueryable&lt;T&gt; GetAll();
+        ///        T Get(int id);
+        ///        ResponseResult Update(T model);
+        ///        ResponseResult Create(T model);
+        ///        ResponseResult Delete(int id);
+        ///    }
+        ///}
+        ///.
+        /// </summary>
+        internal static string IBaseBusiness {
+            get {
+                return ResourceManager.GetString("IBaseBusiness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using #projectname#.Common;
+        ///using Focus.Common;
+        ///using System;
+        ///using System.Linq;
+        ///using System.Linq.Expressions;
+        ///
+        ///namespace #projectname#.Contracts.DataAccess
+        ///{
+        ///    public interface IBaseData&lt;T&gt; where T : BaseModel
+        ///    {
+        ///        IQueryable&lt;T&gt; GetAll();
+        ///        IQueryable&lt;T&gt; GetAll(Expression&lt;Func&lt;T, bool&gt;&gt; predicate);
+        ///        T Get(int id);
+        ///        T Get(Expression&lt;Func&lt;T, bool&gt;&gt; predicate);
+        ///        void Update(T model);
+        ///        void Create(T model);
+        ///        void Delete(int id);
+        ///    }
+        ///}
+        ///.
+        /// </summary>
+        internal static string IBaseData {
+            get {
+                return ResourceManager.GetString("IBaseData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to using #projectname#.Models;
         ///using Microsoft.AspNet.Identity;
         ///using Microsoft.AspNet.Identity.EntityFramework;
@@ -499,6 +592,56 @@ namespace WebApiGenerator {
         internal static string IdentityModels {
             get {
                 return ResourceManager.GetString("IdentityModels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using System;
+        ///using System.Linq;
+        ///using System.Linq.Expressions;
+        ///
+        ///namespace #projectname#.Contracts.DataAccess
+        ///{
+        ///    public interface IRepository&lt;T&gt; where T : class
+        ///    {
+        ///        IQueryable&lt;T&gt; GetAll();
+        ///        IQueryable&lt;T&gt; GetAll(Expression&lt;Func&lt;T, bool&gt;&gt; predicate);
+        ///        T GetById(int id);
+        ///        T Get(Expression&lt;Func&lt;T, bool&gt;&gt; predicate);
+        ///
+        ///        void Add(T entity);
+        ///        void Update(T entity);
+        ///        void Delete(T entity);
+        ///        void Delete(int id);
+        ///    }
+        ///}
+        ///.
+        /// </summary>
+        internal static string IRepository {
+            get {
+                return ResourceManager.GetString("IRepository", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using #projectname#.Common;
+        ///using Focus.Common;
+        ///using System;
+        ///
+        ///namespace #projectname#.Contracts.DataAccess
+        ///{
+        ///    public interface IUnitOfWork : IDisposable
+        ///    {
+        ///        IRepository&lt;T&gt; GetRepository&lt;T&gt;() where T : BaseModel;
+        ///        int SaveChanges();
+        ///        object DbContext { get; }
+        ///    }
+        ///}
+        ///.
+        /// </summary>
+        internal static string IUnitOfWork {
+            get {
+                return ResourceManager.GetString("IUnitOfWork", resourceCulture);
             }
         }
         

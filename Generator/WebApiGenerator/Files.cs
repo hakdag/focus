@@ -67,8 +67,16 @@ namespace WebApiGenerator
             { nameof(Resources.SolutionFile), $"{ProjectName}.sln" },
 
             // Business Proj Files
+            { nameof(Resources.AssemblyInfoBusiness), $"{ProjectName}.Business\\Properties\\AssemblyInfo.cs" },
             { nameof(Resources.packagesBusiness), $"{ProjectName}.Business\\packages.config" },
             { nameof(Resources.BaseBusiness), $"{ProjectName}.Business\\BaseBusiness.cs" },
+
+            // Contracts Proj Files
+            { nameof(Resources.AssemblyInfoContracts), $"{ProjectName}.Contracts\\Properties\\AssemblyInfo.cs" },
+            { nameof(Resources.IBaseData), $"{ProjectName}.Contracts\\DataAccess\\IBaseData.cs" },
+            { nameof(Resources.IRepository), $"{ProjectName}.Contracts\\DataAccess\\IRepository.cs" },
+            { nameof(Resources.IUnitOfWork), $"{ProjectName}.Contracts\\DataAccess\\IUnitOfWork.cs" },
+            { nameof(Resources.IBaseBusiness), $"{ProjectName}.Contracts\\Business\\IBaseBusiness.cs" },
         };
     }
 }

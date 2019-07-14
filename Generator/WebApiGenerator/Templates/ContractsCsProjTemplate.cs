@@ -18,9 +18,9 @@ namespace WebApiGenerator.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\focus\Generator\WebApiGenerator\Templates\IBusinessTemplate.tt"
+    #line 1 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ContractsCsProjTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class IBusinessTemplate : IBusinessTemplateBase
+    public partial class ContractsCsProjTemplate : ContractsCsProjTemplateBase
     {
 #line hidden
         /// <summary>
@@ -28,35 +28,130 @@ namespace WebApiGenerator.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using ");
+            this.Write(@"<?xml version=""1.0"" encoding=""utf-8""?>
+<Project ToolsVersion=""14.0"" DefaultTargets=""Build"" xmlns=""http://schemas.microsoft.com/developer/msbuild/2003"">
+  <Import Project=""$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"" Condition=""Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"" />
+  <PropertyGroup>
+    <Configuration Condition="" '$(Configuration)' == '' "">Debug</Configuration>
+    <Platform Condition="" '$(Platform)' == '' "">AnyCPU</Platform>
+    <ProjectGuid>{02A0831F-330B-41E9-B204-BCE88DD11E4D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>");
             
-            #line 6 "C:\Projects\focus\Generator\WebApiGenerator\Templates\IBusinessTemplate.tt"
+            #line 15 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ContractsCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".Common;\r\n\r\nnamespace ");
+            this.Write(".Contracts</RootNamespace>\r\n    <AssemblyName>");
             
-            #line 8 "C:\Projects\focus\Generator\WebApiGenerator\Templates\IBusinessTemplate.tt"
+            #line 16 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ContractsCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
             #line hidden
-            this.Write(".Contracts.Business\r\n{\r\n\tpublic interface I");
+            this.Write(@".Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition="" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' "">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' "">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include=""System"" />
+    <Reference Include=""System.Core"" />
+    <Reference Include=""System.Xml.Linq"" />
+    <Reference Include=""System.Data.DataSetExtensions"" />
+    <Reference Include=""Microsoft.CSharp"" />
+    <Reference Include=""System.Data"" />
+    <Reference Include=""System.Net.Http"" />
+    <Reference Include=""System.Xml"" />
+    <Reference Include=""Focus.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Focus.Common.dll</HintPath>
+    </Reference>
+    <Reference Include=""");
             
-            #line 10 "C:\Projects\focus\Generator\WebApiGenerator\Templates\IBusinessTemplate.tt"
+            #line 50 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ContractsCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL\">\r\n      <S" +
+                    "pecificVersion>False</SpecificVersion>\r\n      <HintPath>..\\Libraries\\");
+            
+            #line 52 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ContractsCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Common.dll</HintPath>\r\n    </Reference>\r\n  </ItemGroup>\r\n  <ItemGroup>\r\n    <Com" +
+                    "pile Include=\"Business\\IBaseBusiness.cs\" />\r\n");
+            
+            #line 57 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ContractsCsProjTemplate.tt"
+ for(int i=0; i<Modules.Count; i++)
+{
+	var module = Modules[i];
+	for(int j=0; j<module.Models.Count; j++)
+	{
+		var type = module.Models[j];
+		if (type.BaseType != typeof(Enum))
+		{ 
+            
+            #line default
+            #line hidden
+            this.Write("\t\t\t<Compile Include=\"Business\\");
+            
+            #line 65 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ContractsCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
+            
+            #line default
+            #line hidden
+            this.Write("\\\\I");
+            
+            #line 65 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ContractsCsProjTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
-            this.Write("Business : IBaseBusiness<");
+            this.Write("Business.cs\" />\r\n\t\t");
             
-            #line 10 "C:\Projects\focus\Generator\WebApiGenerator\Templates\IBusinessTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
+            #line 66 "C:\Projects\focus\Generator\WebApiGenerator\Templates\ContractsCsProjTemplate.tt"
+ }
+	}
+} 
             
             #line default
             #line hidden
-            this.Write(">\r\n\t{\r\n\t}\r\n}\r\n");
+            this.Write(@"    <Compile Include=""DataAccess\IBaseData.cs"" />
+    <Compile Include=""DataAccess\IRepository.cs"" />
+    <Compile Include=""DataAccess\IUnitOfWork.cs"" />
+    <Compile Include=""Properties\AssemblyInfo.cs"" />
+  </ItemGroup>
+  <Import Project=""$(MSBuildToolsPath)\Microsoft.CSharp.targets"" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name=""BeforeBuild"">
+  </Target>
+  <Target Name=""AfterBuild"">
+  </Target>
+  -->
+</Project>");
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -68,7 +163,7 @@ namespace WebApiGenerator.Templates
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public class IBusinessTemplateBase
+    public class ContractsCsProjTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

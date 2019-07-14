@@ -2,6 +2,7 @@
 using Focus.Common.Pagination;
 using #projectname#.Filters;
 using #projectname#.Helpers;
+using #projectname#.Contracts.Business;
 using System;
 using System.Linq;
 using System.Web.Http;
@@ -42,8 +43,7 @@ namespace #projectname#.Controllers
 
         public virtual IHttpActionResult Get(int id)
         {
-            var items = Generate();
-            var model = items.FirstOrDefault(i => i.Id == id);
+            var model = business.Get(id);
             if (model == null)
                 return NotFound();
 
