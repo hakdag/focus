@@ -193,6 +193,32 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to using #projectname#.Common.Models;
+        ///using #projectname#.Contracts.Business;
+        ///using #projectname#.Contracts.DataAccess;
+        ///using System.Linq;
+        ///
+        ///namespace #projectname#.Business
+        ///{
+        ///    public class BaseBusiness&lt;T&gt; : IBaseBusiness&lt;T&gt; where T : BaseModel
+        ///    {
+        ///        protected IBaseData&lt;T&gt; _data;
+        ///
+        ///        public BaseBusiness(IBaseData&lt;T&gt; data) =&gt; this._data = data;
+        ///
+        ///        public virtual ResponseResult Create(T model)
+        ///        {
+        ///            _data.Create(model);
+        ///
+        ///            return new ResponseResult  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BaseBusiness {
+            get {
+                return ResourceManager.GetString("BaseBusiness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to using Focus.Common;
         ///using Focus.Common.Pagination;
         ///using #projectname#.Filters;
@@ -204,16 +230,17 @@ namespace WebApiGenerator {
         ///
         ///namespace #projectname#.Controllers
         ///{
-        ///    public abstract class BaseController&lt;TModel&gt; : ApiController where TModel : BaseModel
+        ///    public abstract class BaseController&lt;TBusiness, TModel&gt; : ApiController where TBusiness : IBaseBusiness&lt;TModel&gt;
         ///    {
-        ///        protected MemoryCacheManager _cacheManager;
+        ///        protected TBusiness business;
         ///
-        ///        public BaseController()
+        ///
+        ///        public BaseController(TBusiness business)
         ///        {
-        ///            _cacheManager = new MemoryCacheManager();
+        ///            this.business = business;
         ///        }
         ///
-        ///        public virtual PageResu [rest of string was truncated]&quot;;.
+        ///        public  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BaseController {
             get {
@@ -583,6 +610,18 @@ namespace WebApiGenerator {
         internal static string packages {
             get {
                 return ResourceManager.GetString("packages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;packages&gt;
+        ///  &lt;package id=&quot;Newtonsoft.Json&quot; version=&quot;11.0.1&quot; targetFramework=&quot;net45&quot; /&gt;
+        ///&lt;/packages&gt;.
+        /// </summary>
+        internal static string packagesBusiness {
+            get {
+                return ResourceManager.GetString("packagesBusiness", resourceCulture);
             }
         }
         

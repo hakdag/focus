@@ -65,6 +65,10 @@ namespace WebApiGenerator
             { nameof(Resources.Web), $"{ProjectName}\\Web.config" },
 
             { nameof(Resources.SolutionFile), $"{ProjectName}.sln" },
+
+            // Business Proj Files
+            { nameof(Resources.packagesBusiness), $"{ProjectName}.Business\\packages.config" },
+            { nameof(Resources.BaseBusiness), $"{ProjectName}.Business\\BaseBusiness.cs" },
         };
     }
 }

@@ -9,6 +9,7 @@ namespace WebApiGenerator
     class Program
     {
         private static string OutputFolder = $"Backend{DateTime.Now:MMddyyyyhhmmss}";
+
         static void Main(string[] args)
         {
             if (args == null || args.Length < 2)
@@ -45,13 +46,21 @@ namespace WebApiGenerator
             string strWebApiCsProj = webApiCsProjTemplate.TransformText();
             File.WriteAllText($"{OutputFolder}\\{projectName}\\{projectName}.csproj", strWebApiCsProj);
 
-            if (!Directory.Exists("Controllers"))
-                Directory.CreateDirectory("Controllers");
+            // create business .csproj file
+            BusinessCsProjTemplate businessCsProjTemplate = new BusinessCsProjTemplate(projectName, mb.Modules);
+            string strBusinessCsProj = businessCsProjTemplate.TransformText();
+            File.WriteAllText($"{OutputFolder}\\{projectName}.Business\\{projectName}.Business.csproj", strBusinessCsProj);
 
             foreach (Module module in mb.Modules)
             {
                 // create module folders
-                string moduleFolderControllers = $"{OutputFolder}\\{projectName}\\Controllers\\{module.ModuleName}";
+                var moduleFolderBusinesses = $"{OutputFolder}\\{projectName}.Business\\{module.ModuleName}";
+                if (!Directory.Exists(moduleFolderBusinesses))
+                    Directory.CreateDirectory(moduleFolderBusinesses);
+                var moduleFolderContracts = $"{OutputFolder}\\Contracts\\{module.ModuleName}";
+                if (!Directory.Exists(moduleFolderContracts))
+                    Directory.CreateDirectory(moduleFolderContracts);
+                var moduleFolderControllers = $"{OutputFolder}\\{projectName}\\Controllers\\{module.ModuleName}";
                 if (!Directory.Exists(moduleFolderControllers))
                     Directory.CreateDirectory(moduleFolderControllers);
 
@@ -62,9 +71,19 @@ namespace WebApiGenerator
                         continue;
 
                     // create controller
-                    ApiControllerTemplate act = new ApiControllerTemplate(projectName, type, module.ModuleName);
-                    string result = act.TransformText();
+                    var act = new ApiControllerTemplate(projectName, type, module.ModuleName);
+                    var result = act.TransformText();
                     File.WriteAllText($"{moduleFolderControllers}\\{type.Name}Controller.cs", result);
+
+                    // create IBusiness interface for business class
+                    var ibt = new IBusinessTemplate(projectName, type, module.ModuleName);
+                    var result2 = ibt.TransformText();
+                    File.WriteAllText($"{moduleFolderContracts}\\I{type.Name}Business.cs", result2);
+
+                    // create Business classes
+                    var bt = new BusinessTemplate(projectName, type, module.ModuleName);
+                    var result3 = bt.TransformText();
+                    File.WriteAllText($"{moduleFolderBusinesses}\\{type.Name}Business.cs", result3);
                 }
             }
         }
@@ -76,13 +95,13 @@ namespace WebApiGenerator
                 if (file.Key.Equals(nameof(Resources.SolutionFile)))
                 {
                     var byteArray = Resources.ResourceManager.GetObject(file.Key) as byte[];
-                    string result = System.Text.Encoding.UTF8.GetString(byteArray);
+                    var result = System.Text.Encoding.UTF8.GetString(byteArray);
                     result = result.Replace("#projectname#", projectName);
                     File.WriteAllText($"{OutputFolder}\\{file.Value}", result);
                     continue;
                 }
 
-                string text = Resources.ResourceManager.GetString(file.Key);
+                var text = Resources.ResourceManager.GetString(file.Key);
                 text = text.Replace("#projectname#", projectName);
                 File.WriteAllText($"{OutputFolder}\\{file.Value}", text);
             }
@@ -120,6 +139,9 @@ namespace WebApiGenerator
                 Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Results");
             if (!Directory.Exists($"{OutputFolder}\\{projectName}\\Services"))
                 Directory.CreateDirectory($"{OutputFolder}\\{projectName}\\Services");
+            // Business Project folders
+            if (!Directory.Exists($"{OutputFolder}\\{projectName}.Business"))
+                Directory.CreateDirectory($"{OutputFolder}\\{projectName}.Business");
         }
     }
 }

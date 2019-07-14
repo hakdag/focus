@@ -294,6 +294,12 @@ if (type.BaseType != typeof(Enum))
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\\<#= ProjectName #>.Business\\<#= ProjectName #>.Business.csproj">
+      <Project>{0B50C06F-566E-4877-A618-5F95B073736D}</Project>
+      <Name><#= ProjectName #>.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
