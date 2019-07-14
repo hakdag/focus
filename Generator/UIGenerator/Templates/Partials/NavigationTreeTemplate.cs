@@ -8,9 +8,9 @@ namespace UIGenerator.Templates
 {
     public partial class NavigationTreeTemplate : ITransformText
     {
-        public List<Module> Modules { get; }
+        public IList<Module> Modules { get; }
 
-        public NavigationTreeTemplate(List<Module> modules)
+        public NavigationTreeTemplate(IList<Module> modules)
         {
             Modules = modules;
         }

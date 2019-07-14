@@ -8,9 +8,9 @@ namespace UIGenerator.Templates
 {
     public partial class SideBarHtmlTemplate : ITransformText
     {
-        public List<Module> Modules { get; }
+        public IList<Module> Modules { get; }
 
-        public SideBarHtmlTemplate(List<Module> modules)
+        public SideBarHtmlTemplate(IList<Module> modules)
         {
             Modules = modules;
         }

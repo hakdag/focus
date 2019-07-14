@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiGenerator", "WebApiGe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Focus.Common", "Focus.Common\Focus.Common.csproj", "{236A871D-F0B5-4E87-AA92-CF93741D48DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiGeneratorRunner", "WebApiGeneratorRunner\WebApiGeneratorRunner.csproj", "{2D5F64F0-8FF0-459C-A642-3D191ECD4C70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIGeneratorRunner", "UIGeneratorRunner\UIGeneratorRunner.csproj", "{9BC7C192-3B10-4BA4-846D-B4216F7C1901}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{236A871D-F0B5-4E87-AA92-CF93741D48DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{236A871D-F0B5-4E87-AA92-CF93741D48DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{236A871D-F0B5-4E87-AA92-CF93741D48DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D5F64F0-8FF0-459C-A642-3D191ECD4C70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D5F64F0-8FF0-459C-A642-3D191ECD4C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D5F64F0-8FF0-459C-A642-3D191ECD4C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D5F64F0-8FF0-459C-A642-3D191ECD4C70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC7C192-3B10-4BA4-846D-B4216F7C1901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC7C192-3B10-4BA4-846D-B4216F7C1901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC7C192-3B10-4BA4-846D-B4216F7C1901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC7C192-3B10-4BA4-846D-B4216F7C1901}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

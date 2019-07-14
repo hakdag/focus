@@ -12,9 +12,9 @@ namespace UIGenerator.Templates
         private GeneratorType type;
         private List<KeyValuePair<string, string>> properties = new List<KeyValuePair<string, string>>();
         private Dictionary<string, string> imports = new Dictionary<string, string>();
-        private List<Module> modules;
+        private IList<Module> modules;
 
-        public ModelTemplate(GeneratorType type, List<Module> modules)
+        public ModelTemplate(GeneratorType type, IList<Module> modules)
         {
             this.type = type;
             this.modules = modules;
