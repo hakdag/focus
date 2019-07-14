@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WebApiGenerator.Templates
 {
-    public partial class ContractsCsProjTemplate
+    public partial class ContractsCsProjTemplate : ITransformText
     {
         public string ProjectName { get; }
         public List<Module> Modules { get; }

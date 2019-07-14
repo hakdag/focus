@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace WebApiGenerator.Templates
 {
-    public partial class GlobalAsaxTemplate : ITransformText
+    public partial class DbContextTemplate : ITransformText
     {
         public List<Module> Modules { get; }
         public string ProjectName { get; }
 
-        public GlobalAsaxTemplate(string projectName, List<Module> modules)
+        public DbContextTemplate(string projectName, List<Module> modules)
         {
-            this.Modules = modules;
+            Modules = modules;
             ProjectName = projectName;
         }
     }

@@ -349,38 +349,60 @@ if (type.BaseType != typeof(Enum))
             
             #line default
             #line hidden
-            this.Write(".Contracts</Name>\r\n    </ProjectReference>\r\n  </ItemGroup>\r\n  <PropertyGroup>\r\n  " +
-                    "  <VisualStudioVersion Condition=\"\'$(VisualStudioVersion)\' == \'\'\">10.0</VisualSt" +
-                    "udioVersion>\r\n    <VSToolsPath Condition=\"\'$(VSToolsPath)\' == \'\'\">$(MSBuildExten" +
-                    "sionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersion)</VSToolsPath>\r\n  </P" +
-                    "ropertyGroup>\r\n  <Import Project=\"$(MSBuildBinPath)\\Microsoft.CSharp.targets\" />" +
-                    "\r\n  <Import Project=\"$(VSToolsPath)\\WebApplications\\Microsoft.WebApplication.tar" +
-                    "gets\" Condition=\"\'$(VSToolsPath)\' != \'\'\" />\r\n  <Import Project=\"$(MSBuildExtensi" +
-                    "onsPath32)\\Microsoft\\VisualStudio\\v10.0\\WebApplications\\Microsoft.WebApplication" +
-                    ".targets\" Condition=\"false\" />\r\n  <Target Name=\"MvcBuildViews\" AfterTargets=\"Aft" +
-                    "erBuild\" Condition=\"\'$(MvcBuildViews)\'==\'true\'\">\r\n    <AspNetCompiler VirtualPat" +
-                    "h=\"temp\" PhysicalPath=\"$(WebProjectOutputDir)\" />\r\n  </Target>\r\n  <ProjectExtens" +
-                    "ions>\r\n    <VisualStudio>\r\n      <FlavorProperties GUID=\"{349c5851-65df-11da-938" +
-                    "4-00065b846f21}\">\r\n        <WebProjectProperties>\r\n          <UseIIS>True</UseII" +
-                    "S>\r\n          <AutoAssignPort>True</AutoAssignPort>\r\n          <DevelopmentServe" +
-                    "rPort>62747</DevelopmentServerPort>\r\n          <DevelopmentServerVPath>/</Develo" +
-                    "pmentServerVPath>\r\n          <IISUrl>http://localhost:62747/</IISUrl>\r\n         " +
-                    " <NTLMAuthentication>False</NTLMAuthentication>\r\n          <UseCustomServer>Fals" +
-                    "e</UseCustomServer>\r\n          <CustomServerUrl>\r\n          </CustomServerUrl>\r\n" +
-                    "          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>\r\n  " +
-                    "      </WebProjectProperties>\r\n      </FlavorProperties>\r\n    </VisualStudio>\r\n " +
-                    " </ProjectExtensions>\r\n  <Target Name=\"EnsureNuGetPackageBuildImports\" BeforeTar" +
-                    "gets=\"PrepareForBuild\">\r\n    <PropertyGroup>\r\n      <ErrorText>This project refe" +
-                    "rences NuGet package(s) that are missing on this computer. Use NuGet Package Res" +
-                    "tore to download them.  For more information, see http://go.microsoft.com/fwlink" +
-                    "/?LinkID=322105. The missing file is {0}.</ErrorText>\r\n    </PropertyGroup>\r\n   " +
-                    " <Error Condition=\"!Exists(\'..\\packages\\Microsoft.Net.Compilers.1.0.0\\build\\Micr" +
-                    "osoft.Net.Compilers.props\')\" Text=\"$([System.String]::Format(\'$(ErrorText)\', \'.." +
-                    "\\packages\\Microsoft.Net.Compilers.1.0.0\\build\\Microsoft.Net.Compilers.props\'))\" " +
-                    "/>\r\n  </Target>\r\n  <!-- To modify your build process, add your task inside one o" +
-                    "f the targets below and uncomment it.\r\n       Other similar extension points exi" +
-                    "st, see Microsoft.Common.targets.\r\n  <Target Name=\"BeforeBuild\">\r\n  </Target>\r\n " +
-                    " <Target Name=\"AfterBuild\">\r\n  </Target> -->\r\n</Project>");
+            this.Write(".Contracts</Name>\r\n    </ProjectReference>\r\n    <ProjectReference Include=\"..\\");
+            
+            #line 306 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".DataAccess\\");
+            
+            #line 306 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".DataAccess.csproj\">\r\n      <Project>{0b9b4240-f2bf-4582-8e64-1e1ea3834065}</Proj" +
+                    "ect>\r\n      <Name>");
+            
+            #line 308 "C:\Projects\focus\Generator\WebApiGenerator\Templates\WebApiCsProjTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".DataAccess</Name>\r\n    </ProjectReference>\r\n  </ItemGroup>\r\n  <PropertyGroup>\r\n " +
+                    "   <VisualStudioVersion Condition=\"\'$(VisualStudioVersion)\' == \'\'\">10.0</VisualS" +
+                    "tudioVersion>\r\n    <VSToolsPath Condition=\"\'$(VSToolsPath)\' == \'\'\">$(MSBuildExte" +
+                    "nsionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersion)</VSToolsPath>\r\n  </" +
+                    "PropertyGroup>\r\n  <Import Project=\"$(MSBuildBinPath)\\Microsoft.CSharp.targets\" /" +
+                    ">\r\n  <Import Project=\"$(VSToolsPath)\\WebApplications\\Microsoft.WebApplication.ta" +
+                    "rgets\" Condition=\"\'$(VSToolsPath)\' != \'\'\" />\r\n  <Import Project=\"$(MSBuildExtens" +
+                    "ionsPath32)\\Microsoft\\VisualStudio\\v10.0\\WebApplications\\Microsoft.WebApplicatio" +
+                    "n.targets\" Condition=\"false\" />\r\n  <Target Name=\"MvcBuildViews\" AfterTargets=\"Af" +
+                    "terBuild\" Condition=\"\'$(MvcBuildViews)\'==\'true\'\">\r\n    <AspNetCompiler VirtualPa" +
+                    "th=\"temp\" PhysicalPath=\"$(WebProjectOutputDir)\" />\r\n  </Target>\r\n  <ProjectExten" +
+                    "sions>\r\n    <VisualStudio>\r\n      <FlavorProperties GUID=\"{349c5851-65df-11da-93" +
+                    "84-00065b846f21}\">\r\n        <WebProjectProperties>\r\n          <UseIIS>True</UseI" +
+                    "IS>\r\n          <AutoAssignPort>True</AutoAssignPort>\r\n          <DevelopmentServ" +
+                    "erPort>62747</DevelopmentServerPort>\r\n          <DevelopmentServerVPath>/</Devel" +
+                    "opmentServerVPath>\r\n          <IISUrl>http://localhost:62747/</IISUrl>\r\n        " +
+                    "  <NTLMAuthentication>False</NTLMAuthentication>\r\n          <UseCustomServer>Fal" +
+                    "se</UseCustomServer>\r\n          <CustomServerUrl>\r\n          </CustomServerUrl>\r" +
+                    "\n          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>\r\n " +
+                    "       </WebProjectProperties>\r\n      </FlavorProperties>\r\n    </VisualStudio>\r\n" +
+                    "  </ProjectExtensions>\r\n  <Target Name=\"EnsureNuGetPackageBuildImports\" BeforeTa" +
+                    "rgets=\"PrepareForBuild\">\r\n    <PropertyGroup>\r\n      <ErrorText>This project ref" +
+                    "erences NuGet package(s) that are missing on this computer. Use NuGet Package Re" +
+                    "store to download them.  For more information, see http://go.microsoft.com/fwlin" +
+                    "k/?LinkID=322105. The missing file is {0}.</ErrorText>\r\n    </PropertyGroup>\r\n  " +
+                    "  <Error Condition=\"!Exists(\'..\\packages\\Microsoft.Net.Compilers.1.0.0\\build\\Mic" +
+                    "rosoft.Net.Compilers.props\')\" Text=\"$([System.String]::Format(\'$(ErrorText)\', \'." +
+                    ".\\packages\\Microsoft.Net.Compilers.1.0.0\\build\\Microsoft.Net.Compilers.props\'))\"" +
+                    " />\r\n  </Target>\r\n  <!-- To modify your build process, add your task inside one " +
+                    "of the targets below and uncomment it.\r\n       Other similar extension points ex" +
+                    "ist, see Microsoft.Common.targets.\r\n  <Target Name=\"BeforeBuild\">\r\n  </Target>\r\n" +
+                    "  <Target Name=\"AfterBuild\">\r\n  </Target> -->\r\n</Project>");
             return this.GenerationEnvironment.ToString();
         }
     }

@@ -14,6 +14,9 @@ using System.Web.Optimization;
 using <#= ProjectName #>.Business;
 using <#= ProjectName #>.Contracts.Business;
 using <#= ProjectName #>.Contracts.DataAccess;
+using <#= ProjectName #>.DataAccess;
+using <#= ProjectName #>.DataAccess.Data;
+using <#= ProjectName #>.DataAccess.UnitOfWork;
 
 namespace <#= ProjectName #>
 {
@@ -50,6 +53,7 @@ namespace <#= ProjectName #>
             builder.RegisterGeneric(typeof(BaseData<>)).As(typeof(IBaseData<>));
 
 			// register data access
+            builder.RegisterType<<#= ProjectName #>Context>().AsSelf();
             builder.RegisterType<EFUnitOfWork>().As<IUnitOfWork>();
 
             // Set the dependency resolver to be Autofac.
