@@ -19,7 +19,7 @@ namespace WebApiGenerator.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+    #line 1 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class GlobalAsaxTemplate : GlobalAsaxTemplateBase
     {
@@ -29,11 +29,53 @@ namespace WebApiGenerator.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using Autofac;\r\nusing Autofac.Integration.WebApi;\r\nusing System.Reflection;\r\nusin" +
-                    "g System.Web.Http;\r\nusing System.Web.Mvc;\r\nusing System.Web.Optimization;\r\nusing" +
-                    " System.Web.Routing;\r\n\r\nnamespace ");
+            this.Write("using Autofac;\r\nusing Autofac.Integration.WebApi;\r\nusing Newtonsoft.Json;\r\nusing " +
+                    "System.Reflection;\r\nusing System.Web.Http;\r\nusing System.Web.Mvc;\r\nusing System." +
+                    "Web.Optimization;\r\nusing ");
             
-            #line 15 "C:\aurea-projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            #line 14 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Business;\r\nusing ");
+            
+            #line 15 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Contracts.Business;\r\nusing ");
+            
+            #line 16 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".Contracts.DataAccess;\r\nusing ");
+            
+            #line 17 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".DataAccess;\r\nusing ");
+            
+            #line 18 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".DataAccess.Data;\r\nusing ");
+            
+            #line 19 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(".DataAccess.UnitOfWork;\r\n\r\nnamespace ");
+            
+            #line 21 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
             
             #line default
@@ -44,12 +86,6 @@ namespace WebApiGenerator.Templates
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-
             // IoC Container Setup
             var builder = new ContainerBuilder();
             // Get your HttpConfiguration.
@@ -61,9 +97,68 @@ namespace WebApiGenerator.Templates
             // OPTIONAL: Register the Autofac filter provider.
             builder.RegisterWebApiFilterProvider(config);
 
+			// register business classes
+");
+            
+            #line 39 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+ for(int i=0; i<Modules.Count; i++)
+{
+	var module = Modules[i];
+	for(int j=0; j<module.Models.Count; j++)
+	{
+		var type = module.Models[j];
+		if (type.BaseType != typeof(Enum))
+		{ 
+            
+            #line default
+            #line hidden
+            this.Write("            builder.RegisterType<");
+            
+            #line 47 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Business>().As<I");
+            
+            #line 47 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Business>();\r\n\t\t");
+            
+            #line 48 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+ }
+	}
+} 
+            
+            #line default
+            #line hidden
+            this.Write("\r\n            // register data classes\r\n            builder.RegisterGeneric(typeo" +
+                    "f(BaseData<>)).As(typeof(IBaseData<>));\r\n\r\n\t\t\t// register data access\r\n         " +
+                    "   builder.RegisterType<");
+            
+            #line 56 "C:\Projects\focus\Generator\WebApiGenerator\Templates\GlobalAsaxTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ProjectName));
+            
+            #line default
+            #line hidden
+            this.Write(@"Context>().AsSelf();
+            builder.RegisterType<EFUnitOfWork>().As<IUnitOfWork>();
+
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+
+            // JSON.Net
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.Re‌​ferenceLoopHandling = ReferenceLoopHandling.Ignore;
+
+            AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            // RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }

@@ -15,3 +15,5 @@
 /Generator/Bin
 /SampleProject/.vs
 /Theme/base-ui/dist
+obj
+bin

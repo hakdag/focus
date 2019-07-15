@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace WebApiGenerator.Templates
 {
-    public partial class ApiControllerTemplate
+    public partial class ApiControllerTemplate : ITransformText
     {
         public GeneratorType Type { get; }
         private string moduleName;

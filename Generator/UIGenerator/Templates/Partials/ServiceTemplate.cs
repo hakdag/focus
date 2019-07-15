@@ -5,7 +5,7 @@ using GeneratorBase;
 
 namespace UIGenerator.Templates
 {
-    public partial class ServiceTemplate
+    public partial class ServiceTemplate : ITransformText
     {
         private GeneratorType type;
         private string moduleName;

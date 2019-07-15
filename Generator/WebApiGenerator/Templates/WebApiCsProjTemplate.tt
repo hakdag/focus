@@ -19,7 +19,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace><#= ProjectName #></RootNamespace>
     <AssemblyName><#= ProjectName #></AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -293,6 +293,20 @@ if (type.BaseType != typeof(Enum))
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\\<#= ProjectName #>.Business\\<#= ProjectName #>.Business.csproj">
+      <Project>{0B50C06F-566E-4877-A618-5F95B073736D}</Project>
+      <Name><#= ProjectName #>.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\\<#= ProjectName #>.Contracts\\<#= ProjectName #>.Contracts.csproj">
+      <Project>{02A0831F-330B-41E9-B204-BCE88DD11E4D}</Project>
+      <Name><#= ProjectName #>.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\\<#= ProjectName #>.DataAccess\\<#= ProjectName #>.DataAccess.csproj">
+      <Project>{0b9b4240-f2bf-4582-8e64-1e1ea3834065}</Project>
+      <Name><#= ProjectName #>.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

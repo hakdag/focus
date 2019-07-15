@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace UIGenerator.Templates
 {
-    public partial class LayoutRoutesTemplate
+    public partial class LayoutRoutesTemplate : ITransformText
     {
-        public List<Module> Modules { get; }
+        public IList<Module> Modules { get; }
 
-        public LayoutRoutesTemplate(List<Module> modules)
+        public LayoutRoutesTemplate(IList<Module> modules)
         {
             Modules = modules;
         }

@@ -1,20 +1,16 @@
-﻿using System;
+﻿using GeneratorBase;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GeneratorBase;
 
 namespace WebApiGenerator.Templates
 {
-    public partial class GlobalAsaxTemplate
+    public partial class GlobalAsaxTemplate : ITransformText
     {
-        private List<Module> modules;
+        public IList<Module> Modules { get; }
         public string ProjectName { get; }
 
-        public GlobalAsaxTemplate(string projectName, List<Module> modules)
+        public GlobalAsaxTemplate(string projectName, IList<Module> modules)
         {
-            this.modules = modules;
+            this.Modules = modules;
             ProjectName = projectName;
         }
     }

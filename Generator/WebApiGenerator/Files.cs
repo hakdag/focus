@@ -65,6 +65,28 @@ namespace WebApiGenerator
             { nameof(Resources.Web), $"{ProjectName}\\Web.config" },
 
             { nameof(Resources.SolutionFile), $"{ProjectName}.sln" },
+
+            // Business Proj Files
+            { nameof(Resources.AssemblyInfoBusiness), $"{ProjectName}.Business\\Properties\\AssemblyInfo.cs" },
+            { nameof(Resources.packagesBusiness), $"{ProjectName}.Business\\packages.config" },
+            { nameof(Resources.BaseBusiness), $"{ProjectName}.Business\\BaseBusiness.cs" },
+
+            // Contracts Proj Files
+            { nameof(Resources.AssemblyInfoContracts), $"{ProjectName}.Contracts\\Properties\\AssemblyInfo.cs" },
+            { nameof(Resources.IBaseData), $"{ProjectName}.Contracts\\DataAccess\\IBaseData.cs" },
+            { nameof(Resources.IRepository), $"{ProjectName}.Contracts\\DataAccess\\IRepository.cs" },
+            { nameof(Resources.IUnitOfWork), $"{ProjectName}.Contracts\\DataAccess\\IUnitOfWork.cs" },
+            { nameof(Resources.IBaseBusiness), $"{ProjectName}.Contracts\\Business\\IBaseBusiness.cs" },
+
+            // DataAccess Proj Files
+            { nameof(Resources.AssemblyInfoDataAccess), $"{ProjectName}.DataAccess\\Properties\\AssemblyInfo.cs" },
+            { nameof(Resources.packagesDataAccess), $"{ProjectName}.DataAccess\\packages.config" },
+            { nameof(Resources.AppDataAccess), $"{ProjectName}.DataAccess\\App.config" },
+            { nameof(Resources.BaseData), $"{ProjectName}.DataAccess\\Data\\BaseData.cs" },
+            { nameof(Resources.EFRepository), $"{ProjectName}.DataAccess\\Repositories\\EFRepository.cs" },
+            { nameof(Resources.EFRepositoryBase), $"{ProjectName}.DataAccess\\Repositories\\EFRepositoryBase.cs" },
+            { nameof(Resources.EFUnitOfWork), $"{ProjectName}.DataAccess\\UnitOfWork\\EFUnitOfWork.cs" },
+            { nameof(Resources.EFUnitOfWorkBase), $"{ProjectName}.DataAccess\\UnitOfWork\\EFUnitOfWorkBase.cs" },
         };
     }
 }

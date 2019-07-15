@@ -9,21 +9,21 @@ using Module = GeneratorBase.Module;
 
 namespace UIGenerator.Templates
 {
-    public partial class EditComponentTemplate
+    public partial class EditComponentTemplate : ITransformText
     {
         private string title;
         private GeneratorType type;
         private PropertyInfo[] properties;
         private Dictionary<string, string> imports = new Dictionary<string, string>();
         private string moduleName;
-        private List<Module> modules;
+        private IList<Module> modules;
         private List<string> providers = new List<string>();
         private Dictionary<string, string> listProperties = new Dictionary<string, string>();
         private Dictionary<string, string> relationProperties = new Dictionary<string, string>();
         private Dictionary<string, string> parametreProperties = new Dictionary<string, string>();
         private List<PropertyInfo> enumProperties = new List<PropertyInfo>();
         private List<PropertyInfo> serviceProperties = new List<PropertyInfo>();
-        public EditComponentTemplate(GeneratorType type, string moduleName, List<Module> modules)
+        public EditComponentTemplate(GeneratorType type, string moduleName, IList<Module> modules)
         {
             this.type = type;
             this.moduleName = moduleName;

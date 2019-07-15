@@ -214,4 +214,52 @@
   <data name="WebApiConfig" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\WebApiConfig.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="packagesBusiness" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\packagesBusiness.config;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="BaseBusiness" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\BaseBusiness.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="IBaseBusiness" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\IBaseBusiness.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="IBaseData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\IBaseData.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="IRepository" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\IRepository.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="IUnitOfWork" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\IUnitOfWork.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AssemblyInfoBusiness" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\AssemblyInfoBusiness.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AssemblyInfoContracts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\AssemblyInfoContracts.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AppDataAccess" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\AppDataAccess.config;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="AssemblyInfoDataAccess" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\AssemblyInfoDataAccess.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="BaseData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\BaseData.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EFRepository" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\EFRepository.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EFRepositoryBase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\EFRepositoryBase.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EFUnitOfWork" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\EFUnitOfWork.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EFUnitOfWorkBase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\EFUnitOfWorkBase.cs;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="packagesDataAccess" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\packagesDataAccess.config;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>
