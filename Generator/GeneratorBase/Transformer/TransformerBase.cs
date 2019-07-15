@@ -21,7 +21,7 @@ namespace GeneratorBase
 
         public abstract void Transform();
 
-        public void Initialize(IList<Module> modules)
+        public void Initialize()
         {
             var mb = new ModulesBuilder(SourceLibrary, nameof(BaseModel));
             mb.Build();

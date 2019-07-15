@@ -20,6 +20,7 @@ namespace WebApiGeneratorRunner
 
             // creating general files.
             var transformer = new WebApiTransformer(sourceLibrary, projectName, OutputFolder);
+            transformer.Initialize();
             transformer.Transform();
         }
     }

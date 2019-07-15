@@ -17,11 +17,6 @@ namespace WebApiGenerator
 
         public override void Transform()
         {
-            if (Modules == null)
-            {
-                return;
-            }
-
             CreateFolders(projectName);
 
             CopyFiles(SourceLibrary);

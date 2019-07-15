@@ -19,6 +19,7 @@ namespace UIGeneratorRunner
 
             // creating general files.
             var transformer = new UITransformer(sourceLibrary, OutputFolder);
+            transformer.Initialize();
             transformer.Transform();
         }
     }

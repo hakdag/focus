@@ -16,11 +16,6 @@ namespace UIGenerator
 
         public override void Transform()
         {
-            if (Modules == null)
-            {
-                return;
-            }
-
             // copying base ui files.
             CopyFiles();
 
