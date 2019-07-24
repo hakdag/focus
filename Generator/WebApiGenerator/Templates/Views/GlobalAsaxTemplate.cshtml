@@ -1,9 +1,4 @@
-﻿<#@ template language="C#" #>
-<#@ assembly name="System.Core" #>
-<#@ import namespace="System.Linq" #>
-<#@ import namespace="System.Text" #>
-<#@ import namespace="System.Collections.Generic" #>
-<#@ import namespace="GeneratorBase" #>
+﻿@model GeneratorBase.GeneratorModel
 using Autofac;
 using Autofac.Integration.WebApi;
 using Newtonsoft.Json;
@@ -11,14 +6,14 @@ using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
-using <#= ProjectName #>.Business;
-using <#= ProjectName #>.Contracts.Business;
-using <#= ProjectName #>.Contracts.DataAccess;
-using <#= ProjectName #>.DataAccess;
-using <#= ProjectName #>.DataAccess.Data;
-using <#= ProjectName #>.DataAccess.UnitOfWork;
+using @(Model.ProjectName).Business;
+using @(Model.ProjectName).Contracts.Business;
+using @(Model.ProjectName).Contracts.DataAccess;
+using @(Model.ProjectName).DataAccess;
+using @(Model.ProjectName).DataAccess.Data;
+using @(Model.ProjectName).DataAccess.UnitOfWork;
 
-namespace <#= ProjectName #>
+namespace @(Model.ProjectName)
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
@@ -36,24 +31,20 @@ namespace <#= ProjectName #>
             builder.RegisterWebApiFilterProvider(config);
 
 			// register business classes
-<# for(int i=0; i<Modules.Count; i++)
-{
-	var module = Modules[i];
-	for(int j=0; j<module.Models.Count; j++)
-	{
-		var type = module.Models[j];
-		if (type.BaseType != typeof(Enum))
-		{ #>
-            builder.RegisterType<<#= type.Name #>Business>().As<I<#= type.Name #>Business>();
-		<# }
-	}
-} #>
+
+		@foreach (var module in Model.Modules)
+        {
+            foreach (var type in module.Models.Where(m => m.BaseType != typeof(Enum)))
+            {
+            builder.RegisterType<@(type.Name)Business>().As<I@(type.Name)Business>();
+			}
+		}
 
             // register data classes
             builder.RegisterGeneric(typeof(BaseData<>)).As(typeof(IBaseData<>));
 
 			// register data access
-            builder.RegisterType<<#= ProjectName #>Context>().AsSelf();
+            builder.RegisterType<@(Model.ProjectName)Context>().AsSelf();
             builder.RegisterType<EFUnitOfWork>().As<IUnitOfWork>();
 
             // Set the dependency resolver to be Autofac.

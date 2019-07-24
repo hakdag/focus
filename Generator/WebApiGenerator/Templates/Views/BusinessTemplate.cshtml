@@ -1,0 +1,12 @@
+﻿@model GeneratorBase.GeneratorModel
+using @(Model.ProjectName + ".Common");
+using @(Model.ProjectName + ".Contracts.Business");
+using @(Model.ProjectName + ".Contracts.DataAccess");
+
+namespace @(Model.ProjectName + ".Business")
+{
+    public class @(Model.Type.Name)Business : BaseBusiness<@(Model.Type.Name)>, I@(Model.Type.Name)Business
+    {
+        public @(Model.Type.Name)Business(IBaseData<@(Model.Type.Name)> data) : base(data) { }
+    }
+}

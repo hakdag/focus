@@ -1,0 +1,21 @@
+﻿@model GeneratorBase.GeneratorModel
+using Focus.Common.Pagination;
+using @(Model.ProjectName + ".Common");
+using @(Model.ProjectName + ".Contracts.Business");
+using System.Web.Http;
+using System.Web.Http.Cors;
+
+namespace @(Model.ProjectName + ".Controllers")
+{
+    [Route("api/@(Model.ModuleName)/@(Model.Type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)))/{id?}")] 
+    [EnableCors(origins: "http://localhost:8080", headers: "*", methods: "*")]
+    public class @(Model.Type.Name)Controller : BaseController<I@(Model.Type.Name)Business, @(Model.Type.Name)>
+    {
+		public @(Model.Type.Name)Controller(I@(Model.Type.Name)Business business) : base(business) { }
+
+        public PageResult<@(Model.Type.Name)> Get(string filterQuery, int startIndex, int rowsOnPage, string sortBy, string sortOrder)
+        {
+            return base.Get("@(Model.SearchProperty == null ? "Id" : Model.SearchProperty.Name)", "@(Model.DefaultSortProperty == null ? "Id" : Model.DefaultSortProperty.Name)", filterQuery, startIndex, rowsOnPage, sortBy, sortOrder);
+        }
+	}
+}

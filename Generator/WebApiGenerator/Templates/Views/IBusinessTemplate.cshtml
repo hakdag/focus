@@ -1,0 +1,9 @@
+﻿@model GeneratorBase.GeneratorModel
+using @(Model.ProjectName).Common;
+
+namespace @(Model.ProjectName).Contracts.Business
+{
+	public interface I@(Model.Type.Name)Business : IBaseBusiness<@(Model.Type.Name)>
+	{
+	}
+}

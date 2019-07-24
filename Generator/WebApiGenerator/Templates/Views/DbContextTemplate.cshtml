@@ -1,0 +1,27 @@
+﻿@model GeneratorBase.GeneratorModel
+using @(Model.ProjectName).Common;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
+namespace @(Model.ProjectName).DataAccess
+{
+    public class @(Model.ProjectName)Context : DbContext
+    {
+        public @(Model.ProjectName)Context() : base("@(Model.ProjectName)") { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+		@foreach (var module in Model.Modules)
+        {
+            foreach (var type in module.Models)
+            {
+        public DbSet<@(type.Name)> @(type.Name)s { get; set; }
+			}
+		}
+    }
+}

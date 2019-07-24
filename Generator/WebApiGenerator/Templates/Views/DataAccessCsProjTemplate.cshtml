@@ -1,0 +1,19 @@
+﻿@model GeneratorBase.GeneratorModel
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\@(Model.ProjectName).Common\@(Model.ProjectName).Common.csproj">
+      <Project>{54ee1e41-d7d9-489f-b89f-da7c4064f222}</Project>
+      <Name>@(Model.ProjectName).Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\@(Model.ProjectName).Contracts\@(Model.ProjectName).Contracts.csproj">
+      <Project>{02A0831F-330B-41E9-B204-BCE88DD11E4D}</Project>
+      <Name>@(Model.ProjectName).Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+</Project>

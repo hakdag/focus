@@ -1,8 +1,8 @@
+﻿@model GeneratorBase.GeneratorModel
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Focus.Common\Focus.Common.csproj" />
-    <ProjectReference Include="..\GeneratorBase\GeneratorBase.csproj" />
+    <ProjectReference Include="..\@(Model.ProjectName + ".Contracts")\@(Model.ProjectName + ".Contracts.csproj")" />
   </ItemGroup>
 
   <PropertyGroup>

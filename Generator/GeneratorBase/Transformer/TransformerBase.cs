@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace GeneratorBase
 {
@@ -49,9 +50,9 @@ namespace GeneratorBase
             return properties.Where(p => p.PropertyType.BaseType == typeof(Enum)).ToArray();
         }
 
-        protected void TransformText(ITransformText tt, string path)
+        protected async Task TransformText(ITransformText tt, string path)
         {
-            var text = tt.TransformText();
+            var text = await tt.TransformText();
             File.WriteAllText(path, text);
         }
 

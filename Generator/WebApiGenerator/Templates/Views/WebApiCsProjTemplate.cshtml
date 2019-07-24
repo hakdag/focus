@@ -1,8 +1,4 @@
-﻿<#@ template language="C#" #>
-<#@ assembly name="System.Core" #>
-<#@ import namespace="System.Linq" #>
-<#@ import namespace="System.Text" #>
-<#@ import namespace="System.Collections.Generic" #>
+﻿@model GeneratorBase.GeneratorModel
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
@@ -17,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace><#= ProjectName #></RootNamespace>
-    <AssemblyName><#= ProjectName #></AssemblyName>
+    <RootNamespace>@(Model.ProjectName)</RootNamespace>
+    <AssemblyName>@(Model.ProjectName)</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -88,9 +84,9 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="<#= ProjectName #>.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="@(Model.ProjectName).Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libraries\\<#= ProjectName #>.Common.dll</HintPath>
+      <HintPath>..\Libraries\\@(Model.ProjectName).Common.dll</HintPath>
     </Reference>
     <Reference Include="SendGridMail">
       <HintPath>..\packages\Sendgrid.5.0.0\lib\SendGridMail.dll</HintPath>
@@ -248,18 +244,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-<# for(int i=0; i<Modules.Count; i++)
+
+@foreach (var module in Model.Modules)
 {
-var module = Modules[i];
-for(int j=0; j<module.Models.Count; j++)
-{
-var type = module.Models[j];
-if (type.BaseType != typeof(Enum))
-{ #>
-    <Compile Include="Controllers\\<#= module.ModuleName #>\\<#= type.Name #>Controller.cs" />
-<# }
+  foreach (var type in module.Models.Where(m => m.BaseType != typeof(Enum)))
+  {
+    <Compile Include="Controllers\\@(module.ModuleName)\\@(type.Name)Controller.cs" />
+  }
 }
-} #>
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Filters\ClaimsAuthorizationAttribute.cs" />
     <Compile Include="Filters\CustomAuthorizeAttribute.cs" />
@@ -295,17 +287,17 @@ if (type.BaseType != typeof(Enum))
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\\<#= ProjectName #>.Business\\<#= ProjectName #>.Business.csproj">
+    <ProjectReference Include="..\\@(Model.ProjectName).Business\\@(Model.ProjectName).Business.csproj">
       <Project>{0B50C06F-566E-4877-A618-5F95B073736D}</Project>
-      <Name><#= ProjectName #>.Business</Name>
+      <Name>@(Model.ProjectName).Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\\<#= ProjectName #>.Contracts\\<#= ProjectName #>.Contracts.csproj">
+    <ProjectReference Include="..\\@(Model.ProjectName).Contracts\\@(Model.ProjectName).Contracts.csproj">
       <Project>{02A0831F-330B-41E9-B204-BCE88DD11E4D}</Project>
-      <Name><#= ProjectName #>.Contracts</Name>
+      <Name>@(Model.ProjectName).Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\\<#= ProjectName #>.DataAccess\\<#= ProjectName #>.DataAccess.csproj">
+    <ProjectReference Include="..\\@(Model.ProjectName).DataAccess\\@(Model.ProjectName).DataAccess.csproj">
       <Project>{0b9b4240-f2bf-4582-8e64-1e1ea3834065}</Project>
-      <Name><#= ProjectName #>.DataAccess</Name>
+      <Name>@(Model.ProjectName).DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

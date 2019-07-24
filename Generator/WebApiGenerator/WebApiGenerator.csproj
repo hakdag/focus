@@ -1,5 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\Focus.Common\Focus.Common.csproj" />
+    <ProjectReference Include="..\GeneratorBase\GeneratorBase.csproj" />
+    <PackageReference Include="RazorLight" Version="2.0.0-beta1" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
