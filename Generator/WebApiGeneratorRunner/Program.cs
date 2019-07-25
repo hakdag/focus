@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using WebApiGenerator;
 
 namespace WebApiGeneratorRunner
@@ -7,7 +8,7 @@ namespace WebApiGeneratorRunner
     {
         private static readonly string OutputFolder = $"Backend{DateTime.Now:MMddyyyyhhmmss}";
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             if (args == null || args.Length < 2)
             {
@@ -19,9 +20,21 @@ namespace WebApiGeneratorRunner
             var projectName = args[1];
 
             // creating general files.
-            var transformer = new WebApiTransformer(sourceLibrary, projectName, OutputFolder);
-            transformer.Initialize();
-            transformer.Transform();
+            try
+            {
+                Console.WriteLine("Starting...");
+                var transformer = new WebApiTransformer(sourceLibrary, projectName, OutputFolder);
+                Console.WriteLine("Loading Assembly...");
+                transformer.Initialize();
+                Console.WriteLine($"Modules found: {transformer.Modules.Count}");
+                Console.WriteLine("Generating...");
+                await transformer.Transform();
+                Console.WriteLine("Finished!");
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+            }
         }
     }
 }

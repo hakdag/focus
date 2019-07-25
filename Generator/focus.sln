@@ -7,11 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Focus.Common", "Focus.Commo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratorBase", "GeneratorBase\GeneratorBase.csproj", "{C048A513-2BF3-4053-9C54-876DE2C1EDB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIGenerator", "UIGenerator\UIGenerator.csproj", "{F141B0A3-C3BC-4C60-9916-CA8CB9BA8012}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiGenerator", "WebApiGenerator\WebApiGenerator.csproj", "{5623A433-0B27-4831-91E4-8B7A06D6F336}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIGeneratorRunner", "UIGeneratorRunner\UIGeneratorRunner.csproj", "{9BC7C192-3B10-4BA4-846D-B4216F7C1901}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiGeneratorRunner", "WebApiGeneratorRunner\WebApiGeneratorRunner.csproj", "{2D5F64F0-8FF0-459C-A642-3D191ECD4C70}"
 EndProject

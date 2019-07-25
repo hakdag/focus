@@ -4,6 +4,8 @@
     <ProjectReference Include="..\Focus.Common\Focus.Common.csproj" />
     <ProjectReference Include="..\GeneratorBase\GeneratorBase.csproj" />
     <PackageReference Include="RazorLight" Version="2.0.0-beta1" />
+
+    <Compile Remove="Resources\*.*" />
   </ItemGroup>
 
   <PropertyGroup>

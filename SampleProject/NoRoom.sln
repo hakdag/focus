@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoRoom.Common", "NoRoom.Com
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{1C3F7102-80A7-49FD-BB25-9B02CAA61D80}"
 	ProjectSection(SolutionItems) = preProject
-		..\Generator\Bin\Focus.Common.dll = ..\Generator\Bin\Focus.Common.dll
+		..\Generator\Focus.Common\bin\Debug\netcoreapp2.2\Focus.Common.dll = ..\Generator\Focus.Common\bin\Debug\netcoreapp2.2\Focus.Common.dll
 	EndProjectSection
 EndProject
 Global

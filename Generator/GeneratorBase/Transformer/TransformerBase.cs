@@ -20,7 +20,7 @@ namespace GeneratorBase
             OutputFolder = outputFolder;
         }
 
-        public abstract void Transform();
+        public abstract Task Transform();
 
         public void Initialize()
         {
