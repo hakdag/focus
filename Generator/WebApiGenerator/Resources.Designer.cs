@@ -425,6 +425,18 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;Project ToolsVersion=&quot;14.0&quot; DefaultTargets=&quot;Build&quot; xmlns=&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot;&gt;
+        ///  &lt;Import Project=&quot;..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props&quot; Condition=&quot;Exists(&apos;..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props&apos;)&quot; /&gt;
+        ///  &lt;Import Project=&quot;$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props&quot; Condition=&quot;Exists(&apos;$(MSBuildExtensionsPath)\$(MSBuildToolsVersion [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CsProjFile {
+            get {
+                return ResourceManager.GetString("CsProjFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to using System;
         ///using System.Collections.Generic;
         ///using System.Linq;
@@ -565,8 +577,8 @@ namespace WebApiGenerator {
         ///    {
         ///        public EFUnitOfWork(#projectname#Context dbContext)
         ///        {
-        ///            Database.SetInitializer&lt;&lt;#= ProjectName #&gt;Context&gt;(null);
-        ///            _dbContext = dbContext ?? throw new ArgumentNullException(&quot;dbContext ca [rest of string was truncated]&quot;;.
+        ///            Database.SetInitializer &lt;#projectname#Context&gt;(null);
+        ///            _dbContext = dbContext ?? throw new ArgumentNullException(&quot;dbContext can no [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EFUnitOfWork {
             get {
@@ -944,6 +956,16 @@ namespace WebApiGenerator {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ProjectName {
+            get {
+                object obj = ResourceManager.GetObject("ProjectName", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to using Focus.Common;
         ///using Focus.Common.Attributes;
         ///using System;
@@ -1145,7 +1167,8 @@ namespace WebApiGenerator {
         ///    &lt;section name=&quot;entityFramework&quot; type=&quot;System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot; requirePermission=&quot;false&quot; /&gt;
         ///  &lt;/configSections&gt;
         ///  &lt;connectionStrings&gt;
-        ///    &lt;add name=&quot;#projectname#&quot; connectionString=&quot;data source=#databaseurl#;initial catalog=#initialcatalog#;persist security info=True;user id=#databaseuserid#;password=#dat [rest of string was truncated]&quot;;.
+        ///    &lt;add name=&quot;#projectname#&quot; connectionString=&quot;Data Source=.;Initial Catalog=#projectname#;Integrated Security=True&quot; providerName=&quot;System.Data.SqlClient&quot; /&gt;
+        ///    &lt;add name [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Web {
             get {

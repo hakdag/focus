@@ -8,6 +8,188 @@
     <Compile Remove="Resources\*.*" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Resources\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\ApplicationRoleManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\AccountViewModels.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\AccountController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\AccountBindingModels.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\WebApiConfig.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\ValidateModelAttribute.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\UpdateFKAttribute.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\Startup.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\Startup.Auth.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\RouteConfig.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\Role.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\ReflectionExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\ModelFactory.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\MemoryCacheManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\LogExceptionFilterAttribute.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\LogActionFilter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\IUnitOfWork.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\IRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\IdentityModels.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\IdentityConfig.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\IBaseData.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\IBaseBusiness.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\FilterConfig.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\EmailService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\EFUnitOfWorkBase.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\EFUnitOfWork.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\EFRepositoryBase.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\EFRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\CustomOAuthProvider.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\CustomJwtFormat.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\CustomAuthorizeAttribute.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\ClaimsAuthorizationAttribute.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\ChallengeResult.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\BundleConfig.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\BaseData.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\BaseController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\BaseBusiness.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\AssemblyInfoDataAccess.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\AssemblyInfoContracts.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\AssemblyInfoBusiness.cs" />
+    <None Include="Resources\CsProjFile.csproj" />
+    <None Include="Resources\ProjectName.sln" />
+    <None Include="Resources\SolutionFile.sln" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
