@@ -1,5 +1,6 @@
 ﻿using GeneratorBase;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using WebApiGenerator.Templates;
@@ -23,7 +24,7 @@ namespace WebApiGenerator
             CopyFiles(SourceLibrary);
 
             // traverse every file in the API folder and replace namespace
-            GenerateGeneralFiles(projectName);
+            await GenerateGeneralFiles(projectName);
 
             // create Global.asax
             var gat = new GlobalAsaxTemplate(projectName, Modules);
@@ -100,27 +101,41 @@ namespace WebApiGenerator
             await TransformText(bt, $"{moduleFolderBusinesses}{Path.DirectorySeparatorChar}{type.Name}Business.cs");
         }
 
-        private void GenerateGeneralFiles(string projectName)
+        private async Task GenerateGeneralFiles(string projectName)
         {
             foreach (var file in Files.Dictionary)
             {
-                if (file.Key.Equals(nameof(Resources.SolutionFile)))
-                {
-                    var byteArray = Resources.ResourceManager.GetObject(file.Key) as byte[];
-                    if (byteArray == null)
-                    {
-                        throw new Exception($"The file selected has empty content: {file.Key}");
-                    }
-                    var result = System.Text.Encoding.UTF8.GetString(byteArray);
-                    result = result.Replace("#projectname#", projectName);
-                    File.WriteAllText($"{OutputFolder}{Path.DirectorySeparatorChar}{file.Value}", result);
-                    continue;
-                }
-
-                var text = Resources.ResourceManager.GetString(file.Key);
-                text = text.Replace("#projectname#", projectName);
-                File.WriteAllText($"{OutputFolder}{Path.DirectorySeparatorChar}{file.Value}", text);
+                await GenerateGeneralFile(projectName, file);
             }
+        }
+
+        private async Task GenerateGeneralFile(string projectName, KeyValuePair<string, string> file)
+        {
+            if (!file.Key.Equals(nameof(Resources.SolutionFile)))
+            {
+                var text = Resources.ResourceManager.GetString(file.Key);
+                if (String.IsNullOrWhiteSpace(text))
+                {
+                    throw new Exception($"The file selected has empty content: {file.Key}");
+                }
+                await ReplaceTemplateValue("#projectname#", projectName, file.Value, text);
+                return;
+            }
+
+            var fileObj = Resources.ResourceManager.GetObject(file.Key);
+            var byteArray = fileObj as byte[];
+            if (byteArray == null)
+            {
+                throw new Exception($"The file selected has empty content: {file.Key}");
+            }
+            var result = System.Text.Encoding.UTF8.GetString(byteArray);
+            await ReplaceTemplateValue("#projectname#", projectName, file.Value, result);
+        }
+
+        private async Task ReplaceTemplateValue(string oldValue, string newValue, string fileName, string text)
+        {
+            text = text.Replace(oldValue, projectName);
+            await File.WriteAllTextAsync($"{OutputFolder}{Path.DirectorySeparatorChar}{fileName}", text);
         }
 
         private void CopyFiles(string sourceLibrary)
