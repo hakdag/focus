@@ -1,4 +1,5 @@
 ﻿using GeneratorBase;
+using RazorLight;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,8 +12,8 @@ namespace WebApiGenerator
     {
         private readonly string projectName;
 
-        public WebApiTransformer(string sourceLibrary, string projectName, string outputFolder)
-            : base(sourceLibrary, outputFolder)
+        public WebApiTransformer(RazorLightEngine engine, string sourceLibrary, string projectName, string outputFolder)
+            : base(engine, sourceLibrary, outputFolder)
         {
             this.projectName = Files.ProjectName = projectName;
         }
@@ -27,7 +28,7 @@ namespace WebApiGenerator
             await GenerateGeneralFiles(projectName);
 
             // create Global.asax
-            var gat = new GlobalAsaxTemplate(projectName, Modules);
+            var gat = new GlobalAsaxTemplate(RLEngine, projectName, Modules);
             await TransformText(gat, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}{Path.DirectorySeparatorChar}Global.asax.cs");
 
             // create web api .csproj file
@@ -89,15 +90,15 @@ namespace WebApiGenerator
         private async Task CreateType(Module module, string moduleFolderBusinesses, string moduleFolderContracts, string moduleFolderControllers, GeneratorType type)
         {
             // create controller
-            var act = new ApiControllerTemplate(projectName, type, module.ModuleName);
+            var act = new ApiControllerTemplate(RLEngine, projectName, type, module.ModuleName);
             await TransformText(act, $"{moduleFolderControllers}{Path.DirectorySeparatorChar}{type.Name}Controller.cs");
 
             // create IBusiness interface for business class
-            var ibt = new IBusinessTemplate(projectName, type, module.ModuleName);
+            var ibt = new IBusinessTemplate(RLEngine, projectName, type, module.ModuleName);
             await TransformText(ibt, $"{moduleFolderContracts}{Path.DirectorySeparatorChar}I{type.Name}Business.cs");
 
             // create Business classes
-            var bt = new BusinessTemplate(projectName, type, module.ModuleName);
+            var bt = new BusinessTemplate(RLEngine, projectName, type, module.ModuleName);
             await TransformText(bt, $"{moduleFolderBusinesses}{Path.DirectorySeparatorChar}{type.Name}Business.cs");
         }
 

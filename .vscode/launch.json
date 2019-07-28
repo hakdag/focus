@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Generator/UIGeneratorRunner/bin/Debug/netcoreapp2.2/UIGeneratorRunner.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/Generator/UIGeneratorRunner",
+            "program": "${workspaceFolder}/Generator/WebApiGeneratorRunner/bin/Debug/netcoreapp2.2/WebApiGeneratorRunner.dll",
+            "args": ["${workspaceFolder}/Generator/Bin/netcoreapp2.2/NoRoom.Common.dll", "NoRoom"],
+            "cwd": "${workspaceFolder}/Generator/WebApiGeneratorRunner",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false

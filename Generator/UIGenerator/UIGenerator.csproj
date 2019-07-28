@@ -3,6 +3,24 @@
   <ItemGroup>
     <ProjectReference Include="..\Focus.Common\Focus.Common.csproj" />
     <ProjectReference Include="..\GeneratorBase\GeneratorBase.csproj" />
+    <PackageReference Include="RazorLight" Version="2.0.0-beta1" />
+
+    <Compile Remove="Resources\*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
   <PropertyGroup>

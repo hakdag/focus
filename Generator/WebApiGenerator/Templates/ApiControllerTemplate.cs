@@ -1,24 +1,27 @@
 ﻿using Focus.Common.Attributes;
 using GeneratorBase;
+using RazorLight;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using RazorLight;
 
 namespace WebApiGenerator.Templates
 {
     public partial class ApiControllerTemplate : ITransformText
     {
         public GeneratorType Type { get; }
+
+        private readonly RazorLightEngine engine;
         private string moduleName;
         public PropertyInfo SearchProperty { get; }
         public PropertyInfo DefaultSortProperty { get; }
         public string ProjectName { get; }
 
-        public ApiControllerTemplate(string projectName, GeneratorType type, string moduleName)
+        public ApiControllerTemplate(RazorLightEngine engine, string projectName, GeneratorType type, string moduleName)
         {
             this.Type = type;
             this.moduleName = moduleName;
+            this.engine = engine;
             ProjectName = projectName;
 
             SearchProperty = type.Type.GetProperties().FirstOrDefault(pi => pi.CustomAttributes.Any(ca => ca.AttributeType == typeof(SearchPropertyAttribute)));
@@ -27,11 +30,6 @@ namespace WebApiGenerator.Templates
 
         public async Task<string> TransformText()
         {
-            var engine = new RazorLightEngineBuilder()
-                          .UseFilesystemProject("Views")
-                          .UseMemoryCachingProvider()
-                          .Build();
-
             var model = new GeneratorModel
             {
                 ProjectName = ProjectName,

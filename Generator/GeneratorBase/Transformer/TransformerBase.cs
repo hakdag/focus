@@ -1,4 +1,5 @@
 ﻿using Focus.Common;
+using RazorLight;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,10 +13,12 @@ namespace GeneratorBase
     {
         protected string OutputFolder { get; }
         protected string SourceLibrary { get; }
+        protected RazorLightEngine RLEngine { get; private set; }
         public IList<Module> Modules { get; protected set; }
 
-        public TransformerBase(string sourceLibrary, string outputFolder)
+        public TransformerBase(RazorLightEngine engine, string sourceLibrary, string outputFolder)
         {
+            this.RLEngine = engine;
             SourceLibrary = sourceLibrary;
             OutputFolder = outputFolder;
         }

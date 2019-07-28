@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Focus.Common\Focus.Common.csproj" />
+    <PackageReference Include="RazorLight" Version="2.0.0-beta1" />
   </ItemGroup>
 
   <PropertyGroup>

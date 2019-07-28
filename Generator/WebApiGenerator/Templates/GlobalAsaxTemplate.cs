@@ -1,30 +1,26 @@
 ﻿using GeneratorBase;
+using RazorLight;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using RazorLight;
 
 namespace WebApiGenerator.Templates
 {
     public partial class GlobalAsaxTemplate : ITransformText
     {
+        private readonly RazorLightEngine engine;
+
         public IList<Module> Modules { get; }
         public string ProjectName { get; }
 
-        public GlobalAsaxTemplate(string projectName, IList<Module> modules)
+        public GlobalAsaxTemplate(RazorLightEngine engine, string projectName, IList<Module> modules)
         {
             this.Modules = modules;
+            this.engine = engine;
             ProjectName = projectName;
         }
 
         public async Task<string> TransformText()
         {
-            var absolutePath = $"{System.AppDomain.CurrentDomain.BaseDirectory}";
-            var root = $"{absolutePath}Views";
-            var engine = new RazorLightEngineBuilder()
-                          .UseFilesystemProject(root)
-                          .UseMemoryCachingProvider()
-                          .Build();
-
             var model = new GeneratorModel
             {
                 ProjectName = ProjectName,

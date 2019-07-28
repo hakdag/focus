@@ -1,8 +1,9 @@
 ﻿using GeneratorBase;
+using UIGenerator.Templates;
 using System;
 using System.Globalization;
 using System.IO;
-using UIGenerator.Templates;
+using System.Threading.Tasks;
 
 namespace UIGenerator
 {
@@ -14,7 +15,7 @@ namespace UIGenerator
             : base(sourceLibrary, outputFolder)
         { }
 
-        public override void Transform()
+        public override async Task Transform()
         {
             // copying base ui files.
             CopyFiles();

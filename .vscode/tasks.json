@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Generator/UIGeneratorRunner/UIGeneratorRunner.csproj"
+                "${workspaceFolder}/Generator/WebApiGeneratorRunner/WebApiGeneratorRunner.csproj"
             ],
             "problemMatcher": "$tsc"
         },
@@ -17,7 +17,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/Generator/UIGeneratorRunner/UIGeneratorRunner.csproj"
+                "${workspaceFolder}/Generator/WebApiGeneratorRunner/WebApiGeneratorRunner.csproj"
             ],
             "problemMatcher": "$tsc"
         },
@@ -28,7 +28,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/Generator/UIGeneratorRunner/UIGeneratorRunner.csproj"
+                "${workspaceFolder}/Generator/WebApiGeneratorRunner/WebApiGeneratorRunner.csproj"
             ],
             "problemMatcher": "$tsc"
         }

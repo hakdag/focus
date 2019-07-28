@@ -1,28 +1,26 @@
 ﻿using GeneratorBase;
+using RazorLight;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using RazorLight;
 
 namespace WebApiGenerator.Templates
 {
     public partial class DbContextTemplate : ITransformText
     {
+        private readonly RazorLightEngine engine;
+
         public IList<Module> Modules { get; }
         public string ProjectName { get; }
 
-        public DbContextTemplate(string projectName, IList<Module> modules)
+        public DbContextTemplate(RazorLightEngine engine, string projectName, IList<Module> modules)
         {
             Modules = modules;
+            this.engine = engine;
             ProjectName = projectName;
         }
 
         public async Task<string> TransformText()
         {
-            var engine = new RazorLightEngineBuilder()
-                          .UseFilesystemProject("Views")
-                          .UseMemoryCachingProvider()
-                          .Build();
-
             var model = new GeneratorModel
             {
                 ProjectName = ProjectName,

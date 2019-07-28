@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using RazorLight;
 using WebApiGenerator;
 
 namespace WebApiGeneratorRunner
@@ -23,7 +24,8 @@ namespace WebApiGeneratorRunner
             try
             {
                 Console.WriteLine("Starting...");
-                var transformer = new WebApiTransformer(sourceLibrary, projectName, OutputFolder);
+                var engine = CreateEngine();
+                var transformer = new WebApiTransformer(engine, sourceLibrary, projectName, OutputFolder);
                 Console.WriteLine("Loading Assembly...");
                 transformer.Initialize();
                 Console.WriteLine($"Modules found: {transformer.Modules.Count}");
@@ -35,6 +37,17 @@ namespace WebApiGeneratorRunner
             {
                 Console.WriteLine(exc.Message);
             }
+        }
+
+        private static RazorLightEngine CreateEngine()
+        {
+            var absolutePath = $"{System.AppDomain.CurrentDomain.BaseDirectory}";
+            var root = $"{absolutePath}Views";
+            var engine = new RazorLightEngineBuilder()
+                        .UseFilesystemProject(root)
+                        .UseMemoryCachingProvider()
+                        .Build();
+            return engine;
         }
     }
 }

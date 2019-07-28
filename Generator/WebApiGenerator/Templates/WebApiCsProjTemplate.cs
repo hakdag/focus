@@ -7,22 +7,20 @@ namespace WebApiGenerator.Templates
 {
     public partial class WebApiCsProjTemplate : ITransformText
     {
+        private readonly RazorLightEngine engine;
+
         public string ProjectName { get; }
         public IList<Module> Modules { get; }
 
-        public WebApiCsProjTemplate(string projectName, IList<Module> modules)
+        public WebApiCsProjTemplate(RazorLightEngine engine, string projectName, IList<Module> modules)
         {
+            this.engine = engine;
             ProjectName = projectName;
             Modules = modules;
         }
 
         public async Task<string> TransformText()
         {
-            var engine = new RazorLightEngineBuilder()
-                          .UseFilesystemProject("Views")
-                          .UseMemoryCachingProvider()
-                          .Build();
-
             var model = new GeneratorModel
             {
                 ProjectName = ProjectName,

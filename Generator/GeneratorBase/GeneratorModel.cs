@@ -10,6 +10,7 @@ namespace GeneratorBase
         public PropertyInfo SearchProperty { get; set; }
         public PropertyInfo DefaultSortProperty { get; set; }
         public GeneratorType Type { get; set; }
+        public IList<GeneratorType> Types { get; set; }
         public IList<Module> Modules { get; set; }
     }
 }

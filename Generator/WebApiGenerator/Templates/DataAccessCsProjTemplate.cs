@@ -1,25 +1,23 @@
-﻿using System.Threading.Tasks;
-using GeneratorBase;
+﻿using GeneratorBase;
 using RazorLight;
+using System.Threading.Tasks;
 
 namespace WebApiGenerator.Templates
 {
     public partial class DataAccessCsProjTemplate : ITransformText
     {
+        private readonly RazorLightEngine engine;
+
         public string ProjectName { get; }
 
-        public DataAccessCsProjTemplate(string projectName)
+        public DataAccessCsProjTemplate(RazorLightEngine engine, string projectName)
         {
+            this.engine = engine;
             ProjectName = projectName;
         }
 
         public async Task<string> TransformText()
         {
-            var engine = new RazorLightEngineBuilder()
-                          .UseFilesystemProject("Views")
-                          .UseMemoryCachingProvider()
-                          .Build();
-
             var model = new GeneratorModel
             {
                 ProjectName = ProjectName
