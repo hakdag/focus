@@ -27,27 +27,27 @@ namespace WebApiGenerator
 
             // create Global.asax
             var gat = new GlobalAsaxTemplate(projectName, Modules);
-            await TransformText(gat, $"{OutputFolder}\\{projectName}\\Global.asax.cs");
+            await TransformText(gat, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}{Path.DirectorySeparatorChar}Global.asax.cs");
 
             // create web api .csproj file
             var webApiCsProjTemplate = new WebApiCsProjTemplate(projectName, Modules);
-            await TransformText(webApiCsProjTemplate, $"{OutputFolder}\\{projectName}\\{projectName}.csproj");
+            await TransformText(webApiCsProjTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}{Path.DirectorySeparatorChar}{projectName}.csproj");
 
             // create business .csproj file
             var businessCsProjTemplate = new BusinessCsProjTemplate(projectName, Modules);
-            await TransformText(businessCsProjTemplate, $"{OutputFolder}\\{projectName}.Business\\{projectName}.Business.csproj");
+            await TransformText(businessCsProjTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}.Business{Path.DirectorySeparatorChar}{projectName}.Business.csproj");
 
             // create contracts .csproj file
             var contractsCsProjTemplate = new ContractsCsProjTemplate(projectName, Modules);
-            await TransformText(contractsCsProjTemplate, $"{OutputFolder}\\{projectName}.Contracts\\{projectName}.Contracts.csproj");
+            await TransformText(contractsCsProjTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}.Contracts{Path.DirectorySeparatorChar}{projectName}.Contracts.csproj");
 
             // create data access .csproj file
             var dataAccessCsProjTemplate = new DataAccessCsProjTemplate(projectName);
-            await TransformText(dataAccessCsProjTemplate, $"{OutputFolder}\\{projectName}.DataAccess\\{projectName}.DataAccess.csproj");
+            await TransformText(dataAccessCsProjTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}.DataAccess{Path.DirectorySeparatorChar}{projectName}.DataAccess.csproj");
 
             // create DbContext file
             var dbContextTemplate = new DbContextTemplate(projectName, Modules);
-            await TransformText(dbContextTemplate, $"{OutputFolder}\\{projectName}.DataAccess\\{projectName}Context.cs");
+            await TransformText(dbContextTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}.DataAccess{Path.DirectorySeparatorChar}{projectName}Context.cs");
 
             await CreateModules();
         }
@@ -63,11 +63,11 @@ namespace WebApiGenerator
         private async Task CreateModule(Module module)
         {
             // create module folders
-            var moduleFolderBusinesses = $"{OutputFolder}\\{projectName}.Business\\{module.ModuleName}";
+            var moduleFolderBusinesses = $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}.Business{Path.DirectorySeparatorChar}{module.ModuleName}";
             CreateFolder(moduleFolderBusinesses);
-            var moduleFolderContracts = $"{OutputFolder}\\{projectName}.Contracts\\Business\\{module.ModuleName}";
+            var moduleFolderContracts = $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}.Contracts{Path.DirectorySeparatorChar}Business{Path.DirectorySeparatorChar}{module.ModuleName}";
             CreateFolder(moduleFolderContracts);
-            var moduleFolderControllers = $"{OutputFolder}\\{projectName}\\Controllers\\{module.ModuleName}";
+            var moduleFolderControllers = $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}{Path.DirectorySeparatorChar}Controllers{Path.DirectorySeparatorChar}{module.ModuleName}";
             CreateFolder(moduleFolderControllers);
 
             await CreateTypes(module, moduleFolderBusinesses, moduleFolderContracts, moduleFolderControllers);
@@ -89,15 +89,15 @@ namespace WebApiGenerator
         {
             // create controller
             var act = new ApiControllerTemplate(projectName, type, module.ModuleName);
-            await TransformText(act, $"{moduleFolderControllers}\\{type.Name}Controller.cs");
+            await TransformText(act, $"{moduleFolderControllers}{Path.DirectorySeparatorChar}{type.Name}Controller.cs");
 
             // create IBusiness interface for business class
             var ibt = new IBusinessTemplate(projectName, type, module.ModuleName);
-            await TransformText(ibt, $"{moduleFolderContracts}\\I{type.Name}Business.cs");
+            await TransformText(ibt, $"{moduleFolderContracts}{Path.DirectorySeparatorChar}I{type.Name}Business.cs");
 
             // create Business classes
             var bt = new BusinessTemplate(projectName, type, module.ModuleName);
-            await TransformText(bt, $"{moduleFolderBusinesses}\\{type.Name}Business.cs");
+            await TransformText(bt, $"{moduleFolderBusinesses}{Path.DirectorySeparatorChar}{type.Name}Business.cs");
         }
 
         private void GenerateGeneralFiles(string projectName)
@@ -107,15 +107,19 @@ namespace WebApiGenerator
                 if (file.Key.Equals(nameof(Resources.SolutionFile)))
                 {
                     var byteArray = Resources.ResourceManager.GetObject(file.Key) as byte[];
+                    if (byteArray == null)
+                    {
+                        throw new Exception($"The file selected has empty content: {file.Key}");
+                    }
                     var result = System.Text.Encoding.UTF8.GetString(byteArray);
                     result = result.Replace("#projectname#", projectName);
-                    File.WriteAllText($"{OutputFolder}\\{file.Value}", result);
+                    File.WriteAllText($"{OutputFolder}{Path.DirectorySeparatorChar}{file.Value}", result);
                     continue;
                 }
 
                 var text = Resources.ResourceManager.GetString(file.Key);
                 text = text.Replace("#projectname#", projectName);
-                File.WriteAllText($"{OutputFolder}\\{file.Value}", text);
+                File.WriteAllText($"{OutputFolder}{Path.DirectorySeparatorChar}{file.Value}", text);
             }
         }
 
