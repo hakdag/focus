@@ -31,7 +31,7 @@ namespace GeneratorBase
             {
                 // AssemblyName assemblyName = AssemblyName.GetAssemblyName(sourceLib);
                 // Assembly assembly = Assembly.Load(assemblyName);
-                var absolutePath = $"{System.AppDomain.CurrentDomain.BaseDirectory}{Path.DirectorySeparatorChar}{sourceLib}";
+                var absolutePath = $"{System.AppDomain.CurrentDomain.BaseDirectory}{sourceLib}";
                 var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(absolutePath);
                 var types = assembly.GetTypes();
                 var baseTypes = types.Where(t => t.BaseType.Name == baseModelName || (t.BaseType.BaseType != null && t.BaseType.BaseType.Name == baseModelName) || t.BaseType == typeof(Enum)).ToList();

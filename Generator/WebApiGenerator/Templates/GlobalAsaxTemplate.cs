@@ -18,8 +18,10 @@ namespace WebApiGenerator.Templates
 
         public async Task<string> TransformText()
         {
+            var absolutePath = $"{System.AppDomain.CurrentDomain.BaseDirectory}";
+            var root = $"{absolutePath}Views";
             var engine = new RazorLightEngineBuilder()
-                          .UseFilesystemProject("Views")
+                          .UseFilesystemProject(root)
                           .UseMemoryCachingProvider()
                           .Build();
 

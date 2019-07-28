@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WebApiGeneratorRunner": {
+      "commandName": "Project",
+      "commandLineArgs": "NoRoom.Common.dll NoRoom"
+    }
+  }
+}

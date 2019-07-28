@@ -1,4 +1,7 @@
 ﻿@model GeneratorBase.GeneratorModel
+@{
+    DisableEncoding = true;
+}
 using Autofac;
 using Autofac.Integration.WebApi;
 using Newtonsoft.Json;
@@ -36,7 +39,7 @@ namespace @(Model.ProjectName)
         {
             foreach (var type in module.Models.Where(m => m.BaseType != typeof(Enum)))
             {
-            builder.RegisterType<@(type.Name)Business>().As<I@(type.Name)Business>();
+            @("builder.RegisterType<" + type.Name + "Business>().As<I" + type.Name + "Business>();")
 			}
 		}
 

@@ -31,26 +31,26 @@ namespace WebApiGenerator
             await TransformText(gat, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}{Path.DirectorySeparatorChar}Global.asax.cs");
 
             // create web api .csproj file
-            var webApiCsProjTemplate = new WebApiCsProjTemplate(projectName, Modules);
-            await TransformText(webApiCsProjTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}{Path.DirectorySeparatorChar}{projectName}.csproj");
+            //var webApiCsProjTemplate = new WebApiCsProjTemplate(projectName, Modules);
+            //await TransformText(webApiCsProjTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}{Path.DirectorySeparatorChar}{projectName}.csproj");
 
-            // create business .csproj file
-            var businessCsProjTemplate = new BusinessCsProjTemplate(projectName, Modules);
-            await TransformText(businessCsProjTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}.Business{Path.DirectorySeparatorChar}{projectName}.Business.csproj");
+            //// create business .csproj file
+            //var businessCsProjTemplate = new BusinessCsProjTemplate(projectName, Modules);
+            //await TransformText(businessCsProjTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}.Business{Path.DirectorySeparatorChar}{projectName}.Business.csproj");
 
-            // create contracts .csproj file
-            var contractsCsProjTemplate = new ContractsCsProjTemplate(projectName, Modules);
-            await TransformText(contractsCsProjTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}.Contracts{Path.DirectorySeparatorChar}{projectName}.Contracts.csproj");
+            //// create contracts .csproj file
+            //var contractsCsProjTemplate = new ContractsCsProjTemplate(projectName, Modules);
+            //await TransformText(contractsCsProjTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}.Contracts{Path.DirectorySeparatorChar}{projectName}.Contracts.csproj");
 
-            // create data access .csproj file
-            var dataAccessCsProjTemplate = new DataAccessCsProjTemplate(projectName);
-            await TransformText(dataAccessCsProjTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}.DataAccess{Path.DirectorySeparatorChar}{projectName}.DataAccess.csproj");
+            //// create data access .csproj file
+            //var dataAccessCsProjTemplate = new DataAccessCsProjTemplate(projectName);
+            //await TransformText(dataAccessCsProjTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}.DataAccess{Path.DirectorySeparatorChar}{projectName}.DataAccess.csproj");
 
-            // create DbContext file
-            var dbContextTemplate = new DbContextTemplate(projectName, Modules);
-            await TransformText(dbContextTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}.DataAccess{Path.DirectorySeparatorChar}{projectName}Context.cs");
+            //// create DbContext file
+            //var dbContextTemplate = new DbContextTemplate(projectName, Modules);
+            //await TransformText(dbContextTemplate, $"{OutputFolder}{Path.DirectorySeparatorChar}{projectName}.DataAccess{Path.DirectorySeparatorChar}{projectName}Context.cs");
 
-            await CreateModules();
+            //await CreateModules();
         }
 
         private async Task CreateModules()
