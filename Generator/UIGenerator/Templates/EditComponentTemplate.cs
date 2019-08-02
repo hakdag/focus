@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using RazorLight;
+using System.Threading.Tasks;
 
 namespace UIGenerator.Templates
 {
@@ -49,6 +51,16 @@ namespace UIGenerator.Templates
                 if (pi.PropertyType.BaseType == typeof(Enum))
                     enumProperties.Add(pi);
             }
+        }
+
+        public async Task<string> TransformText()
+        {
+            var model = new GeneratorModel
+            {
+                Modules = this.modules
+            };
+            string result = await engine.CompileRenderAsync("EditComponentTemplate.cshtml", model);
+            return result;
         }
 
         private bool IsCollection(Type type) =>

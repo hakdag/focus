@@ -11,10 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiGenerator", "WebApiGe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiGeneratorRunner", "WebApiGeneratorRunner\WebApiGeneratorRunner.csproj", "{2D5F64F0-8FF0-459C-A642-3D191ECD4C70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIGenerator", "UIGenerator\UIGenerator.csproj", "{7FE5A56A-E5B8-45BE-A1B7-176C3DF38A1F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIGeneratorRunner", "UIGeneratorRunner\UIGeneratorRunner.csproj", "{90E10D1F-8B23-4209-A3D9-6A8A7ACA2882}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

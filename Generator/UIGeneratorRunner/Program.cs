@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using UIGenerator;
+using RazorLight;
 
 namespace UIGeneratorRunner
 {
@@ -7,7 +9,7 @@ namespace UIGeneratorRunner
     {
         private static readonly string OutputFolder = $"Frontend{DateTime.Now:MMddyyyyhhmmss}";
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             if (args == null || args.Length == 0)
             {
@@ -17,10 +19,33 @@ namespace UIGeneratorRunner
 
             var sourceLibrary = args[0];
 
-            // creating general files.
-            var transformer = new UITransformer(sourceLibrary, OutputFolder);
-            transformer.Initialize();
-            transformer.Transform();
+            try
+            {
+                Console.WriteLine("Starting...");
+                var engine = CreateEngine();
+                var transformer = new UITransformer(engine, sourceLibrary, OutputFolder);
+                Console.WriteLine("Loading Assembly...");
+                transformer.Initialize();
+                Console.WriteLine($"Modules found: {transformer.Modules.Count}");
+                Console.WriteLine("Generating...");
+                await transformer.Transform();
+                Console.WriteLine("Finished!");
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+            }
+        }
+
+        private static RazorLightEngine CreateEngine()
+        {
+            var absolutePath = $"{System.AppDomain.CurrentDomain.BaseDirectory}";
+            var root = $"{absolutePath}Views";
+            var engine = new RazorLightEngineBuilder()
+                        .UseFilesystemProject(root)
+                        .UseMemoryCachingProvider()
+                        .Build();
+            return engine;
         }
     }
 }
