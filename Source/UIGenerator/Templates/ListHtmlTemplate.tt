@@ -1,0 +1,76 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Focus.Common.Attributes" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.ComponentModel.DataAnnotations" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Text" #>
+<breadcrumb [itemId]="<#= type.TypeId #>"></breadcrumb>
+<section class="widget" widget>
+  <div class="widget-body">
+    <div class="mt">
+      <div class="width-200 float-xs-left">
+        <a class="btn btn-secondary width-100 mb-xs" role="button" [routerLink]="['/app/<#= moduleName #>/<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>']">
+          <i class="glyphicon glyphicon-plus text-success"></i>
+          Add
+        </a>
+      </div>
+      <div class="width-200 float-xs-right">
+        <div class="input-group input-group-sm input-group-transparent input-group-rounded">
+          <span class="input-group-addon">
+            <i class="fa fa-search"></i>
+          </span>
+          <input class="form-control form-control-sm" id="table-search-input" (keyup)="filter($event)" [(ngModel)]="filterQuery" type="text" placeholder="Search by <#= getSearchProperty() #>...">
+        </div>
+      </div>
+      <table class="table table-striped table-hover" [mfData]="data" #mf="mfDataTable"
+                   [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder" [mfActivePage]="activePage"
+                    (mfOnPageChange)="onPageChange($event)" [(mfAmountOfRows)]="itemsTotal" (mfSortOrderChange)="onSortOrder($event)">
+        <thead>
+        <tr>
+		<# foreach(PropertyInfo pi in listableProperties)
+		{ #>
+          <th>
+            <mfDefaultSorter by="<#= pi.Name #>"><#= getNamedArgument<DisplayAttribute>(pi) #></mfDefaultSorter>
+          </th>
+		<# } #>
+          <th class="no-sort">
+            Action
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let <#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #> of mf.data">
+		<# foreach(PropertyInfo pi in listableProperties)
+		{ #>
+			<td>{{<#= getListPropertyByType(pi) #>}}</td>
+		<# } #>
+          <td class="width-200">
+            <a class="btn btn-secondary width-100 mb-xs" role="button" [routerLink]="['/app/<#= moduleName #>/<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>', <#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>.Id]">
+              <i class="glyphicon glyphicon-edit text-success"></i>
+              Edit
+            </a>
+            <button class="btn btn-secondary width-80 mb-xs" role="button" (click)="delete(<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>)">
+              <i class="glyphicon glyphicon-trash text-danger"></i>
+              Delete
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="mf.data.length === 0">
+          <td colspan="100">
+            Nothing found.
+          </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="12">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5, 10, 25]"></mfBootstrapPaginator>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>

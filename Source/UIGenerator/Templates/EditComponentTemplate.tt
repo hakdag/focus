@@ -1,0 +1,143 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Focus.Common.Attributes" #>
+<#@ import namespace="System.ComponentModel.DataAnnotations" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+import { Component, ViewEncapsulation, Input, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params }   from '@angular/router';
+import 'rxjs/add/operator/switchMap';
+import { Select2TemplateFunction, Select2OptionData } from 'ng2-select2';
+import { __platform_browser_private__ } from '@angular/platform-browser';
+import 'rxjs/add/operator/toPromise';
+import { BaseEditComponent } from 'app/core/BaseEditComponent';
+
+import { ResponseResult } from '../../core/ResponseResult';
+import { <#= type.Name #> } from './<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>';
+import { <#= type.Name #>Service } from './<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>.service';
+<# foreach (var import in imports)
+{ #>
+<#= import.Value #>;
+<# } #>
+
+@Component({
+    selector: '<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>-edit',
+    templateUrl: './<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>-edit.template.html',
+    styleUrls: ['../../forms/elements/elements.style.scss', '../../ui-elements/notifications/notifications.style.scss'],
+    providers: [
+		<#= type.Name #>Service<# if (providers != null && providers.Any()){ #>,<# } #>
+		<# for (int i = 0; i < providers.Count(); i++)
+		{ 
+			var provider = providers[i]; #>
+			<#= provider #>Service<# if (i < providers.Count() - 1) { #>,<# } #>
+		<# } #>
+	],
+    encapsulation: ViewEncapsulation.None
+})
+export class <#= type.Name #>EditComponent extends BaseEditComponent<<#= type.Name #>> {
+	<# foreach (var item in listProperties)
+    { #>
+	<#= item.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List: <#= item.Value #>[];
+    <# } #>
+    datepickerOpts = { }
+    constructor(
+        protected <#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service: <#= type.Name #>Service,
+		<# for (int i = 0; i < providers.Count(); i++)
+		{ 
+			var provider = providers[i]; #>
+			private <#= provider.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service: <#= provider #>Service,
+		<# } #>
+        protected route: ActivatedRoute,
+        protected router: Router) {
+        super(<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service, route, router);
+    }
+
+    subscribeServices(): void {
+	<# for (int i = 0; i < serviceProperties.Count(); i++)
+	{ 
+		var serviceProperty = serviceProperties[i];
+		var typeName = extractTypeName(serviceProperty); #>
+		this.<#= typeName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service.getList().then(list => {
+			this.<#= typeName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List = list.Items;
+			if (this.model.<#= serviceProperty.Name #>)
+				this.model.<#= serviceProperty.Name #> = this.<#= typeName.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List.filter(c => c.Id === this.model.<#= serviceProperty.Name #>.Id)[0];
+		});
+	<# } #>
+	<# 
+	foreach(var relationProperty in relationProperties)
+	{ #>
+		this.<#= relationProperty.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service.getList().then(list => {
+			this.<#= relationProperty.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List = list.Items;
+		});
+	<# } #>
+                
+	<# foreach (var pp in parametreProperties)
+	{ #>
+		this.parametreService.getList('<#= pp.Value #>').then(list => {
+			this.<#= pp.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List = list.Items;
+			if (this.model.<#= pp.Key #>)
+				this.model.<#= pp.Key #> = this.<#= pp.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List.filter(c => c.Id === this.model.<#= pp.Key #>.Id)[0];
+		});
+	<# } #>
+                
+	<# for (int i = 0; i < enumProperties.Count(); i++)
+	{ 
+		var enumProperty = enumProperties[i];
+		var typeName = enumProperty.Name; #>
+		this.<#= extractTypeName(enumProperty).ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List = this.<#= extractTypeName(enumProperty).ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service.getList();
+	<# } #>
+    }
+
+    goBack(): void {
+        this.router.navigate(['/app/<#= moduleName #>/<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>list']);
+    }
+
+	<# foreach (var item in relationProperties)
+    { #>
+    add<#= item.Value #>(id) {
+        var <#= item.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #> = this.<#= item.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>List.filter(c => c.Id == id)[0];
+        if (this.model.<#= item.Value #> === null) {
+            this.model.<#= item.Value #> = [];
+        }
+        if (<#= item.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>) {
+            this.model.<#= item.Value #>.push(<#= item.Key.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>);
+        }
+    }
+    
+    remove<#= item.Value #>(id) {
+		var index = this.model.<#= item.Value #>.findIndex(c => c.Id == id);
+		if (index !== -1) {
+            this.model.<#= item.Value #>.splice(index, 1);
+        }
+    }
+    <# } #>
+
+    getModelValue(params: Params): Promise<void|<#= type.Name #>> {
+        if (params['id'])
+        {
+            this.upsertText = 'Edit <#= title #>';
+            return this.<#= type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false)) #>Service.get(+params['id'])
+                .catch(err => {
+                    this.router.navigate(['/notfound']);       
+                });
+        }
+        else {
+            this.upsertText = 'New <#= title #>';
+            let m: <#= type.Name #> = this.getInitialValue();;
+            let p: Promise<<#= type.Name #>> = new Promise((resolve, reject) => resolve(m));
+            return p;
+        }
+    }
+
+    getInitialValue(): <#= type.Name #> {
+        return {
+		<# for(int i = 0; i < properties.Count(); i++)
+		{ 
+		PropertyInfo pi = properties[i]; #>
+		<# if (pi.PropertyType == typeof(int)) { #><#= pi.Name #>: 0<# } else { #><#= pi.Name #>: null<# } #><#= i < properties.Count() - 1 ? "," : "" #>
+		<# } #>
+		};
+    }
+}

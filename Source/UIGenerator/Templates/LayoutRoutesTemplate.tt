@@ -1,0 +1,20 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+import { Routes, RouterModule }  from '@angular/router';
+import { Layout } from './layout.component';
+
+const routes: Routes = [
+  { path: '', component: Layout, children: [
+    { path: '', redirectTo: '<#= Modules[0].ModuleName #>', pathMatch: 'full' },
+<# for(int i=0; i<Modules.Count; i++)
+{
+var module = Modules[i]; #>
+    { path: '<#= module.ModuleName #>', loadChildren: '../<#= module.ModuleName #>/<#= module.ModuleName #>.module#<#= module.ModuleName #>Module' }, 
+<# } #>
+  ]}
+];
+
+export const ROUTES = RouterModule.forChild(routes);
