@@ -21,7 +21,7 @@ namespace UIGenerator.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+    #line 1 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ListHtmlTemplate : ListHtmlTemplateBase
     {
@@ -33,7 +33,7 @@ namespace UIGenerator.Templates
         {
             this.Write("<breadcrumb [itemId]=\"");
             
-            #line 9 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 9 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.TypeId));
             
             #line default
@@ -42,14 +42,14 @@ namespace UIGenerator.Templates
                     "  <div class=\"mt\">\r\n      <div class=\"width-200 float-xs-left\">\r\n        <a clas" +
                     "s=\"btn btn-secondary width-100 mb-xs\" role=\"button\" [routerLink]=\"[\'/app/");
             
-            #line 14 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 14 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(moduleName));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 14 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 14 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
@@ -66,7 +66,7 @@ namespace UIGenerator.Templates
           </span>
           <input class=""form-control form-control-sm"" id=""table-search-input"" (keyup)=""filter($event)"" [(ngModel)]=""filterQuery"" type=""text"" placeholder=""Search by ");
             
-            #line 24 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 24 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(getSearchProperty()));
             
             #line default
@@ -81,7 +81,7 @@ namespace UIGenerator.Templates
         <tr>
 		");
             
-            #line 32 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 32 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
  foreach(PropertyInfo pi in listableProperties)
 		{ 
             
@@ -89,21 +89,21 @@ namespace UIGenerator.Templates
             #line hidden
             this.Write("          <th>\r\n            <mfDefaultSorter by=\"");
             
-            #line 35 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 35 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\">");
             
-            #line 35 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 35 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(getNamedArgument<DisplayAttribute>(pi)));
             
             #line default
             #line hidden
             this.Write("</mfDefaultSorter>\r\n          </th>\r\n\t\t");
             
-            #line 37 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 37 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
  } 
             
             #line default
@@ -111,14 +111,14 @@ namespace UIGenerator.Templates
             this.Write("          <th class=\"no-sort\">\r\n            Action\r\n          </th>\r\n        </tr" +
                     ">\r\n        </thead>\r\n        <tbody>\r\n        <tr *ngFor=\"let ");
             
-            #line 44 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 44 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write(" of mf.data\">\r\n\t\t");
             
-            #line 45 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 45 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
  foreach(PropertyInfo pi in listableProperties)
 		{ 
             
@@ -126,14 +126,14 @@ namespace UIGenerator.Templates
             #line hidden
             this.Write("\t\t\t<td>{{");
             
-            #line 47 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 47 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(getListPropertyByType(pi)));
             
             #line default
             #line hidden
             this.Write("}}</td>\r\n\t\t");
             
-            #line 48 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 48 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
  } 
             
             #line default
@@ -141,21 +141,21 @@ namespace UIGenerator.Templates
             this.Write("          <td class=\"width-200\">\r\n            <a class=\"btn btn-secondary width-1" +
                     "00 mb-xs\" role=\"button\" [routerLink]=\"[\'/app/");
             
-            #line 50 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 50 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(moduleName));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 50 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 50 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("\', ");
             
-            #line 50 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 50 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
@@ -164,7 +164,7 @@ namespace UIGenerator.Templates
                     "          Edit\r\n            </a>\r\n            <button class=\"btn btn-secondary w" +
                     "idth-80 mb-xs\" role=\"button\" (click)=\"delete(");
             
-            #line 54 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
+            #line 54 "C:\Projects\focus\Generator\UIGenerator\Templates\ListHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default

@@ -18,7 +18,7 @@ namespace UIGenerator.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+    #line 1 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ListComponentTemplate : ListComponentTemplateBase
     {
@@ -31,28 +31,28 @@ namespace UIGenerator.Templates
             this.Write("import { Component, ViewEncapsulation, OnInit } from \'@angular/core\';\r\nimport { R" +
                     "outer, ActivatedRoute, Params }   from \'@angular/router\';\r\nimport { ");
             
-            #line 8 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+            #line 8 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write(" } from \'./");
             
-            #line 8 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+            #line 8 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("\';\r\nimport { ");
             
-            #line 9 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+            #line 9 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("Service } from \'./");
             
-            #line 9 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+            #line 9 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
@@ -60,14 +60,14 @@ namespace UIGenerator.Templates
             this.Write(".service\';\r\nimport { BaseListComponent } from \'app/core/BaseListComponent\';\r\n\r\n@C" +
                     "omponent({\r\n  selector: \'[");
             
-            #line 13 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+            #line 13 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("-list]\',\r\n  templateUrl: \'./");
             
-            #line 14 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+            #line 14 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
@@ -76,35 +76,35 @@ namespace UIGenerator.Templates
                     "./../tables/dynamic/tables-dynamic.style.scss\', \'../../ui-elements/notifications" +
                     "/notifications.style.scss\'],\r\n  providers: [");
             
-            #line 17 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+            #line 17 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("Service]\r\n})\r\nexport class ");
             
-            #line 19 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+            #line 19 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("ListComponent extends BaseListComponent<");
             
-            #line 19 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+            #line 19 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("> {\r\n\r\n  constructor(protected ");
             
-            #line 21 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+            #line 21 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("Service: ");
             
-            #line 21 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+            #line 21 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
@@ -112,21 +112,21 @@ namespace UIGenerator.Templates
             this.Write("Service, protected route: ActivatedRoute, protected router: Router) {\r\n    super(" +
                     "");
             
-            #line 22 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+            #line 22 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("Service, route, router);\r\n    this.sortBy = \"");
             
-            #line 23 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+            #line 23 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(String.IsNullOrEmpty(defaultSortProperty) ? "null" : defaultSortProperty));
             
             #line default
             #line hidden
             this.Write("\";\r\n    this.deleteConfirmMessage = \"Are you sure you want to delete ");
             
-            #line 24 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
+            #line 24 "C:\Projects\focus\Generator\UIGenerator\Templates\ListComponentTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(typeUIName));
             
             #line default

@@ -18,7 +18,7 @@ namespace UIGenerator.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+    #line 1 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ModuleTemplate : ModuleTemplateBase
     {
@@ -52,7 +52,7 @@ namespace UIGenerator.Templates
                     " } from \'ng2-datetime/ng2-datetime\';\r\nimport { coreModule } from \'app/core/core." +
                     "module\'\r\n\r\n");
             
-            #line 45 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 45 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
  foreach (var type in module.Models)
 { 
 	if (type.BaseType == typeof(Enum))
@@ -62,63 +62,63 @@ namespace UIGenerator.Templates
             #line hidden
             this.Write("\t");
             
-            #line 49 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 49 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
  } else { 
             
             #line default
             #line hidden
             this.Write("import { ");
             
-            #line 50 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 50 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("ListComponent } from \'./");
             
-            #line 50 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 50 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 50 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 50 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("-list.component\';\r\nimport { ");
             
-            #line 51 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 51 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("EditComponent } from \'./");
             
-            #line 51 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 51 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 51 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 51 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("-edit.component\';\r\n");
             
-            #line 52 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 52 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
  } } 
             
             #line default
             #line hidden
             this.Write("  \r\n\r\nexport const routes = [\r\n");
             
-            #line 55 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 55 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
  for (int i=0; i < module.Models.Count; i++)
 { 
 	var type = module.Models[i];
@@ -129,76 +129,76 @@ namespace UIGenerator.Templates
             #line hidden
             this.Write("  {path: \'\', redirectTo: \'");
             
-            #line 60 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 60 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("\', pathMatch: \'full\'},\r\n\t");
             
-            #line 61 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 61 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
  } 
             
             #line default
             #line hidden
             this.Write("  \r\n  {path: \'");
             
-            #line 62 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 62 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("list\', component: ");
             
-            #line 62 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 62 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("ListComponent},\r\n  {path: \'");
             
-            #line 63 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 63 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("/:id\', component: ");
             
-            #line 63 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 63 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("EditComponent},\r\n  {path: \'");
             
-            #line 64 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 64 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("\', component: ");
             
-            #line 64 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 64 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("EditComponent}");
             
-            #line 64 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 64 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
  if (i < module.Models.Count - 1) { 
             
             #line default
             #line hidden
             this.Write(",");
             
-            #line 64 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 64 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
  } 
             
             #line default
             #line hidden
             
-            #line 65 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 65 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
  } 
             
             #line default
@@ -206,7 +206,7 @@ namespace UIGenerator.Templates
             this.Write("  \r\n];\r\n\r\n@NgModule({\r\n  declarations: [\r\n    // Components / Directives/ Pipes\r\n" +
                     "");
             
-            #line 71 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 71 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
  for (int i=0; i < module.Models.Count; i++)
 { 
 	var type = module.Models[i];
@@ -217,42 +217,42 @@ namespace UIGenerator.Templates
             #line hidden
             this.Write("\t");
             
-            #line 76 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 76 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
  } else { 
             
             #line default
             #line hidden
             this.Write("    ");
             
-            #line 77 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 77 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("ListComponent,\r\n    ");
             
-            #line 78 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 78 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name));
             
             #line default
             #line hidden
             this.Write("EditComponent");
             
-            #line 78 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 78 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
  if (i < module.Models.Count - 1) { 
             
             #line default
             #line hidden
             this.Write(",");
             
-            #line 78 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 78 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 80 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 80 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
  } } 
             
             #line default
@@ -281,7 +281,7 @@ namespace UIGenerator.Templates
 })
 export class ");
             
-            #line 102 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
+            #line 102 "C:\Projects\focus\Generator\UIGenerator\Templates\ModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default

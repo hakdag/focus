@@ -565,8 +565,8 @@ namespace WebApiGenerator {
         ///    {
         ///        public EFUnitOfWork(#projectname#Context dbContext)
         ///        {
-        ///            Database.SetInitializer&lt;&lt;#= ProjectName #&gt;Context&gt;(null);
-        ///            _dbContext = dbContext ?? throw new ArgumentNullException(&quot;dbContext ca [rest of string was truncated]&quot;;.
+        ///            Database.SetInitializer &lt;#projectname#Context&gt;(null);
+        ///            _dbContext = dbContext ?? throw new ArgumentNullException(&quot;dbContext can no [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string EFUnitOfWork {
             get {
@@ -1145,7 +1145,8 @@ namespace WebApiGenerator {
         ///    &lt;section name=&quot;entityFramework&quot; type=&quot;System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot; requirePermission=&quot;false&quot; /&gt;
         ///  &lt;/configSections&gt;
         ///  &lt;connectionStrings&gt;
-        ///    &lt;add name=&quot;#projectname#&quot; connectionString=&quot;data source=#databaseurl#;initial catalog=#initialcatalog#;persist security info=True;user id=#databaseuserid#;password=#dat [rest of string was truncated]&quot;;.
+        ///    &lt;add name=&quot;#projectname#&quot; connectionString=&quot;Data Source=.;Initial Catalog=#projectname#;Integrated Security=True&quot; providerName=&quot;System.Data.SqlClient&quot; /&gt;
+        ///    &lt;add name [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Web {
             get {

@@ -19,7 +19,7 @@ namespace UIGenerator.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
+    #line 1 "C:\Projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class NavigationTreeTemplate : NavigationTreeTemplateBase
     {
@@ -33,7 +33,7 @@ namespace UIGenerator.Templates
                     " id: 1,\r\n            text: \'\',\r\n            class: \'fa fa-home\',\r\n            li" +
                     "nk: \'/app/dashboard\',\r\n            parent: null,\r\n            children: [\r\n");
             
-            #line 16 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
+            #line 16 "C:\Projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
  for(int i=0; i<Modules.Count; i++)
 {
 var module = Modules[i]; 
@@ -42,14 +42,14 @@ var module = Modules[i];
             #line hidden
             this.Write("\t\t\t\t{\r\n                    id: ");
             
-            #line 20 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
+            #line 20 "C:\Projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleId));
             
             #line default
             #line hidden
             this.Write(",\r\n                    text: \'");
             
-            #line 21 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
+            #line 21 "C:\Projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.UIName));
             
             #line default
@@ -57,7 +57,7 @@ var module = Modules[i];
             this.Write("\',\r\n                    class: \'fa fa-table\',\r\n                    parent: 1,\r\n\t\t" +
                     "\t\t\tchildren: [\r\n");
             
-            #line 25 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
+            #line 25 "C:\Projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
  for(int j=0; j<module.Models.Count; j++)
 {
 var type = module.Models[j];
@@ -67,28 +67,28 @@ var type = module.Models[j];
             #line hidden
             this.Write("                        {\r\n                            id: ");
             
-            #line 30 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
+            #line 30 "C:\Projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.TypeId));
             
             #line default
             #line hidden
             this.Write(",\r\n                            text: \'");
             
-            #line 31 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
+            #line 31 "C:\Projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Title));
             
             #line default
             #line hidden
             this.Write("\',\r\n                            link: \'/app/");
             
-            #line 32 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
+            #line 32 "C:\Projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 32 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
+            #line 32 "C:\Projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.Name.ToLower()));
             
             #line default
@@ -96,7 +96,7 @@ var type = module.Models[j];
             this.Write("list\',\r\n                            class: \'\',\r\n                            paren" +
                     "t: ");
             
-            #line 34 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
+            #line 34 "C:\Projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.ParentTypeId));
             
             #line default
@@ -104,14 +104,14 @@ var type = module.Models[j];
             this.Write(",\r\n                            children: [\r\n                                {\r\n  " +
                     "                                  id: ");
             
-            #line 37 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
+            #line 37 "C:\Projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.TypeId + 1));
             
             #line default
             #line hidden
             this.Write(", text: \'\', class: \'\', parent: ");
             
-            #line 37 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
+            #line 37 "C:\Projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(type.TypeId));
             
             #line default
@@ -119,14 +119,14 @@ var type = module.Models[j];
             this.Write(", children: []\r\n                                }\r\n                            ]\r" +
                     "\n                        },\r\n");
             
-            #line 41 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
+            #line 41 "C:\Projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\t\t\t\t]\r\n\t\t\t\t},\r\n");
             
-            #line 44 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
+            #line 44 "C:\Projects\focus\Generator\UIGenerator\Templates\NavigationTreeTemplate.tt"
  } 
             
             #line default

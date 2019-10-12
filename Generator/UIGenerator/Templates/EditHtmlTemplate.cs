@@ -21,7 +21,7 @@ namespace UIGenerator.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+    #line 1 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class EditHtmlTemplate : EditHtmlTemplateBase
     {
@@ -33,7 +33,7 @@ namespace UIGenerator.Templates
         {
             this.Write("<breadcrumb [itemId]=\"");
             
-            #line 9 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 9 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Type.TypeId + 1));
             
             #line default
@@ -59,7 +59,7 @@ namespace UIGenerator.Templates
                         </div>
 						");
             
-            #line 28 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 28 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
  for(int i = 0; i < editableProperties.Length; i++)
 						{
 							PropertyInfo pi = editableProperties[i];
@@ -71,21 +71,21 @@ namespace UIGenerator.Templates
             this.Write("                        <div class=\"form-group row\">\r\n                           " +
                     " <label class=\"col-md-4 col-form-label\" for=\"");
             
-            #line 34 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 34 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\">");
             
-            #line 34 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 34 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(getNamedArgument<DisplayAttribute>(pi)));
             
             #line default
             #line hidden
             this.Write("</label>\r\n                            <div class=\"col-md-8 \">\r\n\t\t\t\t\t\t\t");
             
-            #line 36 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 36 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
  if (inputType == "text")
 							{ 
             
@@ -93,42 +93,42 @@ namespace UIGenerator.Templates
             #line hidden
             this.Write("                                <input type=\"text\" ");
             
-            #line 38 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 38 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(isRequired ? "required" : ""));
             
             #line default
             #line hidden
             this.Write(" class=\"form-control\" id=\"");
             
-            #line 38 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 38 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" [(ngModel)]=\"model.");
             
-            #line 38 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 38 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" name=\"");
             
-            #line 38 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 38 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" #");
             
-            #line 38 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 38 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("=\"ngModel\">\r\n\t\t\t\t\t\t\t");
             
-            #line 39 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 39 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
  }
 							else if (inputType == "bool")
 							{ 
@@ -138,42 +138,42 @@ namespace UIGenerator.Templates
             this.Write("                                <div class=\"abc-checkbox abc-checkbox-info abc-ch" +
                     "eckbox-circle\">\r\n                                    <input id=\"");
             
-            #line 43 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 43 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" ");
             
-            #line 43 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 43 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(isRequired ? "required" : ""));
             
             #line default
             #line hidden
             this.Write(" type=\"checkbox\" [(ngModel)]=\"model.");
             
-            #line 43 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 43 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" name=\"");
             
-            #line 43 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 43 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" #");
             
-            #line 43 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 43 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("=\"ngModel\">\r\n                                    <label for=\"");
             
-            #line 44 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 44 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
@@ -181,7 +181,7 @@ namespace UIGenerator.Templates
             this.Write("\">\r\n                                    </label>\r\n                               " +
                     " </div>\r\n\t\t\t\t\t\t\t");
             
-            #line 47 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 47 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
  }
 							else if (inputType == "int")
 							{ 
@@ -190,42 +190,42 @@ namespace UIGenerator.Templates
             #line hidden
             this.Write("                                <input type=\"number\" ");
             
-            #line 50 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 50 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(isRequired ? "required" : ""));
             
             #line default
             #line hidden
             this.Write(" class=\"form-control\" id=\"");
             
-            #line 50 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 50 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" [(ngModel)]=\"model.");
             
-            #line 50 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 50 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" name=\"");
             
-            #line 50 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 50 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" #");
             
-            #line 50 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 50 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("=\"ngModel\">\r\n\t\t\t\t\t\t\t");
             
-            #line 51 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 51 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
  }
 							else if (inputType == "decimal")
 							{ 
@@ -234,42 +234,42 @@ namespace UIGenerator.Templates
             #line hidden
             this.Write("                                <input type=\"number\" ");
             
-            #line 54 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 54 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(isRequired ? "required" : ""));
             
             #line default
             #line hidden
             this.Write(" class=\"form-control\" id=\"");
             
-            #line 54 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 54 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" [(ngModel)]=\"model.");
             
-            #line 54 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 54 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" name=\"");
             
-            #line 54 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 54 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" #");
             
-            #line 54 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 54 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("=\"ngModel\">\r\n\t\t\t\t\t\t\t");
             
-            #line 55 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 55 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
  }
 							else if (inputType == "adres")
 							{ 
@@ -278,77 +278,77 @@ namespace UIGenerator.Templates
             #line hidden
             this.Write("                                <select id=\"");
             
-            #line 58 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 58 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" ");
             
-            #line 58 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 58 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(isRequired ? "required" : ""));
             
             #line default
             #line hidden
             this.Write(" title=\"");
             
-            #line 58 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 58 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(title));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 58 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 58 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(getNamedArgument<DisplayAttribute>(pi)));
             
             #line default
             #line hidden
             this.Write(" select...\" class=\"form-control\" [(ngModel)]=\"model.");
             
-            #line 58 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 58 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" name=\"");
             
-            #line 58 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 58 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\">\r\n                                    <option *ngFor=\"let ");
             
-            #line 59 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 59 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write(" of ");
             
-            #line 59 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 59 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("List\" [ngValue]=\"");
             
-            #line 59 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 59 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("\">{{");
             
-            #line 59 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 59 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write(" | AdresShortPipe}}</option>\r\n                                </select>\r\n\t\t\t\t\t\t\t");
             
-            #line 61 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 61 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
  }
 							else if (inputType == "datetime")
 							{ 
@@ -357,42 +357,42 @@ namespace UIGenerator.Templates
             #line hidden
             this.Write("                                <datetime [(ngModel)]=\"model.");
             
-            #line 64 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 64 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" id=\"");
             
-            #line 64 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 64 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" ");
             
-            #line 64 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 64 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(isRequired ? "required" : ""));
             
             #line default
             #line hidden
             this.Write(" [datepicker]=\"datepickerOpts\" name=\"");
             
-            #line 64 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 64 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" #");
             
-            #line 64 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 64 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("=\"ngModel\"></datetime>\r\n\t\t\t\t\t\t\t");
             
-            #line 65 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 65 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
  }
 							else if (inputType == "enum")
 							{ 
@@ -401,49 +401,49 @@ namespace UIGenerator.Templates
             #line hidden
             this.Write("                                <select id=\"");
             
-            #line 68 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 68 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" ");
             
-            #line 68 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 68 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(isRequired ? "required" : ""));
             
             #line default
             #line hidden
             this.Write(" title=\"");
             
-            #line 68 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 68 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(title));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 68 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 68 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(getNamedArgument<DisplayAttribute>(pi)));
             
             #line default
             #line hidden
             this.Write(" select...\" class=\"form-control\" [(ngModel)]=\"model.");
             
-            #line 68 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 68 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" name=\"");
             
-            #line 68 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 68 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\">\r\n                                    <option *ngFor=\"let e of ");
             
-            #line 69 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 69 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
@@ -451,7 +451,7 @@ namespace UIGenerator.Templates
             this.Write("List\" [ngValue]=\"e.value\">{{e.key}}</option>\r\n                                </s" +
                     "elect>\r\n\t\t\t\t\t\t\t");
             
-            #line 71 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 71 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
  }
 							else if (IsCollection(pi.PropertyType))
 							{ 
@@ -468,70 +468,70 @@ namespace UIGenerator.Templates
             this.Write("                        <div class=\"row\">\r\n                            <div class" +
                     "=\"col-md-9\">\r\n                                <select id=\"");
             
-            #line 83 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 83 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(genericPropertyName));
             
             #line default
             #line hidden
             this.Write("\" title=\"Select ");
             
-            #line 83 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 83 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(getNamedArgument<DisplayAttribute>(pi)));
             
             #line default
             #line hidden
             this.Write("...\" class=\"form-control\" name=\"");
             
-            #line 83 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 83 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(genericPropertyName));
             
             #line default
             #line hidden
             this.Write("\" #");
             
-            #line 83 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 83 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(genericPropertyName));
             
             #line default
             #line hidden
             this.Write(">\r\n                                    <option>Select ");
             
-            #line 84 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 84 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(getNamedArgument<DisplayAttribute>(pi)));
             
             #line default
             #line hidden
             this.Write("...</option>\r\n                                    <option *ngFor=\"let ");
             
-            #line 85 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 85 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(genericPropertyNameToLower));
             
             #line default
             #line hidden
             this.Write(" of ");
             
-            #line 85 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 85 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(genericPropertyNameToLower));
             
             #line default
             #line hidden
             this.Write("List\" [value]=\"");
             
-            #line 85 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 85 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(genericPropertyNameToLower));
             
             #line default
             #line hidden
             this.Write(".Id\">{{");
             
-            #line 85 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 85 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(genericPropertyNameToLower));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 85 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 85 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(searchPropertyOfGenericTypeName));
             
             #line default
@@ -540,14 +540,14 @@ namespace UIGenerator.Templates
                     "   </div>\r\n                            <div class=\"col-md-3\">\r\n                 " +
                     "               <button type=\"button\" class=\"btn btn-success\" (click)=\"add");
             
-            #line 89 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 89 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 89 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 89 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(genericPropertyName));
             
             #line default
@@ -563,7 +563,7 @@ namespace UIGenerator.Templates
                                             <tr>
                                                 <th>");
             
-            #line 98 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 98 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(searchPropertyTitle));
             
             #line default
@@ -575,28 +575,28 @@ namespace UIGenerator.Templates
                                         <tbody>
                                             <tr *ngFor=""let ");
             
-            #line 103 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 103 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(genericPropertyNameToLower));
             
             #line default
             #line hidden
             this.Write(" of model.");
             
-            #line 103 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 103 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\">\r\n                                                <td>{{");
             
-            #line 104 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 104 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(genericPropertyNameToLower));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 104 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 104 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(searchPropertyOfGenericTypeName));
             
             #line default
@@ -605,14 +605,14 @@ namespace UIGenerator.Templates
                     "                                  <a class=\"btn btn-default btn-sm mb-xs\" role=\"" +
                     "button\" title=\"Remove\" (click)=\"remove");
             
-            #line 106 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 106 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 106 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 106 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(genericPropertyNameToLower));
             
             #line default
@@ -630,7 +630,7 @@ namespace UIGenerator.Templates
                         </div>
 							");
             
-            #line 117 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 117 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
  }
 							else if (inputType != null)
 							{ 
@@ -639,91 +639,91 @@ namespace UIGenerator.Templates
             #line hidden
             this.Write("                                <select id=\"");
             
-            #line 120 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 120 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" ");
             
-            #line 120 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 120 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(isRequired ? "required" : ""));
             
             #line default
             #line hidden
             this.Write(" title=\"");
             
-            #line 120 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 120 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(title));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 120 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 120 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(getNamedArgument<DisplayAttribute>(pi)));
             
             #line default
             #line hidden
             this.Write(" select...\" class=\"form-control\" [(ngModel)]=\"model.");
             
-            #line 120 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 120 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\" name=\"");
             
-            #line 120 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 120 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.Name));
             
             #line default
             #line hidden
             this.Write("\">\r\n                                    <option *ngFor=\"let ");
             
-            #line 121 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 121 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write(" of ");
             
-            #line 121 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 121 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("List\" [ngValue]=\"");
             
-            #line 121 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 121 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write("\">{{");
             
-            #line 121 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 121 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pi.PropertyType.Name.ToLower(new System.Globalization.CultureInfo("en-EN", false))));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 121 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 121 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(getPropertyAttributeName<SearchPropertyAttribute>(pi)));
             
             #line default
             #line hidden
             this.Write("}}</option>\r\n                                </select>\r\n\t\t\t\t\t\t\t");
             
-            #line 123 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 123 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
  } 
             
             #line default
             #line hidden
             this.Write("                            </div>\r\n                        </div>\r\n\t\t\t\t\t\t");
             
-            #line 126 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
+            #line 126 "C:\Projects\focus\Generator\UIGenerator\Templates\EditHtmlTemplate.tt"
  } 
             
             #line default

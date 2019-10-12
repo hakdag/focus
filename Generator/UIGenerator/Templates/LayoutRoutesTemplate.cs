@@ -18,7 +18,7 @@ namespace UIGenerator.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+    #line 1 "C:\Projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class LayoutRoutesTemplate : LayoutRoutesTemplateBase
     {
@@ -32,14 +32,14 @@ namespace UIGenerator.Templates
                     "\'./layout.component\';\r\n\r\nconst routes: Routes = [\r\n  { path: \'\', component: Layo" +
                     "ut, children: [\r\n    { path: \'\', redirectTo: \'");
             
-            #line 11 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+            #line 11 "C:\Projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Modules[0].ModuleName));
             
             #line default
             #line hidden
             this.Write("\', pathMatch: \'full\' },\r\n");
             
-            #line 12 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+            #line 12 "C:\Projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
  for(int i=0; i<Modules.Count; i++)
 {
 var module = Modules[i]; 
@@ -48,35 +48,35 @@ var module = Modules[i];
             #line hidden
             this.Write("    { path: \'");
             
-            #line 15 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+            #line 15 "C:\Projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write("\', loadChildren: \'../");
             
-            #line 15 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+            #line 15 "C:\Projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write("/");
             
-            #line 15 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+            #line 15 "C:\Projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write(".module#");
             
-            #line 15 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+            #line 15 "C:\Projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module.ModuleName));
             
             #line default
             #line hidden
             this.Write("Module\' }, \r\n");
             
-            #line 16 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
+            #line 16 "C:\Projects\focus\Generator\UIGenerator\Templates\LayoutRoutesTemplate.tt"
  } 
             
             #line default

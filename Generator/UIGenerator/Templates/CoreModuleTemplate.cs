@@ -18,7 +18,7 @@ namespace UIGenerator.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+    #line 1 "C:\Projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class CoreModuleTemplate : CoreModuleTemplateBase
     {
@@ -36,7 +36,7 @@ import { ActionButton } from 'app/shared/actionbutton.component';
 import { BreadCrumb } from 'app/shared/breadcrumb.component';
 ");
             
-            #line 12 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+            #line 12 "C:\Projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
  for(int i=0; i<Pipes.Count; i++)
 {
 var pipe = Pipes[i]; 
@@ -45,21 +45,21 @@ var pipe = Pipes[i];
             #line hidden
             this.Write("import { ");
             
-            #line 15 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+            #line 15 "C:\Projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pipe.Name));
             
             #line default
             #line hidden
             this.Write("Pipe } from \'app/core/pipes/");
             
-            #line 15 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+            #line 15 "C:\Projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pipe.Name.ToLower()));
             
             #line default
             #line hidden
             this.Write(".pipe\';\r\n");
             
-            #line 16 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+            #line 16 "C:\Projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
  } 
             
             #line default
@@ -67,7 +67,7 @@ var pipe = Pipes[i];
             this.Write("\r\n@NgModule({\r\n    declarations: [\r\n\t\tListCheckboxPipe,\r\n\t\tActionButton,\r\n\t\tBread" +
                     "Crumb,\r\n");
             
-            #line 23 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+            #line 23 "C:\Projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
  for(int i=0; i<Pipes.Count; i++)
 {
 var pipe = Pipes[i]; 
@@ -76,14 +76,14 @@ var pipe = Pipes[i];
             #line hidden
             this.Write("\t\t");
             
-            #line 26 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+            #line 26 "C:\Projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pipe.Name));
             
             #line default
             #line hidden
             this.Write("Pipe,\r\n");
             
-            #line 27 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+            #line 27 "C:\Projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
  } 
             
             #line default
@@ -91,7 +91,7 @@ var pipe = Pipes[i];
             this.Write("\t],\r\n    imports: [CommonModule],\r\n    exports: [\r\n\t\tListCheckboxPipe,\r\n\t\tActionB" +
                     "utton,\r\n\t\tBreadCrumb,\r\n");
             
-            #line 34 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+            #line 34 "C:\Projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
  for(int i=0; i<Pipes.Count; i++)
 {
 var pipe = Pipes[i]; 
@@ -100,14 +100,14 @@ var pipe = Pipes[i];
             #line hidden
             this.Write("\t\t");
             
-            #line 37 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+            #line 37 "C:\Projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pipe.Name));
             
             #line default
             #line hidden
             this.Write("Pipe,\r\n");
             
-            #line 38 "C:\aurea-projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
+            #line 38 "C:\Projects\focus\Generator\UIGenerator\Templates\CoreModuleTemplate.tt"
  } 
             
             #line default
